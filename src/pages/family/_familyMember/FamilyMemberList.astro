@@ -3,12 +3,21 @@ import FamilyMemberListItem from "./FamilyMemberListItem.astro";
 
 import VStack from "../../../lib/ui/VStack.astro";
 import { familyMembers } from "./_familyMembers/_familyMembers";
+
+interface Props {
+  class?: string;
+}
+
+const props: Props = Astro.props;
 ---
 
-<VStack as="ul" class="gap-4">
+<VStack class=`gap-4 flex flex-row ${props.class}`>
   {
     familyMembers.map((familyMember) => (
-      <FamilyMemberListItem familyMember={familyMember} />
+      <FamilyMemberListItem
+        class={`w-60`}
+        familyMember={familyMember}
+      />
     ))
   }
 </VStack>
