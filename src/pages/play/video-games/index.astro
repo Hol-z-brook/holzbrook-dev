@@ -1,20 +1,20 @@
 ---
-import Breadcrumb from "../../../lib/ui/Breadcrumb.astro";
-import Breadcrumbs from "../../../lib/ui/Breadcrumbs.astro";
-import AppFooter from "../../_app/_AppFooter.astro";
-import AppHeader from "../../_app/_AppHeader.astro";
-import AppHeroSection from "../../_app/_AppHeroSection.astro";
 import AppPage from "../../_app/_AppPage.astro";
 import AppPageBody from "../../_app/_AppPageBody.astro";
+import AppPageFooter from "../../_app/_AppPageFooter.astro";
+import AppPageHeader from "../../_app/_AppPageHeader.astro";
+import AppPageHero from "../../_app/_AppPageHero.astro";
 import { makeSherpa } from "../../_sherpa/_Sherpa";
+import Breadcrumb from "../../../lib/ui/Breadcrumb.astro";
+import Breadcrumbs from "../../../lib/ui/Breadcrumbs.astro";
 
 const sherpa = makeSherpa();
 ---
 
 <AppPage>
-  <AppHeader />
+  <AppPageHeader />
   <AppPageBody class="flex flex-col min-h-screen bg-gray-100">
-    <AppHeroSection
+    <AppPageHero
       title="Video Games"
       subtitle="The Last of Us, Subnautica, God of War, and More!"
     />
@@ -35,6 +35,6 @@ const sherpa = makeSherpa();
       </p>
     </section>
 
-    <AppFooter />
+    <AppPageFooter />
   </AppPageBody>
 </AppPage>

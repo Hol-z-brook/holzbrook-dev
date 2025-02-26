@@ -1,10 +1,10 @@
 ---
+import AppLink from "./_app/_AppLink.astro";
 import AppPage from "./_app/_AppPage.astro";
 import AppPageBody from "./_app/_AppPageBody.astro";
-import AppLink from "./_app/_AppLink.astro";
+import AppPageFooter from "./_app/_AppPageFooter.astro";
+import AppPageHero from "./_app/_AppPageHero.astro";
 import { makeSherpa } from "./_sherpa/_Sherpa";
-import AppFooter from "./_app/_AppFooter.astro";
-import AppHeroSection from "./_app/_AppHeroSection.astro";
 
 const sherpa = makeSherpa();
 
@@ -40,7 +40,7 @@ const currentYear = new Date().getFullYear(); // Get the current year
 
 <AppPage>
   <AppPageBody backgroundColor="bg-gray-100" class="flex flex-col min-h-screen">
-    <AppHeroSection
+    <AppPageHero
       title="Andrew Hol(z)brook"
       subtitle="Building systems that simplify life. Exploring how family, play, and a touch of AI make everything better."
     />
@@ -106,6 +106,6 @@ const currentYear = new Date().getFullYear(); // Get the current year
       </div>
     </section>
 
-    <AppFooter />
+    <AppPageFooter />
   </AppPageBody>
 </AppPage>

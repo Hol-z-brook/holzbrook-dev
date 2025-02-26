@@ -11,11 +11,11 @@ interface Props {
 const props: Props = Astro.props;
 ---
 
-<VStack class=`gap-4 flex flex-row ${props.class}`>
+<VStack class=`grid grid-cols-2 gap-4 ${props.class}`>
   {
     familyMembers.map((familyMember) => (
       <FamilyMemberListItem
-        class={`w-60`}
+        class={`m-2`}
         familyMember={familyMember}
       />
     ))

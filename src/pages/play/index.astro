@@ -1,19 +1,19 @@
 ---
-import { hobbies } from "./hobby/_hobbies";
-import AppHeader from "../_app/_AppHeader.astro";
+import { hobbies } from "./hobby/_hobbies";;
 import AppLink from "../_app/_AppLink.astro";
 import AppPage from "../_app/_AppPage.astro";
 import AppPageBody from "../_app/_AppPageBody.astro";
+import AppPageFooter from "../_app/_AppPageFooter.astro";
+import AppPageHeader from "../_app/_AppPageHeader.astro";
+import AppPageHero from "../_app/_AppPageHero.astro";
 import Card from "../../lib/ui/Card.astro";
-import AppFooter from "../_app/_AppFooter.astro";
-import AppHeroSection from "../_app/_AppHeroSection.astro";
 ---
 
 <AppPage>
-  <AppHeader />
+  <AppPageHeader />
 
   <AppPageBody backgroundColor="bg-gray-100" class="flex flex-col min-h-screen">
-    <AppHeroSection
+    <AppPageHero
       title="My Hobbies"
       subtitle="Explore the things I enjoy doing in my free time."
     />
@@ -38,6 +38,6 @@ import AppHeroSection from "../_app/_AppHeroSection.astro";
       </div>
     </section>
 
-    <AppFooter />
+    <AppPageFooter />
   </AppPageBody>
 </AppPage>
