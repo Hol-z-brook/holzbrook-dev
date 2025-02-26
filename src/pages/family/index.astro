@@ -4,6 +4,7 @@ import AppPageBody from "../_app/_AppPageBody.astro";
 import AppPageFooter from "../_app/_AppPageFooter.astro";
 import AppPageHeader from "../_app/_AppPageHeader.astro";
 import AppPageHero from "../_app/_AppPageHero.astro";
+import AppPageSection from "../_app/_AppPageSection.astro";
 import FamilyMemberList from "./_familyMember/FamilyMemberList.astro";
 ---
 
@@ -16,12 +17,9 @@ import FamilyMemberList from "./_familyMember/FamilyMemberList.astro";
       subtitle="Get to know the wonderful people who shape my world."
     />
 
-    <!-- Family Members Section -->
-    <section class="py-12">
-      <div class="max-w-6xl mx-auto px-6">
+    <AppPageSection>
         <FamilyMemberList />
-      </div>
-    </section>
+    </AppPageSection>
 
     <AppPageFooter />
   </AppPageBody>

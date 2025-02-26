@@ -7,6 +7,7 @@ import AppPageFooter from "../_app/_AppPageFooter.astro";
 import AppPageHeader from "../_app/_AppPageHeader.astro";
 import AppPageHero from "../_app/_AppPageHero.astro";
 import Card from "../../lib/ui/Card.astro";
+import AppPageSection from "../_app/_AppPageSection.astro";
 ---
 
 <AppPage>
@@ -17,11 +18,8 @@ import Card from "../../lib/ui/Card.astro";
       title="My Hobbies"
       subtitle="Explore the things I enjoy doing in my free time."
     />
-
-    <!-- Hobbies Section -->
-    <section class="py-12">
-      <div class="max-w-6xl mx-auto px-6">
-        <!-- Grid Layout for Desktop, Single Column for Mobile -->
+    
+    <AppPageSection>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {
             hobbies.map((hobby) => (
@@ -35,8 +33,7 @@ import Card from "../../lib/ui/Card.astro";
             ))
           }
         </div>
-      </div>
-    </section>
+    </AppPageSection>
 
     <AppPageFooter />
   </AppPageBody>

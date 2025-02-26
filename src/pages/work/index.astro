@@ -5,6 +5,7 @@ import AppPageBody from "../_app/_AppPageBody.astro";
 import AppPageFooter from "../_app/_AppPageFooter.astro";
 import AppPageHeader from "../_app/_AppPageHeader.astro";
 import AppPageHero from "../_app/_AppPageHero.astro";
+import AppPageSection from "../_app/_AppPageSection.astro";
 import { makeSherpa } from "../_sherpa/_Sherpa";
 import Card from "../../lib/ui/Card.astro";
 
@@ -20,13 +21,13 @@ const sherpa = makeSherpa();
       subtitle="When work is play, you'll never play another day in your life."
     />
 
-    <section class="flex-row py-8 px-4">
+    <AppPageSection>
       <AppLink href={sherpa.work.resume({})} target="_blank">
         <Card class="max-w-1/2">
           <h1>Resume</h1>
         </Card>
       </AppLink>
-    </section>
+    </AppPageSection>
 
     <AppPageFooter />
   </AppPageBody>
