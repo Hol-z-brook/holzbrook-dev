@@ -1,19 +1,17 @@
 // @ts-check
 import { defineConfig } from "astro/config";
-
-import solidJs from "@astrojs/solid-js";
-
+import netlify from '@astrojs/netlify';
 import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [
-    solidJs({ devtools: true }),
-  ],
-
+  adapter: netlify(),
+  site: 'https://holzbrook.dev',
+  output: 'static',
+  outDir: 'dist',
+  cacheDir: 'cache',
   vite: {
-    plugins: [
-      tailwindcss(),
-    ]
-  }
+    clearScreen: false,
+    plugins: [tailwindcss()],
+  },
 });
