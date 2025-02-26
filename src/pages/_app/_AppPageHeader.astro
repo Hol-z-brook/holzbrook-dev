@@ -1,6 +1,10 @@
 ---
-import AppNavMenu from "./_AppNavMenu.astro";
 import AppLogoLink from "./_AppLogoLink.astro";
+import AppNavMenu from "./_AppNavMenu.astro";
+import AppNavMenuItem from "./_AppNavMenuItem.astro";
+import { makeSherpa } from "../_sherpa/_Sherpa";
+
+const sherpa = makeSherpa();
 
 interface Props {
   class?: string;
@@ -16,7 +20,11 @@ const props: Props = Astro.props;
     class="my-4 mx-4 max-w-screen-md w-full mx-auto flex justify-between items-center"
   >
     <AppLogoLink class="inline p-0 m-0" />
-    <AppNavMenu />
+    <AppNavMenu>
+      <AppNavMenuItem href={sherpa.work.index({})}>Work</AppNavMenuItem>
+      <AppNavMenuItem href={sherpa.family.index({})}>Family</AppNavMenuItem>
+      <AppNavMenuItem href={sherpa.play.index({})}>Play</AppNavMenuItem>
+    </AppNavMenu>
   </div>
 </header>
 <div class="h-24">{" "}</div>

@@ -1,0 +1,25 @@
+---
+import AppLink from "./_AppLink.astro";
+
+const currentPath = Astro.url.pathname;
+
+interface Props {
+  href: string;
+}
+
+const path = Astro.props.href;
+---
+<li>
+  <AppLink
+    href={currentPath === path
+      ? undefined
+      : path}
+    class={`${
+      currentPath === path
+        ? "underline"
+        : "hover:underline"
+    }`}
+  >
+    <slot />
+  </AppLink>
+</li>
