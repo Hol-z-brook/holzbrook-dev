@@ -18,17 +18,68 @@ const resumeUrl = sherpa.work.resume({});
 <AppPage>
   <AppPageHeader />
 
-  <AppPageBody backgroundColor="bg-gray-100" class="flex flex-col min-h-screen">
+  <AppPageBody
+    backgroundColor="bg-gray-100"
+    class={`
+      flex
+      flex-col
+      min-h-screen
+    `}
+  >
     <AppPageHero
       title="My Career"
       subtitle="When work is play, you'll never play another day in your life."
+      class={`
+        w-full
+      `}
     />
 
-    <AppPageSection class="flex justify-center items-center flex-grow w-full">
-      <VStack class="flex items-center justify-center w-full">
-        <AppLink href={resumeUrl} target="_blank">
+    <AppPageSection
+      class={`
+        flex
+        justify-center
+        items-center
+        flex-grow
+        w-full
+      `}
+    >
+      <VStack
+        class={`
+          flex
+          items-center
+          justify-center
+          w-full
+        `}
+      >
+        <AppLink
+          class={`
+            w-3/4
+            xs:w-3/4
+            sm:w-2/3
+            md:w-1/2
+            lg:w-1/2
+            xl:w-1/2
+          `}
+          href={resumeUrl}
+          target="_blank"
+        >
           <Card
-            class="min-w-md bg-white shadow-lg rounded-lg w-full max-w-sm border border-gray-200 aspect-[8.5/11] overflow-hidden transition-all duration-500 transform rotate-[-3deg] hover:rotate-0 hover:scale-105 hover:shadow-2xl"
+            class={`
+              aspect-[8.5/11]
+              bg-white
+              shadow-lg
+              hover:shadow-2xl
+              rounded-lg
+              border
+              border-gray-200
+              overflow-hidden
+              transition-all
+              duration-500
+              transform
+              rotate-[-3deg]
+              hover:rotate-0
+              hover:scale-105
+            `}
           >
             <ResumeSkeleton />
           </Card>
