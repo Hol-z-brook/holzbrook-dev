@@ -1,4 +1,6 @@
 ---
+import Card from "../../lib/ui/Card.astro";
+import VStack from "../../lib/ui/VStack.astro";
 import AppLink from "../_app/_AppLink.astro";
 import AppPage from "../_app/_AppPage.astro";
 import AppPageBody from "../_app/_AppPageBody.astro";
@@ -7,9 +9,10 @@ import AppPageHeader from "../_app/_AppPageHeader.astro";
 import AppPageHero from "../_app/_AppPageHero.astro";
 import AppPageSection from "../_app/_AppPageSection.astro";
 import { makeSherpa } from "../_sherpa/_Sherpa";
-import Card from "../../lib/ui/Card.astro";
+import ResumeSkeleton from "./resume/_ResumeSkeleton.astro";
 
 const sherpa = makeSherpa();
+const resumeUrl = sherpa.work.resume({});
 ---
 
 <AppPage>
@@ -21,12 +24,16 @@ const sherpa = makeSherpa();
       subtitle="When work is play, you'll never play another day in your life."
     />
 
-    <AppPageSection>
-      <AppLink href={sherpa.work.resume({})} target="_blank">
-        <Card class="max-w-1/2">
-          <h1>Resume</h1>
-        </Card>
-      </AppLink>
+    <AppPageSection class="flex justify-center items-center flex-grow w-full">
+      <VStack class="flex items-center justify-center w-full">
+        <AppLink href={resumeUrl} target="_blank">
+          <Card
+            class="min-w-md bg-white shadow-lg rounded-lg w-full max-w-sm border border-gray-200 aspect-[8.5/11] overflow-hidden transition-all duration-500 transform rotate-[-3deg] hover:rotate-0 hover:scale-105 hover:shadow-2xl"
+          >
+            <ResumeSkeleton />
+          </Card>
+        </AppLink>
+      </VStack>
     </AppPageSection>
 
     <AppPageFooter />

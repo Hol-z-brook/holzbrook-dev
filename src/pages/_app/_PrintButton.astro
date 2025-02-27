@@ -1,13 +1,19 @@
 ---
-// PrintButton.astro
-const { class: customClass = "" } = Astro.props;
+interface Props {
+  class?: string;
+}
+
+const props = Astro.props;
 ---
 
 <button
-  class={`px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 ${customClass}`}
+  class={`px-6 py-3 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-700 hover:shadow-2xl hover:scale-105 hover:pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-transform transition-colors duration-300 ease-in-out transform flex items-center gap-2 ${props.class}`}
   id="print-button"
 >
-  Print Resume
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+    <path d="M6 2a2 2 0 00-2 2v3h12V4a2 2 0 00-2-2H6zM4 9a2 2 0 00-2 2v3a2 2 0 002 2h1v2a1 1 0 001 1h8a1 1 0 001-1v-2h1a2 2 0 002-2v-3a2 2 0 00-2-2H4zm3 8v-3h6v3H7z" />
+  </svg>
+  <slot />
 </button>
 
 <script>
