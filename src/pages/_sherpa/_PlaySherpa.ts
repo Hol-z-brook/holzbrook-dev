@@ -11,7 +11,7 @@ export interface PlaySherpa {
 
 export const makePlaySherpa = (
   path: string,
-  config: SherpaConfig = defaultSherpaConfig,
+  config: SherpaConfig = defaultSherpaConfig
 ): PlaySherpa => ({
   boardGames: (props) => makeLinkResolver(`${path}/board-games`, props, config),
   discGolf: (props) => makeLinkResolver(`${path}/disc-golf`, props, config),

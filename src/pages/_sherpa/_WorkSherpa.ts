@@ -8,7 +8,7 @@ export interface WorkSherpa {
 
 export const makeWorkSherpa = (
   path: string,
-  config: SherpaConfig = defaultSherpaConfig,
+  config: SherpaConfig = defaultSherpaConfig
 ): WorkSherpa => ({
   index: (props) => makeLinkResolver(`${path}`, props, config),
   resume: (props) => makeLinkResolver(`${path}/resume`, props, config),

@@ -14,5 +14,5 @@ export const andrewHolbrookCandidate: Candidate = {
     chatbooksWorkExperience,
     slingTvWorkExperience,
     masterControlWorkExperience,
-  ]
-}
+  ],
+};

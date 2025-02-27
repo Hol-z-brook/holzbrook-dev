@@ -147,74 +147,74 @@ const coreProficiencies = [
         space-y-32
       `}
     >
-    <VStack
-      class={`
-        gap-8
-      `}
-    >
-      <WorkSection>
-        <WorkSectionTitle>Work Experience</WorkSectionTitle>
-        <WorkSectionGrid>
-          {workExperiences.map((job) => (
-            <WorkExperienceCard {...job} />
-          ))}
-        </WorkSectionGrid>
-      </WorkSection>
-
-      <WorkSection>
-        <WorkSectionTitle>Projects</WorkSectionTitle>
-        <WorkSectionGrid>
-          {projects.map((project) => (
-            <ProjectCard {...project} />
-          ))}
-        </WorkSectionGrid>
-      </WorkSection>
-
-      <VStack class="gap-16">
+      <VStack
+        class={`
+          gap-8
+        `}
+      >
         <WorkSection>
-          <WorkSectionTitle>Core Proficiencies</WorkSectionTitle>
+          <WorkSectionTitle>Work Experience</WorkSectionTitle>
           <WorkSectionGrid>
-            {coreProficiencies.map((skill) => (
-              <SkillCard {...skill} />
+            {workExperiences.map((job) => (
+              <WorkExperienceCard {...job} />
             ))}
           </WorkSectionGrid>
         </WorkSection>
 
         <WorkSection>
-          <WorkSectionTitle>Technical Skills</WorkSectionTitle>
+          <WorkSectionTitle>Projects</WorkSectionTitle>
           <WorkSectionGrid>
-            {skillCategories.map((category) => (
-              <SkillCategoryCard {...category} />
+            {projects.map((project) => (
+              <ProjectCard {...project} />
             ))}
           </WorkSectionGrid>
+        </WorkSection>
+
+        <VStack class="gap-16">
+          <WorkSection>
+            <WorkSectionTitle>Core Proficiencies</WorkSectionTitle>
+            <WorkSectionGrid>
+              {coreProficiencies.map((skill) => (
+                <SkillCard {...skill} />
+              ))}
+            </WorkSectionGrid>
+          </WorkSection>
+
+          <WorkSection>
+            <WorkSectionTitle>Technical Skills</WorkSectionTitle>
+            <WorkSectionGrid>
+              {skillCategories.map((category) => (
+                <SkillCategoryCard {...category} />
+              ))}
+            </WorkSectionGrid>
+          </WorkSection>
+        </VStack>
+
+        <WorkSection>
+          <WorkSectionTitle>Resume</WorkSectionTitle>
+          <VStack
+            class={`
+              flex
+              items-center
+              justify-center
+              w-full
+            `}
+          >
+            <AppLink
+              class={`
+                w-3/4
+                xs:w-3/4
+                sm:w-2/3
+                md:w-1/2
+              `}
+              href={resumeUrl}
+              target="_blank"
+            >
+              <ResumeSkeleton />
+            </AppLink>
+          </VStack>
         </WorkSection>
       </VStack>
-
-      <WorkSection>
-        <WorkSectionTitle>Resume</WorkSectionTitle>
-        <VStack
-          class={`
-            flex
-            items-center
-            justify-center
-            w-full
-          `}
-        >
-          <AppLink
-            class={`
-              w-3/4
-              xs:w-3/4
-              sm:w-2/3
-              md:w-1/2
-            `}
-            href={resumeUrl}
-            target="_blank"
-          >
-            <ResumeSkeleton />
-          </AppLink>
-        </VStack>
-      </WorkSection>
-    </VStack>
 
     </AppPageSection>
 

@@ -14,7 +14,7 @@ interface Sherpa {
 }
 
 export const makeSherpa = (
-  config: SherpaConfig = defaultSherpaConfig,
+  config: SherpaConfig = defaultSherpaConfig
 ): Sherpa => ({
   family: makeFamilySherpa("/family", config),
   home: (props) => makeLinkResolver("/", props, config),
