@@ -8,10 +8,12 @@ interface Props {
   class?: string;
 }
 
-const props: Props = Astro.props;
+const {
+  class: className,
+}: Props = Astro.props;
 ---
 
-<VStack class=`grid grid-cols-2 gap-4 ${props.class}`>
+<VStack class=`grid grid-cols-2 gap-4 ${className}`>
   {
     familyMembers.map((familyMember) => (
       <FamilyMemberListItem

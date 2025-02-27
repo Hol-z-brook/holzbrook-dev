@@ -1,15 +1,13 @@
 ---
-import Box from "./Box.astro";
-import VStack from "./VStack.astro";
+interface Props {
+  as?: keyof HTMLElementTagNameMap;
+  class?: string;
+}
 
-/**
- * Box.astro
- * Generic Box component.
- * Props:
- *  - class: Override/additional Tailwind classes
- *  - as: HTML tag to render (default: 'div')
- */
-const { as: Tag = "div", class: className = "" } = Astro.props;
+const {
+  as: Tag = "div",
+  class: className
+}: Props = Astro.props;
 ---
 
 <Tag class={`p-4 bg-white rounded-xl shadow-lg ${className}`}>

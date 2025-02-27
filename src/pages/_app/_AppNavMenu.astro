@@ -1,4 +1,14 @@
-<nav>
+---
+interface Props {
+  class?: string;
+}
+
+const {
+  class: className,
+} = Astro.props;
+---
+
+<nav class={className}>
   <ul class="flex gap-4 text-sm sm:text-base md:text-lg mx-4">
     <slot />
   </ul>

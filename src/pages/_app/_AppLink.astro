@@ -1,20 +1,24 @@
 ---
 interface Props {
-  href?: string | null;
+  href?: string;
   class?: string;
   target?: string;
 }
 
-const props = Astro.props;
+const {
+  href,
+  class: className,
+  target,
+}: Props = Astro.props;
 ---
 
 {
-  props.href == null ? (
-    <span class={props.class}>
+  href == null ? (
+    <span class={className}>
       <slot />
     </span>
   ) : (
-    <a href={props.href} class={props.class} target={props.target}>
+    <a href={href} class={className} target={target}>
       <slot />
     </a>
   )

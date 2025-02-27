@@ -6,9 +6,10 @@ interface Props {
   backgroundColor?: string;
 }
 
-const props: Props = Astro.props;
-const className = props.class ?? "";
-const backgroundColor = props.backgroundColor ?? "bg-white";
+const {
+  class: className,
+  backgroundColor = "bg-white",
+}: Props = Astro.props;
 ---
 
 <Box class={`${backgroundColor} ${className}`}>

@@ -6,7 +6,10 @@ interface Props {
   backgroundColor?: string;
 }
 
-const props: Props = Astro.props;
+const {
+  class: className,
+  backgroundColor,
+}: Props = Astro.props;
 ---
 
 <!doctype html>
@@ -20,7 +23,7 @@ const props: Props = Astro.props;
   </head>
 
   <body
-    class=`${props.backgroundColor ?? 'bg-white'} w-1/1 h-1/1 m-0 ${props.class}`
+    class=`${backgroundColor ?? 'bg-white'} w-1/1 h-1/1 m-0 ${className}`
   >
     <slot />
   </body>

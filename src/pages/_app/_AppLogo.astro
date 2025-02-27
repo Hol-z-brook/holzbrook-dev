@@ -1,8 +1,16 @@
 ---
 import VStack from "../../lib/ui/VStack.astro";
+
+interface Props {
+  class?: string;
+}
+
+const {
+  class: className,
+}: Props = Astro.props;
 ---
 
-<VStack>
+<VStack class={className}>
   <strong class="text-md md:text-lg lg:text-xl font-bold text-gray-800">
     Andrew
   </strong>

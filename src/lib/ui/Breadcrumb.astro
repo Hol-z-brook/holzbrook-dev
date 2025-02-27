@@ -2,21 +2,24 @@
 interface Props {
   label: string;
   href?: string;
+  class?: string;
 }
 
-const props: Props = Astro.props;
-const href = props.href;
-const label = props.label;
+const {
+  class: className,
+  href,
+  label,
+} = Astro.props;
 ---
 
 <li>
   {
     href ? (
-      <a href={href} class="text-blue-600 hover:underline">
+      <a href={href} class={`text-blue-600 hover:underline ${className}`}>
         {label}
       </a>
     ) : (
-      <span class="text-gray-400">{label}</span>
+      <span class={`text-gray-400 ${className}`}>{label}</span>
     )
   }
 </li>

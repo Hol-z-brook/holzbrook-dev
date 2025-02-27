@@ -10,7 +10,6 @@ interface Sherpa {
   home: LinkResolver;
   play: PlaySherpa;
   resources: ResourcesSherpa;
-  test: LinkResolver;
   work: WorkSherpa;
 }
 
@@ -22,10 +21,4 @@ export const makeSherpa = (
   play: makePlaySherpa("/play", config),
   resources: makeResourcesSherpa("/", config),
   work: makeWorkSherpa("/work", config),
-  test: (props) =>
-    makeLinkResolver(
-      config.featureFlags?.testPageEnabled ? "/test" : "/",
-      props,
-      config,
-    ),
 });

@@ -5,20 +5,22 @@ const currentPath = Astro.url.pathname;
 
 interface Props {
   href: string;
+  class?: string;
 }
 
-const path = Astro.props.href;
+const {
+  class: className,
+  href: path,
+}: Props = Astro.props;
 ---
-<li>
+<li class={className}>
   <AppLink
     href={currentPath === path
       ? undefined
       : path}
-    class={`${
-      currentPath === path
-        ? "underline"
-        : "hover:underline"
-    }`}
+    class={currentPath === path
+      ? "underline"
+      : "hover:underline"}
   >
     <slot />
   </AppLink>

@@ -7,12 +7,16 @@ interface Props {
   class?: string;
 }
 
-const props: Props = Astro.props;
-const firstName = props.familyMember.firstName;
-const middleName = props.familyMember.middleName;
-const lastName = props.familyMember.lastName;
+const {
+  class: className,
+  familyMember: {
+    firstName,
+    middleName,
+    lastName,
+  }
+}: Props = Astro.props;
 ---
 
-<Card class=`${props.class}`>
+<Card class={className}>
   <h1>{firstName} {middleName} {lastName}</h1>
 </Card>

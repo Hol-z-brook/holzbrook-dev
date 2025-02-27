@@ -1,4 +1,13 @@
-<div class="space-y-3">
+---
+interface Props {
+  class?: string;
+}
+
+const {
+  class: className,
+}: Props = Astro.props;
+---
+<div class={`space-y-3 ${className}`}>
     <div class="w-3/4 h-5 bg-gray-300 rounded"></div>
     <div class="w-1/2 h-3 bg-gray-200 rounded"></div>
 

@@ -1,4 +1,13 @@
-<section class="py-12 w-full max-w-screen-md mx-auto">
+---
+interface Props {
+  class?: string;
+}
+
+const {
+  class: className,
+}: Props = Astro.props;
+---
+<section class={`py-12 w-full max-w-screen-md mx-auto ${className}`}>
   <div class="w-full max-w-6xl mx-auto px-6">
     <slot />
   </div>
