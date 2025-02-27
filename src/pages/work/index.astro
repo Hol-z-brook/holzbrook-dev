@@ -154,11 +154,9 @@ const coreProficiencies = [
       >
         <WorkSection>
           <WorkSectionTitle>Work Experience</WorkSectionTitle>
-          <WorkSectionGrid>
-            {workExperiences.map((job) => (
-              <WorkExperienceCard {...job} />
-            ))}
-          </WorkSectionGrid>
+          {workExperiences.map((job) => (
+            <WorkExperienceCard {...job} />
+          ))}
         </WorkSection>
 
         <WorkSection>
