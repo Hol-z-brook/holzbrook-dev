@@ -1,0 +1,83 @@
+{
+    "personalInfo": {
+        "name": "Andrew S. Holbrook",
+        "email": "andrewholbrook55@gmail.com",
+        "phone": "801.361.0417"
+    },
+    "professionalSummary": "Senior Software Engineer with 10+ years of experience specializing in front-end development and application architecture. Proven track record of leading technical initiatives, modernizing legacy systems, and delivering high-impact features for enterprise applications.",
+    "workExperience": [
+        {
+            "company": "Sling TV",
+            "position": "Senior Software Engineer",
+            "period": "Feb 2018 - present",
+            "achievements": [
+                "Led development of core features using AngularJS, SASS, and Redux, improving viewer engagement by 25%",
+                "Spearheaded initiative consolidating multiple AngularJS libraries into a single core library, reducing bundle size by 40%",
+                "Architected and implemented proof-of-concept for modernizing legacy AngularJS application to React/Angular",
+                "Successfully migrated application state to Redux, improving performance and reducing bugs by 30%"
+            ]
+        },
+        {
+            "company": "MasterControl",
+            "position": "Software Engineer II",
+            "period": "2014 - Feb 2018",
+            "achievements": [
+                "Led technical initiatives and mentored junior developers, improving team velocity by 20%",
+                "Designed and implemented stateful UI architecture using ngrx/store in Angular, reducing state-related bugs by 50%",
+                "Received Innovation Award for developing QuickNav feature, reducing navigation time by 60% across the platform",
+                "Key contributor in transitioning from Coldfusion to Java, establishing best practices and solving critical interop challenges",
+                "Implemented Full Text Search using Java and ElasticSearch, improving search performance by 80%",
+                "Practiced agile methodologies including daily standups, sprint planning, and retrospectives"
+            ]
+        },
+        {
+            "company": "TriVir LLC",
+            "position": "Software Consultant / Technical Assistant",
+            "period": "2011 - 2014",
+            "achievements": [
+                "Developed and maintained automated test suites for Identity Management solutions, achieving 90% test coverage",
+                "Collaborated with clients to deliver custom software solutions and technical documentation"
+            ]
+        }
+    ],
+    "technicalSkills": {
+        "proficient": {
+            "languagesAndFrameworks": ["TypeScript", "JavaScript", "Angular", "React"],
+            "toolsAndPractices": ["Git", "Agile/SAFe", "CI/CD"]
+        },
+        "comfortable": {
+            "languagesAndFrameworks": ["Node.js", "Java", "Redux", "AngularJS"],
+            "toolsAndPractices": ["AWS", "Docker", "Kubernetes"]
+        },
+        "familiar": {
+            "languagesAndFrameworks": ["Go", "Kotlin", "C#", "C++"],
+            "toolsAndPractices": ["ElasticSearch", "SQL", "MongoDB"]
+        }
+    },
+    "education": {
+        "institution": "Utah Valley University",
+        "degree": "B.S. in Computer Science",
+        "graduationDate": "April, 2013",
+        "gpa": 3.36,
+        "keyProjects": [
+            "Developed a compiler with object creation and recursion capabilities",
+            "Built a multi-threaded virtual machine",
+            "Implemented Chess AI using advanced algorithms and neural networks",
+            "Created numerical analysis tools for complex mathematical computations"
+        ]
+    },
+    "professionalDevelopment": [
+        "Expanded expertise in front-end technologies by progressively adopting modern frameworks and practices within existing tech stack",
+        "Deepened knowledge of state management patterns through practical application in large-scale applications",
+        "Gained extensive experience in application modernization and technical debt reduction"
+    ],
+    "personalQualities": {
+        "qualities": [
+            "Team Leadership",
+            "Technical Innovation",
+            "Problem Solving",
+            "Communication",
+            "Continuous Learning"
+        ]
+    }
+} 
