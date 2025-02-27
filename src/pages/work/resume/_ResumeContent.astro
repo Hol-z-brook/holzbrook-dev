@@ -5,21 +5,50 @@ import { slingTvWorkExperience } from "../experience/sling-tv/_slingTvWorkExperi
 import { andrewHolbrookCandidate } from "../candidate/_andrewHolbrookCandidate";
 ---
 <header class="mb-6">
-  <div class="flex justify-between w-full mb-4">
-    <h1 class="text-2xl sm:text-3xl font-semibold mb-1 text-gray-900">
+  <div class="
+    flex
+    justify-between
+    w-full
+    mb-4
+  ">
+    <h1 class="
+      text-2xl sm:text-3xl
+      font-semibold
+      mb-1
+      text-gray-900
+    ">
       {andrewHolbrookCandidate.name}
     </h1>
     <h2 class="text-gray-700">
       {andrewHolbrookCandidate.title}
     </h2>
   </div>
-  <address class="text-xs not-italic flex justify-between w-full mb-4">
-    <a href={`mailto:${andrewHolbrookCandidate.email}`} class="w-3/5 text-gray-600 hover:underline">
+  <address class="
+    text-xs
+    not-italic
+    flex
+    justify-between
+    w-full
+    mb-4
+  ">
+    <a 
+      href={`mailto:${andrewHolbrookCandidate.email}`}
+      class="
+        w-3/5
+        text-gray-600
+        hover:underline
+      "
+    >
       {andrewHolbrookCandidate.email}
     </a>
     <a
       href={`tel:+1${andrewHolbrookCandidate.phone.replace(/-/g, "")}`}
-      class="w-2/5 text-right text-gray-600 hover:underline"
+      class="
+        w-2/5
+        text-right
+        text-gray-600
+        hover:underline
+      "
     >
       {andrewHolbrookCandidate.phone}
     </a>
@@ -27,15 +56,28 @@ import { andrewHolbrookCandidate } from "../candidate/_andrewHolbrookCandidate";
 </header>
 
 <!-- Professional Summary -->
-<section class="mb-6 p-3 rounded-md">
-  <p class="leading-relaxed text-gray-800">{andrewHolbrookCandidate.summary}</p>
+<section class="
+  mb-6
+  p-3
+  rounded-md
+">
+  <p class="
+    leading-relaxed
+    text-gray-800
+  ">{andrewHolbrookCandidate.summary}</p>
 </section>
 
 <!-- Work Experience Section -->
 <section class="mb-8">
-  <h2
-    class="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 border-b-2 border-gray-400 pb-1"
-  >
+  <h2 class="
+    text-lg sm:text-xl
+    font-bold
+    text-gray-900
+    mb-2 sm:mb-3
+    border-b-2
+    border-gray-400
+    pb-1
+  ">
     Work Experience
   </h2>
   <div class="space-y-5">
@@ -46,11 +88,22 @@ import { andrewHolbrookCandidate } from "../candidate/_andrewHolbrookCandidate";
         masterControlWorkExperience,
       ].map((job) => (
         <article>
-          <header class="font-semibold text-base text-gray-900">
+          <header class="
+            font-semibold
+            text-base
+            text-gray-900
+          ">
             {job.company} - {job.title}{" "}
             <span class="text-gray-600">({job.date})</span>
           </header>
-          <ul class="list-disc ml-6 mt-2 space-y-1 text-sm text-gray-700">
+          <ul class="
+            list-disc
+            ml-6
+            mt-2
+            space-y-1
+            text-sm
+            text-gray-700
+          ">
             {job.highlights.map((highlight) => (
               <li>
                 <span
@@ -72,8 +125,17 @@ import { andrewHolbrookCandidate } from "../candidate/_andrewHolbrookCandidate";
 </section>
 
 <!-- Education -->
-<footer class="text-center mt-6 border-t border-gray-300 pt-4">
-  <p class="text-xs text-gray-600">
+<footer class="
+  text-center
+  mt-6
+  border-t
+  border-gray-300
+  pt-4
+">
+  <p class="
+    text-xs
+    text-gray-600
+  ">
     B.S. in Computer Science, Utah Valley University, April 2013
   </p>
 </footer>
