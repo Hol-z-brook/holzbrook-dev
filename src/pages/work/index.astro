@@ -24,27 +24,6 @@ import Center from "../../lib/ui/Center.astro";
 const sherpa = makeSherpa();
 const resumeUrl = sherpa.work.resume({});
 
-const workExperiences = [
-  {
-    ...chatbooksWorkExperience,
-    title: chatbooksWorkExperience.title, 
-    period: chatbooksWorkExperience.period,
-    description: chatbooksWorkExperience.highlights[0]
-  },
-  {
-    ...slingTvWorkExperience,
-    title: slingTvWorkExperience.title,
-    period: slingTvWorkExperience.period,
-    description: slingTvWorkExperience.highlights[0]
-  },
-  {
-    ...masterControlWorkExperience,
-    title: masterControlWorkExperience.title,
-    period: masterControlWorkExperience.period,
-    description: masterControlWorkExperience.highlights[0]
-  }
-];
-
 interface Project {
   name: string;
   description: string;
@@ -173,7 +152,11 @@ const coreProficiencies: CoreProficiency[] = [
       >
         <WorkSection>
           <WorkSectionTitle>Work Experience</WorkSectionTitle>
-          {workExperiences.map((job) => (
+          {[
+              chatbooksWorkExperience,
+              slingTvWorkExperience,
+              masterControlWorkExperience,
+            ].map((job) => (
             <WorkExperienceCard {...job} />
           ))}
         </WorkSection>

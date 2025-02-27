@@ -4,6 +4,7 @@ export const chatbooksWorkExperience: WorkExperience = {
   company: "Chatbooks",
   title: "Senior Frontend Developer",
   period: "March 2019 - December 2024",
+  description: "Supported web and cross-platform initiatives.",
   highlights: [
     "Optimized Flutter codebase by transitioning a mobile-first design to a fully responsive, desktop-ready solution, significantly improving cross-device performance.",
     "Implemented Swagger/OpenAPI for streamlined code generation with React Query, simplifying mutation handling and improving API integration efficiency.",
