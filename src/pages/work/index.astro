@@ -1,5 +1,4 @@
 ---
-import Card from "../../lib/ui/Card.astro";
 import VStack from "../../lib/ui/VStack.astro";
 import AppLink from "../_app/_AppLink.astro";
 import AppPage from "../_app/_AppPage.astro";
@@ -13,9 +12,111 @@ import ResumeSkeleton from "./resume/_ResumeSkeleton.astro";
 import { chatbooksWorkExperience } from "./experience/chatbooks/_chatbooksWorkExperience";
 import { slingTvWorkExperience } from "./experience/sling-tv/_slingTvWorkExperience";
 import { masterControlWorkExperience } from "./experience/master-control/_masterControlWorkExperience";
+import ProjectCard from "./_ProjectCard.astro";
+import SkillCard from "./_SkillCard.astro";
+import SkillCategoryCard from "./_SkillCategoryCard.astro";
+import WorkExperienceCard from "./_WorkExperienceCard.astro";
+import WorkSection from "./_WorkSection.astro";
+import WorkSectionGrid from "./_WorkSectionGrid.astro";
+import WorkSectionTitle from "./_WorkSectionTitle.astro";
 
 const sherpa = makeSherpa();
 const resumeUrl = sherpa.work.resume({});
+
+const workExperiences = [
+  {
+    ...chatbooksWorkExperience,
+    role: chatbooksWorkExperience.title,
+    period: chatbooksWorkExperience.date,
+    description: chatbooksWorkExperience.highlights[0]
+  },
+  {
+    ...slingTvWorkExperience,
+    role: slingTvWorkExperience.title,
+    period: slingTvWorkExperience.date,
+    description: slingTvWorkExperience.highlights[0]
+  },
+  {
+    ...masterControlWorkExperience,
+    role: masterControlWorkExperience.title,
+    period: masterControlWorkExperience.date,
+    description: masterControlWorkExperience.highlights[0]
+  }
+];
+
+const projects = [
+  {
+    name: 'Flutter Desktop',
+    description: chatbooksWorkExperience.highlights[0],
+    tech: ['Flutter', 'Dart', 'Responsive Design']
+  },
+  {
+    name: 'Next.js Platform',
+    description: chatbooksWorkExperience.highlights[2],
+    tech: ['Next.js', 'React', 'TypeScript']
+  },
+  {
+    name: 'Web Cart',
+    description: chatbooksWorkExperience.highlights[3],
+    tech: ['React', 'TypeScript', 'State Management']
+  },
+  {
+    name: 'Marketing Site',
+    description: chatbooksWorkExperience.highlights[4],
+    tech: ['React', 'Prismic CMS', 'TypeScript']
+  }
+];
+
+const skillCategories = [
+  {
+    category: 'Frontend Development',
+    icon: '🎨',
+    skills: ['React', 'TypeScript', 'Next.js', 'Chakra UI', 'Tailwind CSS', 'HTML5/CSS3']
+  },
+  {
+    category: 'Mobile & Cross-Platform',
+    icon: '📱',
+    skills: ['Flutter', 'Dart', 'React Native', 'Responsive Design']
+  },
+  {
+    category: 'State Management',
+    icon: '🔄',
+    skills: ['Redux', 'React Query', 'ngrx/store', 'Context API']
+  },
+  {
+    category: 'Performance & DevOps',
+    icon: '⚡',
+    skills: ['Webpack', 'SEO', 'CI/CD', 'Testing', 'Code Optimization']
+  },
+  {
+    category: 'Tools & Methods',
+    icon: '🛠',
+    skills: ['Git', 'Agile/Scrum', 'Test-Driven Development', 'Code Review', 'Technical Writing']
+  },
+  {
+    category: 'Leadership',
+    icon: '👥',
+    skills: ['Team Management', 'Mentoring', 'Project Planning', 'Technical Leadership']
+  }
+];
+
+const coreProficiencies = [
+  {
+    name: 'Frontend Architecture',
+    icon: '🏗️',
+    description: 'Designing scalable frontend architectures with modern frameworks and best practices.'
+  },
+  {
+    name: 'UI/UX Design',
+    icon: '✨',
+    description: 'Creating intuitive and responsive user interfaces with a focus on user experience.'
+  },
+  {
+    name: 'Technical Leadership',
+    icon: '🎯',
+    description: 'Leading development teams, making architectural decisions, and mentoring developers.'
+  }
+];
 ---
 
 <AppPage>
@@ -51,310 +152,68 @@ const resumeUrl = sherpa.work.resume({});
         gap-8
       `}
     >
-      {/* Work Experience Section */}
-      <section class={`
-        flex
-        flex-col
-        items-center
-        w-full
-        space-y-12
-      `}>
-        <h2 class={`
-          text-2xl
-          sm:text-3xl
-          font-semibold
-          text-gray-900
-          text-center
-        `}>
-          Work Experience
-        </h2>
-        <div class={`
-          grid
-          grid-cols-1
-          md:grid-cols-2
-          lg:grid-cols-3
-          gap-8
-          w-full
-          max-w-6xl
-          px-4
-        `}>
-          {[
-            {
-              ...chatbooksWorkExperience,
-              role: chatbooksWorkExperience.title,
-              period: chatbooksWorkExperience.date,
-              description: chatbooksWorkExperience.highlights[0]
-            },
-            {
-              ...slingTvWorkExperience,
-              role: slingTvWorkExperience.title,
-              period: slingTvWorkExperience.date,
-              description: slingTvWorkExperience.highlights[0]
-            },
-            {
-              ...masterControlWorkExperience,
-              role: masterControlWorkExperience.title,
-              period: masterControlWorkExperience.date,
-              description: masterControlWorkExperience.highlights[0]
-            }
-          ].map((job) => (
-            <div class={`
-              bg-white
-              rounded-lg
-              shadow-md
-              p-6
-              space-y-3
-            `}>
-              <h3 class={`
-                text-lg
-                font-semibold
-                text-gray-900
-              `}>{job.company}</h3>
-              <p class={`
-                text-gray-600
-                font-medium
-              `}>{job.role}</p>
-              <p class={`
-                text-sm
-                text-gray-500
-              `}>{job.period}</p>
-              <p class={`
-                text-gray-700
-              `}>{job.description}</p>
-            </div>
+      <WorkSection>
+        <WorkSectionTitle>Work Experience</WorkSectionTitle>
+        <WorkSectionGrid>
+          {workExperiences.map((job) => (
+            <WorkExperienceCard {...job} />
           ))}
-        </div>
-      </section>
+        </WorkSectionGrid>
+      </WorkSection>
 
-      {/* Projects Section */}
-      <section class={`
-        flex
-        flex-col
-        items-center
-        w-full
-        space-y-12
-      `}>
-        <h2 class={`
-          text-2xl
-          sm:text-3xl
-          font-semibold
-          text-gray-900
-          text-center
-        `}>
-          Projects
-        </h2>
-        <div class={`
-          grid
-          grid-cols-1
-          md:grid-cols-2
-          lg:grid-cols-3
-          gap-8
-          w-full
-          max-w-6xl
-          px-4
-        `}>
-          {[
-            {
-              name: 'Flutter Desktop',
-              description: chatbooksWorkExperience.highlights[0],
-              tech: ['Flutter', 'Dart', 'Responsive Design']
-            },
-            {
-              name: 'Next.js Platform',
-              description: chatbooksWorkExperience.highlights[2],
-              tech: ['Next.js', 'React', 'TypeScript']
-            },
-            {
-              name: 'Web Cart',
-              description: chatbooksWorkExperience.highlights[3],
-              tech: ['React', 'TypeScript', 'State Management']
-            },
-            {
-              name: 'Marketing Site',
-              description: chatbooksWorkExperience.highlights[4],
-              tech: ['React', 'Prismic CMS', 'TypeScript']
-            }
-          ].map((project) => (
-            <div class={`
-              bg-white
-              rounded-lg
-              shadow-md
-              p-6
-              space-y-4
-            `}>
-              <h3 class={`
-                text-lg
-                sm:text-xl
-                font-semibold
-                text-gray-900
-              `}>
-                {project.name}
-              </h3>
-              <p class={`
-                text-gray-700
-              `}>
-                {project.description}
-              </p>
-              <div class={`
-                flex
-                flex-wrap
-                gap-2
-              `}>
-                {project.tech.map((tech) => (
-                  <span class={`
-                    bg-gray-100
-                    text-gray-700
-                    text-sm
-                    px-3
-                    py-1
-                    rounded-full
-                  `}>
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
+      <WorkSection>
+        <WorkSectionTitle>Projects</WorkSectionTitle>
+        <WorkSectionGrid>
+          {projects.map((project) => (
+            <ProjectCard {...project} />
           ))}
-        </div>
-      </section>
+        </WorkSectionGrid>
+      </WorkSection>
 
-      {/* Skills & Technology Section */}
-      <section class={`
-        flex
-        flex-col
-        items-center
-        w-full
-        space-y-12
-      `}>
-        <h2 class={`
-          text-2xl
-          sm:text-3xl
-          font-semibold
-          text-gray-900
-          text-center
-        `}>
-          Skills & Technology
-        </h2>
-        <div class={`
-          grid
-          grid-cols-1
-          md:grid-cols-2
-          lg:grid-cols-3
-          gap-8
-          w-full
-          max-w-6xl
-          px-4
-        `}>
-          {[
-            {
-              category: 'Frontend',
-              skills: ['React', 'TypeScript', 'Chakra UI', 'Tailwind CSS', 'HTML5/CSS3']
-            },
-            {
-              category: 'Mobile',
-              skills: ['Flutter']
-            },
-            {
-              category: 'Tools & Methods',
-              skills: ['Agile/Scrum', 'Test-Driven Development', 'Code Review', 'Technical Writing']
-            }
-          ].map((category) => (
-            <div class={`
-              bg-white
-              rounded-lg
-              shadow-md
-              p-6
-              space-y-4
-            `}>
-              <h3 class={`
-                text-lg
-                font-semibold
-                text-gray-900
-              `}>
-                {category.category}
-              </h3>
-              <div class={`
-                flex
-                flex-wrap
-                gap-2
-              `}>
-                {category.skills.map((skill) => (
-                  <span class={`
-                    bg-gray-100
-                    text-gray-700
-                    text-sm
-                    px-3
-                    py-1
-                    rounded-full
-                  `}>
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <VStack class="gap-16">
+        <WorkSection>
+          <WorkSectionTitle>Core Proficiencies</WorkSectionTitle>
+            <WorkSectionGrid>
+            {coreProficiencies.map((skill) => (
+              <SkillCard {...skill} />
+            ))}
+            </WorkSectionGrid>
+        </WorkSection>
 
-      {/* Resume Section */}
-      <section class={`
-        flex
-        flex-col
-        items-center
-        w-full
-        space-y-12
-      `}>
-        <h2 class={`
-          text-2xl
-          sm:text-3xl
-          font-semibold
-          text-gray-900
-          text-center
-        `}>
-          Resume
-        </h2>
+        <WorkSection>
+          <WorkSectionTitle>Technical Skills</WorkSectionTitle>
+          <WorkSectionGrid>
+            {skillCategories.map((category) => (
+              <SkillCategoryCard {...category} />
+            ))}
+          </WorkSectionGrid>
+        </WorkSection>
+      </VStack>
 
+      <WorkSection >
+        <WorkSectionTitle>Resume</WorkSectionTitle>
         <VStack
-        class={`
-          flex
-          items-center
-          justify-center
-          w-full
-        `}
-      >
-        <AppLink
           class={`
-            w-3/4
-            xs:w-3/4
-            sm:w-2/3
-            md:w-1/2
+            flex
+            items-center
+            justify-center
+            w-full
           `}
-          href={resumeUrl}
-          target="_blank"
         >
-          <Card
+          <AppLink
             class={`
-              aspect-[8.5/11]
-              bg-white
-              shadow-lg
-              hover:shadow-2xl
-              rounded-lg
-              border
-              border-gray-200
-              overflow-hidden
-              transition-all
-              duration-500
-              transform
-              rotate-[-3deg]
-              hover:rotate-0
-              hover:scale-105
+              w-3/4
+              xs:w-3/4
+              sm:w-2/3
+              md:w-1/2
             `}
+            href={resumeUrl}
+            target="_blank"
           >
             <ResumeSkeleton />
-          </Card>
-        </AppLink>
-      </VStack>
-      </section>
+          </AppLink>
+        </VStack>
+      </WorkSection>
     </VStack>
 
     </AppPageSection>

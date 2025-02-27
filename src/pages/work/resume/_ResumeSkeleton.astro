@@ -1,4 +1,6 @@
 ---
+import Card from '../../../lib/ui/Card.astro';
+
 interface Props {
   class?: string;
 }
@@ -7,6 +9,24 @@ const {
   class: className,
 }: Props = Astro.props;
 ---
+<Card
+  class={`
+    aspect-[8.5/11]
+    bg-white
+    shadow-lg
+    hover:shadow-2xl
+    rounded-lg
+    border
+    border-gray-200
+    overflow-hidden
+    transition-all
+    duration-500
+    transform
+    rotate-[-3deg]
+    hover:rotate-0
+    hover:scale-105
+  `}
+>
 <div class={`
   space-y-2 sm:space-y-3
   ${className}
@@ -137,3 +157,5 @@ const {
         </div>
     </div>
 </div>
+
+</Card>

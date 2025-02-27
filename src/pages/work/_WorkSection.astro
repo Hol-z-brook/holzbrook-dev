@@ -1,0 +1,27 @@
+---
+import VStack from '../../lib/ui/VStack.astro';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<section class={`
+  flex
+  flex-col
+  items-center
+  w-full
+  space-y-12
+  ${className}
+`}>
+  <VStack class={`
+    w-full
+    max-w-6xl
+    px-4
+    gap-y-8
+  `}>
+    <slot />
+  </VStack>
+</section>
