@@ -26,25 +26,31 @@ const resumeUrl = sherpa.work.resume({});
 const workExperiences = [
   {
     ...chatbooksWorkExperience,
-    role: chatbooksWorkExperience.title,
-    period: chatbooksWorkExperience.date,
+    title: chatbooksWorkExperience.title, 
+    period: chatbooksWorkExperience.period,
     description: chatbooksWorkExperience.highlights[0]
   },
   {
     ...slingTvWorkExperience,
-    role: slingTvWorkExperience.title,
-    period: slingTvWorkExperience.date,
+    title: slingTvWorkExperience.title,
+    period: slingTvWorkExperience.period,
     description: slingTvWorkExperience.highlights[0]
   },
   {
     ...masterControlWorkExperience,
-    role: masterControlWorkExperience.title,
-    period: masterControlWorkExperience.date,
+    title: masterControlWorkExperience.title,
+    period: masterControlWorkExperience.period,
     description: masterControlWorkExperience.highlights[0]
   }
 ];
 
-const projects = [
+interface Project {
+  name: string;
+  description: string;
+  tech: string[];
+}
+
+const projects: Project[] = [
   {
     name: 'Flutter Desktop',
     description: chatbooksWorkExperience.highlights[0],
@@ -67,7 +73,13 @@ const projects = [
   }
 ];
 
-const skillCategories = [
+interface SkillCategory {
+  category: string;
+  icon: string;
+  skills: string[];
+}
+
+const skillCategories: SkillCategory[] = [
   {
     category: 'Frontend Development',
     icon: '🎨',
@@ -100,7 +112,13 @@ const skillCategories = [
   }
 ];
 
-const coreProficiencies = [
+interface CoreProficiency {
+  name: string;
+  icon: string;
+  description: string;
+}
+
+const coreProficiencies: CoreProficiency[] = [
   {
     name: 'Frontend Architecture',
     icon: '🏗️',

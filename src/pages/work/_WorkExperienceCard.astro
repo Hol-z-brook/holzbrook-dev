@@ -1,13 +1,13 @@
 ---
 interface Props {
   company: string;
-  role: string;
+  title: string;
   period: string;
   description: string;
   class?: string;
 }
 
-const { company, role, period, description, class: className = '' } = Astro.props;
+const { company, title, period, description, class: className = '' } = Astro.props;
 ---
 
 <div class={`
@@ -26,7 +26,7 @@ const { company, role, period, description, class: className = '' } = Astro.prop
   <p class={`
     text-gray-600
     font-medium
-  `}>{role}</p>
+  `}>{title}</p>
   <p class={`
     text-sm
     text-gray-500

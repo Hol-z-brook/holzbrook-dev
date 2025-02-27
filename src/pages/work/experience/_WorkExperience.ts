@@ -1,6 +1,6 @@
 interface WorkExperience {
   company: string;
   title: string;
-  date: string;
+  period: string;
   highlights: string[];
 }

@@ -3,7 +3,7 @@ import "../_WorkExperience";
 export const slingTvWorkExperience: WorkExperience = {
   company: "Sling TV",
   title: "Senior Software Engineer",
-  date: "Feb 2018 - March 2019",
+  period: "Feb 2018 - March 2019",
   highlights: [
     "Developed core features using AngularJS, SASS, and Redux, driving increased user engagement.",
     "Consolidated AngularJS libraries, improving maintainability and reducing bundle size.",
