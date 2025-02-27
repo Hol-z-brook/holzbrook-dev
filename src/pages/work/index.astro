@@ -10,6 +10,9 @@ import AppPageHero from "../_app/_AppPageHero.astro";
 import AppPageSection from "../_app/_AppPageSection.astro";
 import { makeSherpa } from "../_sherpa/_Sherpa";
 import ResumeSkeleton from "./resume/_ResumeSkeleton.astro";
+import { chatbooksWorkExperience } from "./experience/chatbooks/_chatbooksWorkExperience";
+import { slingTvWorkExperience } from "./experience/sling-tv/_slingTvWorkExperience";
+import { masterControlWorkExperience } from "./experience/master-control/_masterControlWorkExperience";
 
 const sherpa = makeSherpa();
 const resumeUrl = sherpa.work.resume({});
@@ -36,14 +39,282 @@ const resumeUrl = sherpa.work.resume({});
 
     <AppPageSection
       class={`
-        flex
-        justify-center
-        items-center
-        flex-grow
         w-full
+        py-12
+        sm:py-16
+        md:py-20
+        space-y-32
       `}
     >
-      <VStack
+    <VStack
+      class={`
+        gap-8
+      `}
+    >
+      {/* Work Experience Section */}
+      <section class={`
+        flex
+        flex-col
+        items-center
+        w-full
+        space-y-12
+      `}>
+        <h2 class={`
+          text-2xl
+          sm:text-3xl
+          font-semibold
+          text-gray-900
+          text-center
+        `}>
+          Work Experience
+        </h2>
+        <div class={`
+          grid
+          grid-cols-1
+          md:grid-cols-2
+          lg:grid-cols-3
+          gap-8
+          w-full
+          max-w-6xl
+          px-4
+        `}>
+          {[
+            {
+              ...chatbooksWorkExperience,
+              role: chatbooksWorkExperience.title,
+              period: chatbooksWorkExperience.date,
+              description: chatbooksWorkExperience.highlights[0]
+            },
+            {
+              ...slingTvWorkExperience,
+              role: slingTvWorkExperience.title,
+              period: slingTvWorkExperience.date,
+              description: slingTvWorkExperience.highlights[0]
+            },
+            {
+              ...masterControlWorkExperience,
+              role: masterControlWorkExperience.title,
+              period: masterControlWorkExperience.date,
+              description: masterControlWorkExperience.highlights[0]
+            }
+          ].map((job) => (
+            <div class={`
+              bg-white
+              rounded-lg
+              shadow-md
+              p-6
+              space-y-3
+            `}>
+              <h3 class={`
+                text-lg
+                font-semibold
+                text-gray-900
+              `}>{job.company}</h3>
+              <p class={`
+                text-gray-600
+                font-medium
+              `}>{job.role}</p>
+              <p class={`
+                text-sm
+                text-gray-500
+              `}>{job.period}</p>
+              <p class={`
+                text-gray-700
+              `}>{job.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section class={`
+        flex
+        flex-col
+        items-center
+        w-full
+        space-y-12
+      `}>
+        <h2 class={`
+          text-2xl
+          sm:text-3xl
+          font-semibold
+          text-gray-900
+          text-center
+        `}>
+          Projects
+        </h2>
+        <div class={`
+          grid
+          grid-cols-1
+          md:grid-cols-2
+          lg:grid-cols-3
+          gap-8
+          w-full
+          max-w-6xl
+          px-4
+        `}>
+          {[
+            {
+              name: 'Flutter Desktop',
+              description: chatbooksWorkExperience.highlights[0],
+              tech: ['Flutter', 'Dart', 'Responsive Design']
+            },
+            {
+              name: 'Next.js Platform',
+              description: chatbooksWorkExperience.highlights[2],
+              tech: ['Next.js', 'React', 'TypeScript']
+            },
+            {
+              name: 'Web Cart',
+              description: chatbooksWorkExperience.highlights[3],
+              tech: ['React', 'TypeScript', 'State Management']
+            },
+            {
+              name: 'Marketing Site',
+              description: chatbooksWorkExperience.highlights[4],
+              tech: ['React', 'Prismic CMS', 'TypeScript']
+            }
+          ].map((project) => (
+            <div class={`
+              bg-white
+              rounded-lg
+              shadow-md
+              p-6
+              space-y-4
+            `}>
+              <h3 class={`
+                text-lg
+                sm:text-xl
+                font-semibold
+                text-gray-900
+              `}>
+                {project.name}
+              </h3>
+              <p class={`
+                text-gray-700
+              `}>
+                {project.description}
+              </p>
+              <div class={`
+                flex
+                flex-wrap
+                gap-2
+              `}>
+                {project.tech.map((tech) => (
+                  <span class={`
+                    bg-gray-100
+                    text-gray-700
+                    text-sm
+                    px-3
+                    py-1
+                    rounded-full
+                  `}>
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Skills & Technology Section */}
+      <section class={`
+        flex
+        flex-col
+        items-center
+        w-full
+        space-y-12
+      `}>
+        <h2 class={`
+          text-2xl
+          sm:text-3xl
+          font-semibold
+          text-gray-900
+          text-center
+        `}>
+          Skills & Technology
+        </h2>
+        <div class={`
+          grid
+          grid-cols-1
+          md:grid-cols-2
+          lg:grid-cols-3
+          gap-8
+          w-full
+          max-w-6xl
+          px-4
+        `}>
+          {[
+            {
+              category: 'Frontend',
+              skills: ['React', 'TypeScript', 'Chakra UI', 'Tailwind CSS', 'HTML5/CSS3']
+            },
+            {
+              category: 'Mobile',
+              skills: ['Flutter']
+            },
+            {
+              category: 'Tools & Methods',
+              skills: ['Agile/Scrum', 'Test-Driven Development', 'Code Review', 'Technical Writing']
+            }
+          ].map((category) => (
+            <div class={`
+              bg-white
+              rounded-lg
+              shadow-md
+              p-6
+              space-y-4
+            `}>
+              <h3 class={`
+                text-lg
+                font-semibold
+                text-gray-900
+              `}>
+                {category.category}
+              </h3>
+              <div class={`
+                flex
+                flex-wrap
+                gap-2
+              `}>
+                {category.skills.map((skill) => (
+                  <span class={`
+                    bg-gray-100
+                    text-gray-700
+                    text-sm
+                    px-3
+                    py-1
+                    rounded-full
+                  `}>
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Resume Section */}
+      <section class={`
+        flex
+        flex-col
+        items-center
+        w-full
+        space-y-12
+      `}>
+        <h2 class={`
+          text-2xl
+          sm:text-3xl
+          font-semibold
+          text-gray-900
+          text-center
+        `}>
+          Resume
+        </h2>
+
+        <VStack
         class={`
           flex
           items-center
@@ -57,8 +328,6 @@ const resumeUrl = sherpa.work.resume({});
             xs:w-3/4
             sm:w-2/3
             md:w-1/2
-            lg:w-1/2
-            xl:w-1/2
           `}
           href={resumeUrl}
           target="_blank"
@@ -85,6 +354,9 @@ const resumeUrl = sherpa.work.resume({});
           </Card>
         </AppLink>
       </VStack>
+      </section>
+    </VStack>
+
     </AppPageSection>
 
     <AppPageFooter />
