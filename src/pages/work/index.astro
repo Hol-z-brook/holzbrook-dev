@@ -19,6 +19,7 @@ import WorkExperienceCard from "./_WorkExperienceCard.astro";
 import WorkSection from "./_WorkSection.astro";
 import WorkSectionGrid from "./_WorkSectionGrid.astro";
 import WorkSectionTitle from "./_WorkSectionTitle.astro";
+import Center from "../../lib/ui/Center.astro";
 
 const sherpa = makeSherpa();
 const resumeUrl = sherpa.work.resume({});
@@ -208,14 +209,7 @@ const coreProficiencies: CoreProficiency[] = [
 
         <WorkSection>
           <WorkSectionTitle>Resume</WorkSectionTitle>
-          <VStack
-            class={`
-              flex
-              items-center
-              justify-center
-              w-full
-            `}
-          >
+          <Center>
             <AppLink
               class={`
                 w-3/4
@@ -228,7 +222,7 @@ const coreProficiencies: CoreProficiency[] = [
             >
               <ResumeSkeleton />
             </AppLink>
-          </VStack>
+          </Center>
         </WorkSection>
       </VStack>
 
