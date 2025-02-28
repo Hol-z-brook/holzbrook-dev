@@ -5,6 +5,10 @@ import AppPageHeader from "../_app/_AppPageHeader.astro";
 import AppPageSection from "../_app/_AppPageSection.astro";
 import { makeSherpa } from "../_sherpa/_Sherpa";
 import Box from "../../lib/ui/Box.astro";
+import PageHeader from "../../lib/ui/PageHeader.astro";
+import PageHeaderTitle from "../../lib/ui/PageHeaderTitle.astro";
+import PageHeaderSubtitle from "../../lib/ui/PageHeaderSubtitle.astro";
+import PageHeaderBody from "../../lib/ui/PageHeaderBody.astro";
 import H1 from "../../lib/ui/H1.astro";
 import H2 from "../../lib/ui/H2.astro";
 import P from "../../lib/ui/P.astro";
@@ -67,18 +71,17 @@ const themePages = [
   <AppPageBody class="bg-gray-50">
     <AppPageSection>
       <Box class="max-w-5xl mx-auto py-16 px-6">
-        <!-- Header -->
-        <Box class="mb-16 text-center">
-          <H1>
+        <PageHeader>
+          <PageHeaderTitle>
             Pickles
-          </H1>
-          <Box class="text-xl font-medium text-primary-600 mb-6">
+          </PageHeaderTitle>
+          <PageHeaderSubtitle>
             An opinionated design system
-          </Box>
-          <P class="text-lg max-w-2xl mx-auto leading-relaxed">
+          </PageHeaderSubtitle>
+          <PageHeaderBody>
             Because great design isn't made by committee. These are the strong opinions and careful decisions that shape holzbrook.dev into what it is — with a dash of whimsy.
-          </P>
-        </Box>
+          </PageHeaderBody>
+        </PageHeader>
 
         <!-- Theme Navigation -->
         <Box class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
