@@ -8,6 +8,10 @@ import ThemeSectionHeader from "../../components/theme/ThemeSectionHeader.astro"
 import ThemeSectionBody from "../../components/theme/ThemeSectionBody.astro";
 import PrimaryButton from "../../components/theme/PrimaryButton.astro";
 import OutlinedButton from "../../components/theme/OutlinedButton.astro";
+import Box from "../../lib/ui/Box.astro";
+import H1 from "../../lib/ui/H1.astro";
+import H4 from "../../lib/ui/H4.astro";
+import P from "../../lib/ui/P.astro";
 import { theme } from "../../theme";
 
 const sections = [
@@ -20,65 +24,66 @@ const sections = [
   <AppPageHeader />
   <AppPageBody class="bg-gray-50">
     <AppPageSection>
-      <div class="max-w-[90rem] mx-auto py-16 px-6">
+      <Box class="max-w-[90rem] mx-auto py-16 px-6">
         <!-- Header -->
-        <div class="mb-16">
-          <a href="/theme" class="text-primary-600 hover:text-primary-700 mb-4 inline-block">&larr; Back to Design System</a>
-          <h1 class="text-5xl font-bold mb-6">Border Radius</h1>
-          <p class="text-xl text-gray-600 max-w-3xl">
+        <Box class="mb-16">
+          <Box as="a" href="/theme" class="text-primary-600 hover:text-primary-700 mb-4 inline-block">&larr; Back to Design System</Box>
+          <H1 class="mb-6">Border Radius</H1>
+          <P class="text-xl text-gray-600 max-w-3xl">
             Our border radius system provides consistent corner rounding to create a cohesive and modern interface design.
-          </p>
-        </div>
+          </P>
+        </Box>
 
         <!-- Navigation -->
-        <nav class="mb-16">
-          <ul class="flex flex-col gap-2">
-            <li>
-              <div class="px-4 py-2 text-gray-900 font-medium">Border Radius</div>
-              <ul class="ml-4 mt-1 border-l border-gray-200 space-y-1">
+        <Box as="nav" class="mb-16">
+          <Box as="ul" class="flex flex-col gap-2">
+            <Box as="li">
+              <Box class="px-4 py-2 text-gray-900 font-medium">Border Radius</Box>
+              <Box as="ul" class="ml-4 mt-1 border-l border-gray-200 space-y-1">
                 {sections.map(({ id, label }) => (
-                  <li>
-                    <a
+                  <Box as="li">
+                    <Box
+                      as="a"
                       href={`#${id}`}
                       class="block pl-4 py-1.5 text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-md transition-colors text-sm"
                     >
                       {label}
-                    </a>
-                  </li>
+                    </Box>
+                  </Box>
                 ))}
-              </ul>
-            </li>
-          </ul>
-        </nav>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
 
-        <div class="space-y-24">
+        <Box class="space-y-24">
           <!-- Radius Scale -->
           <ThemeSection id="radius-scale">
             <ThemeSectionHeader title="Radius Scale">
-              <p class="text-lg text-gray-600 mt-4">
+              <P class="text-lg text-gray-600 mt-4">
                 A comprehensive scale of border radius values to maintain consistent corner rounding across components.
-              </p>
+              </P>
             </ThemeSectionHeader>
             <ThemeSectionBody class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12">
               {Object.entries(theme.borderRadius).map(([name, radius]) => (
-                <div class="space-y-6 group">
-                  <div class="relative">
-                    <div 
+                <Box class="space-y-6 group">
+                  <Box class="relative">
+                    <Box 
                       class="h-40 bg-gradient-to-br from-primary-200 to-primary-300 group-hover:scale-95 transition-transform"
                       style={`border-radius: ${radius}`}
                     />
-                    <div 
+                    <Box 
                       class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center bg-black/20 text-white font-medium"
                       style={`border-radius: ${radius}`}
                     >
                       {radius}
-                    </div>
-                  </div>
-                  <div class="space-y-2">
-                    <div class="text-base font-medium capitalize">{name}</div>
-                    <div class="text-sm text-gray-500 font-mono">{radius}</div>
-                  </div>
-                </div>
+                    </Box>
+                  </Box>
+                  <Box class="space-y-2">
+                    <Box class="text-base font-medium capitalize">{name}</Box>
+                    <Box class="text-sm text-gray-500 font-mono">{radius}</Box>
+                  </Box>
+                </Box>
               ))}
             </ThemeSectionBody>
           </ThemeSection>
@@ -86,39 +91,39 @@ const sections = [
           <!-- Component Examples -->
           <ThemeSection id="component-examples">
             <ThemeSectionHeader title="Component Examples">
-              <p class="text-lg text-gray-600 mt-4">
+              <P class="text-lg text-gray-600 mt-4">
                 Examples of how border radius is applied to different components to create consistent styling.
-              </p>
+              </P>
             </ThemeSectionHeader>
             <ThemeSectionBody class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-              <div class="space-y-6">
-                <h4 class="text-xl font-medium">Buttons</h4>
-                <div class="space-y-4">
+              <Box class="space-y-6">
+                <H4>Buttons</H4>
+                <Box class="space-y-4">
                   {Object.entries(theme.borderRadius).map(([name, radius]) => (
-                    <div class="space-y-3">
+                    <Box class="space-y-3">
                       <PrimaryButton radius={radius} />
                       <OutlinedButton radius={radius} />
-                    </div>
+                    </Box>
                   ))}
-                </div>
-              </div>
-              <div class="space-y-6">
-                <h4 class="text-xl font-medium">Cards</h4>
-                <div class="grid grid-cols-2 gap-4">
+                </Box>
+              </Box>
+              <Box class="space-y-6">
+                <H4>Cards</H4>
+                <Box class="grid grid-cols-2 gap-4">
                   {Object.entries(theme.borderRadius).slice(0, 4).map(([name, radius]) => (
-                    <div 
+                    <Box 
                       class="p-4 bg-white border border-gray-200 shadow-sm"
                       style={`border-radius: ${radius}`}
                     >
-                      <div class="text-sm font-medium">{name}</div>
-                    </div>
+                      <Box class="text-sm font-medium">{name}</Box>
+                    </Box>
                   ))}
-                </div>
-              </div>
+                </Box>
+              </Box>
             </ThemeSectionBody>
           </ThemeSection>
-        </div>
-      </div>
+        </Box>
+      </Box>
     </AppPageSection>
   </AppPageBody>
 </AppPage> 
