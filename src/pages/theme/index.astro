@@ -1,0 +1,73 @@
+---
+import AppPage from "../_app/_AppPage.astro";
+import AppPageBody from "../_app/_AppPageBody.astro";
+import AppPageHeader from "../_app/_AppPageHeader.astro";
+import AppPageSection from "../_app/_AppPageSection.astro";
+
+const themePages = [
+  {
+    id: 'colors',
+    title: 'Colors',
+    description: 'Color scales, base colors, and gradients.',
+  },
+  {
+    id: 'typography',
+    title: 'Typography',
+    description: 'Font sizes, weights, and text styles.',
+  },
+  {
+    id: 'spacing',
+    title: 'Spacing',
+    description: 'Margins, padding, and layout spacing.',
+  },
+  {
+    id: 'border-radius',
+    title: 'Border Radius',
+    description: 'Corner radius values for components.',
+  },
+  {
+    id: 'shadows',
+    title: 'Shadows',
+    description: 'Elevation and depth effects.',
+  },
+  {
+    id: 'transitions',
+    title: 'Transitions',
+    description: 'Motion and animation timings.',
+  }
+];
+---
+
+<AppPage>
+  <AppPageHeader />
+  <AppPageBody class="bg-gray-50">
+    <AppPageSection>
+      <div class="max-w-5xl mx-auto py-16 px-6">
+        <!-- Header -->
+        <div class="mb-12 text-center">
+          <h1 class="text-4xl font-bold mb-4">Design System</h1>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            A collection of design tokens and patterns for consistent, high-quality interfaces.
+          </p>
+        </div>
+
+        <!-- Theme Navigation -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {themePages.map(({ id, title, description }) => (
+            <a 
+              href={`/theme/${id}`}
+              class="block p-4 bg-white rounded-lg border border-gray-200 hover:border-primary-500 hover:shadow-sm transition-all"
+            >
+              <h2 class="text-lg font-semibold mb-2 text-gray-900">
+                {title}
+              </h2>
+              <p class="text-sm text-gray-600">
+                {description}
+              </p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </AppPageSection>
+  </AppPageBody>
+</AppPage> 

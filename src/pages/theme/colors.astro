@@ -1,0 +1,140 @@
+---
+import AppPage from "../_app/_AppPage.astro";
+import AppPageBody from "../_app/_AppPageBody.astro";
+import AppPageHeader from "../_app/_AppPageHeader.astro";
+import AppPageSection from "../_app/_AppPageSection.astro";
+import ThemeSection from "../../components/theme/ThemeSection.astro";
+import ThemeSectionHeader from "../../components/theme/ThemeSectionHeader.astro";
+import ThemeSectionBody from "../../components/theme/ThemeSectionBody.astro";
+import { theme } from "../../theme";
+import ThemeSidebar from "../../components/theme/ThemeSidebar.astro";
+
+const colorScales = Object.entries(theme.colors).filter(([_, value]) => 
+  typeof value === 'object'
+);
+const singleColors = Object.entries(theme.colors).filter(([_, value]) => 
+  typeof value === 'string'
+);
+
+const sections = [
+  { id: 'color-scales', label: 'Color Scales' },
+  { id: 'base-colors', label: 'Base Colors' },
+  { id: 'gradients', label: 'Gradients' }
+];
+---
+
+<AppPage>
+  <AppPageHeader />
+  <AppPageBody class="bg-gray-50">
+    <AppPageSection>
+      <div class="max-w-[90rem] mx-auto py-16 px-6">
+        <!-- Header -->
+        <div class="mb-16">
+          <a href="/theme" class="text-primary-600 hover:text-primary-700 mb-4 inline-block">&larr; Back to Design System</a>
+          <h1 class="text-5xl font-bold mb-6">Colors</h1>
+          <p class="text-xl text-gray-600 max-w-3xl">
+            Our color system is designed to be accessible, consistent, and flexible. It includes a range of scales for primary and neutral colors, along with single-value colors and gradients.
+          </p>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="mb-16">
+          <ul class="flex flex-col gap-2">
+            <li>
+              <div class="px-4 py-2 text-gray-900 font-medium">Colors</div>
+              <ul class="ml-4 mt-1 border-l border-gray-200 space-y-1">
+                {sections.map(({ id, label }) => (
+                  <li>
+                    <a
+                      href={`#${id}`}
+                      class="block pl-4 py-1.5 text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-md transition-colors text-sm"
+                    >
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="space-y-24">
+          <!-- Color Scales -->
+          <ThemeSection id="color-scales">
+            <ThemeSectionHeader title="Color Scales">
+              <p class="text-lg text-gray-600 mt-4">
+                Color scales provide a range of shades for each primary color, allowing for consistent and accessible color usage across the application.
+              </p>
+            </ThemeSectionHeader>
+            <ThemeSectionBody class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-16">
+              {colorScales.map(([name, scale]) => (
+                <div class="space-y-6">
+                  <h4 class="text-2xl font-medium capitalize">{name}</h4>
+                  <div class="grid grid-cols-10 gap-3">
+                    {Object.entries(scale).map(([shade, color]) => (
+                      <div class="space-y-3">
+                        <div 
+                          class="h-20 rounded-md shadow-sm" 
+                          style={`background-color: ${color}`}
+                        />
+                        <div class="text-sm text-center font-medium">{shade}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </ThemeSectionBody>
+          </ThemeSection>
+
+          <!-- Single Colors -->
+          <ThemeSection id="base-colors">
+            <ThemeSectionHeader title="Base Colors">
+              <p class="text-lg text-gray-600 mt-4">
+                Single-value colors are used for specific purposes where a consistent, non-scaled color is needed.
+              </p>
+            </ThemeSectionHeader>
+            <ThemeSectionBody class="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-12">
+              {singleColors.map(([name, color]) => (
+                <div class="space-y-4">
+                  <div 
+                    class="h-32 rounded-lg shadow-md" 
+                    style={`background-color: ${color}`}
+                  />
+                  <div class="text-base font-medium capitalize">{name}</div>
+                </div>
+              ))}
+            </ThemeSectionBody>
+          </ThemeSection>
+
+          <!-- Gradients -->
+          <ThemeSection id="gradients">
+            <ThemeSectionHeader title="Gradients">
+              <p class="text-lg text-gray-600 mt-4">
+                Gradients add depth and visual interest to the interface, perfect for backgrounds and decorative elements.
+              </p>
+            </ThemeSectionHeader>
+            <ThemeSectionBody class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-16">
+              {Object.entries(theme.gradients).map(([name, gradient]) => (
+                <div class="space-y-6">
+                  <h4 class="text-2xl font-medium capitalize">{name}</h4>
+                  <div 
+                    class="h-40 rounded-lg shadow-md" 
+                    style={`background: linear-gradient(to right, ${gradient.start}, ${gradient.mid1}, ${gradient.mid2}, ${gradient.end})`}
+                  />
+                  <div class="grid grid-cols-4 gap-6">
+                    {Object.entries(gradient).map(([position, color]) => (
+                      <div class="text-sm">
+                        <div class="font-medium capitalize">{position}</div>
+                        <div class="text-gray-500 mt-1">{color}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </ThemeSectionBody>
+          </ThemeSection>
+        </div>
+      </div>
+    </AppPageSection>
+  </AppPageBody>
+</AppPage> 

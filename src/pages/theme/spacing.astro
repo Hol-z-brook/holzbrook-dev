@@ -1,0 +1,103 @@
+---
+import AppPage from "../_app/_AppPage.astro";
+import AppPageBody from "../_app/_AppPageBody.astro";
+import AppPageHeader from "../_app/_AppPageHeader.astro";
+import AppPageSection from "../_app/_AppPageSection.astro";
+import ThemeSection from "../../components/theme/ThemeSection.astro";
+import ThemeSectionHeader from "../../components/theme/ThemeSectionHeader.astro";
+import ThemeSectionBody from "../../components/theme/ThemeSectionBody.astro";
+import { theme } from "../../theme";
+
+const sections = [
+  { id: 'spacing-scale', label: 'Spacing Scale' },
+  { id: 'usage-examples', label: 'Usage Examples' }
+];
+---
+
+<AppPage>
+  <AppPageHeader />
+  <AppPageBody class="bg-gray-50">
+    <AppPageSection>
+      <div class="max-w-[90rem] mx-auto py-16 px-6">
+        <!-- Header -->
+        <div class="mb-16">
+          <a href="/theme" class="text-primary-600 hover:text-primary-700 mb-4 inline-block">&larr; Back to Design System</a>
+          <h1 class="text-5xl font-bold mb-6">Spacing</h1>
+          <p class="text-xl text-gray-600 max-w-3xl">
+            A consistent spacing system helps create harmonious layouts and maintain visual rhythm throughout the interface.
+          </p>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="mb-16">
+          <ul class="flex flex-col gap-2">
+            <li>
+              <div class="px-4 py-2 text-gray-900 font-medium">Spacing</div>
+              <ul class="ml-4 mt-1 border-l border-gray-200 space-y-1">
+                {sections.map(({ id, label }) => (
+                  <li>
+                    <a
+                      href={`#${id}`}
+                      class="block pl-4 py-1.5 text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-md transition-colors text-sm"
+                    >
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="space-y-24">
+          <!-- Spacing Scale -->
+          <ThemeSection id="spacing-scale">
+            <ThemeSectionHeader title="Spacing Scale">
+              <p class="text-lg text-gray-600 mt-4">
+                Our spacing scale provides consistent increments for margins, padding, and layout composition.
+              </p>
+            </ThemeSectionHeader>
+            <ThemeSectionBody class="space-y-8">
+              {Object.entries(theme.spacing).map(([name, space]) => (
+                <div class="flex items-center gap-12">
+                  <div class="w-32 text-base font-medium text-gray-500">{name}</div>
+                  <div 
+                    class="bg-primary-200 rounded"
+                    style={`width: ${space}; height: 40px`}
+                  />
+                  <div class="text-base text-gray-500">{space}</div>
+                </div>
+              ))}
+            </ThemeSectionBody>
+          </ThemeSection>
+
+          <!-- Usage Examples -->
+          <ThemeSection id="usage-examples">
+            <ThemeSectionHeader title="Usage Examples">
+              <p class="text-lg text-gray-600 mt-4">
+                Common patterns and examples of how to apply spacing in your layouts.
+              </p>
+            </ThemeSectionHeader>
+            <ThemeSectionBody>
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="space-y-4 p-6 bg-white rounded-lg border border-gray-200">
+                  <h4 class="font-medium">Button Padding</h4>
+                  <button class="px-4 py-2 bg-primary-500 text-white rounded">
+                    Button with spacing-4
+                  </button>
+                </div>
+                <div class="space-y-4 p-6 bg-white rounded-lg border border-gray-200">
+                  <h4 class="font-medium">Card Spacing</h4>
+                  <div class="p-6 bg-gray-100 rounded">
+                    <div class="mb-4">Content with spacing-6</div>
+                    <div>More content</div>
+                  </div>
+                </div>
+              </div>
+            </ThemeSectionBody>
+          </ThemeSection>
+        </div>
+      </div>
+    </AppPageSection>
+  </AppPageBody>
+</AppPage> 

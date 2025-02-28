@@ -1,0 +1,98 @@
+---
+import AppPage from "../_app/_AppPage.astro";
+import AppPageBody from "../_app/_AppPageBody.astro";
+import AppPageHeader from "../_app/_AppPageHeader.astro";
+import AppPageSection from "../_app/_AppPageSection.astro";
+import ThemeSection from "../../components/theme/ThemeSection.astro";
+import ThemeSectionHeader from "../../components/theme/ThemeSectionHeader.astro";
+import ThemeSectionBody from "../../components/theme/ThemeSectionBody.astro";
+import { theme } from "../../theme";
+
+const sections = [
+  { id: 'font-sizes', label: 'Font Sizes' },
+  { id: 'font-weights', label: 'Font Weights' }
+];
+---
+
+<AppPage>
+  <AppPageHeader />
+  <AppPageBody class="bg-gray-50">
+    <AppPageSection>
+      <div class="max-w-[90rem] mx-auto py-16 px-6">
+        <!-- Header -->
+        <div class="mb-16">
+          <a href="/theme" class="text-primary-600 hover:text-primary-700 mb-4 inline-block">&larr; Back to Design System</a>
+          <h1 class="text-5xl font-bold mb-6">Typography</h1>
+          <p class="text-xl text-gray-600 max-w-3xl">
+            Our typography system provides consistent text styles and scales to ensure readability and hierarchy across all interfaces.
+          </p>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="mb-16">
+          <ul class="flex flex-col gap-2">
+            <li>
+              <div class="px-4 py-2 text-gray-900 font-medium">Typography</div>
+              <ul class="ml-4 mt-1 border-l border-gray-200 space-y-1">
+                {sections.map(({ id, label }) => (
+                  <li>
+                    <a
+                      href={`#${id}`}
+                      class="block pl-4 py-1.5 text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-md transition-colors text-sm"
+                    >
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="space-y-24">
+          <!-- Font Sizes -->
+          <ThemeSection id="font-sizes">
+            <ThemeSectionHeader title="Font Sizes">
+              <p class="text-lg text-gray-600 mt-4">
+                A comprehensive scale of font sizes designed to create clear visual hierarchy and maintain readability across different screen sizes.
+              </p>
+            </ThemeSectionHeader>
+            <ThemeSectionBody class="space-y-16">
+              <div class="space-y-8">
+                {Object.entries(theme.fontSizes).map(([name, size]) => (
+                  <div class="flex items-baseline gap-12">
+                    <div class="w-32 text-base font-medium text-gray-500">{name}</div>
+                    <div style={`font-size: ${size}`}>
+                      The quick brown fox jumps over the lazy dog
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </ThemeSectionBody>
+          </ThemeSection>
+
+          <!-- Font Weights -->
+          <ThemeSection id="font-weights">
+            <ThemeSectionHeader title="Font Weights">
+              <p class="text-lg text-gray-600 mt-4">
+                Different font weights help establish hierarchy and emphasis in your typography.
+              </p>
+            </ThemeSectionHeader>
+            <ThemeSectionBody class="space-y-16">
+              <div class="space-y-8">
+                {Object.entries(theme.fontWeights).map(([name, weight]) => (
+                  <div class="flex items-center gap-12">
+                    <div class="w-32 text-base font-medium text-gray-500">{name}</div>
+                    <div style={`font-weight: ${weight}`} class="text-xl">
+                      The quick brown fox jumps over the lazy dog
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </ThemeSectionBody>
+          </ThemeSection>
+        </div>
+      </div>
+    </AppPageSection>
+  </AppPageBody>
+</AppPage> 
