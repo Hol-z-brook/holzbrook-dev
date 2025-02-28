@@ -8,6 +8,7 @@ import OutlinedButton from "../components/theme/OutlinedButton.astro";
 import ThemeSection from "../components/theme/ThemeSection.astro";
 import ThemeSectionHeader from "../components/theme/ThemeSectionHeader.astro";
 import ThemeSectionBody from "../components/theme/ThemeSectionBody.astro";
+import ThemeSidebar from "../components/theme/ThemeSidebar.astro";
 import { theme } from "../theme";
 
 const colorScales = Object.entries(theme.colors).filter(([_, value]) => 
@@ -22,197 +23,201 @@ const singleColors = Object.entries(theme.colors).filter(([_, value]) =>
   <AppPageHeader />
   <AppPageBody class="bg-gray-50">
     <AppPageSection>
-      <div class="max-w-6xl mx-auto py-16 px-6">
+      <div class="max-w-[90rem] mx-auto py-16 px-6">
         <!-- Header -->
         <section class="mb-16">
           <h2 class="text-4xl font-bold mb-6">Theme Showcase</h2>
-          <p class="text-xl text-gray-600 max-w-2xl">
+          <p class="text-xl text-gray-600 max-w-3xl">
             A comprehensive demonstration of all theme elements used in the design system.
           </p>
         </section>
 
-        <div class="space-y-16">
-          <!-- Color Scales -->
-          <ThemeSection>
-            <ThemeSectionHeader title="Color Scales" />
-            <ThemeSectionBody class="grid grid-cols-1 md:grid-cols-2 gap-12">
-              {colorScales.map(([name, scale]) => (
-                <div class="space-y-4">
-                  <h4 class="text-xl font-medium capitalize">{name}</h4>
-                  <div class="grid grid-cols-10 gap-2">
-                    {Object.entries(scale).map(([shade, color]) => (
-                      <div class="space-y-2">
-                        <div 
-                          class="h-16 rounded-md shadow-sm" 
-                          style={`background-color: ${color}`}
-                        />
-                        <div class="text-xs text-center font-medium">{shade}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </ThemeSectionBody>
-          </ThemeSection>
-
-          <!-- Single Colors -->
-          <ThemeSection>
-            <ThemeSectionHeader title="Base Colors" />
-            <ThemeSectionBody class="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {singleColors.map(([name, color]) => (
-                <div class="space-y-3">
-                  <div 
-                    class="h-24 rounded-lg shadow-md" 
-                    style={`background-color: ${color}`}
-                  />
-                  <div class="text-sm font-medium capitalize">{name}</div>
-                </div>
-              ))}
-            </ThemeSectionBody>
-          </ThemeSection>
-
-          <!-- Gradients -->
-          <ThemeSection>
-            <ThemeSectionHeader title="Gradients" />
-            <ThemeSectionBody class="grid grid-cols-1 md:grid-cols-2 gap-12">
-              {Object.entries(theme.gradients).map(([name, gradient]) => (
-                <div class="space-y-4">
-                  <h4 class="text-xl font-medium capitalize">{name}</h4>
-                  <div 
-                    class="h-32 rounded-lg shadow-md" 
-                    style={`background: linear-gradient(to right, ${gradient.start}, ${gradient.mid1}, ${gradient.mid2}, ${gradient.end})`}
-                  />
-                  <div class="grid grid-cols-4 gap-4">
-                    {Object.entries(gradient).map(([position, color]) => (
-                      <div class="text-sm">
-                        <div class="font-medium capitalize">{position}</div>
-                        <div class="text-gray-500 mt-1">{color}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </ThemeSectionBody>
-          </ThemeSection>
-
-          <!-- Typography -->
-          <ThemeSection>
-            <ThemeSectionHeader title="Typography" />
-            <ThemeSectionBody class="space-y-16">
-              <!-- Font Sizes -->
-              <div>
-                <h4 class="text-xl font-medium mb-6">Font Sizes</h4>
-                <div class="space-y-6">
-                  {Object.entries(theme.fontSizes).map(([name, size]) => (
-                    <div class="flex items-baseline gap-8">
-                      <div class="w-24 text-sm font-medium text-gray-500">{name}</div>
-                      <div style={`font-size: ${size}`}>
-                        The quick brown fox jumps over the lazy dog
-                      </div>
+        <div class="flex gap-12">
+          <ThemeSidebar class="hidden lg:block" />
+          
+          <div class="flex-1 space-y-24">
+            <!-- Color Scales -->
+            <ThemeSection id="color-scales">
+              <ThemeSectionHeader title="Color Scales" />
+              <ThemeSectionBody class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-16">
+                {colorScales.map(([name, scale]) => (
+                  <div class="space-y-6">
+                    <h4 class="text-2xl font-medium capitalize">{name}</h4>
+                    <div class="grid grid-cols-10 gap-3">
+                      {Object.entries(scale).map(([shade, color]) => (
+                        <div class="space-y-3">
+                          <div 
+                            class="h-20 rounded-md shadow-sm" 
+                            style={`background-color: ${color}`}
+                          />
+                          <div class="text-sm text-center font-medium">{shade}</div>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </div>
+                  </div>
+                ))}
+              </ThemeSectionBody>
+            </ThemeSection>
 
-              <!-- Font Weights -->
-              <div>
-                <h4 class="text-xl font-medium mb-6">Font Weights</h4>
-                <div class="space-y-6">
-                  {Object.entries(theme.fontWeights).map(([name, weight]) => (
-                    <div class="flex items-center gap-8">
-                      <div class="w-24 text-sm font-medium text-gray-500">{name}</div>
-                      <div style={`font-weight: ${weight}`}>
-                        The quick brown fox jumps over the lazy dog
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </ThemeSectionBody>
-          </ThemeSection>
-
-          <!-- Spacing -->
-          <ThemeSection>
-            <ThemeSectionHeader title="Spacing" />
-            <ThemeSectionBody class="space-y-6">
-              {Object.entries(theme.spacing).map(([name, space]) => (
-                <div class="flex items-center gap-8">
-                  <div class="w-24 text-sm font-medium text-gray-500">{name}</div>
-                  <div 
-                    class="bg-primary-200 rounded"
-                    style={`width: ${space}; height: 32px`}
-                  />
-                  <div class="text-sm text-gray-500">{space}</div>
-                </div>
-              ))}
-            </ThemeSectionBody>
-          </ThemeSection>
-
-          <!-- Border Radius -->
-          <ThemeSection>
-            <ThemeSectionHeader title="Border Radius" />
-            <ThemeSectionBody class="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {Object.entries(theme.borderRadius).map(([name, radius]) => (
-                <div class="space-y-4 group">
-                  <div class="relative">
+            <!-- Single Colors -->
+            <ThemeSection id="base-colors">
+              <ThemeSectionHeader title="Base Colors" />
+              <ThemeSectionBody class="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-12">
+                {singleColors.map(([name, color]) => (
+                  <div class="space-y-4">
                     <div 
-                      class="h-32 bg-gradient-to-br from-primary-200 to-primary-300 group-hover:scale-95 transition-transform"
-                      style={`border-radius: ${radius}`}
+                      class="h-32 rounded-lg shadow-md" 
+                      style={`background-color: ${color}`}
                     />
+                    <div class="text-base font-medium capitalize">{name}</div>
+                  </div>
+                ))}
+              </ThemeSectionBody>
+            </ThemeSection>
+
+            <!-- Gradients -->
+            <ThemeSection id="gradients">
+              <ThemeSectionHeader title="Gradients" />
+              <ThemeSectionBody class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-16">
+                {Object.entries(theme.gradients).map(([name, gradient]) => (
+                  <div class="space-y-6">
+                    <h4 class="text-2xl font-medium capitalize">{name}</h4>
                     <div 
-                      class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center bg-black/20 text-white font-medium"
-                      style={`border-radius: ${radius}`}
-                    >
-                      {radius}
+                      class="h-40 rounded-lg shadow-md" 
+                      style={`background: linear-gradient(to right, ${gradient.start}, ${gradient.mid1}, ${gradient.mid2}, ${gradient.end})`}
+                    />
+                    <div class="grid grid-cols-4 gap-6">
+                      {Object.entries(gradient).map(([position, color]) => (
+                        <div class="text-sm">
+                          <div class="font-medium capitalize">{position}</div>
+                          <div class="text-gray-500 mt-1">{color}</div>
+                        </div>
+                      ))}
                     </div>
                   </div>
-                  <div class="space-y-1">
-                    <div class="text-sm font-medium capitalize">{name}</div>
-                    <div class="text-xs text-gray-500 font-mono">{radius}</div>
-                  </div>
-                  <div class="space-y-2">
-                    <PrimaryButton radius={radius} />
-                    <OutlinedButton radius={radius} />
-                  </div>
-                </div>
-              ))}
-            </ThemeSectionBody>
-          </ThemeSection>
+                ))}
+              </ThemeSectionBody>
+            </ThemeSection>
 
-          <!-- Shadows -->
-          <ThemeSection>
-            <ThemeSectionHeader title="Shadows" />
-            <ThemeSectionBody class="grid grid-cols-2 md:grid-cols-3 gap-12">
-              {Object.entries(theme.shadows).map(([name, shadow]) => (
-                <div class="space-y-3">
-                  <div 
-                    class="h-32 bg-white rounded-lg"
-                    style={`box-shadow: ${shadow}`}
-                  />
-                  <div class="text-sm font-medium">{name}</div>
+            <!-- Typography -->
+            <ThemeSection id="typography">
+              <ThemeSectionHeader title="Typography" />
+              <ThemeSectionBody class="space-y-24">
+                <!-- Font Sizes -->
+                <div>
+                  <h4 class="text-2xl font-medium mb-8">Font Sizes</h4>
+                  <div class="space-y-8">
+                    {Object.entries(theme.fontSizes).map(([name, size]) => (
+                      <div class="flex items-baseline gap-12">
+                        <div class="w-32 text-base font-medium text-gray-500">{name}</div>
+                        <div style={`font-size: ${size}`}>
+                          The quick brown fox jumps over the lazy dog
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              ))}
-            </ThemeSectionBody>
-          </ThemeSection>
 
-          <!-- Transitions -->
-          <ThemeSection>
-            <ThemeSectionHeader title="Transitions" />
-            <ThemeSectionBody class="grid grid-cols-1 md:grid-cols-3 gap-12">
-              {Object.entries(theme.transitions).map(([name, transition]) => (
-                <div class="space-y-3">
-                  <button 
-                    class="w-full py-4 px-6 bg-primary-200 rounded-lg hover:scale-105"
-                    style={`transition: transform ${transition}`}
-                  >
-                    Hover me
-                  </button>
-                  <div class="text-sm font-medium">{name}</div>
-                  <div class="text-sm text-gray-500">{transition}</div>
+                <!-- Font Weights -->
+                <div>
+                  <h4 class="text-2xl font-medium mb-8">Font Weights</h4>
+                  <div class="space-y-8">
+                    {Object.entries(theme.fontWeights).map(([name, weight]) => (
+                      <div class="flex items-center gap-12">
+                        <div class="w-32 text-base font-medium text-gray-500">{name}</div>
+                        <div style={`font-weight: ${weight}`} class="text-xl">
+                          The quick brown fox jumps over the lazy dog
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              ))}
-            </ThemeSectionBody>
-          </ThemeSection>
+              </ThemeSectionBody>
+            </ThemeSection>
+
+            <!-- Spacing -->
+            <ThemeSection id="spacing">
+              <ThemeSectionHeader title="Spacing" />
+              <ThemeSectionBody class="space-y-8">
+                {Object.entries(theme.spacing).map(([name, space]) => (
+                  <div class="flex items-center gap-12">
+                    <div class="w-32 text-base font-medium text-gray-500">{name}</div>
+                    <div 
+                      class="bg-primary-200 rounded"
+                      style={`width: ${space}; height: 40px`}
+                    />
+                    <div class="text-base text-gray-500">{space}</div>
+                  </div>
+                ))}
+              </ThemeSectionBody>
+            </ThemeSection>
+
+            <!-- Border Radius -->
+            <ThemeSection id="border-radius">
+              <ThemeSectionHeader title="Border Radius" />
+              <ThemeSectionBody class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12">
+                {Object.entries(theme.borderRadius).map(([name, radius]) => (
+                  <div class="space-y-6 group">
+                    <div class="relative">
+                      <div 
+                        class="h-40 bg-gradient-to-br from-primary-200 to-primary-300 group-hover:scale-95 transition-transform"
+                        style={`border-radius: ${radius}`}
+                      />
+                      <div 
+                        class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center bg-black/20 text-white font-medium"
+                        style={`border-radius: ${radius}`}
+                      >
+                        {radius}
+                      </div>
+                    </div>
+                    <div class="space-y-2">
+                      <div class="text-base font-medium capitalize">{name}</div>
+                      <div class="text-sm text-gray-500 font-mono">{radius}</div>
+                    </div>
+                    <div class="space-y-3">
+                      <PrimaryButton radius={radius} />
+                      <OutlinedButton radius={radius} />
+                    </div>
+                  </div>
+                ))}
+              </ThemeSectionBody>
+            </ThemeSection>
+
+            <!-- Shadows -->
+            <ThemeSection id="shadows">
+              <ThemeSectionHeader title="Shadows" />
+              <ThemeSectionBody class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16">
+                {Object.entries(theme.shadows).map(([name, shadow]) => (
+                  <div class="space-y-4">
+                    <div 
+                      class="h-40 bg-white rounded-lg"
+                      style={`box-shadow: ${shadow}`}
+                    />
+                    <div class="text-base font-medium">{name}</div>
+                  </div>
+                ))}
+              </ThemeSectionBody>
+            </ThemeSection>
+
+            <!-- Transitions -->
+            <ThemeSection id="transitions">
+              <ThemeSectionHeader title="Transitions" />
+              <ThemeSectionBody class="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-16">
+                {Object.entries(theme.transitions).map(([name, transition]) => (
+                  <div class="space-y-4">
+                    <button 
+                      class="w-full py-6 px-8 bg-primary-200 rounded-lg hover:scale-105"
+                      style={`transition: transform ${transition}`}
+                    >
+                      Hover me
+                    </button>
+                    <div class="text-base font-medium">{name}</div>
+                    <div class="text-sm text-gray-500">{transition}</div>
+                  </div>
+                ))}
+              </ThemeSectionBody>
+            </ThemeSection>
+          </div>
         </div>
       </div>
     </AppPageSection>

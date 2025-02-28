@@ -1,0 +1,35 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
+const sections = [
+  { id: 'color-scales', label: 'Color Scales' },
+  { id: 'base-colors', label: 'Base Colors' },
+  { id: 'gradients', label: 'Gradients' },
+  { id: 'typography', label: 'Typography' },
+  { id: 'spacing', label: 'Spacing' },
+  { id: 'border-radius', label: 'Border Radius' },
+  { id: 'shadows', label: 'Shadows' },
+  { id: 'transitions', label: 'Transitions' },
+];
+---
+
+<aside class={`sticky top-32 w-64 h-fit bg-white rounded-lg border border-gray-200 shadow-sm p-4 ${className}`}>
+  <nav>
+    <ul class="space-y-2">
+      {sections.map(({ id, label }) => (
+        <li>
+          <a
+            href={`#${id}`}
+            class="block px-4 py-2 text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-md transition-colors"
+          >
+            {label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</aside> 
