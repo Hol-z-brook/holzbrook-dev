@@ -3,22 +3,21 @@ import AppPage from "../_app/_AppPage.astro";
 import AppPageBody from "../_app/_AppPageBody.astro";
 import AppPageHeader from "../_app/_AppPageHeader.astro";
 import AppPageSection from "../_app/_AppPageSection.astro";
-import { makeSherpa } from "../_sherpa/_Sherpa";
 import ThemeSection from "../../components/theme/ThemeSection.astro";
 import ThemeSectionHeader from "../../components/theme/ThemeSectionHeader.astro";
 import ThemeSectionBody from "../../components/theme/ThemeSectionBody.astro";
-import BackLink from "../../lib/ui/BackLink.astro";
+import ThemePageBackLink from "./_ui/_ThemePageBackLink.astro";
+import ThemePageTitle from "./_ui/_ThemePageTitle.astro";
+import ThemePageDescription from "./_ui/_ThemePageDescription.astro";
+import ThemePageHeader from "./_ui/_ThemePageHeader.astro";
 import A from "../../lib/ui/A.astro";
 import Box from "../../lib/ui/Box.astro";
-import H1 from "../../lib/ui/H1.astro";
 import H4 from "../../lib/ui/H4.astro";
 import Li from "../../lib/ui/Li.astro";
 import Nav from "../../lib/ui/Nav.astro";
 import P from "../../lib/ui/P.astro";
 import Ul from "../../lib/ui/Ul.astro";
 import { theme } from "../../theme";
-
-const sherpa = makeSherpa();
 
 const colorScales = Object.entries(theme.colors).filter(([_, value]) => 
   typeof value === 'object'
@@ -39,14 +38,13 @@ const sections = [
   <AppPageBody class="bg-gray-50">
     <AppPageSection>
       <Box class="max-w-[90rem] mx-auto py-16 px-6">
-        <!-- Header -->
-        <Box class="mb-16">
-          <BackLink href={sherpa.theme.index()} class="mb-4">Back to Pickles UI</BackLink>
-          <H1 class="text-5xl font-bold mb-6">Colors</H1>
-          <P class="text-xl text-gray-600 max-w-3xl">
+        <ThemePageHeader>
+          <ThemePageBackLink />
+          <ThemePageTitle>Colors</ThemePageTitle>
+          <ThemePageDescription>
             Our color system is designed to be accessible, consistent, and flexible. It includes a range of scales for primary and neutral colors, along with single-value colors and gradients.
-          </P>
-        </Box>
+          </ThemePageDescription>
+        </ThemePageHeader>
 
         <!-- Navigation -->
         <Nav class="mb-16">
