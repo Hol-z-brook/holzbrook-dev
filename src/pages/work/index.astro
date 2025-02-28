@@ -61,6 +61,12 @@ import WorkSectionGrid from "./_WorkSectionGrid.astro";
 import WorkSectionTitle from "./_WorkSectionTitle.astro";
 import Center from "../../lib/ui/Center.astro";
 
+/*
+TODO: Modern Design Elements
+[ ] Implement dark mode toggle - Add theme provider and toggle component
+[ ] Add glass morphism effects - Create reusable glass effect styles
+*/
+
 const sherpa = makeSherpa();
 const resumeUrl = sherpa.work.resume({});
 
@@ -158,6 +164,10 @@ const coreProficiencies: CoreProficiency[] = [
 ---
 
 <AppPage>
+  {/* TODO: Performance & Accessibility
+    [ ] Add keyboard navigation
+    [ ] Implement proper ARIA labels
+  */}
   <AppPageHeader />
 
   <AppPageBody
@@ -168,6 +178,12 @@ const coreProficiencies: CoreProficiency[] = [
       min-h-screen
     `}
   >
+    {/* TODO: Hero Section Enhancements
+      [ ] Add dynamic background (gradient animation)
+      [ ] Include geometric shapes or professional photo
+      [ ] Implement particle.js background
+      [ ] Add subtle scroll-triggered animations
+    */}
     <AppPageHero
       title="My Career"
       subtitle="When work is play, you'll never play another day in your life."
@@ -176,6 +192,11 @@ const coreProficiencies: CoreProficiency[] = [
       `}
     />
 
+    {/* TODO: Interactive Elements
+      [ ] Add smooth section scrolling
+      [ ] Implement floating navigation
+      [ ] Add progress indicators
+    */}
     <AppPageSection
       class={`
         w-full
@@ -185,12 +206,23 @@ const coreProficiencies: CoreProficiency[] = [
         space-y-32
       `}
     >
+      {/* TODO: Visual Hierarchy
+        [ ] Develop distinct color scheme palette
+        [ ] Enhance typography scale
+        [ ] Add section dividers/decorative elements
+        [ ] Improve spacing and rhythm
+      */}
       <VStack
         class={`
           gap-8
         `}
       >
         <WorkSection>
+          {/* TODO: Card Layout Improvements
+            [ ] Add staggered animation on card entry
+            [ ] Enhance hover effects with 3D transforms
+            [ ] Add border gradients to cards
+          */}
           <WorkSectionTitle>Work Experience</WorkSectionTitle>
           {[
               chatbooksWorkExperience,
@@ -203,6 +235,9 @@ const coreProficiencies: CoreProficiency[] = [
 
         <WorkSection>
           <WorkSectionTitle>Projects</WorkSectionTitle>
+          {/* TODO: Card Layout Improvements
+            [ ] Implement masonry layout for projects
+          */}
           <WorkSectionGrid>
             {projects.map((project) => (
               <ProjectCard {...project} />
@@ -222,6 +257,9 @@ const coreProficiencies: CoreProficiency[] = [
 
           <WorkSection>
             <WorkSectionTitle>Technical Skills</WorkSectionTitle>
+            {/* TODO: Interactive Elements
+              [ ] Enhance skill tag interactions
+            */}
             <WorkSectionGrid>
               {skillCategories.map((category) => (
                 <SkillCategoryCard {...category} />
@@ -251,6 +289,10 @@ const coreProficiencies: CoreProficiency[] = [
 
     </AppPageSection>
 
+    {/* TODO: Performance & Accessibility
+      [ ] Optimize animations for reduced motion
+      [ ] Ensure WCAG 2.1 compliance
+    */}
     <AppPageFooter />
   </AppPageBody>
 </AppPage>
