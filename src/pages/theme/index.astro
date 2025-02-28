@@ -3,9 +3,11 @@ import AppPage from "../_app/_AppPage.astro";
 import AppPageBody from "../_app/_AppPageBody.astro";
 import AppPageHeader from "../_app/_AppPageHeader.astro";
 import AppPageSection from "../_app/_AppPageSection.astro";
-import H1 from "../../lib/ui/H1.astro";
 import { makeSherpa } from "../_sherpa/_Sherpa";
-
+import Box from "../../lib/ui/Box.astro";
+import H1 from "../../lib/ui/H1.astro";
+import H2 from "../../lib/ui/H2.astro";
+import P from "../../lib/ui/P.astro";
 const sherpa = makeSherpa();
 
 const themePages = [
@@ -64,44 +66,44 @@ const themePages = [
   <AppPageHeader />
   <AppPageBody class="bg-gray-50">
     <AppPageSection>
-      <div class="max-w-5xl mx-auto py-16 px-6">
+      <Box class="max-w-5xl mx-auto py-16 px-6">
         <!-- Header -->
-        <div class="mb-16 text-center">
+        <Box class="mb-16 text-center">
           <H1>
             Pickles
           </H1>
-          <div class="text-xl font-medium text-primary-600 mb-6">
+          <Box class="text-xl font-medium text-primary-600 mb-6">
             An opinionated design system
-          </div>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          </Box>
+          <P class="text-lg max-w-2xl mx-auto leading-relaxed">
             Because great design isn't made by committee. These are the strong opinions and careful decisions that shape holzbrook.dev into what it is — with a dash of whimsy.
-          </p>
-        </div>
+          </P>
+        </Box>
 
         <!-- Theme Navigation -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <Box class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {themePages.map(({ title, description, href, icon, gradient }) => (
             <a 
               href={href}
               class="group relative overflow-hidden p-6 bg-white rounded-xl border border-gray-200 hover:border-transparent hover:shadow-lg transition-all duration-300"
             >
-              <div class={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+              <Box class={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
               
-              <div class="relative">
-                <div class="text-3xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
+              <Box class="relative">
+                <Box class="text-3xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
                   {icon}
-                </div>
-                <h2 class="text-xl font-semibold mb-2 text-gray-900 group-hover:text-primary-600 transition-colors">
+                </Box>
+                <H2 class="text-xl font-semibold mb-2 text-gray-900 group-hover:text-primary-600 transition-colors">
                   {title}
-                </h2>
-                <p class="text-gray-600">
+                </H2>
+                <P>
                   {description}
-                </p>
-              </div>
+                </P>
+              </Box>
             </a>
           ))}
-        </div>
-      </div>
+        </Box>
+      </Box>
     </AppPageSection>
   </AppPageBody>
 </AppPage>
