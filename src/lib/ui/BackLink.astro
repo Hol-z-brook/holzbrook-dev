@@ -1,0 +1,18 @@
+---
+import Box from './Box.astro';
+
+interface Props {
+  href: string;
+  class?: string;
+}
+
+const { href, class: className } = Astro.props;
+---
+
+<Box 
+  as="a" 
+  {href} 
+  class={`text-primary-600 hover:text-primary-700 inline-block ${className || ''}`}
+>
+  &larr; <slot />
+</Box> 

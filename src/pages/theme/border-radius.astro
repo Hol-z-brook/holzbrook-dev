@@ -9,6 +9,7 @@ import ThemeSectionBody from "../../components/theme/ThemeSectionBody.astro";
 import PrimaryButton from "../../components/theme/PrimaryButton.astro";
 import OutlinedButton from "../../components/theme/OutlinedButton.astro";
 import Box from "../../lib/ui/Box.astro";
+import BackLink from "../../lib/ui/BackLink.astro";
 import H1 from "../../lib/ui/H1.astro";
 import H4 from "../../lib/ui/H4.astro";
 import P from "../../lib/ui/P.astro";
@@ -27,7 +28,7 @@ const sections = [
       <Box class="max-w-[90rem] mx-auto py-16 px-6">
         <!-- Header -->
         <Box class="mb-16">
-          <Box as="a" href="/theme" class="text-primary-600 hover:text-primary-700 mb-4 inline-block">&larr; Back to Design System</Box>
+          <BackLink href="/theme" class="mb-4">Back to Design System</BackLink>
           <H1 class="mb-6">Border Radius</H1>
           <P class="text-xl text-gray-600 max-w-3xl">
             Our border radius system provides consistent corner rounding to create a cohesive and modern interface design.
