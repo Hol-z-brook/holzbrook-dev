@@ -3,12 +3,16 @@ import AppPage from "../_app/_AppPage.astro";
 import AppPageBody from "../_app/_AppPageBody.astro";
 import AppPageHeader from "../_app/_AppPageHeader.astro";
 import AppPageSection from "../_app/_AppPageSection.astro";
+import { makeSherpa } from "../_sherpa/_Sherpa";
 import ThemeSection from "../../components/theme/ThemeSection.astro";
 import ThemeSectionHeader from "../../components/theme/ThemeSectionHeader.astro";
 import ThemeSectionBody from "../../components/theme/ThemeSectionBody.astro";
-import { theme } from "../../theme";
 import BackLink from "../../lib/ui/BackLink.astro";
-import { makeSherpa } from "../_sherpa/_Sherpa";
+import Box from "../../lib/ui/Box.astro";
+import H1 from "../../lib/ui/H1.astro";
+import H4 from "../../lib/ui/H4.astro";
+import P from "../../lib/ui/P.astro";
+import { theme } from "../../theme";
 
 const sherpa = makeSherpa();
 
@@ -30,21 +34,21 @@ const sections = [
   <AppPageHeader />
   <AppPageBody class="bg-gray-50">
     <AppPageSection>
-      <div class="max-w-[90rem] mx-auto py-16 px-6">
+      <Box class="max-w-[90rem] mx-auto py-16 px-6">
         <!-- Header -->
-        <div class="mb-16">
+        <Box class="mb-16">
           <BackLink href={sherpa.theme.index()} class="mb-4">Back to Pickles UI</BackLink>
-          <h1 class="text-5xl font-bold mb-6">Colors</h1>
-          <p class="text-xl text-gray-600 max-w-3xl">
+          <H1 class="text-5xl font-bold mb-6">Colors</H1>
+          <P class="text-xl text-gray-600 max-w-3xl">
             Our color system is designed to be accessible, consistent, and flexible. It includes a range of scales for primary and neutral colors, along with single-value colors and gradients.
-          </p>
-        </div>
+          </P>
+        </Box>
 
         <!-- Navigation -->
         <nav class="mb-16">
           <ul class="flex flex-col gap-2">
             <li>
-              <div class="px-4 py-2 text-gray-900 font-medium">Colors</div>
+              <Box class="px-4 py-2 text-gray-900 font-medium">Colors</Box>
               <ul class="ml-4 mt-1 border-l border-gray-200 space-y-1">
                 {sections.map(({ id, label }) => (
                   <li>
@@ -61,7 +65,7 @@ const sections = [
           </ul>
         </nav>
 
-        <div class="space-y-24">
+        <Box class="space-y-24">
           <!-- Color Scales -->
           <ThemeSection id="color-scales">
             <ThemeSectionHeader title="Color Scales">
@@ -71,20 +75,20 @@ const sections = [
             </ThemeSectionHeader>
             <ThemeSectionBody class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-16">
               {colorScales.map(([name, scale]) => (
-                <div class="space-y-6">
-                  <h4 class="text-2xl font-medium capitalize">{name}</h4>
-                  <div class="grid grid-cols-10 gap-3">
+                <Box class="space-y-6">
+                  <H4 class="text-2xl font-medium capitalize">{name}</H4>
+                  <Box class="grid grid-cols-10 gap-3">
                     {Object.entries(scale).map(([shade, color]) => (
-                      <div class="space-y-3">
-                        <div 
+                      <Box class="space-y-3">
+                        <Box 
                           class="h-20 rounded-md shadow-sm" 
                           style={`background-color: ${color}`}
                         />
-                        <div class="text-sm text-center font-medium">{shade}</div>
-                      </div>
+                        <Box class="text-sm text-center font-medium">{shade}</Box>
+                      </Box>
                     ))}
-                  </div>
-                </div>
+                  </Box>
+                </Box>
               ))}
             </ThemeSectionBody>
           </ThemeSection>
@@ -92,19 +96,19 @@ const sections = [
           <!-- Single Colors -->
           <ThemeSection id="base-colors">
             <ThemeSectionHeader title="Base Colors">
-              <p class="text-lg text-gray-600 mt-4">
+              <P class="text-lg text-gray-600 mt-4">
                 Single-value colors are used for specific purposes where a consistent, non-scaled color is needed.
-              </p>
+              </P>
             </ThemeSectionHeader>
             <ThemeSectionBody class="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-12">
               {singleColors.map(([name, color]) => (
-                <div class="space-y-4">
-                  <div 
+                <Box class="space-y-4">
+                  <Box 
                     class="h-32 rounded-lg shadow-md" 
                     style={`background-color: ${color}`}
                   />
-                  <div class="text-base font-medium capitalize">{name}</div>
-                </div>
+                  <Box class="text-base font-medium capitalize">{name}</Box>
+                </Box>
               ))}
             </ThemeSectionBody>
           </ThemeSection>
@@ -112,32 +116,32 @@ const sections = [
           <!-- Gradients -->
           <ThemeSection id="gradients">
             <ThemeSectionHeader title="Gradients">
-              <p class="text-lg text-gray-600 mt-4">
+              <P class="text-lg text-gray-600 mt-4">
                 Gradients add depth and visual interest to the interface, perfect for backgrounds and decorative elements.
-              </p>
+              </P>
             </ThemeSectionHeader>
             <ThemeSectionBody class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-16">
               {Object.entries(theme.gradients).map(([name, gradient]) => (
-                <div class="space-y-6">
-                  <h4 class="text-2xl font-medium capitalize">{name}</h4>
-                  <div 
+                <Box class="space-y-6">
+                  <H4 class="text-2xl font-medium capitalize">{name}</H4>
+                  <Box 
                     class="h-40 rounded-lg shadow-md" 
                     style={`background: linear-gradient(to right, ${gradient.start}, ${gradient.mid1}, ${gradient.mid2}, ${gradient.end})`}
                   />
-                  <div class="grid grid-cols-4 gap-6">
+                  <Box class="grid grid-cols-4 gap-6">
                     {Object.entries(gradient).map(([position, color]) => (
-                      <div class="text-sm">
-                        <div class="font-medium capitalize">{position}</div>
-                        <div class="text-gray-500 mt-1">{color}</div>
-                      </div>
+                      <Box class="text-sm">
+                        <Box class="font-medium capitalize">{position}</Box>
+                        <Box class="text-gray-500 mt-1">{color}</Box>
+                      </Box>
                     ))}
-                  </div>
-                </div>
+                  </Box>
+                </Box>
               ))}
             </ThemeSectionBody>
           </ThemeSection>
-        </div>
-      </div>
+        </Box>
+      </Box>
     </AppPageSection>
   </AppPageBody>
 </AppPage> 
