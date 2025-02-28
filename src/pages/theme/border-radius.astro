@@ -14,6 +14,9 @@ import H1 from "../../lib/ui/H1.astro";
 import H4 from "../../lib/ui/H4.astro";
 import P from "../../lib/ui/P.astro";
 import { theme } from "../../theme";
+import { makeSherpa } from "../_sherpa/_Sherpa";
+
+const sherpa = makeSherpa();
 
 const sections = [
   { id: 'radius-scale', label: 'Radius Scale' },
@@ -28,7 +31,7 @@ const sections = [
       <Box class="max-w-[90rem] mx-auto py-16 px-6">
         <!-- Header -->
         <Box class="mb-16">
-          <BackLink href="/theme" class="mb-4">Back to Design System</BackLink>
+          <BackLink href={sherpa.theme.index()} class="mb-4">Back to Pickles UI</BackLink>
           <H1 class="mb-6">Border Radius</H1>
           <P class="text-xl text-gray-600 max-w-3xl">
             Our border radius system provides consistent corner rounding to create a cohesive and modern interface design.

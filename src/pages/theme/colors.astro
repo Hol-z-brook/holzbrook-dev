@@ -7,6 +7,10 @@ import ThemeSection from "../../components/theme/ThemeSection.astro";
 import ThemeSectionHeader from "../../components/theme/ThemeSectionHeader.astro";
 import ThemeSectionBody from "../../components/theme/ThemeSectionBody.astro";
 import { theme } from "../../theme";
+import BackLink from "../../lib/ui/BackLink.astro";
+import { makeSherpa } from "../_sherpa/_Sherpa";
+
+const sherpa = makeSherpa();
 
 const colorScales = Object.entries(theme.colors).filter(([_, value]) => 
   typeof value === 'object'
@@ -29,7 +33,7 @@ const sections = [
       <div class="max-w-[90rem] mx-auto py-16 px-6">
         <!-- Header -->
         <div class="mb-16">
-          <a href="/theme" class="text-primary-600 hover:text-primary-700 mb-4 inline-block">&larr; Back to Design System</a>
+          <BackLink href={sherpa.theme.index()} class="mb-4">Back to Pickles UI</BackLink>
           <h1 class="text-5xl font-bold mb-6">Colors</h1>
           <p class="text-xl text-gray-600 max-w-3xl">
             Our color system is designed to be accessible, consistent, and flexible. It includes a range of scales for primary and neutral colors, along with single-value colors and gradients.

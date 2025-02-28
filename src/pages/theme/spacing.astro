@@ -6,7 +6,11 @@ import AppPageSection from "../_app/_AppPageSection.astro";
 import ThemeSection from "../../components/theme/ThemeSection.astro";
 import ThemeSectionHeader from "../../components/theme/ThemeSectionHeader.astro";
 import ThemeSectionBody from "../../components/theme/ThemeSectionBody.astro";
+import BackLink from "../../lib/ui/BackLink.astro";
 import { theme } from "../../theme";
+import { makeSherpa } from "../_sherpa/_Sherpa";
+
+const sherpa = makeSherpa();
 
 const sections = [
   { id: 'spacing-scale', label: 'Spacing Scale' },
@@ -21,7 +25,7 @@ const sections = [
       <div class="max-w-[90rem] mx-auto py-16 px-6">
         <!-- Header -->
         <div class="mb-16">
-          <a href="/theme" class="text-primary-600 hover:text-primary-700 mb-4 inline-block">&larr; Back to Design System</a>
+          <BackLink href={sherpa.theme.index()} class="mb-4">Back to Pickles UI</BackLink>
           <h1 class="text-5xl font-bold mb-6">Spacing</h1>
           <p class="text-xl text-gray-600 max-w-3xl">
             A consistent spacing system helps create harmonious layouts and maintain visual rhythm throughout the interface.

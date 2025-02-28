@@ -8,6 +8,7 @@ import ThemeSectionHeader from "../../components/theme/ThemeSectionHeader.astro"
 import ThemeSectionBody from "../../components/theme/ThemeSectionBody.astro";
 import { theme } from "../../theme";
 import { makeSherpa } from "../_sherpa/_Sherpa";
+import BackLink from "../../lib/ui/BackLink.astro";
 
 const sherpa = makeSherpa();
 
@@ -24,7 +25,7 @@ const sections = [
       <div class="max-w-[90rem] mx-auto py-16 px-6">
         <!-- Header -->
         <div class="mb-16">
-          <a href={sherpa.theme.index()} class="text-primary-600 hover:text-primary-700 mb-4 inline-block">&larr; Back to Design System</a>
+          <BackLink href={sherpa.theme.index()} class="mb-4">Back to Pickles UI</BackLink>
           <h1 class="text-5xl font-bold mb-6">Typography</h1>
           <p class="text-xl text-gray-600 max-w-3xl">
             Our typography system provides consistent text styles and scales to ensure readability and hierarchy across all interfaces.

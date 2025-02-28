@@ -7,6 +7,11 @@ import ThemeSection from "../../components/theme/ThemeSection.astro";
 import ThemeSectionHeader from "../../components/theme/ThemeSectionHeader.astro";
 import ThemeSectionBody from "../../components/theme/ThemeSectionBody.astro";
 import { theme } from "../../theme";
+import BackLink from "../../lib/ui/BackLink.astro";
+
+import { makeSherpa } from "../_sherpa/_Sherpa";
+
+const sherpa = makeSherpa();
 
 const sections = [
   { id: 'shadow-scale', label: 'Shadow Scale' },
@@ -21,7 +26,7 @@ const sections = [
       <div class="max-w-[90rem] mx-auto py-16 px-6">
         <!-- Header -->
         <div class="mb-16">
-          <a href="/theme" class="text-primary-600 hover:text-primary-700 mb-4 inline-block">&larr; Back to Design System</a>
+          <BackLink href={sherpa.theme.index()} class="mb-4">Back to Pickles UI</BackLink>
           <h1 class="text-5xl font-bold mb-6">Shadows</h1>
           <p class="text-xl text-gray-600 max-w-3xl">
             Our shadow system creates depth and elevation in the interface, helping users understand hierarchy and focus.
