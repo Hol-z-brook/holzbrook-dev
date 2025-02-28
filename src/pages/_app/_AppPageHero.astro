@@ -13,9 +13,26 @@ const {
 ---
 
 <section
-  class={`py-24 text-center bg-gradient-to-br from-orange-300 via-white to-orange-100 ${className}`}
+  class={`
+    relative
+    py-24
+    text-center
+    overflow-hidden
+    ${className}
+  `}
 >
-  <div class="max-w-4xl mx-auto px-6">
+  <div
+    class={`
+      absolute
+      inset-0
+      bg-gradient-to-br
+      from-orange-300
+      via-white
+      to-orange-200
+      animate-gradient
+    `}
+  />
+  <div class="relative max-w-4xl mx-auto px-6">
     <h1
       class="text-6xl lg:text-7xl font-extrabold text-gray-800 leading-tight mb-6"
     >
