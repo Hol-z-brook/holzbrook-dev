@@ -3,37 +3,46 @@ import AppPage from "../_app/_AppPage.astro";
 import AppPageBody from "../_app/_AppPageBody.astro";
 import AppPageHeader from "../_app/_AppPageHeader.astro";
 import AppPageSection from "../_app/_AppPageSection.astro";
+import { makeSherpa } from "../_sherpa/_Sherpa";
+
+const sherpa = makeSherpa();
 
 const themePages = [
   {
     id: 'colors',
     title: 'Colors',
     description: 'Color scales, base colors, and gradients.',
+    href: sherpa.theme.colors(),
   },
   {
     id: 'typography',
     title: 'Typography',
     description: 'Font sizes, weights, and text styles.',
+    href: sherpa.theme.typography(),
   },
   {
     id: 'spacing',
     title: 'Spacing',
     description: 'Margins, padding, and layout spacing.',
+    href: sherpa.theme.spacing(),
   },
   {
     id: 'border-radius',
     title: 'Border Radius',
     description: 'Corner radius values for components.',
+    href: sherpa.theme.borderRadius(),
   },
   {
     id: 'shadows',
     title: 'Shadows',
     description: 'Elevation and depth effects.',
+    href: sherpa.theme.shadows(),
   },
   {
     id: 'transitions',
     title: 'Transitions',
     description: 'Motion and animation timings.',
+    href: sherpa.theme.transitions(),
   }
 ];
 ---
@@ -53,9 +62,9 @@ const themePages = [
 
         <!-- Theme Navigation -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {themePages.map(({ id, title, description }) => (
+          {themePages.map(({ title, description, href }) => (
             <a 
-              href={`/theme/${id}`}
+              href={href}
               class="block p-4 bg-white rounded-lg border border-gray-200 hover:border-primary-500 hover:shadow-sm transition-all"
             >
               <h2 class="text-lg font-semibold mb-2 text-gray-900">
