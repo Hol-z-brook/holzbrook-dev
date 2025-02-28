@@ -4,13 +4,27 @@ import Box from './Box.astro';
 interface Props {
   gradient: string;
   class?: string;
+  animated?: boolean;
 }
 
-const { gradient, class: className } = Astro.props;
+const { gradient, animated = false, class: className } = Astro.props;
 ---
 
 <Box 
-  class={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 ${className || ''}`}
+  class={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 ${animated ? 'animate-gradient' : ''} ${className || ''}`}
 >
   <slot />
-</Box> 
+</Box>
+
+<style>
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 8s ease infinite;
+  }
+</style> 
