@@ -13,6 +13,9 @@ import H1 from "../../lib/ui/H1.astro";
 import H4 from "../../lib/ui/H4.astro";
 import P from "../../lib/ui/P.astro";
 import { theme } from "../../theme";
+import A from "../../lib/ui/A.astro";
+import Li from "../../lib/ui/Li.astro";
+import Ul from "../../lib/ui/Ul.astro";
 
 const sherpa = makeSherpa();
 
@@ -46,32 +49,32 @@ const sections = [
 
         <!-- Navigation -->
         <nav class="mb-16">
-          <ul class="flex flex-col gap-2">
-            <li>
+          <Ul class="flex flex-col gap-2">
+            <Li>
               <Box class="px-4 py-2 text-gray-900 font-medium">Colors</Box>
-              <ul class="ml-4 mt-1 border-l border-gray-200 space-y-1">
+              <Ul class="ml-4 mt-1 border-l border-gray-200 space-y-1">
                 {sections.map(({ id, label }) => (
-                  <li>
-                    <a
+                  <Li>
+                    <A
                       href={`#${id}`}
                       class="block pl-4 py-1.5 text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-md transition-colors text-sm"
                     >
                       {label}
-                    </a>
-                  </li>
+                    </A>
+                  </Li>
                 ))}
-              </ul>
-            </li>
-          </ul>
+              </Ul>
+            </Li>
+          </Ul>
         </nav>
 
         <Box class="space-y-24">
           <!-- Color Scales -->
           <ThemeSection id="color-scales">
             <ThemeSectionHeader title="Color Scales">
-              <p class="text-lg text-gray-600 mt-4">
+              <P class="text-lg text-gray-600 mt-4">
                 Color scales provide a range of shades for each primary color, allowing for consistent and accessible color usage across the application.
-              </p>
+              </P>
             </ThemeSectionHeader>
             <ThemeSectionBody class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-16">
               {colorScales.map(([name, scale]) => (
