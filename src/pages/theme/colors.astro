@@ -8,14 +8,15 @@ import ThemeSection from "../../components/theme/ThemeSection.astro";
 import ThemeSectionHeader from "../../components/theme/ThemeSectionHeader.astro";
 import ThemeSectionBody from "../../components/theme/ThemeSectionBody.astro";
 import BackLink from "../../lib/ui/BackLink.astro";
+import A from "../../lib/ui/A.astro";
 import Box from "../../lib/ui/Box.astro";
 import H1 from "../../lib/ui/H1.astro";
 import H4 from "../../lib/ui/H4.astro";
-import P from "../../lib/ui/P.astro";
-import { theme } from "../../theme";
-import A from "../../lib/ui/A.astro";
 import Li from "../../lib/ui/Li.astro";
+import Nav from "../../lib/ui/Nav.astro";
+import P from "../../lib/ui/P.astro";
 import Ul from "../../lib/ui/Ul.astro";
+import { theme } from "../../theme";
 
 const sherpa = makeSherpa();
 
@@ -48,7 +49,7 @@ const sections = [
         </Box>
 
         <!-- Navigation -->
-        <nav class="mb-16">
+        <Nav class="mb-16">
           <Ul class="flex flex-col gap-2">
             <Li>
               <Box class="px-4 py-2 text-gray-900 font-medium">Colors</Box>
@@ -66,7 +67,7 @@ const sections = [
               </Ul>
             </Li>
           </Ul>
-        </nav>
+        </Nav>
 
         <Box class="space-y-24">
           <!-- Color Scales -->
