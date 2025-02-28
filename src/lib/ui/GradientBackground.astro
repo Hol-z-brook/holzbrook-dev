@@ -11,7 +11,7 @@ const { gradient, animated = false, class: className } = Astro.props;
 ---
 
 <Box 
-  class={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 ${animated ? 'animate-gradient' : ''} ${className || ''}`}
+  class={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-[0.02] group-hover:opacity-10 transition-opacity duration-300 ${animated ? 'animate-gradient' : ''} ${className || ''}`}
 >
   <slot />
 </Box>
