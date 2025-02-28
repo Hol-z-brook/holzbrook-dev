@@ -1,0 +1,16 @@
+---
+import Box from './Box.astro';
+
+interface Props {
+  gradient: string;
+  class?: string;
+}
+
+const { gradient, class: className } = Astro.props;
+---
+
+<Box 
+  class={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 ${className || ''}`}
+>
+  <slot />
+</Box> 

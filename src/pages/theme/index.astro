@@ -9,11 +9,22 @@ import PageHeader from "../../lib/ui/PageHeader.astro";
 import PageHeaderTitle from "../../lib/ui/PageHeaderTitle.astro";
 import PageHeaderSubtitle from "../../lib/ui/PageHeaderSubtitle.astro";
 import PageHeaderBody from "../../lib/ui/PageHeaderBody.astro";
+import GradientBackground from "../../lib/ui/GradientBackground.astro";
 import H2 from "../../lib/ui/H2.astro";
 import P from "../../lib/ui/P.astro";
+
+interface ThemePage {
+  id: string;
+  title: string;
+  description: string;
+  href: string;
+  icon: string;
+  gradient: string;
+}
+
 const sherpa = makeSherpa();
 
-const themePages = [
+const themePages: ThemePage[] = [
   {
     id: 'colors',
     title: 'Colors',
@@ -89,7 +100,7 @@ const themePages = [
               href={href}
               class="group relative overflow-hidden p-6 bg-white rounded-xl border border-gray-200 hover:border-transparent hover:shadow-lg transition-all duration-300"
             >
-              <Box class={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+              <GradientBackground gradient={gradient} />
               
               <Box class="relative">
                 <Box class="text-3xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
