@@ -3,6 +3,7 @@ import AppPage from "../_app/_AppPage.astro";
 import AppPageBody from "../_app/_AppPageBody.astro";
 import AppPageHeader from "../_app/_AppPageHeader.astro";
 import AppPageSection from "../_app/_AppPageSection.astro";
+import H1 from "../../lib/ui/H1.astro";
 import { makeSherpa } from "../_sherpa/_Sherpa";
 
 const sherpa = makeSherpa();
@@ -13,36 +14,48 @@ const themePages = [
     title: 'Colors',
     description: 'Color scales, base colors, and gradients.',
     href: sherpa.theme.colors(),
+    icon: '🎨',
+    gradient: 'from-rose-500 to-orange-500'
   },
   {
     id: 'typography',
     title: 'Typography',
     description: 'Font sizes, weights, and text styles.',
     href: sherpa.theme.typography(),
+    icon: '✍️',
+    gradient: 'from-blue-500 to-purple-500'
   },
   {
     id: 'spacing',
     title: 'Spacing',
     description: 'Margins, padding, and layout spacing.',
     href: sherpa.theme.spacing(),
+    icon: '📏',
+    gradient: 'from-green-500 to-teal-500'
   },
   {
     id: 'border-radius',
     title: 'Border Radius',
     description: 'Corner radius values for components.',
     href: sherpa.theme.borderRadius(),
+    icon: '⚪',
+    gradient: 'from-amber-500 to-yellow-500'
   },
   {
     id: 'shadows',
     title: 'Shadows',
     description: 'Elevation and depth effects.',
     href: sherpa.theme.shadows(),
+    icon: '🌗',
+    gradient: 'from-indigo-500 to-blue-500'
   },
   {
     id: 'transitions',
     title: 'Transitions',
     description: 'Motion and animation timings.',
     href: sherpa.theme.transitions(),
+    icon: '✨',
+    gradient: 'from-purple-500 to-pink-500'
   }
 ];
 ---
@@ -53,30 +66,55 @@ const themePages = [
     <AppPageSection>
       <div class="max-w-5xl mx-auto py-16 px-6">
         <!-- Header -->
-        <div class="mb-12 text-center">
-          <h1 class="text-4xl font-bold mb-4">Design System</h1>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            A collection of design tokens and patterns for consistent, high-quality interfaces.
+        <div class="mb-16 text-center">
+          <H1>
+            Pickles
+          </H1>
+          <div class="text-xl font-medium text-primary-600 mb-6">
+            An opinionated design system
+          </div>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Because great design isn't made by committee. These are the strong opinions and careful decisions that shape holzbrook.dev into what it is — with a dash of whimsy.
           </p>
         </div>
 
         <!-- Theme Navigation -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {themePages.map(({ title, description, href }) => (
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {themePages.map(({ title, description, href, icon, gradient }) => (
             <a 
               href={href}
-              class="block p-4 bg-white rounded-lg border border-gray-200 hover:border-primary-500 hover:shadow-sm transition-all"
+              class="group relative overflow-hidden p-6 bg-white rounded-xl border border-gray-200 hover:border-transparent hover:shadow-lg transition-all duration-300"
             >
-              <h2 class="text-lg font-semibold mb-2 text-gray-900">
-                {title}
-              </h2>
-              <p class="text-sm text-gray-600">
-                {description}
-              </p>
+              <div class={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+              
+              <div class="relative">
+                <div class="text-3xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                  {icon}
+                </div>
+                <h2 class="text-xl font-semibold mb-2 text-gray-900 group-hover:text-primary-600 transition-colors">
+                  {title}
+                </h2>
+                <p class="text-gray-600">
+                  {description}
+                </p>
+              </div>
             </a>
           ))}
         </div>
       </div>
     </AppPageSection>
   </AppPageBody>
-</AppPage> 
+</AppPage>
+
+<style>
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 8s ease infinite;
+  }
+</style> 
