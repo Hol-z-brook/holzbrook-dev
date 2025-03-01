@@ -9,14 +9,13 @@ import ThemeSectionBody from "../../components/theme/ThemeSectionBody.astro";
 import PrimaryButton from "../../components/theme/PrimaryButton.astro";
 import OutlinedButton from "../../components/theme/OutlinedButton.astro";
 import Box from "../../lib/ui/Box.astro";
-import BackLink from "../../lib/ui/BackLink.astro";
-import H1 from "../../lib/ui/H1.astro";
+import ThemePageBackLink from "./_ui/_ThemePageBackLink.astro";
+import ThemePageTitle from "./_ui/_ThemePageTitle.astro";
+import ThemePageDescription from "./_ui/_ThemePageDescription.astro";
+import ThemePageHeader from "./_ui/_ThemePageHeader.astro";
 import H4 from "../../lib/ui/H4.astro";
 import P from "../../lib/ui/P.astro";
 import { theme } from "../../theme";
-import { makeSherpa } from "../_sherpa/_Sherpa";
-
-const sherpa = makeSherpa();
 
 const sections = [
   { id: 'radius-scale', label: 'Radius Scale' },
@@ -29,14 +28,13 @@ const sections = [
   <AppPageBody class="bg-gray-50">
     <AppPageSection>
       <Box class="max-w-[90rem] mx-auto py-16 px-6">
-        <!-- Header -->
-        <Box class="mb-16">
-          <BackLink href={sherpa.theme.index()} class="mb-4">Back to Pickles UI</BackLink>
-          <H1 class="mb-6">Border Radius</H1>
-          <P class="text-xl text-gray-600 max-w-3xl">
+        <ThemePageHeader>
+          <ThemePageBackLink />
+          <ThemePageTitle>Border Radius</ThemePageTitle>
+          <ThemePageDescription>
             Our border radius system provides consistent corner rounding to create a cohesive and modern interface design.
-          </P>
-        </Box>
+          </ThemePageDescription>
+        </ThemePageHeader>
 
         <!-- Navigation -->
         <Box as="nav" class="mb-16">

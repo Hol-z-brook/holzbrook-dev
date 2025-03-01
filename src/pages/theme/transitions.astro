@@ -1,4 +1,8 @@
 ---
+import ThemePageBackLink from "./_ui/_ThemePageBackLink.astro";
+import ThemePageTitle from "./_ui/_ThemePageTitle.astro";
+import ThemePageDescription from "./_ui/_ThemePageDescription.astro";
+import ThemePageHeader from "./_ui/_ThemePageHeader.astro";
 import AppPage from "../_app/_AppPage.astro";
 import AppPageBody from "../_app/_AppPageBody.astro";
 import AppPageHeader from "../_app/_AppPageHeader.astro";
@@ -7,10 +11,6 @@ import ThemeSection from "../../components/theme/ThemeSection.astro";
 import ThemeSectionHeader from "../../components/theme/ThemeSectionHeader.astro";
 import ThemeSectionBody from "../../components/theme/ThemeSectionBody.astro";
 import { theme } from "../../theme";
-import BackLink from "../../lib/ui/BackLink.astro";
-import { makeSherpa } from "../_sherpa/_Sherpa";
-
-const sherpa = makeSherpa();
 
 const sections = [
   { id: 'timing-scale', label: 'Timing Scale' },
@@ -23,14 +23,13 @@ const sections = [
   <AppPageBody class="bg-gray-50">
     <AppPageSection>
       <div class="max-w-[90rem] mx-auto py-16 px-6">
-        <!-- Header -->
-        <div class="mb-16">
-          <BackLink href={sherpa.theme.index()} class="mb-4">Back to Pickles UI</BackLink>
-          <h1 class="text-5xl font-bold mb-6">Transitions</h1>
-          <p class="text-xl text-gray-600 max-w-3xl">
+        <ThemePageHeader>
+          <ThemePageBackLink />
+          <ThemePageTitle>Transitions</ThemePageTitle>
+          <ThemePageDescription>
             Our transition system provides consistent motion and animation timing to create smooth and delightful interactions.
-          </p>
-        </div>
+          </ThemePageDescription>
+        </ThemePageHeader>
 
         <!-- Navigation -->
         <nav class="mb-16">
