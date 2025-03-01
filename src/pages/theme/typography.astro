@@ -12,19 +12,29 @@ import ThemePageDescription from "./_ui/_ThemePageDescription.astro";
 import ThemePageHeader from "./_ui/_ThemePageHeader.astro";
 import ThemeSectionHeaderTitle from "../../components/theme/ThemeSectionHeaderTitle.astro";
 import ThemeSectionHeaderBody from "../../components/theme/ThemeSectionHeaderBody.astro";
+import Box from "../../lib/ui/Box.astro";
+import Nav from "../../lib/ui/Nav.astro";
+import Ul from "../../lib/ui/Ul.astro";
+import Li from "../../lib/ui/Li.astro";
+import A from "../../lib/ui/A.astro";
+import H4 from "../../lib/ui/H4.astro";
 import { theme } from "../../theme";
 
 const sections = [
   { id: 'font-sizes', label: 'Font Sizes' },
-  { id: 'font-weights', label: 'Font Weights' }
+  { id: 'font-weights', label: 'Font Weights' },
+  { id: 'usage-examples', label: 'Usage Examples' }
 ];
+
+const sampleText = "The quick brown fox jumps over the lazy dog";
+const shortSampleText = "Typography";
 ---
 
 <AppPage>
   <AppPageHeader />
   <AppPageBody class="bg-gray-50">
     <AppPageSection>
-      <div class="max-w-[90rem] mx-auto py-16 px-6">
+      <Box class="max-w-[90rem] mx-auto py-16 px-6">
         <ThemePageHeader>
           <ThemePageBackLink />
           <ThemePageTitle>Typography</ThemePageTitle>
@@ -34,27 +44,27 @@ const sections = [
         </ThemePageHeader>
 
         <!-- Navigation -->
-        <nav class="mb-16">
-          <ul class="flex flex-col gap-2">
-            <li>
-              <div class="px-4 py-2 text-gray-900 font-medium">Typography</div>
-              <ul class="ml-4 mt-1 border-l border-gray-200 space-y-1">
+        <Nav class="mb-16">
+          <Ul class="flex flex-col gap-2">
+            <Li>
+              <Box class="px-4 py-2 text-gray-900 font-medium">Typography</Box>
+              <Ul class="ml-4 mt-1 border-l border-gray-200 space-y-1">
                 {sections.map(({ id, label }) => (
-                  <li>
-                    <a
+                  <Li>
+                    <A
                       href={`#${id}`}
                       class="block pl-4 py-1.5 text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-md transition-colors text-sm"
                     >
                       {label}
-                    </a>
-                  </li>
+                    </A>
+                  </Li>
                 ))}
-              </ul>
-            </li>
-          </ul>
-        </nav>
+              </Ul>
+            </Li>
+          </Ul>
+        </Nav>
 
-        <div class="space-y-24">
+        <Box class="space-y-24">
           <ThemeSection id="font-sizes">
             <ThemeSectionHeader>
               <ThemeSectionHeaderTitle slot="title">
@@ -64,17 +74,25 @@ const sections = [
                 A comprehensive scale of font sizes designed to create clear visual hierarchy and maintain readability across different screen sizes.
               </ThemeSectionHeaderBody>
             </ThemeSectionHeader>
-            <ThemeSectionBody class="space-y-16">
-              <div class="space-y-8">
-                {Object.entries(theme.fontSizes).map(([name, size]) => (
-                  <div class="flex items-baseline gap-12">
-                    <div class="w-32 text-base font-medium text-gray-500">{name}</div>
-                    <div style={`font-size: ${size}`}>
-                      The quick brown fox jumps over the lazy dog
-                    </div>
-                  </div>
-                ))}
-              </div>
+            <ThemeSectionBody class="space-y-8">
+              {Object.entries(theme.fontSizes).map(([name, size]) => (
+                <Box class="group p-6 bg-white rounded-lg border border-gray-200 hover:border-primary-200 hover:shadow-sm transition-all">
+                  <Box class="flex items-baseline gap-12">
+                    <Box class="w-32 space-y-1">
+                      <Box class="text-base font-medium text-gray-900">{name}</Box>
+                      <Box class="text-sm font-mono text-gray-500">{size}</Box>
+                    </Box>
+                    <Box class="flex-1 space-y-2">
+                      <Box style={`font-size: ${size}`} class="text-gray-900 group-hover:text-primary-900 transition-colors">
+                        {shortSampleText}
+                      </Box>
+                      <Box class="text-sm text-gray-500 group-hover:text-primary-600 transition-colors">
+                        Click to copy font size value
+                      </Box>
+                    </Box>
+                  </Box>
+                </Box>
+              ))}
             </ThemeSectionBody>
           </ThemeSection>
           
@@ -87,21 +105,133 @@ const sections = [
                 Different font weights help establish hierarchy and emphasis in your typography.
               </ThemeSectionHeaderBody>
             </ThemeSectionHeader>
-            <ThemeSectionBody class="space-y-16">
-              <div class="space-y-8">
-                {Object.entries(theme.fontWeights).map(([name, weight]) => (
-                  <div class="flex items-center gap-12">
-                    <div class="w-32 text-base font-medium text-gray-500">{name}</div>
-                    <div style={`font-weight: ${weight}`} class="text-xl">
-                      The quick brown fox jumps over the lazy dog
-                    </div>
-                  </div>
-                ))}
-              </div>
+            <ThemeSectionBody class="space-y-8">
+              {Object.entries(theme.fontWeights).map(([name, weight]) => (
+                <Box class="group p-6 bg-white rounded-lg border border-gray-200 hover:border-primary-200 hover:shadow-sm transition-all">
+                  <Box class="flex items-center gap-12">
+                    <Box class="w-32 space-y-1">
+                      <Box class="text-base font-medium text-gray-900">{name}</Box>
+                      <Box class="text-sm font-mono text-gray-500">{weight}</Box>
+                    </Box>
+                    <Box class="flex-1 space-y-2">
+                      <Box style={`font-weight: ${weight}`} class="text-xl text-gray-900 group-hover:text-primary-900 transition-colors">
+                        {sampleText}
+                      </Box>
+                      <Box class="text-sm text-gray-500 group-hover:text-primary-600 transition-colors">
+                        Click to copy font weight value
+                      </Box>
+                    </Box>
+                  </Box>
+                </Box>
+              ))}
             </ThemeSectionBody>
           </ThemeSection>
-        </div>
-      </div>
+
+          <ThemeSection id="usage-examples">
+            <ThemeSectionHeader>
+              <ThemeSectionHeaderTitle slot="title">
+                Usage Examples
+              </ThemeSectionHeaderTitle>
+              <ThemeSectionHeaderBody slot="body">
+                Common typography patterns and combinations for different content types.
+              </ThemeSectionHeaderBody>
+            </ThemeSectionHeader>
+            <ThemeSectionBody>
+              <Box class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Content Typography -->
+                <Box class="space-y-8">
+                  <H4 class="text-2xl font-medium">Content Typography</H4>
+                  <Box class="space-y-8">
+                    <!-- Article Example -->
+                    <Box class="p-6 bg-white rounded-lg border border-gray-200">
+                      <Box class="font-medium text-lg mb-4">Article Layout</Box>
+                      <Box class="space-y-4">
+                        <Box style={`font-size: ${theme.fontSizes["3xl"]}; font-weight: ${theme.fontWeights.bold}`} class="text-gray-900">
+                          Article Title
+                        </Box>
+                        <Box style={`font-size: ${theme.fontSizes.lg}; font-weight: ${theme.fontWeights.medium}`} class="text-gray-600">
+                          Article subtitle or description that spans multiple lines to show how the text wraps.
+                        </Box>
+                        <Box style={`font-size: ${theme.fontSizes.base}`} class="text-gray-700">
+                          Body text with a comfortable reading size. {sampleText} This shows how regular content appears in an article layout.
+                        </Box>
+                      </Box>
+                    </Box>
+
+                    <!-- List Example -->
+                    <Box class="p-6 bg-white rounded-lg border border-gray-200">
+                      <Box class="font-medium text-lg mb-4">List Typography</Box>
+                      <Box class="space-y-4">
+                        <Box style={`font-size: ${theme.fontSizes.xl}; font-weight: ${theme.fontWeights.medium}`} class="text-gray-900">
+                          Feature List
+                        </Box>
+                        <Ul class="space-y-3">
+                          {[1, 2, 3].map(() => (
+                            <Li class="flex gap-3">
+                              <Box style={`font-size: ${theme.fontSizes.sm}`} class="text-primary-600">•</Box>
+                              <Box style={`font-size: ${theme.fontSizes.sm}`} class="text-gray-600">
+                                List item with smaller text size for better scannability
+                              </Box>
+                            </Li>
+                          ))}
+                        </Ul>
+                      </Box>
+                    </Box>
+                  </Box>
+                </Box>
+
+                <!-- UI Typography -->
+                <Box class="space-y-8">
+                  <H4 class="text-2xl font-medium">UI Typography</H4>
+                  <Box class="space-y-8">
+                    <!-- Card Example -->
+                    <Box class="p-6 bg-white rounded-lg border border-gray-200">
+                      <Box class="font-medium text-lg mb-4">Card Typography</Box>
+                      <Box class="p-4 bg-gray-50 rounded">
+                        <Box class="space-y-3">
+                          <Box style={`font-size: ${theme.fontSizes.lg}; font-weight: ${theme.fontWeights.medium}`} class="text-gray-900">
+                            Card Title
+                          </Box>
+                          <Box style={`font-size: ${theme.fontSizes.sm}`} class="text-gray-600">
+                            Card description with smaller text that provides additional context about the card content.
+                          </Box>
+                          <Box style={`font-size: ${theme.fontSizes.sm}; font-weight: ${theme.fontWeights.medium}`} class="text-primary-600">
+                            Learn more →
+                          </Box>
+                        </Box>
+                      </Box>
+                    </Box>
+
+                    <!-- Form Example -->
+                    <Box class="p-6 bg-white rounded-lg border border-gray-200">
+                      <Box class="font-medium text-lg mb-4">Form Typography</Box>
+                      <Box class="space-y-4">
+                        <Box class="space-y-2">
+                          <Box style={`font-size: ${theme.fontSizes.sm}; font-weight: ${theme.fontWeights.medium}`} class="text-gray-700">
+                            Input Label
+                          </Box>
+                          <Box class="p-2 border border-gray-200 rounded" style={`font-size: ${theme.fontSizes.base}`}>
+                            Input text
+                          </Box>
+                          <Box style={`font-size: ${theme.fontSizes.xs}`} class="text-gray-500">
+                            Helper text with additional information
+                          </Box>
+                        </Box>
+                        <Box 
+                          class="px-4 py-2 bg-primary-600 text-white rounded text-center"
+                          style={`font-size: ${theme.fontSizes.sm}; font-weight: ${theme.fontWeights.medium}`}
+                        >
+                          Submit Button
+                        </Box>
+                      </Box>
+                    </Box>
+                  </Box>
+                </Box>
+              </Box>
+            </ThemeSectionBody>
+          </ThemeSection>
+        </Box>
+      </Box>
     </AppPageSection>
   </AppPageBody>
 </AppPage> 
