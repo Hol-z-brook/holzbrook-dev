@@ -16,7 +16,7 @@ import Box from "../../lib/ui/Box.astro";
 import Ul from "../../lib/ui/Ul.astro";
 import Li from "../../lib/ui/Li.astro";
 import H4 from "../../lib/ui/H4.astro";
-import { theme } from "../../theme";
+import theme from "../../theme";
 import ThemePageNav from "./_ui/_ThemePageNav.astro";
 import ThemePageNavTitle from "./_ui/_ThemePageNavTitle.astro";
 import ThemePageNavItem from "./_ui/_ThemePageNavItem.astro";
@@ -44,7 +44,12 @@ const fontSizeUsage: Record<FontSizeKey, string> = {
   "6xl": "Massive display text for hero sections",
   "7xl": "Giant display text for special features",
   "8xl": "Enormous display text for impact",
-  "9xl": "Maximum size for dramatic effect"
+  "9xl": "Maximum size for dramatic effect",
+  headingLg: "Large heading for major sections",
+  headingMd: "Medium heading for content sections",
+  headingSm: "Small heading for subsections",
+  body: "Standard body text size",
+  subtext: "Small text for supplementary content"
 };
 
 ---
