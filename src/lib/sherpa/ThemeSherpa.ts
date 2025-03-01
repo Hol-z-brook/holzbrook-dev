@@ -1,4 +1,4 @@
-import { type SherpaConfig } from "./_util/_SherpaConfig";
+import { type SherpaConfig } from "./util/SherpaConfig";
 
 export interface ThemeSherpa {
   index: () => string;
