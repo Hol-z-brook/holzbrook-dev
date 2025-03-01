@@ -12,6 +12,12 @@ import ThemeSectionBody from "../../components/theme/ThemeSectionBody.astro";
 import ThemeSectionHeader from "../../components/theme/ThemeSectionHeader.astro";
 import ThemeSectionHeaderTitle from "../../components/theme/ThemeSectionHeaderTitle.astro";
 import ThemeSectionHeaderBody from "../../components/theme/ThemeSectionHeaderBody.astro";
+import Box from "../../lib/ui/Box.astro";
+import Nav from "../../lib/ui/Nav.astro";
+import Ul from "../../lib/ui/Ul.astro";
+import Li from "../../lib/ui/Li.astro";
+import A from "../../lib/ui/A.astro";
+import H4 from "../../lib/ui/H4.astro";
 import { theme } from "../../theme";
 
 const sections = [
@@ -24,7 +30,7 @@ const sections = [
   <AppPageHeader />
   <AppPageBody class="bg-gray-50">
     <AppPageSection>
-      <div class="max-w-[90rem] mx-auto py-16 px-6">
+      <Box class="max-w-[90rem] mx-auto py-16 px-6">
         <ThemePageHeader>
           <ThemePageBackLink />
           <ThemePageTitle>Transitions</ThemePageTitle>
@@ -34,27 +40,27 @@ const sections = [
         </ThemePageHeader>
 
         <!-- Navigation -->
-        <nav class="mb-16">
-          <ul class="flex flex-col gap-2">
-            <li>
-              <div class="px-4 py-2 text-gray-900 font-medium">Transitions</div>
-              <ul class="ml-4 mt-1 border-l border-gray-200 space-y-1">
+        <Nav class="mb-16">
+          <Ul class="flex flex-col gap-2">
+            <Li>
+              <Box class="px-4 py-2 text-gray-900 font-medium">Transitions</Box>
+              <Ul class="ml-4 mt-1 border-l border-gray-200 space-y-1">
                 {sections.map(({ id, label }) => (
-                  <li>
-                    <a
+                  <Li>
+                    <A
                       href={`#${id}`}
                       class="block pl-4 py-1.5 text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-md transition-colors text-sm"
                     >
                       {label}
-                    </a>
-                  </li>
+                    </A>
+                  </Li>
                 ))}
-              </ul>
-            </li>
-          </ul>
-        </nav>
+              </Ul>
+            </Li>
+          </Ul>
+        </Nav>
 
-        <div class="space-y-24">
+        <Box class="space-y-24">
           <!-- Timing Scale -->
           <ThemeSection id="timing-scale">
             <ThemeSectionHeader>
@@ -67,16 +73,24 @@ const sections = [
             </ThemeSectionHeader>
             <ThemeSectionBody class="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-16">
               {Object.entries(theme.transitions).map(([name, transition]) => (
-                <div class="space-y-4">
-                  <button 
-                    class="w-full py-6 px-8 bg-primary-200 rounded-lg hover:scale-105"
-                    style={`transition: transform ${transition}`}
-                  >
-                    Hover me
-                  </button>
-                  <div class="text-base font-medium">{name}</div>
-                  <div class="text-sm text-gray-500 font-mono break-words">{transition}</div>
-                </div>
+                <Box class="space-y-4 group">
+                  <Box class="relative">
+                    <Box 
+                      class="w-full h-32 bg-gradient-to-br from-primary-100 to-primary-300 rounded-lg cursor-pointer hover:scale-105 hover:shadow-lg"
+                      style={`transition: all ${transition}`}
+                    >
+                      <Box class="absolute inset-0 flex items-center justify-center text-primary-700 font-medium opacity-0 group-hover:opacity-100" style={`transition: opacity ${transition}`}>
+                        Try Me!
+                      </Box>
+                    </Box>
+                  </Box>
+                  <Box class="space-y-2">
+                    <Box class="text-base font-medium capitalize">{name}</Box>
+                    <Box class="text-sm text-gray-500 font-mono break-words group-hover:text-primary-600 transition-colors cursor-pointer">
+                      {transition}
+                    </Box>
+                  </Box>
+                </Box>
               ))}
             </ThemeSectionBody>
           </ThemeSection>
@@ -92,38 +106,120 @@ const sections = [
               </ThemeSectionHeaderBody>
             </ThemeSectionHeader>
             <ThemeSectionBody>
-              <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div class="space-y-6">
-                  <h4 class="text-xl font-medium">Color & Opacity</h4>
-                  <div class="space-y-8">
-                    <button class="w-full p-4 bg-primary-100 hover:bg-primary-200 rounded-lg text-left transition-colors" style={`transition-duration: ${theme.transitions.base}`}>
-                      <div class="font-medium mb-1">Background Color</div>
-                      <p class="text-sm text-gray-600">Smooth color transition on hover</p>
-                    </button>
-                    <button class="w-full p-4 bg-white rounded-lg text-left group" style={`transition-duration: ${theme.transitions.smooth}`}>
-                      <div class="font-medium mb-1">Opacity Change</div>
-                      <p class="text-sm text-gray-600 group-hover:opacity-50 transition-opacity">Text fades on hover</p>
-                    </button>
-                  </div>
-                </div>
-                <div class="space-y-6">
-                  <h4 class="text-xl font-medium">Transform Effects</h4>
-                  <div class="space-y-8">
-                    <button class="w-full p-4 bg-white rounded-lg text-left shadow hover:-translate-y-1 hover:shadow-lg" style={`transition: transform ${theme.transitions.smooth}, box-shadow ${theme.transitions.smooth}`}>
-                      <div class="font-medium mb-1">Lift Effect</div>
-                      <p class="text-sm text-gray-600">Combined transform and shadow</p>
-                    </button>
-                    <button class="w-full p-4 bg-white rounded-lg text-left hover:scale-[1.02] origin-left" style={`transition: transform ${theme.transitions.slow}`}>
-                      <div class="font-medium mb-1">Scale from Left</div>
-                      <p class="text-sm text-gray-600">Subtle scale with origin point</p>
-                    </button>
-                  </div>
-                </div>
-              </div>
+              <Box class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Basic Transitions -->
+                <Box class="space-y-8">
+                  <H4 class="text-2xl font-medium">Basic Transitions</H4>
+                  <Box class="space-y-8">
+                    <!-- Color Transition -->
+                    <Box class="p-6 bg-white rounded-lg border border-gray-200">
+                      <Box class="font-medium text-lg mb-4">Color Changes</Box>
+                      <Box class="space-y-4">
+                        <Box 
+                          class="p-4 bg-primary-100 hover:bg-primary-200 rounded text-center cursor-pointer"
+                          style={`transition: background-color ${theme.transitions.base}`}
+                        >
+                          Background Color
+                        </Box>
+                        <Box 
+                          class="p-4 border border-primary-200 hover:border-primary-400 rounded text-center cursor-pointer"
+                          style={`transition: border-color ${theme.transitions.smooth}`}
+                        >
+                          Border Color
+                        </Box>
+                        <Box 
+                          class="p-4 text-gray-600 hover:text-primary-600 rounded text-center cursor-pointer"
+                          style={`transition: color ${theme.transitions.base}`}
+                        >
+                          Text Color
+                        </Box>
+                      </Box>
+                    </Box>
+
+                    <!-- Opacity & Visibility -->
+                    <Box class="p-6 bg-white rounded-lg border border-gray-200">
+                      <Box class="font-medium text-lg mb-4">Opacity & Visibility</Box>
+                      <Box class="space-y-4">
+                        <Box class="relative h-16 bg-gray-50 rounded">
+                          <Box 
+                            class="absolute inset-0 bg-primary-100 opacity-0 hover:opacity-100 flex items-center justify-center cursor-pointer"
+                            style={`transition: opacity ${theme.transitions.smooth}`}
+                          >
+                            Fade In
+                          </Box>
+                        </Box>
+                        <Box class="h-16 bg-primary-100 hover:opacity-50 rounded flex items-center justify-center cursor-pointer" style={`transition: opacity ${theme.transitions.base}`}>
+                          Fade Out
+                        </Box>
+                      </Box>
+                    </Box>
+                  </Box>
+                </Box>
+
+                <!-- Advanced Transitions -->
+                <Box class="space-y-8">
+                  <H4 class="text-2xl font-medium">Advanced Transitions</H4>
+                  <Box class="space-y-8">
+                    <!-- Transform Effects -->
+                    <Box class="p-6 bg-white rounded-lg border border-gray-200">
+                      <Box class="font-medium text-lg mb-4">Transform Effects</Box>
+                      <Box class="space-y-4">
+                        <Box 
+                          class="p-4 bg-primary-100 hover:scale-105 hover:rotate-1 rounded text-center cursor-pointer"
+                          style={`transition: transform ${theme.transitions.smooth}`}
+                        >
+                          Scale & Rotate
+                        </Box>
+                        <Box 
+                          class="p-4 bg-primary-100 hover:-translate-y-2 hover:shadow-lg rounded text-center cursor-pointer"
+                          style={`transition: all ${theme.transitions.base}`}
+                        >
+                          Translate & Shadow
+                        </Box>
+                        <Box 
+                          class="p-4 bg-primary-100 hover:skew-x-6 rounded text-center cursor-pointer"
+                          style={`transition: transform ${theme.transitions.slow}`}
+                        >
+                          Skew Transform
+                        </Box>
+                      </Box>
+                    </Box>
+
+                    <!-- Combined Effects -->
+                    <Box class="p-6 bg-white rounded-lg border border-gray-200">
+                      <Box class="font-medium text-lg mb-4">Combined Effects</Box>
+                      <Box class="space-y-4">
+                        <Box 
+                          class="group p-4 bg-primary-100 rounded text-center cursor-pointer hover:bg-primary-200 hover:scale-[1.02]"
+                          style={`transition: all ${theme.transitions.smooth}`}
+                        >
+                          <Box class="text-primary-700 group-hover:translate-x-2" style={`transition: transform ${theme.transitions.smooth}`}>
+                            Multi-element →
+                          </Box>
+                        </Box>
+                        <Box class="relative h-16 bg-primary-100 rounded overflow-hidden cursor-pointer group">
+                          <Box 
+                            class="absolute inset-0 flex items-center justify-center"
+                            style={`transition: transform ${theme.transitions.smooth}`}
+                          >
+                            Hover Me
+                          </Box>
+                          <Box 
+                            class="absolute inset-0 bg-primary-200 flex items-center justify-center translate-y-full group-hover:translate-y-0"
+                            style={`transition: transform ${theme.transitions.smooth}`}
+                          >
+                            Slide Up Effect
+                          </Box>
+                        </Box>
+                      </Box>
+                    </Box>
+                  </Box>
+                </Box>
+              </Box>
             </ThemeSectionBody>
           </ThemeSection>
-        </div>
-      </div>
+        </Box>
+      </Box>
     </AppPageSection>
   </AppPageBody>
 </AppPage> 
