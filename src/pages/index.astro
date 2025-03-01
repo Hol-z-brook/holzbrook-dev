@@ -1,9 +1,5 @@
 ---
-import AppLink from "./_app/_AppLink.astro";
-import AppPage from "./_app/_AppPage.astro";
-import AppPageBody from "./_app/_AppPageBody.astro";
-import AppPageFooter from "./_app/_AppPageFooter.astro";
-import AppPageHero from "./_app/_AppPageHero.astro";
+import * as App from "./_app/_index.astro";
 import { makeSherpa } from "./_sherpa/_Sherpa";
 
 const sherpa = makeSherpa();
@@ -36,9 +32,9 @@ const playSection = {
 };
 ---
 
-<AppPage>
-  <AppPageBody backgroundColor="bg-gray-100" class="flex flex-col min-h-screen">
-    <AppPageHero
+<App.Page>
+  <App.PageBody backgroundColor="bg-gray-100" class="flex flex-col min-h-screen">
+    <App.PageHero
       title="Andrew Hol(z)brook"
       subtitle="Building systems that simplify life. Exploring how family, play, and a touch of AI make everything better."
     />
@@ -58,12 +54,12 @@ const playSection = {
           <p class="text-lg text-gray-600 mb-8">
             {workSection.description}
           </p>
-          <AppLink
+          <App.Link
             href={workSection.link}
             class="px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-lg shadow-lg transition-colors duration-300"
           >
             {workSection.cta}
-          </AppLink>
+          </App.Link>
         </div>
 
         <!-- Family Section -->
@@ -76,7 +72,7 @@ const playSection = {
           <p class="text-lg text-gray-600 mb-8">
             {familySection.description}
           </p>
-          <AppLink
+          <App.Link
             href={familySection.link}
             class="px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white rounded-lg shadow-lg transition-colors duration-300"
           >
@@ -94,7 +90,7 @@ const playSection = {
           <p class="text-lg text-gray-600 mb-8">
             {playSection.description}
           </p>
-          <AppLink
+          <App.Link
             href={playSection.link}
             class="px-6 py-3 bg-rose-500 hover:bg-rose-600 text-white rounded-lg shadow-lg transition-colors duration-300"
           >
@@ -104,6 +100,6 @@ const playSection = {
       </div>
     </section>
 
-    <AppPageFooter />
-  </AppPageBody>
-</AppPage>
+    <App.PageFooter />
+  </App.PageBody>
+</App.Page>
