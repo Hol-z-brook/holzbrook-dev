@@ -1,10 +1,9 @@
 ---
-import * as App from "./_app/_index.astro";
-import { makeSherpa } from "./_sherpa/_Sherpa";
+import * as App from "../lib/app/index.astro";
+import { makeSherpa } from "../lib/sherpa/Sherpa";
 import Box from "../lib/ui/Box.astro";
-import H2 from "../lib/ui/H2.astro";
-import P from "../lib/ui/P.astro";
 import Stack from "../lib/ui/Stack.astro";
+import * as HomeExploreCard from "./_HomeExploreCard/_index.astro";
 
 const sherpa = makeSherpa();
 
@@ -15,6 +14,7 @@ const workSection = {
   link: sherpa.work.index({}),
   bgColor: "bg-orange-100",
   cta: "Explore Career",
+  ctaClass: "bg-orange-500 hover:bg-orange-600",
 };
 
 const familySection = {
@@ -24,6 +24,7 @@ const familySection = {
   link: sherpa.family.index({}),
   bgColor: "bg-amber-100",
   cta: "Meet the Family",
+  ctaClass: "bg-amber-500 hover:bg-amber-600",
 };
 
 const playSection = {
@@ -33,6 +34,7 @@ const playSection = {
   link: sherpa.play.index({}),
   bgColor: "bg-red-100",
   cta: "See What I'm Playing",
+  ctaClass: "bg-rose-500 hover:bg-rose-600",
 };
 ---
 
@@ -50,58 +52,43 @@ const playSection = {
         class="max-w-6xl mx-auto px-6 lg:space-x-8 space-y-8 lg:space-y-0"
       >
         <!-- Work Section -->
-        <Box
-          class={`flex-1 p-8 rounded-2xl shadow-lg ${workSection.bgColor} text-center`}
-        >
-          <H2 class="text-3xl mb-4">
+        <HomeExploreCard.Container bgColor={workSection.bgColor}>
+          <HomeExploreCard.Title>
             {workSection.title}
-          </H2>
-          <P class="text-lg mb-8">
+          </HomeExploreCard.Title>
+          <HomeExploreCard.Blurb>
             {workSection.description}
-          </P>
-          <App.Link
-            href={workSection.link}
-            class="px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-lg shadow-lg transition-colors duration-300"
-          >
+          </HomeExploreCard.Blurb>
+          <HomeExploreCard.Cta href={workSection.link} class={workSection.ctaClass}>
             {workSection.cta}
-          </App.Link>
-        </Box>
+          </HomeExploreCard.Cta>
+        </HomeExploreCard.Container>
 
         <!-- Family Section -->
-        <Box
-          class={`flex-1 p-8 rounded-2xl shadow-lg ${familySection.bgColor} text-center`}
-        >
-          <H2 class="text-3xl mb-4">
+        <HomeExploreCard.Container bgColor={familySection.bgColor}>
+          <HomeExploreCard.Title>
             {familySection.title}
-          </H2>
-          <P class="text-lg mb-8">
+          </HomeExploreCard.Title>
+          <HomeExploreCard.Blurb>
             {familySection.description}
-          </P>
-          <App.Link
-            href={familySection.link}
-            class="px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white rounded-lg shadow-lg transition-colors duration-300"
-          >
+          </HomeExploreCard.Blurb>
+          <HomeExploreCard.Cta href={familySection.link} class={familySection.ctaClass}>
             {familySection.cta}
-          </App.Link>
-        </Box>
+          </HomeExploreCard.Cta>
+        </HomeExploreCard.Container>
 
         <!-- Play Section -->
-        <Box
-          class={`flex-1 p-8 rounded-2xl shadow-lg ${playSection.bgColor} text-center`}
-        >
-          <H2 class="text-3xl mb-4">
+        <HomeExploreCard.Container bgColor={playSection.bgColor}>
+          <HomeExploreCard.Title>
             {playSection.title}
-          </H2>
-          <P class="text-lg mb-8">
+          </HomeExploreCard.Title>
+          <HomeExploreCard.Blurb>
             {playSection.description}
-          </P>
-          <App.Link
-            href={playSection.link}
-            class="px-6 py-3 bg-rose-500 hover:bg-rose-600 text-white rounded-lg shadow-lg transition-colors duration-300"
-          >
+          </HomeExploreCard.Blurb>
+          <HomeExploreCard.Cta href={playSection.link} class={playSection.ctaClass}>
             {playSection.cta}
-          </App.Link>
-        </Box>
+          </HomeExploreCard.Cta>
+        </HomeExploreCard.Container>
       </Stack>
     </Box>
 

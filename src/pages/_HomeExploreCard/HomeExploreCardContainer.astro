@@ -1,0 +1,17 @@
+---
+import Box from "../../lib/ui/Box.astro";
+
+interface Props {
+  bgColor: string;
+  class?: string;
+}
+
+const { bgColor, class: className, ...rest } = Astro.props;
+---
+
+<Box
+  class={`flex-1 p-8 rounded-2xl shadow-lg ${bgColor} text-center ${className ?? ''}`}
+  {...rest}
+>
+  <slot />
+</Box> 

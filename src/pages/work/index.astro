@@ -39,6 +39,7 @@ A11y:
 - Implement proper ARIA labels
 */
 
+import * as App from "../../lib/app/index.astro";
 import { chatbooksWorkExperience } from "./experience/chatbooks/_chatbooksWorkExperience";
 import { slingTvWorkExperience } from "./experience/sling-tv/_slingTvWorkExperience";
 import { masterControlWorkExperience } from "./experience/master-control/_masterControlWorkExperience";
@@ -50,10 +51,10 @@ import WorkExperienceCard from "./_WorkExperienceCard.astro";
 import WorkSection from "./_WorkSection.astro";
 import WorkSectionGrid from "./_WorkSectionGrid.astro";
 import WorkSectionTitle from "./_WorkSectionTitle.astro";
-import * as App from "../_app/_index.astro";
-import { makeSherpa } from "../_sherpa/_Sherpa";
+
 import Center from "../../lib/ui/Center.astro";
 import VStack from "../../lib/ui/VStack.astro";
+import { makeSherpa } from "../../lib/sherpa/Sherpa";
 
 /*
 TODO: Modern Design Elements

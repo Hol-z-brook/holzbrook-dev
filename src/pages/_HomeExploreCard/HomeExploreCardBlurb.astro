@@ -1,0 +1,13 @@
+---
+import P from "../../lib/ui/P.astro";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<P {...rest} class={`text-lg mb-8 ${className ?? ''}`}>
+  <slot />
+</P> 

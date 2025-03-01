@@ -1,0 +1,13 @@
+---
+import H2 from "../../lib/ui/H2.astro";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<H2 {...rest} class={`text-3xl mb-4 ${className ?? ''}`}>
+  <slot />
+</H2> 
