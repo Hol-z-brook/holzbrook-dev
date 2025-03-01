@@ -1,4 +1,8 @@
 ---
+import ThemePageBackLink from "./_ui/_ThemePageBackLink.astro";
+import ThemePageDescription from "./_ui/_ThemePageDescription.astro";
+import ThemePageHeader from "./_ui/_ThemePageHeader.astro";
+import ThemePageTitle from "./_ui/_ThemePageTitle.astro";
 import AppPage from "../_app/_AppPage.astro";
 import AppPageBody from "../_app/_AppPageBody.astro";
 import AppPageHeader from "../_app/_AppPageHeader.astro";
@@ -10,12 +14,12 @@ import ThemeSectionHeaderBody from "../../components/theme/ThemeSectionHeaderBod
 import ThemeSectionBody from "../../components/theme/ThemeSectionBody.astro";
 import PrimaryButton from "../../components/theme/PrimaryButton.astro";
 import OutlinedButton from "../../components/theme/OutlinedButton.astro";
+import A from "../../lib/ui/A.astro";
 import Box from "../../lib/ui/Box.astro";
-import ThemePageBackLink from "./_ui/_ThemePageBackLink.astro";
-import ThemePageTitle from "./_ui/_ThemePageTitle.astro";
-import ThemePageDescription from "./_ui/_ThemePageDescription.astro";
-import ThemePageHeader from "./_ui/_ThemePageHeader.astro";
 import H4 from "../../lib/ui/H4.astro";
+import Li from "../../lib/ui/Li.astro";
+import Nav from "../../lib/ui/Nav.astro";
+import Ul from "../../lib/ui/Ul.astro";
 import { theme } from "../../theme";
 
 const sections = [
@@ -38,26 +42,25 @@ const sections = [
         </ThemePageHeader>
 
         <!-- Navigation -->
-        <Box as="nav" class="mb-16">
-          <Box as="ul" class="flex flex-col gap-2">
-            <Box as="li">
+        <Nav class="mb-16">
+          <Ul class="flex flex-col gap-2">
+            <Li>
               <Box class="px-4 py-2 text-gray-900 font-medium">Border Radius</Box>
-              <Box as="ul" class="ml-4 mt-1 border-l border-gray-200 space-y-1">
+              <Ul class="ml-4 mt-1 border-l border-gray-200 space-y-1">
                 {sections.map(({ id, label }) => (
-                  <Box as="li">
-                    <Box
-                      as="a"
+                  <Li>
+                    <A
                       href={`#${id}`}
                       class="block pl-4 py-1.5 text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-md transition-colors text-sm"
                     >
                       {label}
-                    </Box>
-                  </Box>
+                    </A>
+                  </Li>
                 ))}
-              </Box>
-            </Box>
-          </Box>
-        </Box>
+              </Ul>
+            </Li>
+          </Ul>
+        </Nav>
 
         <Box class="space-y-24">
           <!-- Radius Scale -->
@@ -73,16 +76,19 @@ const sections = [
             <ThemeSectionBody class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12">
               {Object.entries(theme.borderRadius).map(([name, radius]) => (
                 <Box class="space-y-6 group">
-                  <Box class="relative">
+                  <Box class="relative aspect-square">
                     <Box 
-                      class="h-40 bg-gradient-to-br from-primary-200 to-primary-300 group-hover:scale-95 transition-transform"
+                      class="h-full bg-gradient-to-br from-primary-100 via-primary-300 to-primary-500 group-hover:scale-[0.97] transition-all duration-300 shadow-lg"
                       style={`border-radius: ${radius}`}
                     />
                     <Box 
-                      class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center bg-black/20 text-white font-medium"
+                      class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center bg-black/30 backdrop-blur-sm text-white font-medium"
                       style={`border-radius: ${radius}`}
                     >
-                      {radius}
+                      <Box class="text-center">
+                        <Box class="text-lg font-semibold">{radius}</Box>
+                        <Box class="text-sm text-white/80 mt-1">Click to copy</Box>
+                      </Box>
                     </Box>
                   </Box>
                   <Box class="space-y-2">
@@ -105,26 +111,38 @@ const sections = [
               </ThemeSectionHeaderBody>
             </ThemeSectionHeader>
             <ThemeSectionBody class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-              <Box class="space-y-6">
-                <H4>Buttons</H4>
-                <Box class="space-y-4">
+              <!-- Buttons -->
+              <Box class="space-y-8">
+                <H4 class="text-2xl font-medium">Buttons</H4>
+                <Box class="space-y-8">
                   {Object.entries(theme.borderRadius).map(([name, radius]) => (
-                    <Box class="space-y-3">
-                      <PrimaryButton radius={radius} />
-                      <OutlinedButton radius={radius} />
+                    <Box class="space-y-4">
+                      <Box class="text-sm font-medium text-gray-600">{name}</Box>
+                      <Box class="flex gap-4">
+                        <PrimaryButton radius={radius} />
+                        <OutlinedButton radius={radius} />
+                      </Box>
                     </Box>
                   ))}
                 </Box>
               </Box>
-              <Box class="space-y-6">
-                <H4>Cards</H4>
-                <Box class="grid grid-cols-2 gap-4">
-                  {Object.entries(theme.borderRadius).slice(0, 4).map(([name, radius]) => (
+
+              <!-- Cards -->
+              <Box class="space-y-8">
+                <H4 class="text-2xl font-medium">Cards</H4>
+                <Box class="grid grid-cols-2 gap-6">
+                  {Object.entries(theme.borderRadius).map(([name, radius]) => (
                     <Box 
-                      class="p-4 bg-white border border-gray-200 shadow-sm"
+                      class="p-6 bg-white border border-gray-200 shadow-sm hover:shadow-lg transition-shadow group"
                       style={`border-radius: ${radius}`}
                     >
-                      <Box class="text-sm font-medium">{name}</Box>
+                      <Box class="flex flex-col h-full">
+                        <Box class="text-sm font-medium text-gray-900">{name}</Box>
+                        <Box class="text-xs text-gray-500 font-mono mt-1">{radius}</Box>
+                        <Box class="mt-4 text-xs text-gray-600 group-hover:text-primary-600 transition-colors">
+                          Hover to see shadow effect
+                        </Box>
+                      </Box>
                     </Box>
                   ))}
                 </Box>
