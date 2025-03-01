@@ -1,11 +1,5 @@
 ---
-import ThemePageBackLink from "./_ui/_ThemePageBackLink.astro";
-import ThemePageTitle from "./_ui/_ThemePageTitle.astro";
-import ThemePageDescription from "./_ui/_ThemePageDescription.astro";
-import ThemePageHeader from "./_ui/_ThemePageHeader.astro";
-import ThemePageNav from "./_ui/_ThemePageNav.astro";
-import ThemePageNavTitle from "./_ui/_ThemePageNavTitle.astro";
-import ThemePageNavItem from "./_ui/_ThemePageNavItem.astro";
+import * as ThemePage from "./_ThemePage/_index.astro";
 import AppPage from "../_app/_AppPage.astro";
 import AppPageBody from "../_app/_AppPageBody.astro";
 import AppPageHeader from "../_app/_AppPageHeader.astro";
@@ -30,20 +24,20 @@ const sections = [
   <AppPageBody class="bg-gray-50">
     <AppPageSection>
       <Box class="max-w-[90rem] mx-auto py-16 px-6">
-        <ThemePageHeader>
-          <ThemePageBackLink />
-          <ThemePageTitle>Spacing</ThemePageTitle>
-          <ThemePageDescription>
+        <ThemePage.Header>
+          <ThemePage.BackLink />
+          <ThemePage.Title>Spacing</ThemePage.Title>
+          <ThemePage.Description>
             A consistent spacing system helps create harmonious layouts and maintain visual rhythm throughout the interface.
-          </ThemePageDescription>
-        </ThemePageHeader>
+          </ThemePage.Description>
+        </ThemePage.Header>
 
-        <ThemePageNav>
-          <ThemePageNavTitle slot="title">Spacing</ThemePageNavTitle>
+        <ThemePage.Nav>
+          <ThemePage.NavTitle slot="title">Spacing</ThemePage.NavTitle>
           {sections.map(({ id, label }) => (
-            <ThemePageNavItem href={`#${id}`} label={label} />
+            <ThemePage.NavItem href={`#${id}`} label={label} />
           ))}
-        </ThemePageNav>
+        </ThemePage.Nav>
 
         <Box class="space-y-24">
           <!-- Spacing Scale -->

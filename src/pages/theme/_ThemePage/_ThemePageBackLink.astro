@@ -1,0 +1,8 @@
+---
+import { makeSherpa } from '../../_sherpa/_Sherpa';
+import { default as BackLinkComponent } from '../../../lib/ui/BackLink.astro';
+
+const sherpa = makeSherpa();
+---
+
+<BackLinkComponent href={sherpa.theme.index()} class="mb-4">Back to Pickles UI</BackLinkComponent> 

@@ -1,0 +1,18 @@
+---
+import Box from '../../../lib/ui/Box.astro';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<Box class={`mb-16 ${className}`}>
+  <Box class="mb-4">
+    <slot name="title" />
+  </Box>
+  <Box class="space-y-2">
+    <slot />
+  </Box>
+</Box> 
