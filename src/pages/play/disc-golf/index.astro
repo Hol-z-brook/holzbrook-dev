@@ -1,9 +1,5 @@
 ---
-import AppPage from "../../_app/_AppPage.astro";
-import AppPageBody from "../../_app/_AppPageBody.astro";
-import AppPageFooter from "../../_app/_AppPageFooter.astro";
-import AppPageHeader from "../../_app/_AppPageHeader.astro";
-import AppPageHero from "../../_app/_AppPageHero.astro";
+import * as App from "../../_app/_index.astro";
 import { makeSherpa } from "../../_sherpa/_Sherpa";
 import Breadcrumb from "../../../lib/ui/Breadcrumb.astro";
 import Breadcrumbs from "../../../lib/ui/Breadcrumbs.astro";
@@ -11,10 +7,10 @@ import Breadcrumbs from "../../../lib/ui/Breadcrumbs.astro";
 const sherpa = makeSherpa();
 ---
 
-<AppPage>
-  <AppPageHeader />
-  <AppPageBody class="flex flex-col min-h-screen bg-gray-100">
-    <AppPageHero
+<App.Page>
+  <App.PageHeader />
+  <App.PageBody class="flex flex-col min-h-screen bg-gray-100">
+    <App.PageHero
       title="Disc Golf"
       subtitle="3 Aces and 1 Faux Ace. Always chasin' the next one!"
     />
@@ -54,6 +50,6 @@ const sherpa = makeSherpa();
       </p>
     </section>
 
-    <AppPageFooter />
-  </AppPageBody>
-</AppPage>
+    <App.PageFooter />
+  </App.PageBody>
+</App.Page>
