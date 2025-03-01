@@ -1,11 +1,7 @@
 ---
 import * as ThemePage from "./_ThemePage/_index.astro";
+import * as ThemeSection from "./_ThemeSection/_index.astro";
 import * as App from "../_app/_index.astro";
-import ThemeSection from "../../components/theme/ThemeSection.astro";
-import ThemeSectionHeader from "../../components/theme/ThemeSectionHeader.astro";
-import ThemeSectionBody from "../../components/theme/ThemeSectionBody.astro";
-import ThemeSectionHeaderTitle from "../../components/theme/ThemeSectionHeaderTitle.astro";
-import ThemeSectionHeaderBody from "../../components/theme/ThemeSectionHeaderBody.astro";
 import Box from "../../lib/ui/Box.astro";
 import H4 from "../../lib/ui/H4.astro";
 import theme from "../../theme";
@@ -38,16 +34,16 @@ const sections = [
 
         <Box class="space-y-24">
           <!-- Shadow Scale -->
-          <ThemeSection id="shadow-scale">
-            <ThemeSectionHeader>
-              <ThemeSectionHeaderTitle slot="title">
+          <ThemeSection.Section id="shadow-scale">
+            <ThemeSection.Header>
+              <ThemeSection.HeaderTitle slot="title">
                 Shadow Scale
-              </ThemeSectionHeaderTitle>
-              <ThemeSectionHeaderBody slot="body">
+              </ThemeSection.HeaderTitle>
+              <ThemeSection.HeaderBody slot="body">
                 A range of shadow intensities to create depth and elevation in the interface.
-              </ThemeSectionHeaderBody>
-            </ThemeSectionHeader>
-            <ThemeSectionBody class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16">
+              </ThemeSection.HeaderBody>
+            </ThemeSection.Header>
+            <ThemeSection.Body class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16">
               {Object.entries(theme.shadows).map(([name, shadow]) => (
                 <Box class="space-y-4 group">
                   <Box 
@@ -68,20 +64,20 @@ const sections = [
                   </Box>
                 </Box>
               ))}
-            </ThemeSectionBody>
-          </ThemeSection>
+            </ThemeSection.Body>
+          </ThemeSection.Section>
 
           <!-- Usage Guidelines -->
-          <ThemeSection id="usage-guidelines">
-            <ThemeSectionHeader>
-              <ThemeSectionHeaderTitle slot="title">
+          <ThemeSection.Section id="usage-guidelines">
+            <ThemeSection.Header>
+              <ThemeSection.HeaderTitle slot="title">
                 Usage Guidelines
-              </ThemeSectionHeaderTitle>
-              <ThemeSectionHeaderBody slot="body">
+              </ThemeSection.HeaderTitle>
+              <ThemeSection.HeaderBody slot="body">
                 Best practices for using shadows to create meaningful elevation hierarchy.
-              </ThemeSectionHeaderBody>
-            </ThemeSectionHeader>
-            <ThemeSectionBody>
+              </ThemeSection.HeaderBody>
+            </ThemeSection.Header>
+            <ThemeSection.Body>
               <Box class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <!-- Cards & Containers -->
                 <Box class="space-y-8">
@@ -163,8 +159,8 @@ const sections = [
                   </Box>
                 </Box>
               </Box>
-            </ThemeSectionBody>
-          </ThemeSection>
+            </ThemeSection.Body>
+          </ThemeSection.Section>
         </Box>
       </Box>
     </App.PageSection>

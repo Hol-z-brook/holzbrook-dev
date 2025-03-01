@@ -1,11 +1,7 @@
 ---
 import * as ThemePage from "./_ThemePage/_index.astro";
+import * as ThemeSection from "./_ThemeSection/_index.astro";
 import * as App from "../_app/_index.astro";
-import ThemeSection from "../../components/theme/ThemeSection.astro";
-import ThemeSectionHeader from "../../components/theme/ThemeSectionHeader.astro";
-import ThemeSectionBody from "../../components/theme/ThemeSectionBody.astro";
-import ThemeSectionHeaderTitle from "../../components/theme/ThemeSectionHeaderTitle.astro";
-import ThemeSectionHeaderBody from "../../components/theme/ThemeSectionHeaderBody.astro";
 import Box from "../../lib/ui/Box.astro";
 import Ul from "../../lib/ui/Ul.astro";
 import Li from "../../lib/ui/Li.astro";
@@ -66,16 +62,16 @@ const fontSizeUsage: Record<FontSizeKey, string> = {
         </ThemePage.Nav>
 
         <Box class="space-y-24">
-          <ThemeSection id="font-sizes">
-            <ThemeSectionHeader>
-              <ThemeSectionHeaderTitle slot="title">
+          <ThemeSection.Section id="font-sizes">
+            <ThemeSection.Header>
+              <ThemeSection.HeaderTitle slot="title">
                 Font Sizes
-              </ThemeSectionHeaderTitle>
-              <ThemeSectionHeaderBody slot="body">
+              </ThemeSection.HeaderTitle>
+              <ThemeSection.HeaderBody slot="body">
                 A comprehensive scale of font sizes designed to create clear visual hierarchy and maintain readability across different screen sizes.
-              </ThemeSectionHeaderBody>
-            </ThemeSectionHeader>
-            <ThemeSectionBody class="space-y-8">
+              </ThemeSection.HeaderBody>
+            </ThemeSection.Header>
+            <ThemeSection.Body class="space-y-8">
               {Object.entries(theme.fontSizes).map(([name, size]) => (
                 <Box class="group p-6 bg-white rounded-lg border border-gray-200 hover:border-primary-200 hover:shadow-sm transition-all">
                   <Box class="flex flex-col lg:grid lg:grid-cols-[8rem_1fr] gap-6">
@@ -96,19 +92,19 @@ const fontSizeUsage: Record<FontSizeKey, string> = {
                   </Box>
                 </Box>
               ))}
-            </ThemeSectionBody>
-          </ThemeSection>
+            </ThemeSection.Body>
+          </ThemeSection.Section>
           
-          <ThemeSection id="font-weights">
-            <ThemeSectionHeader>
-              <ThemeSectionHeaderTitle slot="title">
+          <ThemeSection.Section id="font-weights">
+            <ThemeSection.Header>
+              <ThemeSection.HeaderTitle slot="title">
                 Font Weights
-              </ThemeSectionHeaderTitle>
-              <ThemeSectionHeaderBody slot="body">
+              </ThemeSection.HeaderTitle>
+              <ThemeSection.HeaderBody slot="body">
                 Different font weights help establish hierarchy and emphasis in your typography.
-              </ThemeSectionHeaderBody>
-            </ThemeSectionHeader>
-            <ThemeSectionBody class="space-y-8">
+              </ThemeSection.HeaderBody>
+            </ThemeSection.Header>
+            <ThemeSection.Body class="space-y-8">
               {Object.entries(theme.fontWeights).map(([name, weight]) => (
                 <Box class="group p-6 bg-white rounded-lg border border-gray-200 hover:border-primary-200 hover:shadow-sm transition-all">
                   <Box class="flex flex-col lg:grid lg:grid-cols-[8rem_1fr] gap-6">
@@ -137,19 +133,19 @@ const fontSizeUsage: Record<FontSizeKey, string> = {
                   </Box>
                 </Box>
               ))}
-            </ThemeSectionBody>
-          </ThemeSection>
+            </ThemeSection.Body>
+          </ThemeSection.Section>
 
-          <ThemeSection id="usage-examples">
-            <ThemeSectionHeader>
-              <ThemeSectionHeaderTitle slot="title">
+          <ThemeSection.Section id="usage-examples">
+            <ThemeSection.Header>
+              <ThemeSection.HeaderTitle slot="title">
                 Usage Examples
-              </ThemeSectionHeaderTitle>
-              <ThemeSectionHeaderBody slot="body">
+              </ThemeSection.HeaderTitle>
+              <ThemeSection.HeaderBody slot="body">
                 Common typography patterns and combinations for different content types.
-              </ThemeSectionHeaderBody>
-            </ThemeSectionHeader>
-            <ThemeSectionBody>
+              </ThemeSection.HeaderBody>
+            </ThemeSection.Header>
+            <ThemeSection.Body>
               <Box class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <!-- Content Typography -->
                 <Box class="space-y-8">
@@ -241,10 +237,10 @@ const fontSizeUsage: Record<FontSizeKey, string> = {
                   </Box>
                 </Box>
               </Box>
-            </ThemeSectionBody>
-          </ThemeSection>
+            </ThemeSection.Body>
+          </ThemeSection.Section>
         </Box>
       </Box>
-    </AppPageSection>
-  </AppPageBody>
-</AppPage> 
+    </App.PageSection>
+  </App.PageBody>
+</App.Page> 

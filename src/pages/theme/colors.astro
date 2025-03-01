@@ -1,11 +1,7 @@
 ---
 import * as ThemePage from "./_ThemePage/_index.astro";
+import * as ThemeSection from "./_ThemeSection/_index.astro";
 import * as App from "../_app/_index.astro";
-import ThemeSection from "../../components/theme/ThemeSection.astro";
-import ThemeSectionHeader from "../../components/theme/ThemeSectionHeader.astro";
-import ThemeSectionBody from "../../components/theme/ThemeSectionBody.astro";
-import ThemeSectionHeaderTitle from "../../components/theme/ThemeSectionHeaderTitle.astro";
-import ThemeSectionHeaderBody from "../../components/theme/ThemeSectionHeaderBody.astro";
 import Box from "../../lib/ui/Box.astro";
 import H4 from "../../lib/ui/H4.astro";
 import theme from "../../theme";
@@ -24,7 +20,7 @@ const sections = [
 ];
 ---
 
-<App.Page>
+<App.Page >
   <App.PageHeader />
   <App.PageBody class="bg-gray-50">
     <App.PageSection>
@@ -45,17 +41,16 @@ const sections = [
         </ThemePage.Nav>
 
         <Box class="space-y-24">
-          <!-- Color Scales -->
-          <ThemeSection id="color-scales">
-            <ThemeSectionHeader>
-              <ThemeSectionHeaderTitle slot="title">
+          <ThemeSection.Section  id="color-scales">
+            <ThemeSection.Header>
+              <ThemeSection.HeaderTitle slot="title">
                 Color Scales
-              </ThemeSectionHeaderTitle>
-              <ThemeSectionHeaderBody slot="body">
+              </ThemeSection.HeaderTitle>
+              <ThemeSection.HeaderBody slot="body">
                 Color scales provide a range of shades for each primary color, allowing for consistent and accessible color usage across the application.
-            </ThemeSectionHeaderBody>
-            </ThemeSectionHeader>
-            <ThemeSectionBody class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-16">
+              </ThemeSection.HeaderBody>
+            </ThemeSection.Header>
+            <ThemeSection.Body class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-16">
               {colorScales.map(([name, scale]) => (
                 <Box class="space-y-6">
                   <H4 class="text-2xl font-medium capitalize">{name}</H4>
@@ -72,20 +67,19 @@ const sections = [
                   </Box>
                 </Box>
               ))}
-            </ThemeSectionBody>
-          </ThemeSection>
+            </ThemeSection.Body>
+          </ThemeSection.Section>
 
-          <!-- Single Colors -->
-          <ThemeSection id="base-colors">
-            <ThemeSectionHeader>
-              <ThemeSectionHeaderTitle slot="title">
+          <ThemeSection.Section id="base-colors">
+            <ThemeSection.Header>
+              <ThemeSection.HeaderTitle slot="title">
                 Base Colors
-              </ThemeSectionHeaderTitle>
-              <ThemeSectionHeaderBody slot="body">
+              </ThemeSection.HeaderTitle>
+              <ThemeSection.HeaderBody slot="body">
                 Single-value colors are used for specific purposes where a consistent, non-scaled color is needed.
-              </ThemeSectionHeaderBody>
-            </ThemeSectionHeader>
-            <ThemeSectionBody class="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-12">
+              </ThemeSection.HeaderBody>
+            </ThemeSection.Header>
+            <ThemeSection.Body class="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-12">
               {singleColors.map(([name, color]) => (
                 <Box class="space-y-4">
                   <Box 
@@ -95,20 +89,19 @@ const sections = [
                   <Box class="text-base font-medium capitalize">{name}</Box>
                 </Box>
               ))}
-            </ThemeSectionBody>
-          </ThemeSection>
+            </ThemeSection.Body>
+          </ThemeSection.Section>
 
-          <!-- Gradients -->
-          <ThemeSection id="gradients">
-            <ThemeSectionHeader>
-              <ThemeSectionHeaderTitle slot="title">
+          <ThemeSection.Section id="gradients">
+            <ThemeSection.Header>
+              <ThemeSection.HeaderTitle slot="title">
                 Gradients
-              </ThemeSectionHeaderTitle>
-              <ThemeSectionHeaderBody slot="body">
+              </ThemeSection.HeaderTitle>
+              <ThemeSection.HeaderBody slot="body">
                 Gradients add depth and visual interest to the interface, perfect for backgrounds and decorative elements.
-              </ThemeSectionHeaderBody>
-            </ThemeSectionHeader>
-            <ThemeSectionBody class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-16">
+              </ThemeSection.HeaderBody>
+            </ThemeSection.Header>
+            <ThemeSection.Body class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-16">
               {Object.entries(theme.gradients).map(([name, gradient]) => (
                 <Box class="space-y-6">
                   <H4 class="text-2xl font-medium capitalize">{name}</H4>
@@ -126,10 +119,10 @@ const sections = [
                   </Box>
                 </Box>
               ))}
-            </ThemeSectionBody>
-          </ThemeSection>
+            </ThemeSection.Body>
+          </ThemeSection.Section>
         </Box>
       </Box>
-    </App.PageSection>
+      </App.PageSection>
   </App.PageBody>
 </App.Page> 

@@ -1,11 +1,7 @@
 ---
 import * as ThemePage from "./_ThemePage/_index.astro";
+import * as ThemeSection from "./_ThemeSection/_index.astro";
 import * as App from "../_app/_index.astro";
-import ThemeSection from "../../components/theme/ThemeSection.astro";
-import ThemeSectionHeader from "../../components/theme/ThemeSectionHeader.astro";
-import ThemeSectionHeaderTitle from "../../components/theme/ThemeSectionHeaderTitle.astro";
-import ThemeSectionHeaderBody from "../../components/theme/ThemeSectionHeaderBody.astro";
-import ThemeSectionBody from "../../components/theme/ThemeSectionBody.astro";
 import Box from "../../lib/ui/Box.astro";
 import H4 from "../../lib/ui/H4.astro";
 import theme from "../../theme";
@@ -38,16 +34,16 @@ const sections = [
 
         <Box class="space-y-24">
           <!-- Spacing Scale -->
-          <ThemeSection id="spacing-scale">
-            <ThemeSectionHeader>
-              <ThemeSectionHeaderTitle slot="title">
+          <ThemeSection.Section id="spacing-scale">
+            <ThemeSection.Header>
+              <ThemeSection.HeaderTitle slot="title">
                 Spacing Scale
-              </ThemeSectionHeaderTitle>
-              <ThemeSectionHeaderBody slot="body">
+              </ThemeSection.HeaderTitle>
+              <ThemeSection.HeaderBody slot="body">
                 Our spacing scale provides consistent increments for margins, padding, and layout composition.
-              </ThemeSectionHeaderBody>
-            </ThemeSectionHeader>
-            <ThemeSectionBody class="space-y-8">
+              </ThemeSection.HeaderBody>
+            </ThemeSection.Header>
+            <ThemeSection.Body class="space-y-8">
               {Object.entries(theme.spacing).map(([name, space]) => (
                 <Box class="group flex items-center gap-12 p-4 rounded-lg hover:bg-white hover:shadow-sm transition-all cursor-pointer">
                   <Box class="w-32">
@@ -65,20 +61,20 @@ const sections = [
                   </Box>
                 </Box>
               ))}
-            </ThemeSectionBody>
-          </ThemeSection>
+            </ThemeSection.Body>
+          </ThemeSection.Section>
 
           <!-- Usage Examples -->
-          <ThemeSection id="usage-examples">
-            <ThemeSectionHeader>
-              <ThemeSectionHeaderTitle slot="title">
+          <ThemeSection.Section id="usage-examples">
+            <ThemeSection.Header>
+              <ThemeSection.HeaderTitle slot="title">
                 Usage Examples
-              </ThemeSectionHeaderTitle>
-              <ThemeSectionHeaderBody slot="body">
+              </ThemeSection.HeaderTitle>
+              <ThemeSection.HeaderBody slot="body">
                 Common patterns and examples of how to apply spacing in your layouts.
-              </ThemeSectionHeaderBody>
-            </ThemeSectionHeader>
-            <ThemeSectionBody>
+              </ThemeSection.HeaderBody>
+            </ThemeSection.Header>
+            <ThemeSection.Body>
               <Box class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <!-- Component Spacing -->
                 <Box class="space-y-8">
@@ -148,8 +144,8 @@ const sections = [
                   </Box>
                 </Box>
               </Box>
-            </ThemeSectionBody>
-          </ThemeSection>
+            </ThemeSection.Body>
+          </ThemeSection.Section>
         </Box>
       </Box>
     </App.PageSection>
