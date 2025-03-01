@@ -39,27 +39,21 @@ A11y:
 - Implement proper ARIA labels
 */
 
-import VStack from "../../lib/ui/VStack.astro";
-import AppLink from "../_app/_AppLink.astro";
-import AppPage from "../_app/_AppPage.astro";
-import AppPageBody from "../_app/_AppPageBody.astro";
-import AppPageFooter from "../_app/_AppPageFooter.astro";
-import AppPageHeader from "../_app/_AppPageHeader.astro";
-import AppPageHero from "../_app/_AppPageHero.astro";
-import AppPageSection from "../_app/_AppPageSection.astro";
-import { makeSherpa } from "../_sherpa/_Sherpa";
-import ResumeSkeleton from "./resume/_ResumeSkeleton.astro";
 import { chatbooksWorkExperience } from "./experience/chatbooks/_chatbooksWorkExperience";
 import { slingTvWorkExperience } from "./experience/sling-tv/_slingTvWorkExperience";
 import { masterControlWorkExperience } from "./experience/master-control/_masterControlWorkExperience";
 import ProjectCard from "./_ProjectCard.astro";
+import ResumeSkeleton from "./resume/_ResumeSkeleton.astro";
 import SkillCard from "./_SkillCard.astro";
 import SkillCategoryCard from "./_SkillCategoryCard.astro";
 import WorkExperienceCard from "./_WorkExperienceCard.astro";
 import WorkSection from "./_WorkSection.astro";
 import WorkSectionGrid from "./_WorkSectionGrid.astro";
 import WorkSectionTitle from "./_WorkSectionTitle.astro";
+import * as App from "../_app/_index.astro";
+import { makeSherpa } from "../_sherpa/_Sherpa";
 import Center from "../../lib/ui/Center.astro";
+import VStack from "../../lib/ui/VStack.astro";
 
 /*
 TODO: Modern Design Elements
@@ -163,14 +157,14 @@ const coreProficiencies: CoreProficiency[] = [
 ];
 ---
 
-<AppPage>
+<App.Page>
   {/* TODO: Performance & Accessibility
     [ ] Add keyboard navigation
     [ ] Implement proper ARIA labels
   */}
-  <AppPageHeader />
+  <App.PageHeader />
 
-  <AppPageBody
+  <App.PageBody
     backgroundColor="bg-gray-100"
     class={`
       flex
@@ -184,7 +178,7 @@ const coreProficiencies: CoreProficiency[] = [
       [ ] Implement particle.js background
       [ ] Add subtle scroll-triggered animations
     */}
-    <AppPageHero
+    <App.PageHero
       title="My Career"
       subtitle="When work is play, you'll never play another day in your life."
       class={`
@@ -197,7 +191,7 @@ const coreProficiencies: CoreProficiency[] = [
       [ ] Implement floating navigation
       [ ] Add progress indicators
     */}
-    <AppPageSection
+    <App.PageSection
       class={`
         w-full
         py-12
@@ -271,7 +265,7 @@ const coreProficiencies: CoreProficiency[] = [
         <WorkSection>
           <WorkSectionTitle>Resume</WorkSectionTitle>
           <Center>
-            <AppLink
+            <App.Link
               class={`
                 w-3/4
                 xs:w-3/4
@@ -282,17 +276,17 @@ const coreProficiencies: CoreProficiency[] = [
               target="_blank"
             >
             <ResumeSkeleton />
-            </AppLink>
+            </App.Link>
           </Center>
         </WorkSection>
       </VStack>
 
-    </AppPageSection>
+    </App.PageSection>
 
     {/* TODO: Performance & Accessibility
       [ ] Optimize animations for reduced motion
       [ ] Ensure WCAG 2.1 compliance
     */}
-    <AppPageFooter />
-  </AppPageBody>
-</AppPage>
+    <App.PageFooter />
+  </App.PageBody>
+</App.Page>

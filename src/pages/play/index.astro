@@ -1,29 +1,23 @@
 ---
-import { hobbies } from "./hobby/_hobbies";;
-import AppLink from "../_app/_AppLink.astro";
-import AppPage from "../_app/_AppPage.astro";
-import AppPageBody from "../_app/_AppPageBody.astro";
-import AppPageFooter from "../_app/_AppPageFooter.astro";
-import AppPageHeader from "../_app/_AppPageHeader.astro";
-import AppPageHero from "../_app/_AppPageHero.astro";
-import AppPageSection from "../_app/_AppPageSection.astro";
+import { hobbies } from "./hobby/_hobbies";
+import * as App from "../_app/_index.astro";
 import Card from "../../lib/ui/Card.astro";
 ---
 
-<AppPage>
-  <AppPageHeader />
+<App.Page>
+  <App.PageHeader />
 
-  <AppPageBody backgroundColor="bg-gray-100" class="flex flex-col min-h-screen">
-    <AppPageHero
+  <App.PageBody backgroundColor="bg-gray-100" class="flex flex-col min-h-screen">
+    <App.PageHero
       title="My Hobbies"
       subtitle="Explore the things I enjoy doing in my free time."
     />
     
-    <AppPageSection>
+    <App.PageSection>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {
             hobbies.map((hobby) => (
-              <AppLink href={hobby.href} class="block">
+              <App.Link href={hobby.href} class="block">
                 <Card class="shadow-lg hover:shadow-2xl transition-shadow duration-300">
                   <h2 class="text-xl font-semibold text-gray-800">
                     {hobby.name}
@@ -33,8 +27,8 @@ import Card from "../../lib/ui/Card.astro";
             ))
           }
         </div>
-    </AppPageSection>
+    </App.PageSection>
 
-    <AppPageFooter />
-  </AppPageBody>
-</AppPage>
+    <App.PageFooter />
+  </App.PageBody>
+</App.Page>

@@ -1,8 +1,5 @@
 ---
-import AppPage from "../_app/_AppPage.astro";
-import AppPageBody from "../_app/_AppPageBody.astro";
-import AppPageHeader from "../_app/_AppPageHeader.astro";
-import AppPageSection from "../_app/_AppPageSection.astro";
+import * as App from "../_app/_index.astro";
 import { makeSherpa } from "../_sherpa/_Sherpa";
 import Box from "../../lib/ui/Box.astro";
 import PageHeader from "../../lib/ui/PageHeader.astro";
@@ -76,10 +73,10 @@ const themePages: ThemePage[] = [
 ];
 ---
 
-<AppPage>
-  <AppPageHeader />
-  <AppPageBody class="bg-gray-50">
-    <AppPageSection>
+<App.Page>
+  <App.PageHeader />
+  <App.PageBody class="bg-gray-50">
+    <App.PageSection>
       <Box class="max-w-5xl mx-auto py-16 px-6">
         <PageHeader>
           <PageHeaderTitle>
@@ -117,6 +114,6 @@ const themePages: ThemePage[] = [
           ))}
         </Box>
       </Box>
-    </AppPageSection>
-  </AppPageBody>
-</AppPage> 
+    </App.PageSection>
+  </App.PageBody>
+</App.Page> 
