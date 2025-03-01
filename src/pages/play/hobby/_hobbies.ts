@@ -1,4 +1,4 @@
-import { makeSherpa } from "../../_sherpa/_Sherpa.ts";
+import { makeSherpa } from "../../../lib/sherpa/Sherpa";
 import { type Hobby } from "./_Hobby.ts";
 
 const sherpa = makeSherpa();
