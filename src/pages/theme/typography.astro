@@ -26,8 +26,26 @@ const sections = [
   { id: 'usage-examples', label: 'Usage Examples' }
 ];
 
-const sampleText = "The quick brown fox jumps over the lazy dog";
-const shortSampleText = "Typography";
+const sampleText = "Design with purpose";
+const shortSampleText = "Sample";
+
+type FontSizeKey = keyof typeof theme.fontSizes;
+const fontSizeUsage: Record<FontSizeKey, string> = {
+  xs: "Helper text, captions, and fine print",
+  sm: "Secondary text, form labels, and UI elements",
+  base: "Default body text and general content",
+  lg: "Subheadings and emphasized content",
+  xl: "Section headings and card titles",
+  "2xl": "Major section headers and article titles",
+  "3xl": "Page titles and hero headlines",
+  "4xl": "Large display text and hero headers",
+  "5xl": "Extra large display text and major headlines",
+  "6xl": "Massive display text for hero sections",
+  "7xl": "Giant display text for special features",
+  "8xl": "Enormous display text for impact",
+  "9xl": "Maximum size for dramatic effect"
+};
+
 ---
 
 <AppPage>
@@ -77,17 +95,19 @@ const shortSampleText = "Typography";
             <ThemeSectionBody class="space-y-8">
               {Object.entries(theme.fontSizes).map(([name, size]) => (
                 <Box class="group p-6 bg-white rounded-lg border border-gray-200 hover:border-primary-200 hover:shadow-sm transition-all">
-                  <Box class="flex items-baseline gap-12">
-                    <Box class="w-32 space-y-1">
+                  <Box class="flex flex-col lg:grid lg:grid-cols-[8rem_1fr] gap-6">
+                    <Box class="space-y-1">
                       <Box class="text-base font-medium text-gray-900">{name}</Box>
                       <Box class="text-sm font-mono text-gray-500">{size}</Box>
                     </Box>
-                    <Box class="flex-1 space-y-2">
-                      <Box style={`font-size: ${size}`} class="text-gray-900 group-hover:text-primary-900 transition-colors">
-                        {shortSampleText}
+                    <Box class="space-y-4">
+                      <Box class="min-h-[4rem] flex items-center">
+                        <Box style={`font-size: ${size}`} class="text-gray-900 group-hover:text-primary-900 transition-colors">
+                          {shortSampleText}
+                        </Box>
                       </Box>
-                      <Box class="text-sm text-gray-500 group-hover:text-primary-600 transition-colors">
-                        Click to copy font size value
+                      <Box class="text-sm text-gray-600 border-t border-gray-100 pt-4">
+                        {fontSizeUsage[name as FontSizeKey]}
                       </Box>
                     </Box>
                   </Box>
@@ -108,17 +128,27 @@ const shortSampleText = "Typography";
             <ThemeSectionBody class="space-y-8">
               {Object.entries(theme.fontWeights).map(([name, weight]) => (
                 <Box class="group p-6 bg-white rounded-lg border border-gray-200 hover:border-primary-200 hover:shadow-sm transition-all">
-                  <Box class="flex items-center gap-12">
-                    <Box class="w-32 space-y-1">
+                  <Box class="flex flex-col lg:grid lg:grid-cols-[8rem_1fr] gap-6">
+                    <Box class="space-y-1">
                       <Box class="text-base font-medium text-gray-900">{name}</Box>
                       <Box class="text-sm font-mono text-gray-500">{weight}</Box>
                     </Box>
-                    <Box class="flex-1 space-y-2">
-                      <Box style={`font-weight: ${weight}`} class="text-xl text-gray-900 group-hover:text-primary-900 transition-colors">
-                        {sampleText}
+                    <Box class="space-y-4">
+                      <Box class="min-h-[4rem] flex items-center">
+                        <Box style={`font-weight: ${weight}`} class="text-xl text-gray-900 group-hover:text-primary-900 transition-colors">
+                          {sampleText}
+                        </Box>
                       </Box>
-                      <Box class="text-sm text-gray-500 group-hover:text-primary-600 transition-colors">
-                        Click to copy font weight value
+                      <Box class="text-sm text-gray-600 border-t border-gray-100 pt-4">
+                        {name === 'thin' ? 'Extremely light weight, best for decorative use or very large sizes' :
+                         name === 'extralight' ? 'Very light weight, suitable for specialized display text' :
+                         name === 'light' ? 'Light weight, good for large text or subtle emphasis' :
+                         name === 'normal' ? 'Regular weight, ideal for body text and general content' :
+                         name === 'medium' ? 'Medium weight, perfect for subheadings and mild emphasis' :
+                         name === 'semibold' ? 'Semi-bold weight, great for section headers and strong emphasis' :
+                         name === 'bold' ? 'Bold weight, ideal for headlines and primary headings' :
+                         name === 'extrabold' ? 'Extra bold weight, for high-impact headlines and callouts' :
+                         'Black weight, maximum emphasis for dramatic display text'}
                       </Box>
                     </Box>
                   </Box>
