@@ -9,6 +9,8 @@ import AppPageHeader from "../_app/_AppPageHeader.astro";
 import AppPageSection from "../_app/_AppPageSection.astro";
 import ThemeSection from "../../components/theme/ThemeSection.astro";
 import ThemeSectionHeader from "../../components/theme/ThemeSectionHeader.astro";
+import ThemeSectionHeaderTitle from "../../components/theme/ThemeSectionHeaderTitle.astro";
+import ThemeSectionHeaderBody from "../../components/theme/ThemeSectionHeaderBody.astro";
 import ThemeSectionBody from "../../components/theme/ThemeSectionBody.astro";
 import { theme } from "../../theme";
 
@@ -55,10 +57,13 @@ const sections = [
         <div class="space-y-24">
           <!-- Spacing Scale -->
           <ThemeSection id="spacing-scale">
-            <ThemeSectionHeader title="Spacing Scale">
-              <p class="text-lg text-gray-600 mt-4">
+            <ThemeSectionHeader>
+              <ThemeSectionHeaderTitle slot="title">
+                Spacing Scale
+              </ThemeSectionHeaderTitle>
+              <ThemeSectionHeaderBody slot="body">
                 Our spacing scale provides consistent increments for margins, padding, and layout composition.
-              </p>
+              </ThemeSectionHeaderBody>
             </ThemeSectionHeader>
             <ThemeSectionBody class="space-y-8">
               {Object.entries(theme.spacing).map(([name, space]) => (
@@ -76,10 +81,13 @@ const sections = [
 
           <!-- Usage Examples -->
           <ThemeSection id="usage-examples">
-            <ThemeSectionHeader title="Usage Examples">
-              <p class="text-lg text-gray-600 mt-4">
+            <ThemeSectionHeader>
+              <ThemeSectionHeaderTitle slot="title">
+                Usage Examples
+              </ThemeSectionHeaderTitle>
+              <ThemeSectionHeaderBody slot="body">
                 Common patterns and examples of how to apply spacing in your layouts.
-              </p>
+              </ThemeSectionHeaderBody>
             </ThemeSectionHeader>
             <ThemeSectionBody>
               <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">

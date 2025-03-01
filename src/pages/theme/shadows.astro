@@ -11,6 +11,8 @@ import ThemePageBackLink from "./_ui/_ThemePageBackLink.astro";
 import ThemePageTitle from "./_ui/_ThemePageTitle.astro";
 import ThemePageDescription from "./_ui/_ThemePageDescription.astro";
 import ThemePageHeader from "./_ui/_ThemePageHeader.astro";
+import ThemeSectionHeaderTitle from "../../components/theme/ThemeSectionHeaderTitle.astro";
+import ThemeSectionHeaderBody from "../../components/theme/ThemeSectionHeaderBody.astro";
 
 const sections = [
   { id: 'shadow-scale', label: 'Shadow Scale' },
@@ -55,10 +57,13 @@ const sections = [
         <div class="space-y-24">
           <!-- Shadow Scale -->
           <ThemeSection id="shadow-scale">
-            <ThemeSectionHeader title="Shadow Scale">
-              <p class="text-lg text-gray-600 mt-4">
+            <ThemeSectionHeader>
+              <ThemeSectionHeaderTitle slot="title">
+                Shadow Scale
+              </ThemeSectionHeaderTitle>
+              <ThemeSectionHeaderBody slot="body">
                 A range of shadow intensities to create depth and elevation in the interface.
-              </p>
+              </ThemeSectionHeaderBody>
             </ThemeSectionHeader>
             <ThemeSectionBody class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16">
               {Object.entries(theme.shadows).map(([name, shadow]) => (
@@ -76,10 +81,13 @@ const sections = [
 
           <!-- Usage Guidelines -->
           <ThemeSection id="usage-guidelines">
-            <ThemeSectionHeader title="Usage Guidelines">
-              <p class="text-lg text-gray-600 mt-4">
+            <ThemeSectionHeader>
+              <ThemeSectionHeaderTitle slot="title">
+                Usage Guidelines
+              </ThemeSectionHeaderTitle>
+              <ThemeSectionHeaderBody slot="body">
                 Best practices for using shadows to create meaningful elevation hierarchy.
-              </p>
+              </ThemeSectionHeaderBody>
             </ThemeSectionHeader>
             <ThemeSectionBody>
               <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">

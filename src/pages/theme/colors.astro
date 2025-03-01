@@ -6,6 +6,8 @@ import AppPageSection from "../_app/_AppPageSection.astro";
 import ThemeSection from "../../components/theme/ThemeSection.astro";
 import ThemeSectionHeader from "../../components/theme/ThemeSectionHeader.astro";
 import ThemeSectionBody from "../../components/theme/ThemeSectionBody.astro";
+import ThemeSectionHeaderTitle from "../../components/theme/ThemeSectionHeaderTitle.astro";
+import ThemeSectionHeaderBody from "../../components/theme/ThemeSectionHeaderBody.astro";
 import ThemePageBackLink from "./_ui/_ThemePageBackLink.astro";
 import ThemePageTitle from "./_ui/_ThemePageTitle.astro";
 import ThemePageDescription from "./_ui/_ThemePageDescription.astro";
@@ -15,7 +17,6 @@ import Box from "../../lib/ui/Box.astro";
 import H4 from "../../lib/ui/H4.astro";
 import Li from "../../lib/ui/Li.astro";
 import Nav from "../../lib/ui/Nav.astro";
-import P from "../../lib/ui/P.astro";
 import Ul from "../../lib/ui/Ul.astro";
 import { theme } from "../../theme";
 
@@ -70,10 +71,13 @@ const sections = [
         <Box class="space-y-24">
           <!-- Color Scales -->
           <ThemeSection id="color-scales">
-            <ThemeSectionHeader title="Color Scales">
-              <P class="text-lg text-gray-600 mt-4">
+            <ThemeSectionHeader>
+              <ThemeSectionHeaderTitle slot="title">
+                Color Scales
+              </ThemeSectionHeaderTitle>
+              <ThemeSectionHeaderBody slot="body">
                 Color scales provide a range of shades for each primary color, allowing for consistent and accessible color usage across the application.
-              </P>
+            </ThemeSectionHeaderBody>
             </ThemeSectionHeader>
             <ThemeSectionBody class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-16">
               {colorScales.map(([name, scale]) => (
@@ -97,10 +101,13 @@ const sections = [
 
           <!-- Single Colors -->
           <ThemeSection id="base-colors">
-            <ThemeSectionHeader title="Base Colors">
-              <P class="text-lg text-gray-600 mt-4">
+            <ThemeSectionHeader>
+              <ThemeSectionHeaderTitle slot="title">
+                Base Colors
+              </ThemeSectionHeaderTitle>
+              <ThemeSectionHeaderBody slot="body">
                 Single-value colors are used for specific purposes where a consistent, non-scaled color is needed.
-              </P>
+              </ThemeSectionHeaderBody>
             </ThemeSectionHeader>
             <ThemeSectionBody class="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-12">
               {singleColors.map(([name, color]) => (
@@ -117,10 +124,13 @@ const sections = [
 
           <!-- Gradients -->
           <ThemeSection id="gradients">
-            <ThemeSectionHeader title="Gradients">
-              <P class="text-lg text-gray-600 mt-4">
+            <ThemeSectionHeader>
+              <ThemeSectionHeaderTitle slot="title">
+                Gradients
+              </ThemeSectionHeaderTitle>
+              <ThemeSectionHeaderBody slot="body">
                 Gradients add depth and visual interest to the interface, perfect for backgrounds and decorative elements.
-              </P>
+              </ThemeSectionHeaderBody>
             </ThemeSectionHeader>
             <ThemeSectionBody class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-16">
               {Object.entries(theme.gradients).map(([name, gradient]) => (

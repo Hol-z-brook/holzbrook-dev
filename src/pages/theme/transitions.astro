@@ -8,8 +8,10 @@ import AppPageBody from "../_app/_AppPageBody.astro";
 import AppPageHeader from "../_app/_AppPageHeader.astro";
 import AppPageSection from "../_app/_AppPageSection.astro";
 import ThemeSection from "../../components/theme/ThemeSection.astro";
-import ThemeSectionHeader from "../../components/theme/ThemeSectionHeader.astro";
 import ThemeSectionBody from "../../components/theme/ThemeSectionBody.astro";
+import ThemeSectionHeader from "../../components/theme/ThemeSectionHeader.astro";
+import ThemeSectionHeaderTitle from "../../components/theme/ThemeSectionHeaderTitle.astro";
+import ThemeSectionHeaderBody from "../../components/theme/ThemeSectionHeaderBody.astro";
 import { theme } from "../../theme";
 
 const sections = [
@@ -55,10 +57,13 @@ const sections = [
         <div class="space-y-24">
           <!-- Timing Scale -->
           <ThemeSection id="timing-scale">
-            <ThemeSectionHeader title="Timing Scale">
-              <p class="text-lg text-gray-600 mt-4">
+            <ThemeSectionHeader>
+              <ThemeSectionHeaderTitle slot="title">
+                Timing Scale
+              </ThemeSectionHeaderTitle>
+              <ThemeSectionHeaderBody slot="body">
                 Different transition durations and easing functions for various types of animations.
-              </p>
+              </ThemeSectionHeaderBody>
             </ThemeSectionHeader>
             <ThemeSectionBody class="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-16">
               {Object.entries(theme.transitions).map(([name, transition]) => (
@@ -78,10 +83,13 @@ const sections = [
 
           <!-- Animation Examples -->
           <ThemeSection id="animation-examples">
-            <ThemeSectionHeader title="Animation Examples">
-              <p class="text-lg text-gray-600 mt-4">
+            <ThemeSectionHeader>
+              <ThemeSectionHeaderTitle slot="title">
+                Animation Examples
+              </ThemeSectionHeaderTitle>
+              <ThemeSectionHeaderBody slot="body">
                 Common interaction patterns using our transition timing scale.
-              </p>
+              </ThemeSectionHeaderBody>
             </ThemeSectionHeader>
             <ThemeSectionBody>
               <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">

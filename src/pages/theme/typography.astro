@@ -10,6 +10,8 @@ import ThemePageBackLink from "./_ui/_ThemePageBackLink.astro";
 import ThemePageTitle from "./_ui/_ThemePageTitle.astro";
 import ThemePageDescription from "./_ui/_ThemePageDescription.astro";
 import ThemePageHeader from "./_ui/_ThemePageHeader.astro";
+import ThemeSectionHeaderTitle from "../../components/theme/ThemeSectionHeaderTitle.astro";
+import ThemeSectionHeaderBody from "../../components/theme/ThemeSectionHeaderBody.astro";
 import { theme } from "../../theme";
 
 const sections = [
@@ -53,12 +55,14 @@ const sections = [
         </nav>
 
         <div class="space-y-24">
-          <!-- Font Sizes -->
           <ThemeSection id="font-sizes">
-            <ThemeSectionHeader title="Font Sizes">
-              <p class="text-lg text-gray-600 mt-4">
+            <ThemeSectionHeader>
+              <ThemeSectionHeaderTitle slot="title">
+                Font Sizes
+              </ThemeSectionHeaderTitle>
+              <ThemeSectionHeaderBody slot="body">
                 A comprehensive scale of font sizes designed to create clear visual hierarchy and maintain readability across different screen sizes.
-              </p>
+              </ThemeSectionHeaderBody>
             </ThemeSectionHeader>
             <ThemeSectionBody class="space-y-16">
               <div class="space-y-8">
@@ -73,13 +77,15 @@ const sections = [
               </div>
             </ThemeSectionBody>
           </ThemeSection>
-
-          <!-- Font Weights -->
+          
           <ThemeSection id="font-weights">
-            <ThemeSectionHeader title="Font Weights">
-              <p class="text-lg text-gray-600 mt-4">
+            <ThemeSectionHeader>
+              <ThemeSectionHeaderTitle slot="title">
+                Font Weights
+              </ThemeSectionHeaderTitle>
+              <ThemeSectionHeaderBody slot="body">
                 Different font weights help establish hierarchy and emphasis in your typography.
-              </p>
+              </ThemeSectionHeaderBody>
             </ThemeSectionHeader>
             <ThemeSectionBody class="space-y-16">
               <div class="space-y-8">

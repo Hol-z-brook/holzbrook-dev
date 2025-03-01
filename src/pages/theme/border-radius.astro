@@ -5,6 +5,8 @@ import AppPageHeader from "../_app/_AppPageHeader.astro";
 import AppPageSection from "../_app/_AppPageSection.astro";
 import ThemeSection from "../../components/theme/ThemeSection.astro";
 import ThemeSectionHeader from "../../components/theme/ThemeSectionHeader.astro";
+import ThemeSectionHeaderTitle from "../../components/theme/ThemeSectionHeaderTitle.astro";
+import ThemeSectionHeaderBody from "../../components/theme/ThemeSectionHeaderBody.astro";
 import ThemeSectionBody from "../../components/theme/ThemeSectionBody.astro";
 import PrimaryButton from "../../components/theme/PrimaryButton.astro";
 import OutlinedButton from "../../components/theme/OutlinedButton.astro";
@@ -14,7 +16,6 @@ import ThemePageTitle from "./_ui/_ThemePageTitle.astro";
 import ThemePageDescription from "./_ui/_ThemePageDescription.astro";
 import ThemePageHeader from "./_ui/_ThemePageHeader.astro";
 import H4 from "../../lib/ui/H4.astro";
-import P from "../../lib/ui/P.astro";
 import { theme } from "../../theme";
 
 const sections = [
@@ -61,10 +62,13 @@ const sections = [
         <Box class="space-y-24">
           <!-- Radius Scale -->
           <ThemeSection id="radius-scale">
-            <ThemeSectionHeader title="Radius Scale">
-              <P class="text-lg text-gray-600 mt-4">
+            <ThemeSectionHeader>
+              <ThemeSectionHeaderTitle slot="title">
+                Radius Scale
+              </ThemeSectionHeaderTitle>
+              <ThemeSectionHeaderBody slot="body">
                 A comprehensive scale of border radius values to maintain consistent corner rounding across components.
-              </P>
+              </ThemeSectionHeaderBody>
             </ThemeSectionHeader>
             <ThemeSectionBody class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12">
               {Object.entries(theme.borderRadius).map(([name, radius]) => (
@@ -92,10 +96,13 @@ const sections = [
 
           <!-- Component Examples -->
           <ThemeSection id="component-examples">
-            <ThemeSectionHeader title="Component Examples">
-              <P class="text-lg text-gray-600 mt-4">
+            <ThemeSectionHeader>
+              <ThemeSectionHeaderTitle slot="title">
+                Component Examples
+              </ThemeSectionHeaderTitle>
+              <ThemeSectionHeaderBody slot="body">
                 Examples of how border radius is applied to different components to create consistent styling.
-              </P>
+              </ThemeSectionHeaderBody>
             </ThemeSectionHeader>
             <ThemeSectionBody class="grid grid-cols-1 lg:grid-cols-2 gap-16">
               <Box class="space-y-6">
