@@ -1,8 +1,7 @@
 ---
 import App from "../lib/app";
 import { makeSherpa } from "../lib/sherpa/Sherpa";
-import Box from "../lib/ui/Box.astro";
-import Stack from "../lib/ui/Stack.astro";
+import UI from "../lib/ui";
 import HomeExploreCard from "../pages/_components/HomeExploreCard";
 
 const sherpa = makeSherpa();
@@ -46,8 +45,8 @@ const playSection = {
     />
 
     <!-- Work, Family, Play in a Row on Large Screens -->
-    <Box as="section" class="py-12">
-      <Stack
+    <UI.Layout.Box as="section" class="py-12">
+      <UI.Layout.Stack
         direction="row"
         class="max-w-6xl mx-auto px-6 lg:space-x-8 space-y-8 lg:space-y-0"
       >
@@ -89,8 +88,8 @@ const playSection = {
             {playSection.cta}
           </HomeExploreCard.Cta>
         </HomeExploreCard.Container>
-      </Stack>
-    </Box>
+      </UI.Layout.Stack>
+    </UI.Layout.Box>
 
     <App.PageFooter />
   </App.PageBody>

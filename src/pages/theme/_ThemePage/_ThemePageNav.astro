@@ -1,5 +1,5 @@
 ---
-import Box from '../../../lib/ui/Box.astro';
+import UI from '../../../lib/ui';
 
 interface Props {
   class?: string;
@@ -8,11 +8,11 @@ interface Props {
 const { class: className = '' } = Astro.props;
 ---
 
-<Box class={`mb-16 ${className}`}>
-  <Box class="mb-4">
+<UI.Layout.Box class={`mb-16 ${className}`}>
+  <UI.Layout.Box class="mb-4">
     <slot name="title" />
-  </Box>
-  <Box class="space-y-2">
+  </UI.Layout.Box>
+  <UI.Layout.Box class="space-y-2">
     <slot />
-  </Box>
-</Box> 
+  </UI.Layout.Box>
+</UI.Layout.Box> 

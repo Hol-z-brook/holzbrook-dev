@@ -1,5 +1,5 @@
 ---
-import VStack from '../../lib/ui/VStack.astro';
+import UI from '../../lib/ui';
 
 interface Props {
   class?: string;
@@ -16,12 +16,12 @@ const { class: className = '' } = Astro.props;
   space-y-12
   ${className}
 `}>
-  <VStack class={`
+  <UI.Layout.VStack class={`
     w-full
     max-w-6xl
     px-4
     gap-y-8
   `}>
     <slot />
-  </VStack>
+  </UI.Layout.VStack>
 </section>

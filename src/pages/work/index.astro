@@ -52,8 +52,7 @@ import WorkSectionGrid from "./_WorkSectionGrid.astro";
 import WorkSectionTitle from "./_WorkSectionTitle.astro";
 
 import App from "../../lib/app";
-import Center from "../../lib/ui/Center.astro";
-import VStack from "../../lib/ui/VStack.astro";
+import UI from "../../lib/ui";
 import { makeSherpa } from "../../lib/sherpa/Sherpa";
 
 /*
@@ -207,7 +206,7 @@ const coreProficiencies: CoreProficiency[] = [
         [ ] Add section dividers/decorative elements
         [ ] Improve spacing and rhythm
       */}
-      <VStack
+      <UI.Layout.VStack
         class={`
           gap-8
         `}
@@ -240,7 +239,7 @@ const coreProficiencies: CoreProficiency[] = [
           </WorkSectionGrid>
         </WorkSection>
 
-        <VStack class="gap-16">
+        <UI.Layout.VStack class="gap-16">
           <WorkSection>
             <WorkSectionTitle>Core Proficiencies</WorkSectionTitle>
             <WorkSectionGrid>
@@ -261,11 +260,11 @@ const coreProficiencies: CoreProficiency[] = [
               ))}
             </WorkSectionGrid>
           </WorkSection>
-        </VStack>
+        </UI.Layout.VStack>
 
         <WorkSection>
           <WorkSectionTitle>Resume</WorkSectionTitle>
-          <Center>
+          <UI.Layout.Center>
             <App.Link
               class={`
                 w-3/4
@@ -278,9 +277,9 @@ const coreProficiencies: CoreProficiency[] = [
             >
             <ResumeSkeleton />
             </App.Link>
-          </Center>
+          </UI.Layout.Center>
         </WorkSection>
-      </VStack>
+      </UI.Layout.VStack>
 
     </App.PageSection>
 

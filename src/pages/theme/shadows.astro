@@ -2,8 +2,7 @@
 import * as ThemePage from "./_ThemePage/_index.astro";
 import * as ThemeSection from "./_ThemeSection/_index.astro";
 import App from "../../lib/app";
-import Box from "../../lib/ui/Box.astro";
-import H4 from "../../lib/ui/H4.astro";
+import UI from "../../lib/ui";
 import theme from "../../theme";
 
 const sections = [
@@ -16,7 +15,7 @@ const sections = [
   <App.PageHeader />
   <App.PageBody class="bg-gray-50">
     <App.PageSection>
-      <Box class="max-w-[90rem] mx-auto py-16 px-6">
+      <UI.Layout.Box class="max-w-[90rem] mx-auto py-16 px-6">
         <ThemePage.Header>
           <ThemePage.BackLink />
           <ThemePage.Title>Shadows</ThemePage.Title>
@@ -32,7 +31,7 @@ const sections = [
           ))}
         </ThemePage.Nav>
 
-        <Box class="space-y-24">
+        <UI.Layout.Box class="space-y-24">
           <!-- Shadow Scale -->
           <ThemeSection.Section id="shadow-scale">
             <ThemeSection.Header>
@@ -45,24 +44,24 @@ const sections = [
             </ThemeSection.Header>
             <ThemeSection.Body class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16">
               {Object.entries(theme.shadows).map(([name, shadow]) => (
-                <Box class="space-y-4 group">
-                  <Box 
+                <UI.Layout.Box class="space-y-4 group">
+                  <UI.Layout.Box 
                     class="relative aspect-square bg-white rounded-lg transition-all duration-300 hover:-translate-y-2"
                     style={`box-shadow: ${shadow}`}
                   >
-                    <Box 
+                    <UI.Layout.Box 
                       class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center bg-black/20 backdrop-blur-sm text-white font-medium rounded-lg"
                     >
-                      <Box class="text-center">
-                        <Box class="text-lg font-semibold">Shadow Value</Box>
-                      </Box>
-                    </Box>
-                  </Box>
-                  <Box class="space-y-2">
-                    <Box class="text-base font-medium capitalize">{name}</Box>
-                    <Box class="text-sm text-gray-500 font-mono break-words">{shadow}</Box>
-                  </Box>
-                </Box>
+                      <UI.Layout.Box class="text-center">
+                        <UI.Layout.Box class="text-lg font-semibold">Shadow Value</UI.Layout.Box>
+                      </UI.Layout.Box>
+                    </UI.Layout.Box>
+                  </UI.Layout.Box>
+                  <UI.Layout.Box class="space-y-2">
+                    <UI.Layout.Box class="text-base font-medium capitalize">{name}</UI.Layout.Box>
+                    <UI.Layout.Box class="text-sm text-gray-500 font-mono break-words">{shadow}</UI.Layout.Box>
+                  </UI.Layout.Box>
+                </UI.Layout.Box>
               ))}
             </ThemeSection.Body>
           </ThemeSection.Section>
@@ -78,91 +77,91 @@ const sections = [
               </ThemeSection.HeaderBody>
             </ThemeSection.Header>
             <ThemeSection.Body>
-              <Box class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              <UI.Layout.Box class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <!-- Cards & Containers -->
-                <Box class="space-y-8">
-                  <H4 class="text-2xl font-medium">Cards & Containers</H4>
-                  <Box class="space-y-8">
-                    <Box 
+                <UI.Layout.Box class="space-y-8">
+                  <UI.Typography.H4 class="text-2xl font-medium">Cards & Containers</UI.Typography.H4>
+                  <UI.Layout.Box class="space-y-8">
+                    <UI.Layout.Box 
                       class="p-6 bg-white rounded-lg transition-all duration-300 hover:-translate-y-1" 
                       style={`box-shadow: ${theme.shadows.sm}`}
                     >
-                      <Box class="font-medium text-lg mb-2">Low Elevation (sm)</Box>
-                      <Box class="text-gray-600">
+                      <UI.Layout.Box class="font-medium text-lg mb-2">Low Elevation (sm)</UI.Layout.Box>
+                      <UI.Layout.Box class="text-gray-600">
                         Use for subtle depth in card layouts and containers that need minimal elevation.
                         Perfect for list items and secondary content.
-                      </Box>
-                    </Box>
-                    <Box 
+                      </UI.Layout.Box>
+                    </UI.Layout.Box>
+                    <UI.Layout.Box 
                       class="p-6 bg-white rounded-lg transition-all duration-300 hover:-translate-y-1" 
                       style={`box-shadow: ${theme.shadows.md}`}
                     >
-                      <Box class="font-medium text-lg mb-2">Medium Elevation (md)</Box>
-                      <Box class="text-gray-600">
+                      <UI.Layout.Box class="font-medium text-lg mb-2">Medium Elevation (md)</UI.Layout.Box>
+                      <UI.Layout.Box class="text-gray-600">
                         Ideal for floating elements like popovers, dropdowns, and focused content.
                         Creates clear separation from the background.
-                      </Box>
-                    </Box>
-                    <Box 
+                      </UI.Layout.Box>
+                    </UI.Layout.Box>
+                    <UI.Layout.Box 
                       class="p-6 bg-white rounded-lg transition-all duration-300 hover:-translate-y-1" 
                       style={`box-shadow: ${theme.shadows.xl}`}
                     >
-                      <Box class="font-medium text-lg mb-2">High Elevation (xl)</Box>
-                      <Box class="text-gray-600">
+                      <UI.Layout.Box class="font-medium text-lg mb-2">High Elevation (xl)</UI.Layout.Box>
+                      <UI.Layout.Box class="text-gray-600">
                         Reserved for modals, important overlays, and critical UI elements.
                         Creates maximum contrast and focus.
-                      </Box>
-                    </Box>
-                  </Box>
-                </Box>
+                      </UI.Layout.Box>
+                    </UI.Layout.Box>
+                  </UI.Layout.Box>
+                </UI.Layout.Box>
 
                 <!-- Interactive Elements -->
-                <Box class="space-y-8">
-                  <H4 class="text-2xl font-medium">Interactive Elements</H4>
-                  <Box class="space-y-8">
-                    <Box 
+                <UI.Layout.Box class="space-y-8">
+                  <UI.Typography.H4 class="text-2xl font-medium">Interactive Elements</UI.Typography.H4>
+                  <UI.Layout.Box class="space-y-8">
+                    <UI.Layout.Box 
                       class="w-full p-6 bg-white rounded-lg cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
                       style={`box-shadow: ${theme.shadows.sm}`}
                     >
-                      <Box class="font-medium text-lg mb-2">Hover Interaction</Box>
-                      <Box class="text-gray-600">
+                      <UI.Layout.Box class="font-medium text-lg mb-2">Hover Interaction</UI.Layout.Box>
+                      <UI.Layout.Box class="text-gray-600">
                         Elements can increase their shadow on hover to indicate interactivity.
                         Combined with a subtle lift effect for enhanced feedback.
-                      </Box>
-                    </Box>
-                    <Box 
+                      </UI.Layout.Box>
+                    </UI.Layout.Box>
+                    <UI.Layout.Box 
                       class="w-full p-6 bg-white rounded-lg cursor-pointer transition-all duration-300 active:shadow-sm active:translate-y-0"
                       style={`box-shadow: ${theme.shadows.lg}`}
                     >
-                      <Box class="font-medium text-lg mb-2">Active State</Box>
-                      <Box class="text-gray-600">
+                      <UI.Layout.Box class="font-medium text-lg mb-2">Active State</UI.Layout.Box>
+                      <UI.Layout.Box class="text-gray-600">
                         Clicking can temporarily reduce the shadow to create a pressing effect.
                         Returns to original state when released.
-                      </Box>
-                    </Box>
-                    <Box class="relative">
-                      <Box 
+                      </UI.Layout.Box>
+                    </UI.Layout.Box>
+                    <UI.Layout.Box class="relative">
+                      <UI.Layout.Box 
                         class="w-full p-6 bg-white rounded-lg"
                         style={`box-shadow: ${theme.shadows.xl}`}
                       >
-                        <Box class="font-medium text-lg mb-2">Layered Shadows</Box>
-                        <Box class="text-gray-600">
+                        <UI.Layout.Box class="font-medium text-lg mb-2">Layered Shadows</UI.Layout.Box>
+                        <UI.Layout.Box class="text-gray-600">
                           Multiple elements can be layered with different shadow intensities
                           to create complex depth hierarchies.
-                        </Box>
-                      </Box>
-                      <Box 
+                        </UI.Layout.Box>
+                      </UI.Layout.Box>
+                      <UI.Layout.Box 
                         class="absolute -bottom-4 -right-4 w-24 h-24 bg-primary-100 rounded-lg -z-10"
                         style={`box-shadow: ${theme.shadows.md}`}
                       />
-                    </Box>
-                  </Box>
-                </Box>
-              </Box>
+                    </UI.Layout.Box>
+                  </UI.Layout.Box>
+                </UI.Layout.Box>
+              </UI.Layout.Box>
             </ThemeSection.Body>
           </ThemeSection.Section>
-        </Box>
-      </Box>
+        </UI.Layout.Box>
+      </UI.Layout.Box>
     </App.PageSection>
   </App.PageBody>
 </App.Page> 

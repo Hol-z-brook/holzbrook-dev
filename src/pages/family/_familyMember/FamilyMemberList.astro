@@ -1,7 +1,7 @@
 ---
 import FamilyMemberListItem from "./FamilyMemberListItem.astro";
+import UI from "../../../lib/ui";
 
-import VStack from "../../../lib/ui/VStack.astro";
 import { familyMembers } from "./_familyMembers/_familyMembers";
 
 interface Props {
@@ -13,7 +13,7 @@ const {
 }: Props = Astro.props;
 ---
 
-<VStack class=`grid grid-cols-2 gap-4 ${className}`>
+<UI.Layout.VStack class=`grid grid-cols-2 gap-4 ${className}`>
   {
     familyMembers.map((familyMember) => (
       <FamilyMemberListItem
@@ -22,4 +22,4 @@ const {
       />
     ))
   }
-</VStack>
+</UI.Layout.VStack>

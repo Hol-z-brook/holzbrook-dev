@@ -1,8 +1,7 @@
 ---
 import App from "../../../lib/app";
 import { makeSherpa } from "../../../lib/sherpa/Sherpa";
-import Breadcrumb from "../../../lib/ui/Breadcrumb.astro";
-import Breadcrumbs from "../../../lib/ui/Breadcrumbs.astro";
+import UI from "../../../lib/ui";
 
 const sherpa = makeSherpa();
 ---
@@ -15,10 +14,10 @@ const sherpa = makeSherpa();
       subtitle="3 Aces and 1 Faux Ace. Always chasin' the next one!"
     />
 
-    <Breadcrumbs>
-      <Breadcrumb label="Play" href={sherpa.play.index({})} />
-      <Breadcrumb label="Disc Golf" />
-    </Breadcrumbs>
+    <UI.Breadcrumb.List>
+      <UI.Breadcrumb.Item label="Play" href={sherpa.play.index({})} />
+      <UI.Breadcrumb.Item label="Disc Golf" />
+    </UI.Breadcrumb.List>
 
     <section class="max-w-4xl mx-auto p-6 mt-12 bg-white rounded-2xl shadow-md">
       <h2 class="text-2xl lg:text-3xl font-bold mb-4 text-gray-800">

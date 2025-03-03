@@ -1,14 +1,7 @@
 ---
 import App from "../../lib/app";
 import { makeSherpa } from "../../lib/sherpa/Sherpa";
-import Box from "../../lib/ui/Box.astro";
-import PageHeader from "../../lib/ui/PageHeader.astro";
-import PageHeaderTitle from "../../lib/ui/PageHeaderTitle.astro";
-import PageHeaderSubtitle from "../../lib/ui/PageHeaderSubtitle.astro";
-import PageHeaderBody from "../../lib/ui/PageHeaderBody.astro";
-import GradientBackground from "../../lib/ui/GradientBackground.astro";
-import H2 from "../../lib/ui/H2.astro";
-import P from "../../lib/ui/P.astro";
+import UI from "../../lib/ui";
 
 interface ThemePage {
   id: string;
@@ -77,43 +70,43 @@ const themePages: ThemePage[] = [
   <App.PageHeader />
   <App.PageBody class="bg-gray-50">
     <App.PageSection>
-      <Box class="max-w-5xl mx-auto py-16 px-6">
-        <PageHeader>
-          <PageHeaderTitle>
+      <UI.Layout.Box class="max-w-5xl mx-auto py-16 px-6">
+        <UI.PageHeader.Root>
+          <UI.PageHeader.Title>
             Pickles UI
-          </PageHeaderTitle>
-          <PageHeaderSubtitle>
+          </UI.PageHeader.Title>
+          <UI.PageHeader.Subtitle>
             An opinionated design system
-          </PageHeaderSubtitle>
-          <PageHeaderBody>
+          </UI.PageHeader.Subtitle>
+          <UI.PageHeader.Body>
             Because great design isn't made by committee. These are the strong opinions and careful decisions that shape holzbrook.dev into what it is — with a dash of whimsy.
-          </PageHeaderBody>
-        </PageHeader>
+          </UI.PageHeader.Body>
+        </UI.PageHeader.Root>
 
         <!-- Theme Navigation -->
-        <Box class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <UI.Layout.Box class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {themePages.map(({ title, description, href, icon, gradient }) => (
             <a 
               href={href}
               class="group relative overflow-hidden p-6 bg-white rounded-xl border border-gray-200 hover:border-transparent hover:shadow-lg transition-all duration-300"
             >
-              <GradientBackground gradient={gradient} />
+              <UI.GradientBackground gradient={gradient} />
               
-              <Box class="relative">
-                <Box class="text-3xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
+              <UI.Layout.Box class="relative">
+                <UI.Layout.Box class="text-3xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
                   {icon}
-                </Box>
-                <H2 class="text-xl font-semibold mb-2 text-gray-900 group-hover:text-primary-600 transition-colors">
+                </UI.Layout.Box>
+                <UI.Typography.H2 class="text-xl font-semibold mb-2 text-gray-900 group-hover:text-primary-600 transition-colors">
                   {title}
-                </H2>
-                <P>
+                </UI.Typography.H2>
+                <UI.Typography.P>
                   {description}
-                </P>
-              </Box>
+                </UI.Typography.P>
+              </UI.Layout.Box>
             </a>
           ))}
-        </Box>
-      </Box>
+        </UI.Layout.Box>
+      </UI.Layout.Box>
     </App.PageSection>
   </App.PageBody>
 </App.Page> 

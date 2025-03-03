@@ -1,5 +1,5 @@
 ---
-import Card from "../../../lib/ui/Card.astro";
+import UI from "../../../lib/ui";
 import type { FamilyMember } from "../_familyMember/FamilyMember";
 
 interface Props {
@@ -17,6 +17,6 @@ const {
 }: Props = Astro.props;
 ---
 
-<Card class={className}>
+<UI.Layout.Box class={className}>
   <h1>{firstName} {middleName} {lastName}</h1>
-</Card>
+</UI.Layout.Box>

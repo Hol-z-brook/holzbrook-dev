@@ -1,5 +1,5 @@
 ---
-import P from "../../../lib/ui/P.astro";
+import UI from "../../../lib/ui";
 
 interface Props {
   class?: string;
@@ -8,6 +8,6 @@ interface Props {
 const { class: className, ...rest } = Astro.props;
 ---
 
-<P {...rest} class={`text-lg mb-8 ${className ?? ''}`}>
+<UI.Typography.P {...rest} class={`text-lg mb-8 ${className ?? ''}`}>
   <slot />
-</P> 
+</UI.Typography.P> 
