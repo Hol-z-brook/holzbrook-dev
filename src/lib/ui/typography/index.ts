@@ -1,0 +1,12 @@
+export { default as H1 } from './H1.astro';
+export { default as H2 } from './H2.astro';
+export { default as H3 } from './H3.astro';
+export { default as H4 } from './H4.astro';
+export { default as H5 } from './H5.astro';
+export { default as H6 } from './H6.astro';
+export { default as P } from './P.astro';
+export { default as Strong } from './Strong.astro';
+export { default as Em } from './Em.astro';
+export { default as Blockquote } from './Blockquote.astro';
+export { default as Code } from './Code.astro';
+export { default as Pre } from './Pre.astro';
