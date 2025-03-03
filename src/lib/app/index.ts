@@ -1,4 +1,3 @@
----
 import AppLink from "./AppLink.astro";
 import AppLogo from "./AppLogo.astro";
 import AppLogoLink from "./AppLogoLink.astro";
@@ -11,18 +10,16 @@ import AppPageHeader from "./AppPageHeader.astro";
 import AppPageHero from "./AppPageHero.astro";
 import AppPageSection from "./AppPageSection.astro";
 
-export {
-    AppLink as Link,
-    AppLogo as Logo,
-    AppLogoLink as LogoLink,
-    AppNavMenu as NavMenu,
-    AppNavMenuItem as NavMenuItem,
-    AppPage as Page,
-    AppPageBody as PageBody,
-    AppPageFooter as PageFooter,
-    AppPageHeader as PageHeader,
-    AppPageHero as PageHero,
-    AppPageSection as PageSection,
+export default {
+    Link: AppLink,
+    Logo: AppLogo,
+    LogoLink: AppLogoLink,
+    NavMenu: AppNavMenu,
+    NavMenuItem: AppNavMenuItem,
+    Page: AppPage,
+    PageBody: AppPageBody,
+    PageFooter: AppPageFooter,
+    PageHeader: AppPageHeader,
+    PageHero: AppPageHero,
+    PageSection: AppPageSection,
 }
----
-
