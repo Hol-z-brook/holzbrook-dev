@@ -1,0 +1,13 @@
+---
+import P from '../typography/P.astro';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<P class={`text-lg max-w-2xl mx-auto leading-relaxed ${className || ''}`}>
+  <slot />
+</P>

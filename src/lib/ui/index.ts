@@ -1,47 +1,47 @@
 // Typography
-import H1 from './H1.astro';
-import H2 from './H2.astro';
-import H3 from './H3.astro';
-import H4 from './H4.astro';
-import H5 from './H5.astro';
-import H6 from './H6.astro';
-import P from './P.astro';
-import Strong from './Strong.astro';
-import Em from './Em.astro';
-import Blockquote from './Blockquote.astro';
-import Code from './Code.astro';
-import Pre from './Pre.astro';
+import H1 from './typography/H1.astro';
+import H2 from './typography/H2.astro';
+import H3 from './typography/H3.astro';
+import H4 from './typography/H4.astro';
+import H5 from './typography/H5.astro';
+import H6 from './typography/H6.astro';
+import P from './typography/P.astro';
+import Strong from './typography/Strong.astro';
+import Em from './typography/Em.astro';
+import Blockquote from './typography/Blockquote.astro';
+import Code from './typography/Code.astro';
+import Pre from './typography/Pre.astro';
 
 // Layout
-import Box from './Box.astro';
-import Stack from './Stack.astro';
-import HStack from './HStack.astro';
-import VStack from './VStack.astro';
-import Center from './Center.astro';
+import Container from './layout/Container.astro';
+import Stack from './layout/Stack.astro';
+import HStack from './layout/HStack.astro';
+import VStack from './layout/VStack.astro';
+import Center from './layout/Center.astro';
 
 // Buttons
-import PrimaryButton from './PrimaryButton.astro';
-import OutlinedButton from './OutlinedButton.astro';
+import PrimaryButton from './button/PrimaryButton.astro';
+import OutlinedButton from './button/OutlinedButton.astro';
 
 // Page Header
-import PageHeader from './PageHeader.astro';
-import PageHeaderTitle from './PageHeaderTitle.astro';
-import PageHeaderBody from './PageHeaderBody.astro';
-import PageHeaderSubtitle from './PageHeaderSubtitle.astro';
+import PageHeader from './page-header/PageHeader.astro';
+import PageHeaderTitle from './page-header/PageHeaderTitle.astro';
+import PageHeaderBody from './page-header/PageHeaderBody.astro';
+import PageHeaderSubtitle from './page-header/PageHeaderSubtitle.astro';
 
 // Lists
-import Ul from './Ul.astro';
-import Ol from './Ol.astro';
-import Li from './Li.astro';
+import Ul from './list/Ul.astro';
+import Ol from './list/Ol.astro';
+import Li from './list/Li.astro';
 
 // Navigation
-import A from './A.astro';
-import Nav from './Nav.astro';
-import BackLink from './BackLink.astro';
+import Link from './navigation/Link.astro';
+import Navigation from './navigation/Navigation.astro';
+import BackLink from './navigation/BackLink.astro';
 
 // Breadcrumbs
-import Breadcrumb from './Breadcrumb.astro';
-import Breadcrumbs from './Breadcrumbs.astro';
+import BreadcrumbItem from './breadcrumb/BreadcrumbItem.astro';
+import BreadcrumbList from './breadcrumb/BreadcrumbList.astro';
 
 // Other
 import Card from './Card.astro';
@@ -50,27 +50,33 @@ import GradientBackground from './GradientBackground.astro';
 export default {
   // Typography
   Typography: {
-    H1,
-    H2,
-    H3,
-    H4,
-    H5,
-    H6,
-    P,
-    Strong,
-    Em,
-    Blockquote,
-    Code,
-    Pre,
+    Heading: {
+      H1,
+      H2,
+      H3,
+      H4,
+      H5,
+      H6,
+    },
+    Text: {
+      P,
+      Strong,
+      Em,
+      Blockquote,
+      Code,
+      Pre,
+    },
   },
 
   // Layout
   Layout: {
-    Box,
-    Stack,
-    HStack,
-    VStack,
-    Center,
+    Container,
+    Flex: {
+      Stack,
+      HStack,
+      VStack,
+      Center,
+    },
   },
 
   // Buttons
@@ -95,16 +101,16 @@ export default {
   },
 
   // Navigation
-  Nav: {
-    A,
-    Nav,
+  Navigation: {
+    Link,
+    Root: Navigation,
     BackLink,
   },
 
   // Breadcrumbs
   Breadcrumb: {
-    Item: Breadcrumb,
-    List: Breadcrumbs,
+    Item: BreadcrumbItem,
+    List: BreadcrumbList,
   },
 
   // Other

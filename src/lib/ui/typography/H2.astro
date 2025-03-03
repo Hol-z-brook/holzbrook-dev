@@ -1,0 +1,13 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<h2
+  class={`text-xl font-semibold mb-2 text-gray-900 group-hover:text-primary-600 transition-colors ${className}`}
+>
+  <slot />
+</h2>

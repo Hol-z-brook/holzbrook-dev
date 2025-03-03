@@ -1,0 +1,15 @@
+---
+type SpacingValue = '2' | '4';
+
+interface Props {
+  as?: keyof HTMLElementTagNameMap;
+  class?: string;
+  spacing?: SpacingValue;
+}
+
+const { as: Tag = 'div', spacing = '4', class: className = '' }: Props = Astro.props;
+---
+
+<Tag class={`flex flex-row gap-${spacing} ${className}`}>
+  <slot />
+</Tag>

@@ -1,0 +1,24 @@
+---
+type SpacingValue = '2' | '4';
+
+interface Props {
+  as?: keyof HTMLElementTagNameMap;
+  class?: string;
+  spacing?: SpacingValue;
+  direction?: 'column' | 'row' | 'flex-row' | 'flex-col';
+}
+
+const {
+  as: Tag = 'div',
+  direction = 'column',
+  spacing = '4',
+  class: className = '',
+}: Props = Astro.props;
+
+const directionClass = direction === 'row' ? 'flex-row' : 'flex-col';
+const spacingClass = `gap-${spacing}`;
+---
+
+<Tag class={`flex ${directionClass} ${spacingClass} ${className}`}>
+  <slot />
+</Tag>
