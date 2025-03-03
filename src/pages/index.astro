@@ -2,7 +2,7 @@
 import App from "../lib/app";
 import Sherpa from "../lib/sherpa";
 import UI from "../lib/ui";
-import HomePage from "./_components/HomePage";
+import PageUI from "./_ui";
 
 const sherpa = Sherpa.makeSherpa();
 
@@ -51,43 +51,43 @@ const playSection = {
         class="max-w-6xl mx-auto px-6 lg:space-x-8 space-y-8 lg:space-y-0"
       >
         <!-- Work Section -->
-        <HomePage.ExploreCard.Container bgColor={workSection.bgColor}>
-          <HomePage.ExploreCard.Title>
+        <PageUI.ExploreCard.Container bgColor={workSection.bgColor}>
+          <PageUI.ExploreCard.Title>
             {workSection.title}
-          </HomePage.ExploreCard.Title>
-          <HomePage.ExploreCard.Blurb>
+          </PageUI.ExploreCard.Title>
+          <PageUI.ExploreCard.Blurb>
             {workSection.description}
-          </HomePage.ExploreCard.Blurb>
-          <HomePage.ExploreCard.Cta href={workSection.link} class={workSection.ctaClass}>
+          </PageUI.ExploreCard.Blurb>
+          <PageUI.ExploreCard.Cta href={workSection.link} class={workSection.ctaClass}>
             {workSection.cta}
-          </HomePage.ExploreCard.Cta>
-        </HomePage.ExploreCard.Container>
+          </PageUI.ExploreCard.Cta>
+        </PageUI.ExploreCard.Container>
 
         <!-- Family Section -->
-        <HomePage.ExploreCard.Container bgColor={familySection.bgColor}>
-          <HomePage.ExploreCard.Title>
+        <PageUI.ExploreCard.Container bgColor={familySection.bgColor}>
+          <PageUI.ExploreCard.Title>
             {familySection.title}
-          </HomePage.ExploreCard.Title>
-          <HomePage.ExploreCard.Blurb>
+          </PageUI.ExploreCard.Title>
+          <PageUI.ExploreCard.Blurb>
             {familySection.description}
-          </HomePage.ExploreCard.Blurb>
-          <HomePage.ExploreCard.Cta href={familySection.link} class={familySection.ctaClass}>
+          </PageUI.ExploreCard.Blurb>
+          <PageUI.ExploreCard.Cta href={familySection.link} class={familySection.ctaClass}>
             {familySection.cta}
-          </HomePage.ExploreCard.Cta>
-        </HomePage.ExploreCard.Container>
+          </PageUI.ExploreCard.Cta>
+        </PageUI.ExploreCard.Container>
 
         <!-- Play Section -->
-        <HomePage.ExploreCard.Container bgColor={playSection.bgColor}>
-          <HomePage.ExploreCard.Title>
+        <PageUI.ExploreCard.Container bgColor={playSection.bgColor}>
+          <PageUI.ExploreCard.Title>
             {playSection.title}
-          </HomePage.ExploreCard.Title>
-          <HomePage.ExploreCard.Blurb>
+          </PageUI.ExploreCard.Title>
+          <PageUI.ExploreCard.Blurb>
             {playSection.description}
-          </HomePage.ExploreCard.Blurb>
-          <HomePage.ExploreCard.Cta href={playSection.link} class={playSection.ctaClass}>
+          </PageUI.ExploreCard.Blurb>
+          <PageUI.ExploreCard.Cta href={playSection.link} class={playSection.ctaClass}>
             {playSection.cta}
-          </HomePage.ExploreCard.Cta>
-        </HomePage.ExploreCard.Container>
+          </PageUI.ExploreCard.Cta>
+        </PageUI.ExploreCard.Container>
       </UI.Layout.Stack>
     </UI.Layout.Box>
 
