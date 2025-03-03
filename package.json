@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "prettier --write \"src/**/*.{js,ts}\""
   },
   "dependencies": {
     "@astrojs/netlify": "^6.2.1",
@@ -17,5 +18,9 @@
   "devDependencies": {
     "prettier": "^2.8.8",
     "prettier-plugin-astro": "^0.12.0"
+  },
+  "vscode-extensions": {
+    "astro-build.astro-vscode": "^2.15.4",
+    "esbenp.prettier-vscode": "^11.0.0"
   }
 }

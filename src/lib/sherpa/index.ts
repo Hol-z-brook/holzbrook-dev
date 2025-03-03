@@ -1,3 +1,3 @@
-import { makeSherpa } from "./Sherpa";
+import { makeSherpa } from './Sherpa';
 
 export default { makeSherpa };

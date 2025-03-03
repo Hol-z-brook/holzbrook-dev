@@ -1,4 +1,4 @@
-import { type SherpaConfig } from "./SherpaConfig";
+import { type SherpaConfig } from './SherpaConfig';
 
 export interface CommonQueryParams {}
 

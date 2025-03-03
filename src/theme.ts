@@ -223,8 +223,6 @@ export type ThemeSemanticColor =
   | 'info';
 
 export type ThemeSpacingToken = keyof typeof theme.spacing;
-export type ThemeTypography =
-  | keyof typeof theme.fontSizes
-  | keyof typeof theme.lineHeights;
+export type ThemeTypography = keyof typeof theme.fontSizes | keyof typeof theme.lineHeights;
 
 export default theme;

@@ -1,5 +1,5 @@
-import { makeLinkResolver, type LinkResolver } from "./util/LinkResolver";
-import { defaultSherpaConfig, type SherpaConfig } from "./util/SherpaConfig";
+import { makeLinkResolver, type LinkResolver } from './util/LinkResolver';
+import { defaultSherpaConfig, type SherpaConfig } from './util/SherpaConfig';
 
 export interface WorkSherpa {
   index: LinkResolver;
@@ -10,6 +10,6 @@ export const makeWorkSherpa = (
   path: string,
   config: SherpaConfig = defaultSherpaConfig
 ): WorkSherpa => ({
-  index: (props) => makeLinkResolver(`${path}`, props, config),
-  resume: (props) => makeLinkResolver(`${path}/resume`, props, config),
+  index: props => makeLinkResolver(`${path}`, props, config),
+  resume: props => makeLinkResolver(`${path}/resume`, props, config),
 });

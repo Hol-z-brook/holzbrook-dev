@@ -1,4 +1,4 @@
-import { type SherpaConfig } from "./util/SherpaConfig";
+import { type SherpaConfig } from './util/SherpaConfig';
 
 export interface ThemeSherpa {
   index: () => string;
@@ -20,4 +20,4 @@ export function makeThemeSherpa(basePath: string, config: SherpaConfig): ThemeSh
     shadows: () => `${basePath}/shadows`,
     transitions: () => `${basePath}/transitions`,
   };
-} 
+}
