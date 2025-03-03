@@ -6,5 +6,3 @@ export * from './list';
 export * from './navigation';
 export * from './page-header';
 export * from './typography';
-
-export { default as Card } from './Card.astro';
