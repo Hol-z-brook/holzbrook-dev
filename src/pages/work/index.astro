@@ -39,14 +39,11 @@ A11y:
 - Implement proper ARIA labels
 */
 
-import { chatbooksWorkExperience } from "./experience/chatbooks/_chatbooksWorkExperience";
-import { slingTvWorkExperience } from "./experience/sling-tv/_slingTvWorkExperience";
-import { masterControlWorkExperience } from "./experience/master-control/_masterControlWorkExperience";
-import PageUI from "./_ui";
-
-import App from "../../lib/app";
-import UI from "../../lib/ui";
-import Sherpa from "../../lib/sherpa";
+import PageUI from './_ui';
+import PageData from './_data';
+import App from '../../lib/app';
+import Sherpa from '../../lib/sherpa';
+import UI from '../../lib/ui';
 
 /*
 TODO: Modern Design Elements
@@ -56,105 +53,15 @@ TODO: Modern Design Elements
 
 const sherpa = Sherpa.makeSherpa();
 const resumeUrl = sherpa.work.resume({});
-
-interface Project {
-  name: string;
-  description: string;
-  tech: string[];
-}
-
-const projects: Project[] = [
-  {
-    name: 'Flutter Desktop',
-    description: chatbooksWorkExperience.highlights[0],
-    tech: ['Flutter', 'Dart', 'Responsive Design']
-  },
-  {
-    name: 'Next.js Platform',
-    description: chatbooksWorkExperience.highlights[2],
-    tech: ['Next.js', 'React', 'TypeScript']
-  },
-  {
-    name: 'Web Cart',
-    description: chatbooksWorkExperience.highlights[3],
-    tech: ['React', 'TypeScript', 'State Management']
-  },
-  {
-    name: 'Marketing Site',
-    description: chatbooksWorkExperience.highlights[4],
-    tech: ['React', 'Prismic CMS', 'TypeScript']
-  }
-];
-
-interface SkillCategory {
-  category: string;
-  icon: string;
-  skills: string[];
-}
-
-const skillCategories: SkillCategory[] = [
-  {
-    category: 'Frontend Development',
-    icon: '🎨',
-    skills: ['React', 'TypeScript', 'Next.js', 'Chakra UI', 'Tailwind CSS', 'HTML5/CSS3']
-  },
-  {
-    category: 'Mobile & Cross-Platform',
-    icon: '📱',
-    skills: ['Flutter', 'Dart', 'React Native', 'Responsive Design']
-  },
-  {
-    category: 'State Management',
-    icon: '🔄',
-    skills: ['Redux', 'React Query', 'ngrx/store', 'Context API']
-  },
-  {
-    category: 'Performance & DevOps',
-    icon: '⚡',
-    skills: ['Webpack', 'SEO', 'CI/CD', 'Testing', 'Code Optimization']
-  },
-  {
-    category: 'Tools & Methods',
-    icon: '🛠',
-    skills: ['Git', 'Agile/Scrum', 'Test-Driven Development', 'Code Review', 'Technical Writing']
-  },
-  {
-    category: 'Leadership',
-    icon: '👥',
-    skills: ['Team Management', 'Mentoring', 'Project Planning', 'Technical Leadership']
-  }
-];
-
-interface CoreProficiency {
-  name: string;
-  icon: string;
-  description: string;
-}
-
-const coreProficiencies: CoreProficiency[] = [
-  {
-    name: 'Frontend Architecture',
-    icon: '🏗️',
-    description: 'Designing scalable frontend architectures with modern frameworks and best practices.'
-  },
-  {
-    name: 'UI/UX Design',
-    icon: '✨',
-    description: 'Creating intuitive and responsive user interfaces with a focus on user experience.'
-  },
-  {
-    name: 'Technical Leadership',
-    icon: '🎯',
-    description: 'Leading development teams, making architectural decisions, and mentoring developers.'
-  }
-];
 ---
 
 <PageUI.Page>
-  {/* TODO: Performance & Accessibility
+  {
+    /* TODO: Performance & Accessibility
     [ ] Add keyboard navigation
     [ ] Implement proper ARIA labels
-  */}
+    */
+  }
   <App.PageHeader />
 
   <App.PageBody
@@ -165,23 +72,27 @@ const coreProficiencies: CoreProficiency[] = [
       min-h-screen
     `}
   >
-    {/* TODO: Hero Section Enhancements
+    {
+      /* TODO: Hero Section Enhancements
       [ ] Add dynamic background (gradient animation)
       [ ] Include geometric shapes or professional photo
       [ ] Implement particle.js background
       [ ] Add subtle scroll-triggered animations
-    */}
+      */
+    }
     <App.PageHero
       title="My Career"
       subtitle="When work is play, you'll never play another day in your life."
       class="w-full"
     />
 
-    {/* TODO: Interactive Elements
+    {
+      /* TODO: Interactive Elements
       [ ] Add smooth section scrolling
       [ ] Implement floating navigation
       [ ] Add progress indicators
-    */}
+      */
+    }
     <App.PageSection
       class={`
         w-full
@@ -191,42 +102,48 @@ const coreProficiencies: CoreProficiency[] = [
         space-y-32
       `}
     >
-      {/* TODO: Visual Hierarchy
+      {
+        /* TODO: Visual Hierarchy
         [ ] Develop distinct color scheme palette
         [ ] Enhance typography scale
         [ ] Add section dividers/decorative elements
         [ ] Improve spacing and rhythm
-      */}
+        */
+      }
       <UI.Layout.VStack
         class={`
           gap-8
         `}
       >
         <PageUI.PageSection.Container>
-          {/* TODO: Card Layout Improvements
+          {
+            /* TODO: Card Layout Improvements
             [ ] Add staggered animation on card entry
             [ ] Enhance hover effects with 3D transforms
             [ ] Add border gradients to cards
-          */}
+            */
+          }
           <PageUI.PageSection.Title>Work Experience</PageUI.PageSection.Title>
-          {[
-              chatbooksWorkExperience,
-              slingTvWorkExperience,
-              masterControlWorkExperience,
-            ].map((job) => (
-            <PageUI.ExperienceCard {...job} />
-          ))}
-        </PageUI.Section>
+          {
+            PageData.andrewHolbrookCandidate.workExperience.map(job => (
+              <PageUI.ExperienceCard {...job} />
+            ))
+          }
+        </PageUI.PageSection.Container>
 
         <PageUI.PageSection.Container>
           <PageUI.PageSection.Title>Projects</PageUI.PageSection.Title>
-          {/* TODO: Card Layout Improvements
+          {
+            /* TODO: Card Layout Improvements
             [ ] Implement masonry layout for projects
-          */}
+            */
+          }
           <PageUI.PageSection.Grid>
-            {projects.map((project) => (
-              <PageUI.ProjectCard {...project} />
-            ))}
+            {
+              PageData.andrewHolbrookCandidate.projects.map(project => (
+                <PageUI.ProjectCard {...project} />
+              ))
+            }
           </PageUI.PageSection.Grid>
         </PageUI.PageSection.Container>
 
@@ -234,21 +151,27 @@ const coreProficiencies: CoreProficiency[] = [
           <PageUI.PageSection.Container>
             <PageUI.PageSection.Title>Core Proficiencies</PageUI.PageSection.Title>
             <PageUI.PageSection.Grid>
-              {coreProficiencies.map((skill) => (
-                <PageUI.SkillCard {...skill} />
-              ))}
+              {
+                PageData.andrewHolbrookCandidate.coreProficiencies.map(skill => (
+                  <PageUI.SkillCard {...skill} />
+                ))
+              }
             </PageUI.PageSection.Grid>
           </PageUI.PageSection.Container>
 
           <PageUI.PageSection.Container>
             <PageUI.PageSection.Title>Technical Skills</PageUI.PageSection.Title>
-            {/* TODO: Interactive Elements
+            {
+              /* TODO: Interactive Elements
               [ ] Enhance skill tag interactions
-            */}
+              */
+            }
             <PageUI.PageSection.Grid>
-              {skillCategories.map((category) => (
-                <PageUI.SkillCategoryCard {...category} />
-              ))}
+              {
+                PageData.andrewHolbrookCandidate.skillCategories.map(category => (
+                  <PageUI.SkillCategoryCard {...category} />
+                ))
+              }
             </PageUI.PageSection.Grid>
           </PageUI.PageSection.Container>
         </UI.Layout.VStack>
@@ -271,13 +194,14 @@ const coreProficiencies: CoreProficiency[] = [
           </UI.Layout.Center>
         </PageUI.PageSection.Container>
       </UI.Layout.VStack>
-
     </App.PageSection>
 
-    {/* TODO: Performance & Accessibility
+    {
+      /* TODO: Performance & Accessibility
       [ ] Optimize animations for reduced motion
       [ ] Ensure WCAG 2.1 compliance
-    */}
+      */
+    }
     <App.PageFooter />
   </App.PageBody>
 </PageUI.Page>
