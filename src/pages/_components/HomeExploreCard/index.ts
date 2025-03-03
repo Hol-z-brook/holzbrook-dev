@@ -1,8 +1,6 @@
----
 import Blurb from "./HomeExploreCardBlurb.astro";
 import Cta from "./HomeExploreCardCta.astro";
 import Container from "./HomeExploreCardContainer.astro";
 import Title from "./HomeExploreCardTitle.astro";
 
-export { Blurb, Cta, Container, Title };
----
+export default { Blurb, Cta, Container, Title }; 
