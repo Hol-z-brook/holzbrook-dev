@@ -42,14 +42,7 @@ A11y:
 import { chatbooksWorkExperience } from "./experience/chatbooks/_chatbooksWorkExperience";
 import { slingTvWorkExperience } from "./experience/sling-tv/_slingTvWorkExperience";
 import { masterControlWorkExperience } from "./experience/master-control/_masterControlWorkExperience";
-import ProjectCard from "./_ProjectCard.astro";
-import ResumeSkeleton from "./resume/_ResumeSkeleton.astro";
-import SkillCard from "./_SkillCard.astro";
-import SkillCategoryCard from "./_SkillCategoryCard.astro";
-import WorkExperienceCard from "./_WorkExperienceCard.astro";
-import WorkSection from "./_WorkSection.astro";
-import WorkSectionGrid from "./_WorkSectionGrid.astro";
-import WorkSectionTitle from "./_WorkSectionTitle.astro";
+import WorkPage from "./_components/WorkPage";
 
 import App from "../../lib/app";
 import UI from "../../lib/ui";
@@ -157,7 +150,7 @@ const coreProficiencies: CoreProficiency[] = [
 ];
 ---
 
-<App.Page>
+<WorkPage.Page>
   {/* TODO: Performance & Accessibility
     [ ] Add keyboard navigation
     [ ] Implement proper ARIA labels
@@ -181,9 +174,7 @@ const coreProficiencies: CoreProficiency[] = [
     <App.PageHero
       title="My Career"
       subtitle="When work is play, you'll never play another day in your life."
-      class={`
-        w-full
-      `}
+      class="w-full"
     />
 
     {/* TODO: Interactive Elements
@@ -211,59 +202,59 @@ const coreProficiencies: CoreProficiency[] = [
           gap-8
         `}
       >
-        <WorkSection>
+        <WorkPage.Section>
           {/* TODO: Card Layout Improvements
             [ ] Add staggered animation on card entry
             [ ] Enhance hover effects with 3D transforms
             [ ] Add border gradients to cards
           */}
-          <WorkSectionTitle>Work Experience</WorkSectionTitle>
+          <WorkPage.SectionTitle>Work Experience</WorkPage.SectionTitle>
           {[
               chatbooksWorkExperience,
               slingTvWorkExperience,
               masterControlWorkExperience,
             ].map((job) => (
-            <WorkExperienceCard {...job} />
+            <WorkPage.ExperienceCard {...job} />
           ))}
-        </WorkSection>
+        </WorkPage.Section>
 
-        <WorkSection>
-          <WorkSectionTitle>Projects</WorkSectionTitle>
+        <WorkPage.Section>
+          <WorkPage.SectionTitle>Projects</WorkPage.SectionTitle>
           {/* TODO: Card Layout Improvements
             [ ] Implement masonry layout for projects
           */}
-          <WorkSectionGrid>
+          <WorkPage.SectionGrid>
             {projects.map((project) => (
-              <ProjectCard {...project} />
+              <WorkPage.ProjectCard {...project} />
             ))}
-          </WorkSectionGrid>
-        </WorkSection>
+          </WorkPage.SectionGrid>
+        </WorkPage.Section>
 
         <UI.Layout.VStack class="gap-16">
-          <WorkSection>
-            <WorkSectionTitle>Core Proficiencies</WorkSectionTitle>
-            <WorkSectionGrid>
+          <WorkPage.Section>
+            <WorkPage.SectionTitle>Core Proficiencies</WorkPage.SectionTitle>
+            <WorkPage.SectionGrid>
               {coreProficiencies.map((skill) => (
-                <SkillCard {...skill} />
+                <WorkPage.SkillCard {...skill} />
               ))}
-            </WorkSectionGrid>
-          </WorkSection>
+            </WorkPage.SectionGrid>
+          </WorkPage.Section>
 
-          <WorkSection>
-            <WorkSectionTitle>Technical Skills</WorkSectionTitle>
+          <WorkPage.Section>
+            <WorkPage.SectionTitle>Technical Skills</WorkPage.SectionTitle>
             {/* TODO: Interactive Elements
               [ ] Enhance skill tag interactions
             */}
-            <WorkSectionGrid>
+            <WorkPage.SectionGrid>
               {skillCategories.map((category) => (
-                <SkillCategoryCard {...category} />
+                <WorkPage.SkillCategoryCard {...category} />
               ))}
-            </WorkSectionGrid>
-          </WorkSection>
+            </WorkPage.SectionGrid>
+          </WorkPage.Section>
         </UI.Layout.VStack>
 
-        <WorkSection>
-          <WorkSectionTitle>Resume</WorkSectionTitle>
+        <WorkPage.Section>
+          <WorkPage.SectionTitle>Resume</WorkPage.SectionTitle>
           <UI.Layout.Center>
             <App.Link
               class={`
@@ -275,10 +266,10 @@ const coreProficiencies: CoreProficiency[] = [
               href={resumeUrl}
               target="_blank"
             >
-            <ResumeSkeleton />
+              <WorkPage.ResumeSkeleton />
             </App.Link>
           </UI.Layout.Center>
-        </WorkSection>
+        </WorkPage.Section>
       </UI.Layout.VStack>
 
     </App.PageSection>
@@ -289,4 +280,4 @@ const coreProficiencies: CoreProficiency[] = [
     */}
     <App.PageFooter />
   </App.PageBody>
-</App.Page>
+</WorkPage.Page>

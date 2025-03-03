@@ -1,0 +1,13 @@
+---
+import App from "../../../../lib/app";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<App.Page class:list={["bg-gray-50", className]}>
+  <slot />
+</App.Page> 
