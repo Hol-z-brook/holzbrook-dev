@@ -1,5 +1,5 @@
 ---
-import UI from '../../lib/ui';
+import { VStack } from '../../lib/ui';
 
 interface Props {
   class?: string;
@@ -8,7 +8,7 @@ interface Props {
 const { class: className }: Props = Astro.props;
 ---
 
-<UI.Layout.Flex.VStack class={className}>
+<VStack class={className}>
   <strong class="text-md md:text-lg lg:text-xl font-bold text-gray-800"> Andrew</strong>
   <strong class="text-xl md:text-2xl lg:text-4xl font-extrabold text-gray-800"> Hol(z)brook</strong>
-</UI.Layout.Flex.VStack>
+</VStack>

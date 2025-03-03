@@ -3,7 +3,7 @@ import WorkPageData from './_data';
 import WorkPageUI from './_ui';
 import App from '../../lib/app';
 import Sherpa from '../../lib/sherpa';
-import UI from '../../lib/ui';
+import { Center, VStack } from '../../lib/ui';
 
 const sherpa = Sherpa.makeSherpa();
 const resumeUrl = sherpa.work.resume({});
@@ -35,7 +35,7 @@ const resumeUrl = sherpa.work.resume({});
         space-y-32
       `}
     >
-      <UI.Layout.Flex.VStack
+      <VStack
         class={`
           gap-8
         `}
@@ -60,7 +60,7 @@ const resumeUrl = sherpa.work.resume({});
           </WorkPageUI.PageSection.Grid>
         </WorkPageUI.PageSection.Container>
 
-        <UI.Layout.Flex.VStack class="gap-16">
+        <VStack class="gap-16">
           <WorkPageUI.PageSection.Container>
             <WorkPageUI.PageSection.Title>Core Proficiencies</WorkPageUI.PageSection.Title>
             <WorkPageUI.PageSection.Grid>
@@ -82,11 +82,11 @@ const resumeUrl = sherpa.work.resume({});
               }
             </WorkPageUI.PageSection.Grid>
           </WorkPageUI.PageSection.Container>
-        </UI.Layout.Flex.VStack>
+        </VStack>
 
         <WorkPageUI.PageSection.Container>
           <WorkPageUI.PageSection.Title>Resume</WorkPageUI.PageSection.Title>
-          <UI.Layout.Flex.Center>
+          <Center>
             <App.Link
               class={`
                 w-3/4
@@ -99,9 +99,9 @@ const resumeUrl = sherpa.work.resume({});
             >
               <WorkPageUI.ResumeSkeleton />
             </App.Link>
-          </UI.Layout.Flex.Center>
+          </Center>
         </WorkPageUI.PageSection.Container>
-      </UI.Layout.Flex.VStack>
+      </VStack>
     </App.PageSection>
     <App.PageFooter />
   </App.PageBody>

@@ -2,7 +2,7 @@
 import * as ThemePage from './_ThemePage/_index.astro';
 import * as ThemeSection from './_ThemeSection/_index.astro';
 import App from '../../lib/app';
-import UI from '../../lib/ui';
+import { Box, H4 } from '../../lib/ui';
 import theme from '../../theme';
 
 const colorScales = Object.entries(theme.colors).filter(([_, value]) => typeof value === 'object');
@@ -19,7 +19,7 @@ const sections = [
   <App.PageHeader />
   <App.PageBody class="bg-gray-50">
     <App.PageSection>
-      <UI.Layout.Box class="max-w-[90rem] mx-auto py-16 px-6">
+      <Box class="max-w-[90rem] mx-auto py-16 px-6">
         <ThemePage.Header>
           <ThemePage.BackLink />
           <ThemePage.Title>Colors</ThemePage.Title>
@@ -35,7 +35,7 @@ const sections = [
           {sections.map(({ id, label }) => <ThemePage.NavItem href={`#${id}`} label={label} />)}
         </ThemePage.Nav>
 
-        <UI.Layout.Box class="space-y-24">
+        <Box class="space-y-24">
           <ThemeSection.Section id="color-scales">
             <ThemeSection.Header>
               <ThemeSection.HeaderTitle slot="title">Color Scales</ThemeSection.HeaderTitle>
@@ -47,24 +47,20 @@ const sections = [
             <ThemeSection.Body class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-16">
               {
                 colorScales.map(([name, scale]) => (
-                  <UI.Layout.Box class="space-y-6">
-                    <UI.Typography.Heading.H4 class="text-2xl font-medium capitalize">
-                      {name}
-                    </UI.Typography.Heading.H4>
-                    <UI.Layout.Box class="grid grid-cols-10 gap-3">
+                  <Box class="space-y-6">
+                    <H4 class="text-2xl font-medium capitalize">{name}</H4>
+                    <Box class="grid grid-cols-10 gap-3">
                       {Object.entries(scale).map(([shade, color]) => (
-                        <UI.Layout.Box class="space-y-3">
-                          <UI.Layout.Box
+                        <Box class="space-y-3">
+                          <Box
                             class="h-20 rounded-md shadow-sm"
                             style={`background-color: ${color}`}
                           />
-                          <UI.Layout.Box class="text-sm text-center font-medium">
-                            {shade}
-                          </UI.Layout.Box>
-                        </UI.Layout.Box>
+                          <Box class="text-sm text-center font-medium">{shade}</Box>
+                        </Box>
                       ))}
-                    </UI.Layout.Box>
-                  </UI.Layout.Box>
+                    </Box>
+                  </Box>
                 ))
               }
             </ThemeSection.Body>
@@ -81,13 +77,10 @@ const sections = [
             <ThemeSection.Body class="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-12">
               {
                 singleColors.map(([name, color]) => (
-                  <UI.Layout.Box class="space-y-4">
-                    <UI.Layout.Box
-                      class="h-32 rounded-lg shadow-md"
-                      style={`background-color: ${color}`}
-                    />
-                    <UI.Layout.Box class="text-base font-medium capitalize">{name}</UI.Layout.Box>
-                  </UI.Layout.Box>
+                  <Box class="space-y-4">
+                    <Box class="h-32 rounded-lg shadow-md" style={`background-color: ${color}`} />
+                    <Box class="text-base font-medium capitalize">{name}</Box>
+                  </Box>
                 ))
               }
             </ThemeSection.Body>
@@ -104,29 +97,27 @@ const sections = [
             <ThemeSection.Body class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-16">
               {
                 Object.entries(theme.gradients).map(([name, gradient]) => (
-                  <UI.Layout.Box class="space-y-6">
-                    <UI.Typography.Heading.H4 class="text-2xl font-medium capitalize">
-                      {name}
-                    </UI.Typography.Heading.H4>
-                    <UI.Layout.Box
+                  <Box class="space-y-6">
+                    <H4 class="text-2xl font-medium capitalize">{name}</H4>
+                    <Box
                       class="h-40 rounded-lg shadow-md"
                       style={`background: linear-gradient(to right, ${gradient.start}, ${gradient.end})`}
                     />
-                    <UI.Layout.Box class="grid grid-cols-2 gap-6">
+                    <Box class="grid grid-cols-2 gap-6">
                       {Object.entries(gradient).map(([position, color]) => (
-                        <UI.Layout.Box class="text-sm">
-                          <UI.Layout.Box class="font-medium capitalize">{position}</UI.Layout.Box>
-                          <UI.Layout.Box class="text-gray-500 mt-1">{color}</UI.Layout.Box>
-                        </UI.Layout.Box>
+                        <Box class="text-sm">
+                          <Box class="font-medium capitalize">{position}</Box>
+                          <Box class="text-gray-500 mt-1">{color}</Box>
+                        </Box>
                       ))}
-                    </UI.Layout.Box>
-                  </UI.Layout.Box>
+                    </Box>
+                  </Box>
                 ))
               }
             </ThemeSection.Body>
           </ThemeSection.Section>
-        </UI.Layout.Box>
-      </UI.Layout.Box>
+        </Box>
+      </Box>
     </App.PageSection>
   </App.PageBody>
 </App.Page>

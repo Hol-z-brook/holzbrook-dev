@@ -1,5 +1,5 @@
 ---
-import UI from '../../../lib/ui';
+import { Box } from '../../../lib/ui';
 
 interface Props {
   bgColor: string;
@@ -9,10 +9,6 @@ interface Props {
 const { bgColor, class: className, ...rest } = Astro.props;
 ---
 
-<UI.Layout.Box
-  class={`flex-1 p-8 rounded-2xl shadow-lg ${bgColor} text-center ${className ?? ''}`}
-  {...rest}
->
+<Box class={`flex-1 p-8 rounded-2xl shadow-lg ${bgColor} text-center ${className ?? ''}`} {...rest}>
   <slot />
-</UI.Layout.Box>
-
+</Box>

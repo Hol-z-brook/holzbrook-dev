@@ -1,8 +1,7 @@
 ---
 import FamilyMemberListItem from './FamilyMemberListItem.astro';
-import UI from '../../../lib/ui';
-
 import { familyMembers } from './_familyMembers/_familyMembers';
+import { VStack } from '../../../lib/ui';
 
 interface Props {
   class?: string;
@@ -11,10 +10,10 @@ interface Props {
 const { class: className }: Props = Astro.props;
 ---
 
-<UI.Layout.Flex.VStack class={`grid grid-cols-2 gap-4 ${className}`}>
+<VStack class={`grid grid-cols-2 gap-4 ${className}`}>
   {
     familyMembers.map(familyMember => (
       <FamilyMemberListItem class={`m-2`} familyMember={familyMember} />
     ))
   }
-</UI.Layout.Flex.VStack>
+</VStack>

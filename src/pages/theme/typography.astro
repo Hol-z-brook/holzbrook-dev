@@ -2,7 +2,7 @@
 import * as ThemePage from './_ThemePage/_index.astro';
 import * as ThemeSection from './_ThemeSection/_index.astro';
 import App from '../../lib/app';
-import UI from '../../lib/ui';
+import { Box, H4, Li, Ul } from '../../lib/ui';
 import theme from '../../theme';
 
 const sections = [
@@ -41,7 +41,7 @@ const fontSizeUsage: Record<FontSizeKey, string> = {
   <App.PageHeader />
   <App.PageBody class="bg-gray-50">
     <App.PageSection>
-      <UI.Layout.Box class="max-w-[90rem] mx-auto py-16 px-6">
+      <Box class="max-w-[90rem] mx-auto py-16 px-6">
         <ThemePage.Header>
           <ThemePage.BackLink />
           <ThemePage.Title>Typography</ThemePage.Title>
@@ -56,7 +56,7 @@ const fontSizeUsage: Record<FontSizeKey, string> = {
           {sections.map(({ id, label }) => <ThemePage.NavItem href={`#${id}`} label={label} />)}
         </ThemePage.Nav>
 
-        <UI.Layout.Box class="space-y-24">
+        <Box class="space-y-24">
           <ThemeSection.Section id="font-sizes">
             <ThemeSection.Header>
               <ThemeSection.HeaderTitle slot="title">Font Sizes</ThemeSection.HeaderTitle>
@@ -68,31 +68,27 @@ const fontSizeUsage: Record<FontSizeKey, string> = {
             <ThemeSection.Body class="space-y-8">
               {
                 Object.entries(theme.fontSizes).map(([name, size]) => (
-                  <UI.Layout.Box class="group p-6 bg-white rounded-lg border border-gray-200 hover:border-primary-200 hover:shadow-sm transition-all">
-                    <UI.Layout.Box class="flex flex-col lg:grid lg:grid-cols-[8rem_1fr] gap-6">
-                      <UI.Layout.Box class="space-y-1">
-                        <UI.Layout.Box class="text-base font-medium text-gray-900">
-                          {name}
-                        </UI.Layout.Box>
-                        <UI.Layout.Box class="text-sm font-mono text-gray-500">
-                          {size}
-                        </UI.Layout.Box>
-                      </UI.Layout.Box>
-                      <UI.Layout.Box class="space-y-4">
-                        <UI.Layout.Box class="min-h-[4rem] flex items-center">
-                          <UI.Layout.Box
+                  <Box class="group p-6 bg-white rounded-lg border border-gray-200 hover:border-primary-200 hover:shadow-sm transition-all">
+                    <Box class="flex flex-col lg:grid lg:grid-cols-[8rem_1fr] gap-6">
+                      <Box class="space-y-1">
+                        <Box class="text-base font-medium text-gray-900">{name}</Box>
+                        <Box class="text-sm font-mono text-gray-500">{size}</Box>
+                      </Box>
+                      <Box class="space-y-4">
+                        <Box class="min-h-[4rem] flex items-center">
+                          <Box
                             style={`font-size: ${size}`}
                             class="text-gray-900 group-hover:text-primary-900 transition-colors"
                           >
                             {shortSampleText}
-                          </UI.Layout.Box>
-                        </UI.Layout.Box>
-                        <UI.Layout.Box class="text-sm text-gray-600 border-t border-gray-100 pt-4">
+                          </Box>
+                        </Box>
+                        <Box class="text-sm text-gray-600 border-t border-gray-100 pt-4">
                           {fontSizeUsage[name as FontSizeKey]}
-                        </UI.Layout.Box>
-                      </UI.Layout.Box>
-                    </UI.Layout.Box>
-                  </UI.Layout.Box>
+                        </Box>
+                      </Box>
+                    </Box>
+                  </Box>
                 ))
               }
             </ThemeSection.Body>
@@ -108,26 +104,22 @@ const fontSizeUsage: Record<FontSizeKey, string> = {
             <ThemeSection.Body class="space-y-8">
               {
                 Object.entries(theme.fontWeights).map(([name, weight]) => (
-                  <UI.Layout.Box class="group p-6 bg-white rounded-lg border border-gray-200 hover:border-primary-200 hover:shadow-sm transition-all">
-                    <UI.Layout.Box class="flex flex-col lg:grid lg:grid-cols-[8rem_1fr] gap-6">
-                      <UI.Layout.Box class="space-y-1">
-                        <UI.Layout.Box class="text-base font-medium text-gray-900">
-                          {name}
-                        </UI.Layout.Box>
-                        <UI.Layout.Box class="text-sm font-mono text-gray-500">
-                          {weight}
-                        </UI.Layout.Box>
-                      </UI.Layout.Box>
-                      <UI.Layout.Box class="space-y-4">
-                        <UI.Layout.Box class="min-h-[4rem] flex items-center">
-                          <UI.Layout.Box
+                  <Box class="group p-6 bg-white rounded-lg border border-gray-200 hover:border-primary-200 hover:shadow-sm transition-all">
+                    <Box class="flex flex-col lg:grid lg:grid-cols-[8rem_1fr] gap-6">
+                      <Box class="space-y-1">
+                        <Box class="text-base font-medium text-gray-900">{name}</Box>
+                        <Box class="text-sm font-mono text-gray-500">{weight}</Box>
+                      </Box>
+                      <Box class="space-y-4">
+                        <Box class="min-h-[4rem] flex items-center">
+                          <Box
                             style={`font-weight: ${weight}`}
                             class="text-xl text-gray-900 group-hover:text-primary-900 transition-colors"
                           >
                             {sampleText}
-                          </UI.Layout.Box>
-                        </UI.Layout.Box>
-                        <UI.Layout.Box class="text-sm text-gray-600 border-t border-gray-100 pt-4">
+                          </Box>
+                        </Box>
+                        <Box class="text-sm text-gray-600 border-t border-gray-100 pt-4">
                           {name === 'thin'
                             ? 'Extremely light weight, best for decorative use or very large sizes'
                             : name === 'extralight'
@@ -145,10 +137,10 @@ const fontSizeUsage: Record<FontSizeKey, string> = {
                                         : name === 'extrabold'
                                           ? 'Extra bold weight, for high-impact headlines and callouts'
                                           : 'Black weight, maximum emphasis for dramatic display text'}
-                        </UI.Layout.Box>
-                      </UI.Layout.Box>
-                    </UI.Layout.Box>
-                  </UI.Layout.Box>
+                        </Box>
+                      </Box>
+                    </Box>
+                  </Box>
                 ))
               }
             </ThemeSection.Body>
@@ -162,154 +154,135 @@ const fontSizeUsage: Record<FontSizeKey, string> = {
               </ThemeSection.HeaderBody>
             </ThemeSection.Header>
             <ThemeSection.Body>
-              <UI.Layout.Box class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              <Box class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <!-- Content Typography -->
-                <UI.Layout.Box class="space-y-8">
-                  <UI.Typography.Heading.H4 class="text-2xl font-medium">
-                    Content Typography
-                  </UI.Typography.Heading.H4>
-                  <UI.Layout.Box class="space-y-8">
+                <Box class="space-y-8">
+                  <H4 class="text-2xl font-medium">Content Typography</H4>
+                  <Box class="space-y-8">
                     <!-- Article Example -->
-                    <UI.Layout.Box class="p-6 bg-white rounded-lg border border-gray-200">
-                      <UI.Layout.Box class="font-medium text-lg mb-4">Article Layout</UI.Layout.Box>
-                      <UI.Layout.Box class="space-y-4">
-                        <UI.Layout.Box
+                    <Box class="p-6 bg-white rounded-lg border border-gray-200">
+                      <Box class="font-medium text-lg mb-4">Article Layout</Box>
+                      <Box class="space-y-4">
+                        <Box
                           style={`font-size: ${theme.fontSizes['3xl']}; font-weight: ${theme.fontWeights.bold}`}
                           class="text-gray-900"
                         >
                           Article Title
-                        </UI.Layout.Box>
-                        <UI.Layout.Box
+                        </Box>
+                        <Box
                           style={`font-size: ${theme.fontSizes.lg}; font-weight: ${theme.fontWeights.medium}`}
                           class="text-gray-600"
                         >
                           Article subtitle or description that spans multiple lines to show how the
                           text wraps.
-                        </UI.Layout.Box>
-                        <UI.Layout.Box
-                          style={`font-size: ${theme.fontSizes.base}`}
-                          class="text-gray-700"
-                        >
+                        </Box>
+                        <Box style={`font-size: ${theme.fontSizes.base}`} class="text-gray-700">
                           Body text with a comfortable reading size. {sampleText} This shows how regular
                           content appears in an article layout.
-                        </UI.Layout.Box>
-                      </UI.Layout.Box>
-                    </UI.Layout.Box>
+                        </Box>
+                      </Box>
+                    </Box>
 
                     <!-- List Example -->
-                    <UI.Layout.Box class="p-6 bg-white rounded-lg border border-gray-200">
-                      <UI.Layout.Box class="font-medium text-lg mb-4">
-                        List Typography
-                      </UI.Layout.Box>
-                      <UI.Layout.Box class="space-y-4">
-                        <UI.Layout.Box
+                    <Box class="p-6 bg-white rounded-lg border border-gray-200">
+                      <Box class="font-medium text-lg mb-4">List Typography</Box>
+                      <Box class="space-y-4">
+                        <Box
                           style={`font-size: ${theme.fontSizes.xl}; font-weight: ${theme.fontWeights.medium}`}
                           class="text-gray-900"
                         >
                           Feature List
-                        </UI.Layout.Box>
-                        <UI.List.Ul class="space-y-3">
+                        </Box>
+                        <Ul class="space-y-3">
                           {
                             [1, 2, 3].map(() => (
-                              <UI.List.Li class="flex gap-3">
-                                <UI.Layout.Box
+                              <Li class="flex gap-3">
+                                <Box
                                   style={`font-size: ${theme.fontSizes.sm}`}
                                   class="text-primary-600"
                                 >
                                   •
-                                </UI.Layout.Box>
-                                <UI.Layout.Box
+                                </Box>
+                                <Box
                                   style={`font-size: ${theme.fontSizes.sm}`}
                                   class="text-gray-600"
                                 >
                                   List item with smaller text size for better scannability
-                                </UI.Layout.Box>
-                              </UI.List.Li>
+                                </Box>
+                              </Li>
                             ))
                           }
-                        </UI.List.Ul>
-                      </UI.Layout.Box>
-                    </UI.Layout.Box>
-                  </UI.Layout.Box>
-                </UI.Layout.Box>
+                        </Ul>
+                      </Box>
+                    </Box>
+                  </Box>
+                </Box>
 
                 <!-- UI Typography -->
-                <UI.Layout.Box class="space-y-8">
-                  <UI.Typography.Heading.H4 class="text-2xl font-medium">
-                    UI Typography
-                  </UI.Typography.Heading.H4>
-                  <UI.Layout.Box class="space-y-8">
+                <Box class="space-y-8">
+                  <H4 class="text-2xl font-medium">UI Typography</H4>
+                  <Box class="space-y-8">
                     <!-- Card Example -->
-                    <UI.Layout.Box class="p-6 bg-white rounded-lg border border-gray-200">
-                      <UI.Layout.Box class="font-medium text-lg mb-4">
-                        Card Typography
-                      </UI.Layout.Box>
-                      <UI.Layout.Box class="p-4 bg-gray-50 rounded">
-                        <UI.Layout.Box class="space-y-3">
-                          <UI.Layout.Box
+                    <Box class="p-6 bg-white rounded-lg border border-gray-200">
+                      <Box class="font-medium text-lg mb-4">Card Typography</Box>
+                      <Box class="p-4 bg-gray-50 rounded">
+                        <Box class="space-y-3">
+                          <Box
                             style={`font-size: ${theme.fontSizes.lg}; font-weight: ${theme.fontWeights.medium}`}
                             class="text-gray-900"
                           >
                             Card Title
-                          </UI.Layout.Box>
-                          <UI.Layout.Box
-                            style={`font-size: ${theme.fontSizes.sm}`}
-                            class="text-gray-600"
-                          >
+                          </Box>
+                          <Box style={`font-size: ${theme.fontSizes.sm}`} class="text-gray-600">
                             Card description with smaller text that provides additional context
                             about the card content.
-                          </UI.Layout.Box>
-                          <UI.Layout.Box
+                          </Box>
+                          <Box
                             style={`font-size: ${theme.fontSizes.sm}; font-weight: ${theme.fontWeights.medium}`}
                             class="text-primary-600"
                           >
                             Learn more →
-                          </UI.Layout.Box>
-                        </UI.Layout.Box>
-                      </UI.Layout.Box>
-                    </UI.Layout.Box>
+                          </Box>
+                        </Box>
+                      </Box>
+                    </Box>
 
                     <!-- Form Example -->
-                    <UI.Layout.Box class="p-6 bg-white rounded-lg border border-gray-200">
-                      <UI.Layout.Box class="font-medium text-lg mb-4">
-                        Form Typography
-                      </UI.Layout.Box>
-                      <UI.Layout.Box class="space-y-4">
-                        <UI.Layout.Box class="space-y-2">
-                          <UI.Layout.Box
+                    <Box class="p-6 bg-white rounded-lg border border-gray-200">
+                      <Box class="font-medium text-lg mb-4">Form Typography</Box>
+                      <Box class="space-y-4">
+                        <Box class="space-y-2">
+                          <Box
                             style={`font-size: ${theme.fontSizes.sm}; font-weight: ${theme.fontWeights.medium}`}
                             class="text-gray-700"
                           >
                             Input Label
-                          </UI.Layout.Box>
-                          <UI.Layout.Box
+                          </Box>
+                          <Box
                             class="p-2 border border-gray-200 rounded"
                             style={`font-size: ${theme.fontSizes.base}`}
                           >
                             Input text
-                          </UI.Layout.Box>
-                          <UI.Layout.Box
-                            style={`font-size: ${theme.fontSizes.xs}`}
-                            class="text-gray-500"
-                          >
+                          </Box>
+                          <Box style={`font-size: ${theme.fontSizes.xs}`} class="text-gray-500">
                             Helper text with additional information
-                          </UI.Layout.Box>
-                        </UI.Layout.Box>
-                        <UI.Layout.Box
+                          </Box>
+                        </Box>
+                        <Box
                           class="px-4 py-2 bg-primary-600 text-white rounded text-center"
                           style={`font-size: ${theme.fontSizes.sm}; font-weight: ${theme.fontWeights.medium}`}
                         >
                           Submit Button
-                        </UI.Layout.Box>
-                      </UI.Layout.Box>
-                    </UI.Layout.Box>
-                  </UI.Layout.Box>
-                </UI.Layout.Box>
-              </UI.Layout.Box>
+                        </Box>
+                      </Box>
+                    </Box>
+                  </Box>
+                </Box>
+              </Box>
             </ThemeSection.Body>
           </ThemeSection.Section>
-        </UI.Layout.Box>
-      </UI.Layout.Box>
+        </Box>
+      </Box>
     </App.PageSection>
   </App.PageBody>
 </App.Page>

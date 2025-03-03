@@ -1,7 +1,16 @@
 ---
 import App from '../../lib/app';
 import Sherpa from '../../lib/sherpa';
-import UI from '../../lib/ui';
+import {
+  Box,
+  GradientBackground,
+  H2,
+  P,
+  PageHeader,
+  PageHeaderBody,
+  PageHeaderSubtitle,
+  PageHeaderTitle,
+} from '../../lib/ui';
 
 interface ThemePage {
   id: string;
@@ -70,40 +79,40 @@ const themePages: ThemePage[] = [
   <App.PageHeader />
   <App.PageBody class="bg-gray-50">
     <App.PageSection>
-      <UI.Layout.Box class="max-w-5xl mx-auto py-16 px-6">
-        <UI.PageHeader.Root>
-          <UI.PageHeader.Title>Pickles UI</UI.PageHeader.Title>
-          <UI.PageHeader.Subtitle>An opinionated design system</UI.PageHeader.Subtitle>
-          <UI.PageHeader.Body>
+      <Box class="max-w-5xl mx-auto py-16 px-6">
+        <PageHeader>
+          <PageHeaderTitle>Pickles UI</PageHeaderTitle>
+          <PageHeaderSubtitle>An opinionated design system</PageHeaderSubtitle>
+          <PageHeaderBody>
             Because great design isn't made by committee. These are the strong opinions and careful
             decisions that shape holzbrook.dev into what it is — with a dash of whimsy.
-          </UI.PageHeader.Body>
-        </UI.PageHeader.Root>
+          </PageHeaderBody>
+        </PageHeader>
 
         <!-- Theme Navigation -->
-        <UI.Layout.Box class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <Box class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {
             themePages.map(({ title, description, href, icon, gradient }) => (
-              <a
+              <App.Link
                 href={href}
                 class="group relative overflow-hidden p-6 bg-white rounded-xl border border-gray-200 hover:border-transparent hover:shadow-lg transition-all duration-300"
               >
-                <UI.GradientBackground gradient={gradient} />
+                <GradientBackground gradient={gradient} />
 
-                <UI.Layout.Box class="relative">
-                  <UI.Layout.Box class="text-3xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                <Box class="relative">
+                  <Box class="text-3xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
                     {icon}
-                  </UI.Layout.Box>
-                  <UI.Typography.Heading.H2 class="text-xl font-semibold mb-2 text-gray-900 group-hover:text-primary-600 transition-colors">
+                  </Box>
+                  <H2 class="text-xl font-semibold mb-2 text-gray-900 group-hover:text-primary-600 transition-colors">
                     {title}
-                  </UI.Typography.Heading.H2>
-                  <UI.Typography.Text.P>{description}</UI.Typography.Text.P>
-                </UI.Layout.Box>
-              </a>
+                  </H2>
+                  <P>{description}</P>
+                </Box>
+              </App.Link>
             ))
           }
-        </UI.Layout.Box>
-      </UI.Layout.Box>
+        </Box>
+      </Box>
     </App.PageSection>
   </App.PageBody>
 </App.Page>

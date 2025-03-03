@@ -1,5 +1,5 @@
 ---
-import UI from '../../../lib/ui';
+import { Box, H3, Li, P, Ul } from '../../../lib/ui';
 
 interface Props {
   company: string;
@@ -13,34 +13,30 @@ interface Props {
 const { company, title, period, description, highlights = [], class: className } = Astro.props;
 ---
 
-<UI.Layout.Box
+<Box
   class:list={[
     'bg-white rounded-lg shadow-md p-6 space-y-4 hover:shadow-lg transition-shadow',
     className,
   ]}
 >
-  <UI.Layout.Box class="space-y-2">
-    <UI.Typography.Heading.H3 class="text-lg font-semibold text-gray-900">
-      {company}
-    </UI.Typography.Heading.H3>
-    <UI.Typography.Text.P class="text-gray-600 font-medium">{title}</UI.Typography.Text.P>
-    <UI.Typography.Text.P class="text-sm text-gray-500">{period}</UI.Typography.Text.P>
-  </UI.Layout.Box>
+  <Box class="space-y-2">
+    <H3 class="text-lg font-semibold text-gray-900">{company}</H3>
+    <P class="text-gray-600 font-medium">{title}</P>
+    <P class="text-sm text-gray-500">{period}</P>
+  </Box>
 
-  <UI.Typography.Text.P class="text-gray-700">{description}</UI.Typography.Text.P>
+  <P class="text-gray-700">{description}</P>
 
   {
     highlights.length > 0 && (
-      <UI.Layout.Box class="space-y-2">
-        <UI.Typography.Text.P class="font-medium text-gray-900">
-          Key Achievements:
-        </UI.Typography.Text.P>
-        <UI.List.Ul class="list-disc list-inside space-y-1">
+      <Box class="space-y-2">
+        <P class="font-medium text-gray-900">Key Achievements:</P>
+        <Ul class="list-disc list-inside space-y-1">
           {highlights.map((highlight: string) => (
-            <UI.List.Li class="text-gray-700">{highlight}</UI.List.Li>
+            <Li class="text-gray-700">{highlight}</Li>
           ))}
-        </UI.List.Ul>
-      </UI.Layout.Box>
+        </Ul>
+      </Box>
     )
   }
-</UI.Layout.Box>
+</Box>

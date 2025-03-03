@@ -1,5 +1,5 @@
 ---
-import UI from '../../../lib/ui';
+import { Box } from '../../../lib/ui';
 import type { FamilyMember } from '../_familyMember/FamilyMember';
 
 interface Props {
@@ -13,6 +13,6 @@ const {
 }: Props = Astro.props;
 ---
 
-<UI.Layout.Box class={className}>
+<Box class={className}>
   <h1>{firstName} {middleName} {lastName}</h1>
-</UI.Layout.Box>
+</Box>

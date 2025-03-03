@@ -2,7 +2,7 @@
 import * as ThemePage from './_ThemePage/_index.astro';
 import * as ThemeSection from './_ThemeSection/_index.astro';
 import App from '../../lib/app';
-import UI from '../../lib/ui';
+import { Box, H4 } from '../../lib/ui';
 import theme from '../../theme';
 
 const sections = [
@@ -15,7 +15,7 @@ const sections = [
   <App.PageHeader />
   <App.PageBody class="bg-gray-50">
     <App.PageSection>
-      <UI.Layout.Box class="max-w-[90rem] mx-auto py-16 px-6">
+      <Box class="max-w-[90rem] mx-auto py-16 px-6">
         <ThemePage.Header>
           <ThemePage.BackLink />
           <ThemePage.Title>Spacing</ThemePage.Title>
@@ -30,7 +30,7 @@ const sections = [
           {sections.map(({ id, label }) => <ThemePage.NavItem href={`#${id}`} label={label} />)}
         </ThemePage.Nav>
 
-        <UI.Layout.Box class="space-y-24">
+        <Box class="space-y-24">
           <!-- Spacing Scale -->
           <ThemeSection.Section id="spacing-scale">
             <ThemeSection.Header>
@@ -43,25 +43,21 @@ const sections = [
             <ThemeSection.Body class="space-y-8">
               {
                 Object.entries(theme.spacing).map(([name, space]) => (
-                  <UI.Layout.Box class="group flex items-center gap-12 p-4 rounded-lg hover:bg-white hover:shadow-sm transition-all cursor-pointer">
-                    <UI.Layout.Box class="w-32">
-                      <UI.Layout.Box class="text-base font-medium text-gray-900">
-                        {name}
-                      </UI.Layout.Box>
-                      <UI.Layout.Box class="text-sm text-gray-500 font-mono mt-1">
-                        {space}
-                      </UI.Layout.Box>
-                    </UI.Layout.Box>
-                    <UI.Layout.Box class="flex-1 flex items-center gap-4">
-                      <UI.Layout.Box
+                  <Box class="group flex items-center gap-12 p-4 rounded-lg hover:bg-white hover:shadow-sm transition-all cursor-pointer">
+                    <Box class="w-32">
+                      <Box class="text-base font-medium text-gray-900">{name}</Box>
+                      <Box class="text-sm text-gray-500 font-mono mt-1">{space}</Box>
+                    </Box>
+                    <Box class="flex-1 flex items-center gap-4">
+                      <Box
                         class="bg-gradient-to-r from-primary-100 to-primary-200 rounded h-12 transition-all group-hover:from-primary-200 group-hover:to-primary-300"
                         style={`width: ${space}`}
                       />
-                      <UI.Layout.Box class="text-sm text-gray-500 group-hover:text-primary-600 transition-colors">
+                      <Box class="text-sm text-gray-500 group-hover:text-primary-600 transition-colors">
                         {space}
-                      </UI.Layout.Box>
-                    </UI.Layout.Box>
-                  </UI.Layout.Box>
+                      </Box>
+                    </Box>
+                  </Box>
                 ))
               }
             </ThemeSection.Body>
@@ -76,17 +72,15 @@ const sections = [
               </ThemeSection.HeaderBody>
             </ThemeSection.Header>
             <ThemeSection.Body>
-              <UI.Layout.Box class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              <Box class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <!-- Component Spacing -->
-                <UI.Layout.Box class="space-y-8">
-                  <UI.Typography.Heading.H4 class="text-2xl font-medium">
-                    Component Spacing
-                  </UI.Typography.Heading.H4>
-                  <UI.Layout.Box class="space-y-8">
+                <Box class="space-y-8">
+                  <H4 class="text-2xl font-medium">Component Spacing</H4>
+                  <Box class="space-y-8">
                     <!-- Button Example -->
-                    <UI.Layout.Box class="p-6 bg-white rounded-lg border border-gray-200">
-                      <UI.Layout.Box class="font-medium text-lg mb-4">Button Padding</UI.Layout.Box>
-                      <UI.Layout.Box class="flex gap-4">
+                    <Box class="p-6 bg-white rounded-lg border border-gray-200">
+                      <Box class="font-medium text-lg mb-4">Button Padding</Box>
+                      <Box class="flex gap-4">
                         <button class="px-2 py-1 bg-primary-500 text-white rounded text-sm">
                           spacing-2
                         </button>
@@ -96,73 +90,61 @@ const sections = [
                         <button class="px-6 py-3 bg-primary-500 text-white rounded text-lg">
                           spacing-6
                         </button>
-                      </UI.Layout.Box>
-                    </UI.Layout.Box>
+                      </Box>
+                    </Box>
 
                     <!-- Stack Example -->
-                    <UI.Layout.Box class="p-6 bg-white rounded-lg border border-gray-200">
-                      <UI.Layout.Box class="font-medium text-lg mb-4">Vertical Stack</UI.Layout.Box>
-                      <UI.Layout.Box class="space-y-4 bg-gray-50 p-4 rounded">
-                        <UI.Layout.Box class="p-4 bg-primary-100 rounded">Item 1</UI.Layout.Box>
-                        <UI.Layout.Box class="p-4 bg-primary-100 rounded">Item 2</UI.Layout.Box>
-                        <UI.Layout.Box class="p-4 bg-primary-100 rounded">Item 3</UI.Layout.Box>
-                      </UI.Layout.Box>
-                    </UI.Layout.Box>
-                  </UI.Layout.Box>
-                </UI.Layout.Box>
+                    <Box class="p-6 bg-white rounded-lg border border-gray-200">
+                      <Box class="font-medium text-lg mb-4">Vertical Stack</Box>
+                      <Box class="space-y-4 bg-gray-50 p-4 rounded">
+                        <Box class="p-4 bg-primary-100 rounded">Item 1</Box>
+                        <Box class="p-4 bg-primary-100 rounded">Item 2</Box>
+                        <Box class="p-4 bg-primary-100 rounded">Item 3</Box>
+                      </Box>
+                    </Box>
+                  </Box>
+                </Box>
 
                 <!-- Layout Spacing -->
-                <UI.Layout.Box class="space-y-8">
-                  <UI.Typography.Heading.H4 class="text-2xl font-medium">
-                    Layout Spacing
-                  </UI.Typography.Heading.H4>
-                  <UI.Layout.Box class="space-y-8">
+                <Box class="space-y-8">
+                  <H4 class="text-2xl font-medium">Layout Spacing</H4>
+                  <Box class="space-y-8">
                     <!-- Grid Example -->
-                    <UI.Layout.Box class="p-6 bg-white rounded-lg border border-gray-200">
-                      <UI.Layout.Box class="font-medium text-lg mb-4">Grid Gap</UI.Layout.Box>
-                      <UI.Layout.Box class="grid grid-cols-2 gap-4 bg-gray-50 p-4 rounded">
-                        <UI.Layout.Box class="p-4 bg-primary-100 rounded text-center">
-                          1
-                        </UI.Layout.Box>
-                        <UI.Layout.Box class="p-4 bg-primary-100 rounded text-center">
-                          2
-                        </UI.Layout.Box>
-                        <UI.Layout.Box class="p-4 bg-primary-100 rounded text-center">
-                          3
-                        </UI.Layout.Box>
-                        <UI.Layout.Box class="p-4 bg-primary-100 rounded text-center">
-                          4
-                        </UI.Layout.Box>
-                      </UI.Layout.Box>
-                    </UI.Layout.Box>
+                    <Box class="p-6 bg-white rounded-lg border border-gray-200">
+                      <Box class="font-medium text-lg mb-4">Grid Gap</Box>
+                      <Box class="grid grid-cols-2 gap-4 bg-gray-50 p-4 rounded">
+                        <Box class="p-4 bg-primary-100 rounded text-center">1</Box>
+                        <Box class="p-4 bg-primary-100 rounded text-center">2</Box>
+                        <Box class="p-4 bg-primary-100 rounded text-center">3</Box>
+                        <Box class="p-4 bg-primary-100 rounded text-center">4</Box>
+                      </Box>
+                    </Box>
 
                     <!-- Section Example -->
-                    <UI.Layout.Box class="p-6 bg-white rounded-lg border border-gray-200">
-                      <UI.Layout.Box class="font-medium text-lg mb-4">
-                        Section Spacing
-                      </UI.Layout.Box>
-                      <UI.Layout.Box class="space-y-8 bg-gray-50 p-4 rounded">
-                        <UI.Layout.Box class="space-y-2">
-                          <UI.Layout.Box class="font-medium">Header</UI.Layout.Box>
-                          <UI.Layout.Box class="h-8 bg-primary-100 rounded w-3/4" />
-                        </UI.Layout.Box>
-                        <UI.Layout.Box class="space-y-2">
-                          <UI.Layout.Box class="font-medium">Content</UI.Layout.Box>
-                          <UI.Layout.Box class="h-24 bg-primary-100 rounded" />
-                        </UI.Layout.Box>
-                        <UI.Layout.Box class="space-y-2">
-                          <UI.Layout.Box class="font-medium">Footer</UI.Layout.Box>
-                          <UI.Layout.Box class="h-12 bg-primary-100 rounded" />
-                        </UI.Layout.Box>
-                      </UI.Layout.Box>
-                    </UI.Layout.Box>
-                  </UI.Layout.Box>
-                </UI.Layout.Box>
-              </UI.Layout.Box>
+                    <Box class="p-6 bg-white rounded-lg border border-gray-200">
+                      <Box class="font-medium text-lg mb-4">Section Spacing</Box>
+                      <Box class="space-y-8 bg-gray-50 p-4 rounded">
+                        <Box class="space-y-2">
+                          <Box class="font-medium">Header</Box>
+                          <Box class="h-8 bg-primary-100 rounded w-3/4" />
+                        </Box>
+                        <Box class="space-y-2">
+                          <Box class="font-medium">Content</Box>
+                          <Box class="h-24 bg-primary-100 rounded" />
+                        </Box>
+                        <Box class="space-y-2">
+                          <Box class="font-medium">Footer</Box>
+                          <Box class="h-12 bg-primary-100 rounded" />
+                        </Box>
+                      </Box>
+                    </Box>
+                  </Box>
+                </Box>
+              </Box>
             </ThemeSection.Body>
           </ThemeSection.Section>
-        </UI.Layout.Box>
-      </UI.Layout.Box>
+        </Box>
+      </Box>
     </App.PageSection>
   </App.PageBody>
 </App.Page>

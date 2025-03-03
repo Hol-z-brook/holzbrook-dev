@@ -1,7 +1,7 @@
 ---
 import { hobbies } from './hobby/_hobbies';
 import App from '../../lib/app';
-import UI from '../../lib/ui';
+import { Card } from '../../lib/ui';
 ---
 
 <App.Page>
@@ -15,9 +15,9 @@ import UI from '../../lib/ui';
         {
           hobbies.map(hobby => (
             <App.Link href={hobby.href} class="block">
-              <UI.Card class="shadow-lg hover:shadow-2xl transition-shadow duration-300">
+              <Card class="shadow-lg hover:shadow-2xl transition-shadow duration-300">
                 <h2 class="text-xl font-semibold text-gray-800">{hobby.name}</h2>
-              </UI.Card>
+              </Card>
             </App.Link>
           ))
         }
