@@ -1,7 +1,7 @@
-import { makeSherpa } from "../../../lib/sherpa/Sherpa";
+import Sherpa from "../../../lib/sherpa";
 import { type Hobby } from "./_Hobby.ts";
 
-const sherpa = makeSherpa();
+const sherpa = Sherpa.makeSherpa();
 
 export const hobbies: Hobby[] = [
   { name: "Disc Golf", href: sherpa.play.discGolf({}) },

@@ -1,10 +1,10 @@
 ---
 import App from "../lib/app";
-import { makeSherpa } from "../lib/sherpa/Sherpa";
+import Sherpa from "../lib/sherpa";
 import UI from "../lib/ui";
 import HomePage from "./_components/HomePage";
 
-const sherpa = makeSherpa();
+const sherpa = Sherpa.makeSherpa();
 
 const workSection = {
   title: "Work",

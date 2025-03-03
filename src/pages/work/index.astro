@@ -46,7 +46,7 @@ import WorkPage from "./_/WorkPage";
 
 import App from "../../lib/app";
 import UI from "../../lib/ui";
-import { makeSherpa } from "../../lib/sherpa/Sherpa";
+import Sherpa from "../../lib/sherpa";
 
 /*
 TODO: Modern Design Elements
@@ -54,7 +54,7 @@ TODO: Modern Design Elements
 [ ] Add glass morphism effects - Create reusable glass effect styles
 */
 
-const sherpa = makeSherpa();
+const sherpa = Sherpa.makeSherpa();
 const resumeUrl = sherpa.work.resume({});
 
 interface Project {
