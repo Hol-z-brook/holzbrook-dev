@@ -1,20 +1,14 @@
 ---
-import UI from "../../lib/ui";
+import UI from '../../lib/ui';
 
 interface Props {
   class?: string;
 }
 
-const {
-  class: className,
-}: Props = Astro.props;
+const { class: className }: Props = Astro.props;
 ---
 
-<UI.Layout.VStack class={className}>
-  <strong class="text-md md:text-lg lg:text-xl font-bold text-gray-800">
-    Andrew
-  </strong>
-  <strong class="text-xl md:text-2xl lg:text-4xl font-extrabold text-gray-800">
-    Hol(z)brook
-  </strong>
-</UI.Layout.VStack>
+<UI.Layout.Flex.VStack class={className}>
+  <strong class="text-md md:text-lg lg:text-xl font-bold text-gray-800"> Andrew</strong>
+  <strong class="text-xl md:text-2xl lg:text-4xl font-extrabold text-gray-800"> Hol(z)brook</strong>
+</UI.Layout.Flex.VStack>

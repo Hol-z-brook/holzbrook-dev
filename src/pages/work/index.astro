@@ -110,7 +110,7 @@ const resumeUrl = sherpa.work.resume({});
         [ ] Improve spacing and rhythm
         */
       }
-      <UI.Layout.VStack
+      <UI.Layout.Flex.VStack
         class={`
           gap-8
         `}
@@ -147,7 +147,7 @@ const resumeUrl = sherpa.work.resume({});
           </PageUI.PageSection.Grid>
         </PageUI.PageSection.Container>
 
-        <UI.Layout.VStack class="gap-16">
+        <UI.Layout.Flex.VStack class="gap-16">
           <PageUI.PageSection.Container>
             <PageUI.PageSection.Title>Core Proficiencies</PageUI.PageSection.Title>
             <PageUI.PageSection.Grid>
@@ -174,11 +174,11 @@ const resumeUrl = sherpa.work.resume({});
               }
             </PageUI.PageSection.Grid>
           </PageUI.PageSection.Container>
-        </UI.Layout.VStack>
+        </UI.Layout.Flex.VStack>
 
         <PageUI.PageSection.Container>
           <PageUI.PageSection.Title>Resume</PageUI.PageSection.Title>
-          <UI.Layout.Center>
+          <UI.Layout.Flex.Center>
             <App.Link
               class={`
                 w-3/4
@@ -191,9 +191,9 @@ const resumeUrl = sherpa.work.resume({});
             >
               <PageUI.ResumeSkeleton />
             </App.Link>
-          </UI.Layout.Center>
+          </UI.Layout.Flex.Center>
         </PageUI.PageSection.Container>
-      </UI.Layout.VStack>
+      </UI.Layout.Flex.VStack>
     </App.PageSection>
 
     {

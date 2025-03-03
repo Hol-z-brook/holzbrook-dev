@@ -1,15 +1,12 @@
 ---
-import UI from "../../lib/ui";
+import UI from '../../lib/ui';
 
 interface Props {
   class?: string;
   backgroundColor?: string;
 }
 
-const {
-  class: className,
-  backgroundColor = "bg-white",
-}: Props = Astro.props;
+const { class: className, backgroundColor = 'bg-white' }: Props = Astro.props;
 ---
 
 <UI.Layout.Box class={`${backgroundColor} ${className}`}>

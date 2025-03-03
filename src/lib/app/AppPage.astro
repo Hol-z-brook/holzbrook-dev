@@ -1,15 +1,12 @@
 ---
-import "/src/styles/global.css";
+import '/src/styles/global.css';
 
 interface Props {
   class?: string;
   backgroundColor?: string;
 }
 
-const {
-  class: className,
-  backgroundColor,
-}: Props = Astro.props;
+const { class: className, backgroundColor }: Props = Astro.props;
 ---
 
 <!doctype html>
@@ -23,9 +20,7 @@ const {
     <title>Andrew Hol(z)brook</title>
   </head>
 
-  <body
-    class=`${backgroundColor ?? 'bg-white'} w-1/1 h-1/1 m-0 ${className}`
-  >
+  <body class=`${backgroundColor ?? 'bg-white'} w-1/1 h-1/1 m-0 ${className}`>
     <slot />
   </body>
 </html>

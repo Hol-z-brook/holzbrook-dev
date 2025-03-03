@@ -1,39 +1,39 @@
 ---
-import App from "../lib/app";
-import Sherpa from "../lib/sherpa";
-import UI from "../lib/ui";
-import PageUI from "./_ui";
+import App from '../lib/app';
+import Sherpa from '../lib/sherpa';
+import UI from '../lib/ui';
+import PageUI from './_ui';
 
 const sherpa = Sherpa.makeSherpa();
 
 const workSection = {
-  title: "Work",
+  title: 'Work',
   description:
-    "A journey through my professional experience—projects, skills, and collaborations that shaped my career.",
+    'A journey through my professional experience—projects, skills, and collaborations that shaped my career.',
   link: sherpa.work.index({}),
-  bgColor: "bg-orange-100",
-  cta: "Explore Career",
-  ctaClass: "bg-orange-500 hover:bg-orange-600",
+  bgColor: 'bg-orange-100',
+  cta: 'Explore Career',
+  ctaClass: 'bg-orange-500 hover:bg-orange-600',
 };
 
 const familySection = {
-  title: "Family",
+  title: 'Family',
   description:
-    "Family is at the heart of everything I do. Discover the routines, habits, and moments that keep us growing together.",
+    'Family is at the heart of everything I do. Discover the routines, habits, and moments that keep us growing together.',
   link: sherpa.family.index({}),
-  bgColor: "bg-amber-100",
-  cta: "Meet the Family",
-  ctaClass: "bg-amber-500 hover:bg-amber-600",
+  bgColor: 'bg-amber-100',
+  cta: 'Meet the Family',
+  ctaClass: 'bg-amber-500 hover:bg-amber-600',
 };
 
 const playSection = {
-  title: "Play",
+  title: 'Play',
   description:
-    "Exploring creativity through board games, tech experiments, and hobbies that bring joy and balance to life.",
+    'Exploring creativity through board games, tech experiments, and hobbies that bring joy and balance to life.',
   link: sherpa.play.index({}),
-  bgColor: "bg-red-100",
+  bgColor: 'bg-red-100',
   cta: "See What I'm Playing",
-  ctaClass: "bg-rose-500 hover:bg-rose-600",
+  ctaClass: 'bg-rose-500 hover:bg-rose-600',
 };
 ---
 

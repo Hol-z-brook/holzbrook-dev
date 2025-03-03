@@ -1,8 +1,8 @@
 ---
-import AppLogoLink from "./AppLogoLink.astro";
-import AppNavMenu from "./AppNavMenu.astro";
-import AppNavMenuItem from "./AppNavMenuItem.astro";
-import Sherpa from "../sherpa";
+import AppLogoLink from './AppLogoLink.astro';
+import AppNavMenu from './AppNavMenu.astro';
+import AppNavMenuItem from './AppNavMenuItem.astro';
+import Sherpa from '../sherpa';
 
 const sherpa = Sherpa.makeSherpa();
 
@@ -10,17 +10,13 @@ interface Props {
   class?: string;
 }
 
-const {
-  class: className,
-}: Props = Astro.props;
+const { class: className }: Props = Astro.props;
 ---
 
 <header
   class={`fixed top-0 left-0 right-0 z-50 bg-orange-300 shadow-md w-full flex justify-between items-center h-24 ${className}`}
 >
-  <div
-    class="my-4 px-4 md:px-0 max-w-screen-md w-full mx-auto flex justify-between items-center"
-  >
+  <div class="my-4 px-4 md:px-0 max-w-screen-md w-full mx-auto flex justify-between items-center">
     <AppLogoLink class="inline p-0 m-0" />
     <AppNavMenu>
       <AppNavMenuItem href={sherpa.work.index({})}>Work</AppNavMenuItem>
@@ -29,4 +25,4 @@ const {
     </AppNavMenu>
   </div>
 </header>
-<div class="h-24">{" "}</div>
+<div class="h-24">{' '}</div>

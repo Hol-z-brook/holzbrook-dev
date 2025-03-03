@@ -5,11 +5,7 @@ interface Props {
   subtitle: string;
 }
 
-const {
-  class: className,
-  title,
-  subtitle,
-}: Props = Astro.props;
+const { class: className, title, subtitle }: Props = Astro.props;
 ---
 
 <section
@@ -31,11 +27,10 @@ const {
       to-orange-200
       animate-gradient
     `}
-  />
+  >
+  </div>
   <div class="relative max-w-4xl mx-auto px-6">
-    <h1
-      class="text-6xl lg:text-7xl font-extrabold text-gray-800 leading-tight mb-6"
-    >
+    <h1 class="text-6xl lg:text-7xl font-extrabold text-gray-800 leading-tight mb-6">
       {title}
     </h1>
     <p class="text-xl lg:text-2xl text-gray-700 mb-10">

@@ -1,13 +1,13 @@
 ---
-import * as ThemePage from "./_ThemePage/_index.astro";
-import * as ThemeSection from "./_ThemeSection/_index.astro";
-import App from "../../lib/app";
-import UI from "../../lib/ui";
-import theme from "../../theme";
+import * as ThemePage from './_ThemePage/_index.astro';
+import * as ThemeSection from './_ThemeSection/_index.astro';
+import App from '../../lib/app';
+import UI from '../../lib/ui';
+import theme from '../../theme';
 
 const sections = [
   { id: 'spacing-scale', label: 'Spacing Scale' },
-  { id: 'usage-examples', label: 'Usage Examples' }
+  { id: 'usage-examples', label: 'Usage Examples' },
 ];
 ---
 
@@ -20,55 +20,57 @@ const sections = [
           <ThemePage.BackLink />
           <ThemePage.Title>Spacing</ThemePage.Title>
           <ThemePage.Description>
-            A consistent spacing system helps create harmonious layouts and maintain visual rhythm throughout the interface.
+            A consistent spacing system helps create harmonious layouts and maintain visual rhythm
+            throughout the interface.
           </ThemePage.Description>
         </ThemePage.Header>
 
         <ThemePage.Nav>
           <ThemePage.NavTitle slot="title">Spacing</ThemePage.NavTitle>
-          {sections.map(({ id, label }) => (
-            <ThemePage.NavItem href={`#${id}`} label={label} />
-          ))}
+          {sections.map(({ id, label }) => <ThemePage.NavItem href={`#${id}`} label={label} />)}
         </ThemePage.Nav>
 
         <UI.Layout.Box class="space-y-24">
           <!-- Spacing Scale -->
           <ThemeSection.Section id="spacing-scale">
             <ThemeSection.Header>
-              <ThemeSection.HeaderTitle slot="title">
-                Spacing Scale
-              </ThemeSection.HeaderTitle>
+              <ThemeSection.HeaderTitle slot="title">Spacing Scale</ThemeSection.HeaderTitle>
               <ThemeSection.HeaderBody slot="body">
-                Our spacing scale provides consistent increments for margins, padding, and layout composition.
+                Our spacing scale provides consistent increments for margins, padding, and layout
+                composition.
               </ThemeSection.HeaderBody>
             </ThemeSection.Header>
             <ThemeSection.Body class="space-y-8">
-              {Object.entries(theme.spacing).map(([name, space]) => (
-                <UI.Layout.Box class="group flex items-center gap-12 p-4 rounded-lg hover:bg-white hover:shadow-sm transition-all cursor-pointer">
-                  <UI.Layout.Box class="w-32">
-                    <UI.Layout.Box class="text-base font-medium text-gray-900">{name}</UI.Layout.Box>
-                    <UI.Layout.Box class="text-sm text-gray-500 font-mono mt-1">{space}</UI.Layout.Box>
-                  </UI.Layout.Box>
-                  <UI.Layout.Box class="flex-1 flex items-center gap-4">
-                    <UI.Layout.Box 
-                      class="bg-gradient-to-r from-primary-100 to-primary-200 rounded h-12 transition-all group-hover:from-primary-200 group-hover:to-primary-300"
-                      style={`width: ${space}`}
-                    />
-                    <UI.Layout.Box class="text-sm text-gray-500 group-hover:text-primary-600 transition-colors">
-                      {space}
+              {
+                Object.entries(theme.spacing).map(([name, space]) => (
+                  <UI.Layout.Box class="group flex items-center gap-12 p-4 rounded-lg hover:bg-white hover:shadow-sm transition-all cursor-pointer">
+                    <UI.Layout.Box class="w-32">
+                      <UI.Layout.Box class="text-base font-medium text-gray-900">
+                        {name}
+                      </UI.Layout.Box>
+                      <UI.Layout.Box class="text-sm text-gray-500 font-mono mt-1">
+                        {space}
+                      </UI.Layout.Box>
+                    </UI.Layout.Box>
+                    <UI.Layout.Box class="flex-1 flex items-center gap-4">
+                      <UI.Layout.Box
+                        class="bg-gradient-to-r from-primary-100 to-primary-200 rounded h-12 transition-all group-hover:from-primary-200 group-hover:to-primary-300"
+                        style={`width: ${space}`}
+                      />
+                      <UI.Layout.Box class="text-sm text-gray-500 group-hover:text-primary-600 transition-colors">
+                        {space}
+                      </UI.Layout.Box>
                     </UI.Layout.Box>
                   </UI.Layout.Box>
-                </UI.Layout.Box>
-              ))}
+                ))
+              }
             </ThemeSection.Body>
           </ThemeSection.Section>
 
           <!-- Usage Examples -->
           <ThemeSection.Section id="usage-examples">
             <ThemeSection.Header>
-              <ThemeSection.HeaderTitle slot="title">
-                Usage Examples
-              </ThemeSection.HeaderTitle>
+              <ThemeSection.HeaderTitle slot="title">Usage Examples</ThemeSection.HeaderTitle>
               <ThemeSection.HeaderBody slot="body">
                 Common patterns and examples of how to apply spacing in your layouts.
               </ThemeSection.HeaderBody>
@@ -77,7 +79,9 @@ const sections = [
               <UI.Layout.Box class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <!-- Component Spacing -->
                 <UI.Layout.Box class="space-y-8">
-                  <UI.Typography.H4 class="text-2xl font-medium">Component Spacing</UI.Typography.H4>
+                  <UI.Typography.Heading.H4 class="text-2xl font-medium">
+                    Component Spacing
+                  </UI.Typography.Heading.H4>
                   <UI.Layout.Box class="space-y-8">
                     <!-- Button Example -->
                     <UI.Layout.Box class="p-6 bg-white rounded-lg border border-gray-200">
@@ -109,22 +113,34 @@ const sections = [
 
                 <!-- Layout Spacing -->
                 <UI.Layout.Box class="space-y-8">
-                  <UI.Typography.H4 class="text-2xl font-medium">Layout Spacing</UI.Typography.H4>
+                  <UI.Typography.Heading.H4 class="text-2xl font-medium">
+                    Layout Spacing
+                  </UI.Typography.Heading.H4>
                   <UI.Layout.Box class="space-y-8">
                     <!-- Grid Example -->
                     <UI.Layout.Box class="p-6 bg-white rounded-lg border border-gray-200">
                       <UI.Layout.Box class="font-medium text-lg mb-4">Grid Gap</UI.Layout.Box>
                       <UI.Layout.Box class="grid grid-cols-2 gap-4 bg-gray-50 p-4 rounded">
-                        <UI.Layout.Box class="p-4 bg-primary-100 rounded text-center">1</UI.Layout.Box>
-                        <UI.Layout.Box class="p-4 bg-primary-100 rounded text-center">2</UI.Layout.Box>
-                        <UI.Layout.Box class="p-4 bg-primary-100 rounded text-center">3</UI.Layout.Box>
-                        <UI.Layout.Box class="p-4 bg-primary-100 rounded text-center">4</UI.Layout.Box>
+                        <UI.Layout.Box class="p-4 bg-primary-100 rounded text-center">
+                          1
+                        </UI.Layout.Box>
+                        <UI.Layout.Box class="p-4 bg-primary-100 rounded text-center">
+                          2
+                        </UI.Layout.Box>
+                        <UI.Layout.Box class="p-4 bg-primary-100 rounded text-center">
+                          3
+                        </UI.Layout.Box>
+                        <UI.Layout.Box class="p-4 bg-primary-100 rounded text-center">
+                          4
+                        </UI.Layout.Box>
                       </UI.Layout.Box>
                     </UI.Layout.Box>
 
                     <!-- Section Example -->
                     <UI.Layout.Box class="p-6 bg-white rounded-lg border border-gray-200">
-                      <UI.Layout.Box class="font-medium text-lg mb-4">Section Spacing</UI.Layout.Box>
+                      <UI.Layout.Box class="font-medium text-lg mb-4">
+                        Section Spacing
+                      </UI.Layout.Box>
                       <UI.Layout.Box class="space-y-8 bg-gray-50 p-4 rounded">
                         <UI.Layout.Box class="space-y-2">
                           <UI.Layout.Box class="font-medium">Header</UI.Layout.Box>
@@ -145,8 +161,8 @@ const sections = [
               </UI.Layout.Box>
             </ThemeSection.Body>
           </ThemeSection.Section>
-        </Box>
-      </Box>
+        </UI.Layout.Box>
+      </UI.Layout.Box>
     </App.PageSection>
   </App.PageBody>
-</App.Page> 
+</App.Page>

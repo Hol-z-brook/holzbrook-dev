@@ -1,15 +1,13 @@
 ---
-import Sherpa from "../sherpa";
-import AppLink from "./AppLink.astro";
-import AppLogo from "./AppLogo.astro";
+import Sherpa from '../sherpa';
+import AppLink from './AppLink.astro';
+import AppLogo from './AppLogo.astro';
 
 interface Props {
   class?: string;
 }
 
-const {
-  class: className,
-} = Astro.props;
+const { class: className } = Astro.props;
 
 const sherpa = Sherpa.makeSherpa();
 ---

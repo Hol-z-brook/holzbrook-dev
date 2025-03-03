@@ -13,7 +13,7 @@ import Code from './typography/Code.astro';
 import Pre from './typography/Pre.astro';
 
 // Layout
-import Container from './layout/Container.astro';
+import Box from './layout/Box.astro';
 import Stack from './layout/Stack.astro';
 import HStack from './layout/HStack.astro';
 import VStack from './layout/VStack.astro';
@@ -70,7 +70,7 @@ export default {
 
   // Layout
   Layout: {
-    Container,
+    Box,
     Flex: {
       Stack,
       HStack,

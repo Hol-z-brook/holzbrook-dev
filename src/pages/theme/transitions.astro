@@ -1,19 +1,19 @@
 ---
-import * as ThemePage from "./_ThemePage/_index.astro";
-import App from "../../lib/app";
-import theme from "../../theme";
-import UI from "../../lib/ui";
+import * as ThemePage from './_ThemePage/_index.astro';
+import App from '../../lib/app';
+import theme from '../../theme';
+import UI from '../../lib/ui';
 
 const sections = [
   { id: 'timing-scale', label: 'Timing Scale' },
-  { id: 'animation-examples', label: 'Animation Examples' }
+  { id: 'animation-examples', label: 'Animation Examples' },
 ];
 
 const transitions = [
-  { name: "default", transition: theme.transitions.default },
-  { name: "fast", transition: theme.transitions.fast },
-  { name: "delayed", transition: theme.transitions.delayed },
-  { name: "bounce", transition: theme.transitions.bounce },
+  { name: 'default', transition: theme.transitions.default },
+  { name: 'fast', transition: theme.transitions.fast },
+  { name: 'delayed', transition: theme.transitions.delayed },
+  { name: 'bounce', transition: theme.transitions.bounce },
 ];
 ---
 
@@ -26,49 +26,50 @@ const transitions = [
           <ThemePage.BackLink />
           <ThemePage.Title>Transitions</ThemePage.Title>
           <ThemePage.Description>
-            Our transition system provides consistent motion and animation timing to create smooth and delightful interactions.
+            Our transition system provides consistent motion and animation timing to create smooth
+            and delightful interactions.
           </ThemePage.Description>
         </ThemePage.Header>
 
         <ThemePage.Nav>
           <ThemePage.NavTitle slot="title">Transitions</ThemePage.NavTitle>
-          {sections.map(({ id, label }) => (
-            <ThemePage.NavItem href={`#${id}`} label={label} />
-          ))}
+          {sections.map(({ id, label }) => <ThemePage.NavItem href={`#${id}`} label={label} />)}
         </ThemePage.Nav>
 
-        <UI.Layout.Stack class="space-y-24">
-          {transitions.map(({ name, transition }) => (
-            <UI.Layout.Box class="space-y-4 group">
-              <UI.Layout.Box class="relative">
-                <div
-                  class="h-16 bg-primary-100 rounded flex items-center justify-center cursor-pointer"
-                  style={`transition: background-color ${transition}`}
-                >
-                  <p class="text-primary-700 group-hover:text-primary-900">
-                    Hover me
-                  </p>
-                </div>
-                <div
-                  class="absolute inset-0 flex items-center justify-center text-primary-700 font-medium opacity-0 group-hover:opacity-100"
-                  style={`transition: opacity ${transition}`}
-                >
-                  {transition}
-                </div>
-              </UI.Layout.Box>
-              <UI.Layout.Box class="space-y-2">
-                <UI.Layout.Box class="text-base font-medium capitalize">{name}</UI.Layout.Box>
-                <UI.Layout.Box class="text-sm text-gray-500 font-mono break-words group-hover:text-primary-600 transition-colors cursor-pointer">
-                  {transition}
+        <UI.Layout.Flex.Stack class="space-y-24">
+          {
+            transitions.map(({ name, transition }) => (
+              <UI.Layout.Box class="space-y-4 group">
+                <UI.Layout.Box class="relative">
+                  <div
+                    class="h-16 bg-primary-100 rounded flex items-center justify-center cursor-pointer"
+                    style={`transition: background-color ${transition}`}
+                  >
+                    <p class="text-primary-700 group-hover:text-primary-900">Hover me</p>
+                  </div>
+                  <div
+                    class="absolute inset-0 flex items-center justify-center text-primary-700 font-medium opacity-0 group-hover:opacity-100"
+                    style={`transition: opacity ${transition}`}
+                  >
+                    {transition}
+                  </div>
+                </UI.Layout.Box>
+                <UI.Layout.Box class="space-y-2">
+                  <UI.Layout.Box class="text-base font-medium capitalize">{name}</UI.Layout.Box>
+                  <UI.Layout.Box class="text-sm text-gray-500 font-mono break-words group-hover:text-primary-600 transition-colors cursor-pointer">
+                    {transition}
+                  </UI.Layout.Box>
                 </UI.Layout.Box>
               </UI.Layout.Box>
-            </UI.Layout.Box>
-          ))}
-        </UI.Layout.Stack>
+            ))
+          }
+        </UI.Layout.Flex.Stack>
 
         <UI.Layout.Box class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-24">
           <UI.Layout.Box class="space-y-8">
-            <UI.Typography.H4 class="text-2xl font-medium">Basic Transitions</UI.Typography.H4>
+            <UI.Typography.Heading.H4 class="text-2xl font-medium">
+              Basic Transitions
+            </UI.Typography.Heading.H4>
             <UI.Layout.Box class="space-y-8">
               <UI.Layout.Box class="p-6 bg-white rounded-lg border border-gray-200">
                 <UI.Layout.Box class="font-medium text-lg mb-4">Color Changes</UI.Layout.Box>
@@ -117,7 +118,9 @@ const transitions = [
           </UI.Layout.Box>
 
           <UI.Layout.Box class="space-y-8">
-            <UI.Typography.H4 class="text-2xl font-medium">Advanced Transitions</UI.Typography.H4>
+            <UI.Typography.Heading.H4 class="text-2xl font-medium">
+              Advanced Transitions
+            </UI.Typography.Heading.H4>
             <UI.Layout.Box class="space-y-8">
               <UI.Layout.Box class="p-6 bg-white rounded-lg border border-gray-200">
                 <UI.Layout.Box class="font-medium text-lg mb-4">Transform Effects</UI.Layout.Box>
@@ -150,16 +153,25 @@ const transitions = [
                     class="h-16 bg-primary-100 hover:bg-primary-200 hover:scale-105 rounded flex items-center justify-center cursor-pointer"
                     style={`transition: all ${theme.transitions.default}`}
                   >
-                    <p class="text-primary-700 group-hover:translate-x-2" style={`transition: transform ${theme.transitions.delayed}`}>
+                    <p
+                      class="text-primary-700 group-hover:translate-x-2"
+                      style={`transition: transform ${theme.transitions.delayed}`}
+                    >
                       Combined effects
                     </p>
                   </div>
-                  <div class="relative h-16 bg-primary-100 rounded overflow-hidden cursor-pointer group">
+                  <div
+                    class="relative h-16 bg-primary-100 rounded overflow-hidden cursor-pointer group"
+                  >
                     <div
                       class="absolute inset-0 bg-primary-200 opacity-0 group-hover:opacity-100"
                       style={`transition: opacity ${theme.transitions.default}`}
-                    />
-                    <p class="relative text-primary-700 group-hover:translate-x-2" style={`transition: transform ${theme.transitions.delayed}`}>
+                    >
+                    </div>
+                    <p
+                      class="relative text-primary-700 group-hover:translate-x-2"
+                      style={`transition: transform ${theme.transitions.delayed}`}
+                    >
                       Layered transitions
                     </p>
                   </div>
@@ -171,4 +183,4 @@ const transitions = [
       </UI.Layout.Box>
     </App.PageSection>
   </App.PageBody>
-</App.Page> 
+</App.Page>

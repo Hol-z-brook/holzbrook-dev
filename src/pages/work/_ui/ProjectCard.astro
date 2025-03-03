@@ -1,5 +1,5 @@
 ---
-import UI from "../../../lib/ui";
+import UI from '../../../lib/ui';
 
 interface Props {
   name: string;
@@ -11,23 +11,27 @@ interface Props {
 const { name, description, tech, class: className } = Astro.props;
 ---
 
-<UI.Layout.Box class:list={[
-  "bg-white rounded-lg shadow-md p-6 space-y-4 hover:shadow-lg transition-shadow",
-  className
-]}>
-  <UI.Typography.H3 class="text-lg sm:text-xl font-semibold text-gray-900">
+<UI.Layout.Box
+  class:list={[
+    'bg-white rounded-lg shadow-md p-6 space-y-4 hover:shadow-lg transition-shadow',
+    className,
+  ]}
+>
+  <UI.Typography.Heading.H3 class="text-lg sm:text-xl font-semibold text-gray-900">
     {name}
-  </UI.Typography.H3>
-  
-  <UI.Typography.P class="text-gray-700">
+  </UI.Typography.Heading.H3>
+
+  <UI.Typography.Text.P class="text-gray-700">
     {description}
-  </UI.Typography.P>
-  
+  </UI.Typography.Text.P>
+
   <UI.Layout.Box class="flex flex-wrap gap-2">
-    {tech.map((tech) => (
-      <UI.Layout.Box class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">
-        {tech}
-      </UI.Layout.Box>
-    ))}
+    {
+      tech.map(tech => (
+        <UI.Layout.Box class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">
+          {tech}
+        </UI.Layout.Box>
+      ))
+    }
   </UI.Layout.Box>
-</UI.Layout.Box> 
+</UI.Layout.Box>

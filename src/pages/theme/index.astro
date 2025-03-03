@@ -1,7 +1,7 @@
 ---
-import App from "../../lib/app";
-import Sherpa from "../../lib/sherpa";
-import UI from "../../lib/ui";
+import App from '../../lib/app';
+import Sherpa from '../../lib/sherpa';
+import UI from '../../lib/ui';
 
 interface ThemePage {
   id: string;
@@ -21,7 +21,7 @@ const themePages: ThemePage[] = [
     description: 'Color scales, base colors, and gradients.',
     href: sherpa.theme.colors(),
     icon: '🎨',
-    gradient: 'from-rose-500 to-orange-500'
+    gradient: 'from-rose-500 to-orange-500',
   },
   {
     id: 'typography',
@@ -29,7 +29,7 @@ const themePages: ThemePage[] = [
     description: 'Font sizes, weights, and text styles.',
     href: sherpa.theme.typography(),
     icon: '✍️',
-    gradient: 'from-blue-500 to-purple-500'
+    gradient: 'from-blue-500 to-purple-500',
   },
   {
     id: 'spacing',
@@ -37,7 +37,7 @@ const themePages: ThemePage[] = [
     description: 'Margins, padding, and layout spacing.',
     href: sherpa.theme.spacing(),
     icon: '📏',
-    gradient: 'from-green-500 to-teal-500'
+    gradient: 'from-green-500 to-teal-500',
   },
   {
     id: 'border-radius',
@@ -45,7 +45,7 @@ const themePages: ThemePage[] = [
     description: 'Corner radius values for components.',
     href: sherpa.theme.borderRadius(),
     icon: '⚪',
-    gradient: 'from-amber-500 to-yellow-500'
+    gradient: 'from-amber-500 to-yellow-500',
   },
   {
     id: 'shadows',
@@ -53,7 +53,7 @@ const themePages: ThemePage[] = [
     description: 'Elevation and depth effects.',
     href: sherpa.theme.shadows(),
     icon: '🌗',
-    gradient: 'from-indigo-500 to-blue-500'
+    gradient: 'from-indigo-500 to-blue-500',
   },
   {
     id: 'transitions',
@@ -61,8 +61,8 @@ const themePages: ThemePage[] = [
     description: 'Motion and animation timings.',
     href: sherpa.theme.transitions(),
     icon: '✨',
-    gradient: 'from-purple-500 to-pink-500'
-  }
+    gradient: 'from-purple-500 to-pink-500',
+  },
 ];
 ---
 
@@ -72,41 +72,38 @@ const themePages: ThemePage[] = [
     <App.PageSection>
       <UI.Layout.Box class="max-w-5xl mx-auto py-16 px-6">
         <UI.PageHeader.Root>
-          <UI.PageHeader.Title>
-            Pickles UI
-          </UI.PageHeader.Title>
-          <UI.PageHeader.Subtitle>
-            An opinionated design system
-          </UI.PageHeader.Subtitle>
+          <UI.PageHeader.Title>Pickles UI</UI.PageHeader.Title>
+          <UI.PageHeader.Subtitle>An opinionated design system</UI.PageHeader.Subtitle>
           <UI.PageHeader.Body>
-            Because great design isn't made by committee. These are the strong opinions and careful decisions that shape holzbrook.dev into what it is — with a dash of whimsy.
+            Because great design isn't made by committee. These are the strong opinions and careful
+            decisions that shape holzbrook.dev into what it is — with a dash of whimsy.
           </UI.PageHeader.Body>
         </UI.PageHeader.Root>
 
         <!-- Theme Navigation -->
         <UI.Layout.Box class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {themePages.map(({ title, description, href, icon, gradient }) => (
-            <a 
-              href={href}
-              class="group relative overflow-hidden p-6 bg-white rounded-xl border border-gray-200 hover:border-transparent hover:shadow-lg transition-all duration-300"
-            >
-              <UI.GradientBackground gradient={gradient} />
-              
-              <UI.Layout.Box class="relative">
-                <UI.Layout.Box class="text-3xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                  {icon}
+          {
+            themePages.map(({ title, description, href, icon, gradient }) => (
+              <a
+                href={href}
+                class="group relative overflow-hidden p-6 bg-white rounded-xl border border-gray-200 hover:border-transparent hover:shadow-lg transition-all duration-300"
+              >
+                <UI.GradientBackground gradient={gradient} />
+
+                <UI.Layout.Box class="relative">
+                  <UI.Layout.Box class="text-3xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                    {icon}
+                  </UI.Layout.Box>
+                  <UI.Typography.Heading.H2 class="text-xl font-semibold mb-2 text-gray-900 group-hover:text-primary-600 transition-colors">
+                    {title}
+                  </UI.Typography.Heading.H2>
+                  <UI.Typography.Text.P>{description}</UI.Typography.Text.P>
                 </UI.Layout.Box>
-                <UI.Typography.H2 class="text-xl font-semibold mb-2 text-gray-900 group-hover:text-primary-600 transition-colors">
-                  {title}
-                </UI.Typography.H2>
-                <UI.Typography.P>
-                  {description}
-                </UI.Typography.P>
-              </UI.Layout.Box>
-            </a>
-          ))}
+              </a>
+            ))
+          }
         </UI.Layout.Box>
       </UI.Layout.Box>
     </App.PageSection>
   </App.PageBody>
-</App.Page> 
+</App.Page>

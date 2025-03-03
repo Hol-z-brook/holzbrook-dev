@@ -4,10 +4,7 @@ interface Props {
   class?: string;
 }
 
-const {
-  as: Tag = "div",
-  class: className
-}: Props = Astro.props;
+const { as: Tag = 'div', class: className }: Props = Astro.props;
 ---
 
 <Tag class={`p-4 bg-white rounded-xl shadow-lg ${className}`}>
