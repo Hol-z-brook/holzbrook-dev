@@ -1,4 +1,3 @@
-import { makeLinkResolver, type LinkResolver } from "./util/LinkResolver";
 import { defaultSherpaConfig, type SherpaConfig } from "./util/SherpaConfig";
 import { makePlaySherpa, type PlaySherpa } from "./PlaySherpa";
 import { makeWorkSherpa, type WorkSherpa } from "./WorkSherpa";
