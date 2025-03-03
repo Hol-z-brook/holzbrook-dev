@@ -1,5 +1,5 @@
 ---
-import { Box, H3, Li, P, Ul } from '../../../lib/ui';
+import { Box, H3, P } from '../../../lib/ui';
 
 interface Props {
   company: string;
@@ -31,11 +31,11 @@ const { company, title, period, description, highlights = [], class: className }
     highlights.length > 0 && (
       <Box class="space-y-2">
         <P class="font-medium text-gray-900">Key Achievements:</P>
-        <Ul class="list-disc list-inside space-y-1">
-          {highlights.map((highlight: string) => (
-            <Li class="text-gray-700">{highlight}</Li>
+        <ul class="space-y-1">
+          {highlights.map(highlight => (
+            <li class="text-gray-700">{highlight}</li>
           ))}
-        </Ul>
+        </ul>
       </Box>
     )
   }

@@ -1,1 +1,19 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+@layer base {
+  ul {
+    list-style: none;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  ol {
+    list-style: none;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  li {
+    color: rgb(75 85 99);
+  }
+}
