@@ -1,0 +1,13 @@
+---
+import UI from "../../../lib/ui";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<UI.Typography.P {...rest} class={`text-lg mb-8 ${className ?? ''}`}>
+  <slot />
+</UI.Typography.P> 

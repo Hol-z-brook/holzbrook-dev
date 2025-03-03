@@ -1,0 +1,13 @@
+---
+import Box from './Box.astro';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<Box class={`text-xl font-medium text-primary-600 mb-6 ${className || ''}`}>
+  <slot />
+</Box> 

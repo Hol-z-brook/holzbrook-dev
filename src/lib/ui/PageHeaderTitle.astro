@@ -1,0 +1,13 @@
+---
+import H1 from './H1.astro';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<H1 class={className}>
+  <slot />
+</H1> 
