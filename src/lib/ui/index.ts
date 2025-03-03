@@ -4,5 +4,5 @@ export * from './buttons';
 export * from './layout';
 export * from './list';
 export * from './navigation';
-export * from './page-header';
+export * from './page';
 export * from './typography';
