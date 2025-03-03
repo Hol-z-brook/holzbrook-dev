@@ -46,49 +46,48 @@ const playSection = {
 
     <!-- Work, Family, Play in a Row on Large Screens -->
     <UI.Layout.Box as="section" class="py-12">
-      <UI.Layout.Stack
-        direction="row"
-        class="max-w-6xl mx-auto px-6 lg:space-x-8 space-y-8 lg:space-y-0"
-      >
-        <!-- Work Section -->
-        <PageUI.ExploreCard.Container bgColor={workSection.bgColor}>
-          <PageUI.ExploreCard.Title>
-            {workSection.title}
-          </PageUI.ExploreCard.Title>
-          <PageUI.ExploreCard.Blurb>
-            {workSection.description}
-          </PageUI.ExploreCard.Blurb>
-          <PageUI.ExploreCard.Cta href={workSection.link} class={workSection.ctaClass}>
-            {workSection.cta}
-          </PageUI.ExploreCard.Cta>
-        </PageUI.ExploreCard.Container>
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <!-- Work Section -->
+          <PageUI.ExploreCard.Container bgColor={workSection.bgColor}>
+            <PageUI.ExploreCard.Title>
+              {workSection.title}
+            </PageUI.ExploreCard.Title>
+            <PageUI.ExploreCard.Blurb>
+              {workSection.description}
+            </PageUI.ExploreCard.Blurb>
+            <PageUI.ExploreCard.Cta href={workSection.link} class={workSection.ctaClass}>
+              {workSection.cta}
+            </PageUI.ExploreCard.Cta>
+          </PageUI.ExploreCard.Container>
 
-        <!-- Family Section -->
-        <PageUI.ExploreCard.Container bgColor={familySection.bgColor}>
-          <PageUI.ExploreCard.Title>
-            {familySection.title}
-          </PageUI.ExploreCard.Title>
-          <PageUI.ExploreCard.Blurb>
-            {familySection.description}
-          </PageUI.ExploreCard.Blurb>
-          <PageUI.ExploreCard.Cta href={familySection.link} class={familySection.ctaClass}>
-            {familySection.cta}
-          </PageUI.ExploreCard.Cta>
-        </PageUI.ExploreCard.Container>
+          <!-- Family Section -->
+          <PageUI.ExploreCard.Container bgColor={familySection.bgColor}>
+            <PageUI.ExploreCard.Title>
+              {familySection.title}
+            </PageUI.ExploreCard.Title>
+            <PageUI.ExploreCard.Blurb>
+              {familySection.description}
+            </PageUI.ExploreCard.Blurb>
+            <PageUI.ExploreCard.Cta href={familySection.link} class={familySection.ctaClass}>
+              {familySection.cta}
+            </PageUI.ExploreCard.Cta>
+          </PageUI.ExploreCard.Container>
 
-        <!-- Play Section -->
-        <PageUI.ExploreCard.Container bgColor={playSection.bgColor}>
-          <PageUI.ExploreCard.Title>
-            {playSection.title}
-          </PageUI.ExploreCard.Title>
-          <PageUI.ExploreCard.Blurb>
-            {playSection.description}
-          </PageUI.ExploreCard.Blurb>
-          <PageUI.ExploreCard.Cta href={playSection.link} class={playSection.ctaClass}>
-            {playSection.cta}
-          </PageUI.ExploreCard.Cta>
-        </PageUI.ExploreCard.Container>
-      </UI.Layout.Stack>
+          <!-- Play Section -->
+          <PageUI.ExploreCard.Container bgColor={playSection.bgColor}>
+            <PageUI.ExploreCard.Title>
+              {playSection.title}
+            </PageUI.ExploreCard.Title>
+            <PageUI.ExploreCard.Blurb>
+              {playSection.description}
+            </PageUI.ExploreCard.Blurb>
+            <PageUI.ExploreCard.Cta href={playSection.link} class={playSection.ctaClass}>
+              {playSection.cta}
+            </PageUI.ExploreCard.Cta>
+          </PageUI.ExploreCard.Container>
+        </div>
+      </div>
     </UI.Layout.Box>
 
     <App.PageFooter />
