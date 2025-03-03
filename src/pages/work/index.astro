@@ -42,7 +42,7 @@ A11y:
 import { chatbooksWorkExperience } from "./experience/chatbooks/_chatbooksWorkExperience";
 import { slingTvWorkExperience } from "./experience/sling-tv/_slingTvWorkExperience";
 import { masterControlWorkExperience } from "./experience/master-control/_masterControlWorkExperience";
-import WorkPage from "./_/WorkPage";
+import PageUI from "./_ui";
 
 import App from "../../lib/app";
 import UI from "../../lib/ui";
@@ -150,7 +150,7 @@ const coreProficiencies: CoreProficiency[] = [
 ];
 ---
 
-<WorkPage.Page>
+<PageUI.Page>
   {/* TODO: Performance & Accessibility
     [ ] Add keyboard navigation
     [ ] Implement proper ARIA labels
@@ -202,59 +202,59 @@ const coreProficiencies: CoreProficiency[] = [
           gap-8
         `}
       >
-        <WorkPage.Section>
+        <PageUI.PageSection.Container>
           {/* TODO: Card Layout Improvements
             [ ] Add staggered animation on card entry
             [ ] Enhance hover effects with 3D transforms
             [ ] Add border gradients to cards
           */}
-          <WorkPage.SectionTitle>Work Experience</WorkPage.SectionTitle>
+          <PageUI.PageSection.Title>Work Experience</PageUI.PageSection.Title>
           {[
               chatbooksWorkExperience,
               slingTvWorkExperience,
               masterControlWorkExperience,
             ].map((job) => (
-            <WorkPage.ExperienceCard {...job} />
+            <PageUI.ExperienceCard {...job} />
           ))}
-        </WorkPage.Section>
+        </PageUI.Section>
 
-        <WorkPage.Section>
-          <WorkPage.SectionTitle>Projects</WorkPage.SectionTitle>
+        <PageUI.PageSection.Container>
+          <PageUI.PageSection.Title>Projects</PageUI.PageSection.Title>
           {/* TODO: Card Layout Improvements
             [ ] Implement masonry layout for projects
           */}
-          <WorkPage.SectionGrid>
+          <PageUI.PageSection.Grid>
             {projects.map((project) => (
-              <WorkPage.ProjectCard {...project} />
+              <PageUI.ProjectCard {...project} />
             ))}
-          </WorkPage.SectionGrid>
-        </WorkPage.Section>
+          </PageUI.PageSection.Grid>
+        </PageUI.PageSection.Container>
 
         <UI.Layout.VStack class="gap-16">
-          <WorkPage.Section>
-            <WorkPage.SectionTitle>Core Proficiencies</WorkPage.SectionTitle>
-            <WorkPage.SectionGrid>
+          <PageUI.PageSection.Container>
+            <PageUI.PageSection.Title>Core Proficiencies</PageUI.PageSection.Title>
+            <PageUI.PageSection.Grid>
               {coreProficiencies.map((skill) => (
-                <WorkPage.SkillCard {...skill} />
+                <PageUI.SkillCard {...skill} />
               ))}
-            </WorkPage.SectionGrid>
-          </WorkPage.Section>
+            </PageUI.PageSection.Grid>
+          </PageUI.PageSection.Container>
 
-          <WorkPage.Section>
-            <WorkPage.SectionTitle>Technical Skills</WorkPage.SectionTitle>
+          <PageUI.PageSection.Container>
+            <PageUI.PageSection.Title>Technical Skills</PageUI.PageSection.Title>
             {/* TODO: Interactive Elements
               [ ] Enhance skill tag interactions
             */}
-            <WorkPage.SectionGrid>
+            <PageUI.PageSection.Grid>
               {skillCategories.map((category) => (
-                <WorkPage.SkillCategoryCard {...category} />
+                <PageUI.SkillCategoryCard {...category} />
               ))}
-            </WorkPage.SectionGrid>
-          </WorkPage.Section>
+            </PageUI.PageSection.Grid>
+          </PageUI.PageSection.Container>
         </UI.Layout.VStack>
 
-        <WorkPage.Section>
-          <WorkPage.SectionTitle>Resume</WorkPage.SectionTitle>
+        <PageUI.PageSection.Container>
+          <PageUI.PageSection.Title>Resume</PageUI.PageSection.Title>
           <UI.Layout.Center>
             <App.Link
               class={`
@@ -266,10 +266,10 @@ const coreProficiencies: CoreProficiency[] = [
               href={resumeUrl}
               target="_blank"
             >
-              <WorkPage.ResumeSkeleton />
+              <PageUI.ResumeSkeleton />
             </App.Link>
           </UI.Layout.Center>
-        </WorkPage.Section>
+        </PageUI.PageSection.Container>
       </UI.Layout.VStack>
 
     </App.PageSection>
@@ -280,4 +280,4 @@ const coreProficiencies: CoreProficiency[] = [
     */}
     <App.PageFooter />
   </App.PageBody>
-</WorkPage.Page>
+</PageUI.Page>
