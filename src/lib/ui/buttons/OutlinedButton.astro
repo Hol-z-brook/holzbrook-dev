@@ -1,0 +1,14 @@
+---
+import Button from './Button.astro';
+
+interface Props {
+  radius?: string;
+  class?: string;
+}
+
+const { radius, class: className } = Astro.props;
+---
+
+<Button variant="outlined" radius={radius} class={className}>
+  <slot />
+</Button>

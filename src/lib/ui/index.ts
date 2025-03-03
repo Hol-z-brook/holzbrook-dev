@@ -1,7 +1,7 @@
 // Re-export all component categories
 export * from './typography';
 export * from './layout';
-export * from './button';
+export * from './buttons';
 export * from './page-header';
 export * from './list';
 export * from './navigation';
