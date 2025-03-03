@@ -1,67 +1,15 @@
 ---
-/*
-TODO: Improvements
-
-Hero:
-- Add dynamic background (gradient animation)
-- Include geometric shapes or professional photo
-- Implement particle.js background
-- Add subtle scroll-triggered animations
-
-Cards:
-- Add staggered animation on card entry
-- Enhance hover effects with 3D transforms
-- Implement masonry layout for projects
-- Add border gradients to cards
-
-Visual:
-- Develop distinct color scheme palette
-- Enhance typography scale
-- Add section dividers/decorative elements
-- Improve spacing and rhythm
-
-Interactive:
-- Add smooth section scrolling
-- Implement floating navigation
-- Enhance skill tag interactions
-- Add progress indicators
-
-Design:
-- Implement dark mode toggle
-- Add glass morphism effects
-- Update to modern iconography
-- Add subtle background patterns
-
-A11y:
-- Optimize animations for reduced motion
-- Ensure WCAG 2.1 compliance
-- Add keyboard navigation
-- Implement proper ARIA labels
-*/
-
 import PageUI from './_ui';
 import PageData from './_data';
 import App from '../../lib/app';
 import Sherpa from '../../lib/sherpa';
 import UI from '../../lib/ui';
 
-/*
-TODO: Modern Design Elements
-[ ] Implement dark mode toggle - Add theme provider and toggle component
-[ ] Add glass morphism effects - Create reusable glass effect styles
-*/
-
 const sherpa = Sherpa.makeSherpa();
 const resumeUrl = sherpa.work.resume({});
 ---
 
 <PageUI.Page>
-  {
-    /* TODO: Performance & Accessibility
-    [ ] Add keyboard navigation
-    [ ] Implement proper ARIA labels
-    */
-  }
   <App.PageHeader />
 
   <App.PageBody
@@ -72,27 +20,12 @@ const resumeUrl = sherpa.work.resume({});
       min-h-screen
     `}
   >
-    {
-      /* TODO: Hero Section Enhancements
-      [ ] Add dynamic background (gradient animation)
-      [ ] Include geometric shapes or professional photo
-      [ ] Implement particle.js background
-      [ ] Add subtle scroll-triggered animations
-      */
-    }
     <App.PageHero
       title="My Career"
       subtitle="When work is play, you'll never play another day in your life."
       class="w-full"
     />
 
-    {
-      /* TODO: Interactive Elements
-      [ ] Add smooth section scrolling
-      [ ] Implement floating navigation
-      [ ] Add progress indicators
-      */
-    }
     <App.PageSection
       class={`
         w-full
@@ -102,27 +35,12 @@ const resumeUrl = sherpa.work.resume({});
         space-y-32
       `}
     >
-      {
-        /* TODO: Visual Hierarchy
-        [ ] Develop distinct color scheme palette
-        [ ] Enhance typography scale
-        [ ] Add section dividers/decorative elements
-        [ ] Improve spacing and rhythm
-        */
-      }
       <UI.Layout.Flex.VStack
         class={`
           gap-8
         `}
       >
         <PageUI.PageSection.Container>
-          {
-            /* TODO: Card Layout Improvements
-            [ ] Add staggered animation on card entry
-            [ ] Enhance hover effects with 3D transforms
-            [ ] Add border gradients to cards
-            */
-          }
           <PageUI.PageSection.Title>Work Experience</PageUI.PageSection.Title>
           {
             PageData.andrewHolbrookCandidate.workExperience.map(job => (
@@ -133,11 +51,6 @@ const resumeUrl = sherpa.work.resume({});
 
         <PageUI.PageSection.Container>
           <PageUI.PageSection.Title>Projects</PageUI.PageSection.Title>
-          {
-            /* TODO: Card Layout Improvements
-            [ ] Implement masonry layout for projects
-            */
-          }
           <PageUI.PageSection.Grid>
             {
               PageData.andrewHolbrookCandidate.projects.map(project => (
@@ -161,11 +74,6 @@ const resumeUrl = sherpa.work.resume({});
 
           <PageUI.PageSection.Container>
             <PageUI.PageSection.Title>Technical Skills</PageUI.PageSection.Title>
-            {
-              /* TODO: Interactive Elements
-              [ ] Enhance skill tag interactions
-              */
-            }
             <PageUI.PageSection.Grid>
               {
                 PageData.andrewHolbrookCandidate.skillCategories.map(category => (
@@ -195,13 +103,6 @@ const resumeUrl = sherpa.work.resume({});
         </PageUI.PageSection.Container>
       </UI.Layout.Flex.VStack>
     </App.PageSection>
-
-    {
-      /* TODO: Performance & Accessibility
-      [ ] Optimize animations for reduced motion
-      [ ] Ensure WCAG 2.1 compliance
-      */
-    }
     <App.PageFooter />
   </App.PageBody>
 </PageUI.Page>
