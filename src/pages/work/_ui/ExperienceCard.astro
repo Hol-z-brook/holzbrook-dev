@@ -1,5 +1,5 @@
 ---
-import { H3, P } from '../../../lib/ui';
+import { H3, P, Ul, Li } from '../../../lib/ui';
 
 interface Props {
   company: string;
@@ -31,11 +31,11 @@ const { company, title, period, description, highlights = [], class: className }
     highlights.length > 0 && (
       <div class="space-y-2">
         <P class="font-medium text-gray-900">Key Achievements:</P>
-        <ul class="space-y-1">
+        <Ul class="space-y-1">
           {highlights.map(highlight => (
-            <li class="text-gray-700">{highlight}</li>
+            <Li class="text-gray-700">{highlight}</Li>
           ))}
-        </ul>
+        </Ul>
       </div>
     )
   }

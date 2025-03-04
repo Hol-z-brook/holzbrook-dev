@@ -2,7 +2,7 @@
 import * as ThemePage from './_ThemePage/_index.astro';
 import * as ThemeSection from './_ThemeSection/_index.astro';
 import App from '../../lib/app';
-import { H4 } from '../../lib/ui';
+import { H4, Li, Ul } from '../../lib/ui';
 import theme from '../../theme';
 
 const sections = [
@@ -193,10 +193,10 @@ const fontSizeUsage: Record<FontSizeKey, string> = {
                         >
                           Feature List
                         </div>
-                        <ul class="space-y-3">
+                        <Ul class="space-y-3">
                           {
                             [1, 2, 3].map(() => (
-                              <li class="flex gap-3">
+                              <Li class="flex gap-3">
                                 <div
                                   style={`font-size: ${theme.fontSizes.sm}`}
                                   class="text-primary-600"
@@ -209,10 +209,10 @@ const fontSizeUsage: Record<FontSizeKey, string> = {
                                 >
                                   List item with smaller text size for better scannability
                                 </div>
-                              </li>
+                              </Li>
                             ))
                           }
-                        </ul>
+                        </Ul>
                       </div>
                     </div>
                   </div>
