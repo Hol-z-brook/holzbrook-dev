@@ -1,4 +1,24 @@
+import type { AppPageMetaData } from '../../_/app';
+
+export enum SkillLevel {
+  Beginner = 'Beginner',
+  Intermediate = 'Intermediate',
+  Advanced = 'Advanced',
+  Expert = 'Expert',
+}
+
+export enum HobbyId {
+  DiscGolf = 'disc-golf',
+  Coding = 'coding',
+}
+
+export enum HobbyProjectId {
+  PersonalBest = 'personal-best',
+  PersonalWebsite = 'personal-website',
+}
+
 export interface HobbyProject {
+  id: HobbyProjectId;
   name: string;
   description: string;
   date?: string;
@@ -8,57 +28,69 @@ export interface HobbyProject {
 }
 
 export interface Hobby {
+  id: HobbyId;
   name: string;
   href: string;
   description: string;
   icon?: string;
   startedYear?: number;
-  skillLevel?: 'Beginner' | 'Intermediate' | 'Advanced' | 'Expert';
+  skillLevel?: SkillLevel;
   projects?: HobbyProject[];
   relatedSkills?: string[];
   favoriteThings?: string[];
 }
 
-export interface PlayContent {
-  pageTitle: string;
-  pageSubtitle: string;
+export interface PlayPageContent extends AppPageMetaData {
   hobbies: Hobby[];
 }
 
-export const playContent: PlayContent = {
-  pageTitle: 'My Hobbies',
-  pageSubtitle: 'Explore the things I enjoy doing in my free time.',
+export const pageData: PlayPageContent = {
+  id: 'play',
+  title: 'Play',
+  subtitle: 'Explore my hobbies and side projects.',
   hobbies: [
     {
-      name: 'Video Games',
-      href: '/play/video-games',
-      description: 'Gaming has been a lifelong passion, from classic RPGs to modern indie gems.',
-      skillLevel: 'Advanced',
-      favoriteThings: ['RPGs', 'Strategy Games', 'Indie Games'],
-      startedYear: 1990,
-    },
-    {
+      id: HobbyId.DiscGolf,
       name: 'Disc Golf',
       href: '/play/disc-golf',
-      description: 'A perfect blend of outdoor activity and precision throwing.',
-      skillLevel: 'Intermediate',
-      favoriteThings: ['Distance Driving', 'Approach Shots', 'Local Tournaments'],
+      description: 'A fun outdoor activity that combines strategy and physical exercise.',
+      icon: '🥏',
+      startedYear: 2020,
+      skillLevel: SkillLevel.Advanced,
+      projects: [
+        {
+          id: HobbyProjectId.PersonalBest,
+          name: 'Personal Best',
+          description: 'Achieved a personal best score of -5 on a local course.',
+          date: '2023-06-15',
+        },
+      ],
+      relatedSkills: ['Strategy', 'Physical Fitness', 'Outdoor Activities'],
+      favoriteThings: ['Course Design', 'Disc Selection', 'Putting Practice'],
     },
     {
-      name: 'Reading',
-      href: '/play/reading',
-      description: 'Exploring worlds through books, from sci-fi to technical literature.',
-      favoriteThings: ['Science Fiction', 'Technical Books', 'Fantasy'],
-    },
-    {
-      name: 'Board Games',
-      href: '/play/board-games',
-      description: 'Strategic thinking and social interaction through modern board games.',
-      favoriteThings: ['Strategy Games', 'Cooperative Games', 'Card Games'],
+      id: HobbyId.Coding,
+      name: 'Coding',
+      href: '/play/coding',
+      description: 'Building and experimenting with various programming projects.',
+      icon: '💻',
+      startedYear: 2010,
+      skillLevel: SkillLevel.Expert,
+      projects: [
+        {
+          id: HobbyProjectId.PersonalWebsite,
+          name: 'Personal Website',
+          description: 'Built a modern, responsive website using Next.js and Tailwind CSS.',
+          date: '2023-12-01',
+          link: 'https://github.com/yourusername/website',
+        },
+      ],
+      relatedSkills: ['Web Development', 'TypeScript', 'UI/UX Design'],
+      favoriteThings: ['Problem Solving', 'Learning New Technologies', 'Code Organization'],
     },
   ],
 };
 
 export default {
-  playContent,
+  pageData,
 };

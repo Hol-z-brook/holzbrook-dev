@@ -1,8 +1,8 @@
 ---
-import App from '../../lib/app';
-import Sherpa from '../../lib/sherpa';
 import { Center, PageHero, VStack } from '../../lib/ui';
-import { candidate } from './_/data';
+import App from '../_/app';
+import Sherpa from '../_/sherpa';
+import { pageData } from './_/data';
 import ExperienceCard from './_/ExperienceCard.astro';
 import ProjectCard from './_/ProjectCard.astro';
 import ResumeSkeleton from './_/ResumeSkeleton.astro';
@@ -45,27 +45,31 @@ const sherpa = Sherpa.makeSherpa();
       >
         <WorkPageSection.Container>
           <WorkPageSection.Title>Work Experience</WorkPageSection.Title>
-          {candidate.workExperience.map(job => <ExperienceCard {...job} />)}
+          {pageData.candidate.workExperience.map(job => <ExperienceCard {...job} />)}
         </WorkPageSection.Container>
 
         <WorkPageSection.Container>
           <WorkPageSection.Title>Projects</WorkPageSection.Title>
           <WorkPageSection.Grid>
-            {candidate.projects.map(project => <ProjectCard {...project} />)}
+            {pageData.candidate.projects.map(project => <ProjectCard {...project} />)}
           </WorkPageSection.Grid>
         </WorkPageSection.Container>
 
         <WorkPageSection.Container>
           <WorkPageSection.Title>Core Proficiencies</WorkPageSection.Title>
           <WorkPageSection.Grid>
-            {candidate.coreProficiencies.map(skill => <SkillCard {...skill} />)}
+            {pageData.candidate.coreProficiencies.map(skill => <SkillCard {...skill} />)}
           </WorkPageSection.Grid>
         </WorkPageSection.Container>
 
         <WorkPageSection.Container>
           <WorkPageSection.Title>Technical Skills</WorkPageSection.Title>
           <WorkPageSection.Grid>
-            {candidate.skillCategories.map(category => <SkillCategoryCard {...category} />)}
+            {
+              pageData.candidate.skillCategories.map(category => (
+                <SkillCategoryCard {...category} skills={pageData.candidate.skills} />
+              ))
+            }
           </WorkPageSection.Grid>
         </WorkPageSection.Container>
 

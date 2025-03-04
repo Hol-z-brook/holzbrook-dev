@@ -1,0 +1,17 @@
+---
+import Sherpa from '../sherpa';
+import AppLink from './AppLink.astro';
+import AppLogo from './AppLogo.astro';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
+const sherpa = Sherpa.makeSherpa();
+---
+
+<AppLink href={sherpa.home({})} class={className}>
+  <AppLogo />
+</AppLink>

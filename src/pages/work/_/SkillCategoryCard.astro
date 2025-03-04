@@ -1,14 +1,16 @@
 ---
 import { H3 } from '../../../lib/ui';
+import type { Skill, SkillId } from './data';
 
 interface Props {
   category: string;
-  skills: string[];
+  skills: Record<SkillId, Skill>;
+  skillIds: SkillId[];
   icon: string;
   class?: string;
 }
 
-const { category, skills, icon, class: className } = Astro.props;
+const { category, skills, skillIds, icon, class: className } = Astro.props;
 ---
 
 <div
@@ -28,8 +30,10 @@ const { category, skills, icon, class: className } = Astro.props;
 
   <div class="flex flex-wrap gap-2">
     {
-      skills.map(skill => (
-        <div class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">{skill}</div>
+      skillIds.map(skillId => (
+        <div class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">
+          {skills[skillId].name}
+        </div>
       ))
     }
   </div>

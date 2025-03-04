@@ -1,0 +1,117 @@
+---
+import App, { type AppPageMetaData } from '../../_/app';
+import Sherpa from '../../_/sherpa';
+import {
+  GradientBackground,
+  H2,
+  P,
+  PageHeader,
+  PageHeaderBody,
+  PageHeaderSubtitle,
+  PageHeaderTitle,
+} from '../../../lib/ui';
+
+interface ThemePage extends AppPageMetaData {
+  id: string;
+  title: string;
+  subtitle: string;
+  href: string;
+  icon: string;
+  gradient: string;
+}
+
+const sherpa = Sherpa.makeSherpa();
+
+const themePages: ThemePage[] = [
+  {
+    id: 'colors',
+    title: 'Colors',
+    subtitle: 'Color scales, base colors, and gradients.',
+    href: sherpa.admin.theme.colors({}),
+    icon: '🎨',
+    gradient: 'from-rose-500 to-orange-500',
+  },
+  {
+    id: 'typography',
+    title: 'Typography',
+    subtitle: 'Font sizes, weights, and text styles.',
+    href: sherpa.admin.theme.typography({}),
+    icon: '✍️',
+    gradient: 'from-blue-500 to-purple-500',
+  },
+  {
+    id: 'spacing',
+    title: 'Spacing',
+    subtitle: 'Margins, padding, and layout spacing.',
+    href: sherpa.admin.theme.spacing({}),
+    icon: '📏',
+    gradient: 'from-green-500 to-teal-500',
+  },
+  {
+    id: 'border-radius',
+    title: 'Border Radius',
+    subtitle: 'Corner radius values for components.',
+    href: sherpa.admin.theme.borderRadius({}),
+    icon: '⚪',
+    gradient: 'from-amber-500 to-yellow-500',
+  },
+  {
+    id: 'shadows',
+    title: 'Shadows',
+    subtitle: 'Elevation and depth effects.',
+    href: sherpa.admin.theme.shadows({}),
+    icon: '🌗',
+    gradient: 'from-indigo-500 to-blue-500',
+  },
+  {
+    id: 'transitions',
+    title: 'Transitions',
+    subtitle: 'Motion and animation timings.',
+    href: sherpa.admin.theme.transitions({}),
+    icon: '✨',
+    gradient: 'from-purple-500 to-pink-500',
+  },
+];
+---
+
+<App.Page>
+  <App.PageHeader />
+  <App.PageBody class="bg-gray-50">
+    <App.PageSection>
+      <div class="max-w-5xl mx-auto py-16 px-6">
+        <PageHeader>
+          <PageHeaderTitle>Pickles UI</PageHeaderTitle>
+          <PageHeaderSubtitle>An opinionated design system</PageHeaderSubtitle>
+          <PageHeaderBody>
+            Because great design isn't made by committee. These are the strong opinions and careful
+            decisions that shape holzbrook.dev into what it is — with a dash of whimsy.
+          </PageHeaderBody>
+        </PageHeader>
+
+        <!-- Theme Navigation -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {
+            themePages.map(({ title, subtitle: description, href, icon, gradient }) => (
+              <App.Link
+                href={href}
+                class="group relative overflow-hidden p-6 bg-white rounded-xl border border-gray-200 hover:border-transparent hover:shadow-lg transition-all duration-300"
+              >
+                <GradientBackground gradient={gradient} />
+
+                <div class="relative">
+                  <div class="text-3xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                    {icon}
+                  </div>
+                  <H2 class="text-xl font-semibold mb-2 text-gray-900 group-hover:text-primary-600 transition-colors">
+                    {title}
+                  </H2>
+                  <P>{description}</P>
+                </div>
+              </App.Link>
+            ))
+          }
+        </div>
+      </div>
+    </App.PageSection>
+  </App.PageBody>
+</App.Page>

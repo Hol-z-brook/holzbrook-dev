@@ -45,6 +45,14 @@ const emojiBgColor: Record<FamilyMemberId, string> = {
           <Strong>Middle Name:</Strong>
           <span>{member.middleName}</span>
         </P>
+        {
+          member.nickName && (
+            <P>
+              <Strong>Nickname:</Strong>
+              <span>{member.nickName}</span>
+            </P>
+          )
+        }
       </div>
     </div>
 

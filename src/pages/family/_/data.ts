@@ -1,3 +1,5 @@
+import type { AppPageMetaData } from '../../_/app';
+
 export enum InterestId {
   Baking = 'baking',
   Biking = 'biking',
@@ -22,6 +24,7 @@ export enum InterestId {
   Teaching = 'teaching',
   Tumbling = 'tumbling',
   VideoGames = 'video-games',
+  WobblyLife = 'wobbly-life',
   Yoga = 'yoga',
 }
 
@@ -171,6 +174,12 @@ export const interests: Record<InterestId, InterestData> = {
     emoji: '🎮',
     color: 'bg-violet-100 text-violet-800',
   },
+  [InterestId.WobblyLife]: {
+    id: InterestId.WobblyLife,
+    name: 'Wobbly Life',
+    emoji: '🤪',
+    color: 'bg-pink-100 text-pink-800',
+  },
   [InterestId.Yoga]: {
     id: InterestId.Yoga,
     name: 'Yoga',
@@ -287,11 +296,11 @@ export const familyMembers: FamilyMember[] = [
     emoji: '🐢',
     bio: 'This dude is a thinker and a mover. He is always on the go and has a lot of energy. His thoughtful and logical nature is balanced by his playful and sweet personality, though he can get easily distracted by his own curiosity.',
     interests: [
-      InterestId.Legos,
       InterestId.Minecraft,
       InterestId.PlayingOutside,
       InterestId.Reading,
       InterestId.VideoGames,
+      InterestId.WobblyLife,
     ],
     order: 5,
   },
@@ -315,11 +324,17 @@ export const familyMembers: FamilyMember[] = [
   },
 ];
 
-export const pageTitle = 'Meet the Fam';
-export const pageSubtitle = 'Get to know the wonderful people who shape my world.';
+export interface FamilyPageContent extends AppPageMetaData {
+  familyMembers: FamilyMember[];
+}
+
+export const pageData: FamilyPageContent = {
+  id: 'family',
+  title: 'Meet the Fam',
+  subtitle: 'Get to know the wonderful people who shape my world.',
+  familyMembers,
+};
 
 export default {
-  pageTitle,
-  pageSubtitle,
-  familyMembers,
+  pageData,
 };

@@ -1,0 +1,183 @@
+---
+import App from '../../../../_/app';
+import theme from '../../../../theme';
+import { H4, Stack } from '../../../../lib/ui';
+import ThemePage from '../_/ThemePage';
+import ThemePageNav from '../_/ThemePageNav';
+
+const sections = [
+  { id: 'timing-scale', label: 'Timing Scale' },
+  { id: 'animation-examples', label: 'Animation Examples' },
+];
+
+const transitions = [
+  { name: 'default', transition: theme.transitions.default },
+  { name: 'fast', transition: theme.transitions.fast },
+  { name: 'delayed', transition: theme.transitions.delayed },
+  { name: 'bounce', transition: theme.transitions.bounce },
+];
+---
+
+<App.Page>
+  <App.PageHeader />
+  <App.PageBody class="bg-gray-50">
+    <App.PageSection>
+      <div class="max-w-[90rem] mx-auto py-16 px-6">
+        <ThemePage.Header>
+          <ThemePage.BackLink />
+          <ThemePage.Title>Transitions</ThemePage.Title>
+          <ThemePage.Description>
+            Our transition system provides consistent motion and animation timing to create smooth
+            and delightful interactions.
+          </ThemePage.Description>
+        </ThemePage.Header>
+
+        <ThemePageNav.Container>
+          <ThemePageNav.Title slot="title">Transitions</ThemePageNav.Title>
+          {sections.map(({ id, label }) => <ThemePageNav.Item href={`#${id}`} label={label} />)}
+        </ThemePageNav.Container>
+
+        <Stack class="space-y-24">
+          {
+            transitions.map(({ name, transition }) => (
+              <div class="space-y-4 group">
+                <div class="relative">
+                  <div
+                    class="h-16 bg-primary-100 rounded flex items-center justify-center cursor-pointer"
+                    style={`transition: background-color ${transition}`}
+                  >
+                    <p class="text-primary-700 group-hover:text-primary-900">Hover me</p>
+                  </div>
+                  <div
+                    class="absolute inset-0 flex items-center justify-center text-primary-700 font-medium opacity-0 group-hover:opacity-100"
+                    style={`transition: opacity ${transition}`}
+                  >
+                    {transition}
+                  </div>
+                </div>
+                <div class="space-y-2">
+                  <div class="text-base font-medium capitalize">{name}</div>
+                  <div class="text-sm text-gray-500 font-mono break-words group-hover:text-primary-600 transition-colors cursor-pointer">
+                    {transition}
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </Stack>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-24">
+          <div class="space-y-8">
+            <H4 class="text-2xl font-medium">Basic Transitions</H4>
+            <div class="space-y-8">
+              <div class="p-6 bg-white rounded-lg border border-gray-200">
+                <div class="font-medium text-lg mb-4">Color Changes</div>
+                <div class="space-y-4">
+                  <div
+                    class="h-16 bg-primary-100 hover:bg-primary-200 rounded flex items-center justify-center cursor-pointer"
+                    style={`transition: background-color ${theme.transitions.default}`}
+                  >
+                    <p class="text-primary-700">Hover me</p>
+                  </div>
+                  <div
+                    class="h-16 bg-primary-100 hover:bg-primary-300 rounded flex items-center justify-center cursor-pointer"
+                    style={`transition: background-color ${theme.transitions.fast}`}
+                  >
+                    <p class="text-primary-700">Fast transition</p>
+                  </div>
+                  <div
+                    class="h-16 bg-primary-100 hover:bg-primary-400 rounded flex items-center justify-center cursor-pointer"
+                    style={`transition: background-color ${theme.transitions.delayed}`}
+                  >
+                    <p class="text-primary-700">Delayed transition</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-6 bg-white rounded-lg border border-gray-200">
+                <div class="font-medium text-lg mb-4">Opacity & Visibility</div>
+                <div class="space-y-4">
+                  <div class="relative h-16 bg-gray-50 rounded">
+                    <div
+                      class="absolute inset-0 flex items-center justify-center text-primary-700 font-medium opacity-0 hover:opacity-100"
+                      style={`transition: opacity ${theme.transitions.default}`}
+                    >
+                      Hover me
+                    </div>
+                  </div>
+                  <div
+                    class="h-16 bg-primary-100 hover:opacity-50 rounded flex items-center justify-center cursor-pointer"
+                    style={`transition: opacity ${theme.transitions.default}`}
+                  >
+                    <p class="text-primary-700">Hover me</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-8">
+            <H4 class="text-2xl font-medium">Advanced Transitions</H4>
+            <div class="space-y-8">
+              <div class="p-6 bg-white rounded-lg border border-gray-200">
+                <div class="font-medium text-lg mb-4">Transform Effects</div>
+                <div class="space-y-4">
+                  <div
+                    class="h-16 bg-primary-100 hover:scale-105 rounded flex items-center justify-center cursor-pointer"
+                    style={`transition: transform ${theme.transitions.default}`}
+                  >
+                    <p class="text-primary-700">Scale up</p>
+                  </div>
+                  <div
+                    class="h-16 bg-primary-100 hover:rotate-3 rounded flex items-center justify-center cursor-pointer"
+                    style={`transition: transform ${theme.transitions.default}`}
+                  >
+                    <p class="text-primary-700">Rotate</p>
+                  </div>
+                  <div
+                    class="h-16 bg-primary-100 hover:translate-x-4 rounded flex items-center justify-center cursor-pointer"
+                    style={`transition: transform ${theme.transitions.default}`}
+                  >
+                    <p class="text-primary-700">Translate</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-6 bg-white rounded-lg border border-gray-200">
+                <div class="font-medium text-lg mb-4">Combined Effects</div>
+                <div class="space-y-4">
+                  <div
+                    class="h-16 bg-primary-100 hover:bg-primary-200 hover:scale-105 rounded flex items-center justify-center cursor-pointer"
+                    style={`transition: all ${theme.transitions.default}`}
+                  >
+                    <p
+                      class="text-primary-700 group-hover:translate-x-2"
+                      style={`transition: transform ${theme.transitions.delayed}`}
+                    >
+                      Combined effects
+                    </p>
+                  </div>
+                  <div
+                    class="relative h-16 bg-primary-100 rounded overflow-hidden cursor-pointer group"
+                  >
+                    <div
+                      class="absolute inset-0 bg-primary-200 opacity-0 group-hover:opacity-100"
+                      style={`transition: opacity ${theme.transitions.default}`}
+                    >
+                    </div>
+                    <p
+                      class="relative text-primary-700 group-hover:translate-x-2"
+                      style={`transition: transform ${theme.transitions.delayed}`}
+                    >
+                      Layered transitions
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </App.PageSection>
+  </App.PageBody>
+</App.Page>

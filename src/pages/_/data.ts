@@ -1,3 +1,5 @@
+import type { AppPageMetaData } from '../_/app/AppPageMetaData';
+
 export interface HomePageExploreSection {
   title: string;
   description: string;
@@ -7,9 +9,7 @@ export interface HomePageExploreSection {
   ctaClass: string;
 }
 
-export interface HomePageContent {
-  pageTitle: string;
-  pageSubtitle: string;
+export interface HomePageContent extends AppPageMetaData {
   sections: {
     work: HomePageExploreSection;
     family: HomePageExploreSection;
@@ -17,9 +17,10 @@ export interface HomePageContent {
   };
 }
 
-export const homeContent: HomePageContent = {
-  pageTitle: 'Andrew Hol(z)brook',
-  pageSubtitle:
+export const pageData: HomePageContent = {
+  id: 'home',
+  title: 'Andrew Hol(z)brook',
+  subtitle:
     'Building systems that simplify life. Exploring how family, play, and a touch of AI make everything better.',
   sections: {
     work: {
@@ -53,5 +54,5 @@ export const homeContent: HomePageContent = {
 };
 
 export default {
-  homeContent,
+  pageData,
 };

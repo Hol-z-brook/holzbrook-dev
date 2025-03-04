@@ -1,4 +1,4 @@
-import Sherpa from '../../../lib/sherpa';
+import Sherpa from '../../_/sherpa';
 import { type Hobby } from './_Hobby.ts';
 
 const sherpa = Sherpa.makeSherpa();
