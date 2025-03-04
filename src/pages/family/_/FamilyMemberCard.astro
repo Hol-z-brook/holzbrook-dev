@@ -9,8 +9,18 @@ interface Props {
 
 const {
   class: className,
-  familyMember: { firstName, middleName, role, bio, interests: memberInterests, emoji },
+  familyMember: { firstName, middleName, role, bio, interests: memberInterests, emoji, order },
 }: Props = Astro.props;
+
+// Get specific background color based on family member order
+const emojiBgColor = {
+  1: 'bg-orange-200', // Andrew - burnt orange
+  2: 'bg-purple-300', // Brooke - darker purple
+  3: 'bg-pink-200', // Oakley - pink
+  4: 'bg-blue-200', // Finn - blue
+  5: 'bg-green-200', // Leo - green
+  6: 'bg-purple-200', // Wren - purple
+}[order || 1];
 ---
 
 <section class:list={['bg-white rounded-lg shadow-sm border border-gray-200 p-6', className]}>
@@ -19,7 +29,10 @@ const {
     <div class="space-y-2">
       <div class="flex items-center gap-4">
         <div
-          class="w-12 h-12 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center text-3xl flex-shrink-0"
+          class:list={[
+            'w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center text-3xl flex-shrink-0 shadow-sm',
+            emojiBgColor,
+          ]}
         >
           {emoji}
         </div>
