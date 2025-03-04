@@ -2,17 +2,14 @@
 import App from '../../lib/app';
 import { PageHero, VStack } from '../../lib/ui';
 import FamilyMemberCard from './_/FamilyMemberCard.astro';
-import { familyMembers } from './_/data';
+import { familyMembers, pageTitle, pageSubtitle } from './_/data';
 ---
 
 <App.Page>
   <App.PageHeader />
 
   <App.PageBody backgroundColor="bg-gray-100" class="flex flex-col min-h-screen">
-    <PageHero
-      title="Meet My Family"
-      subtitle="Get to know the wonderful people who shape my world."
-    />
+    <PageHero title={pageTitle} subtitle={pageSubtitle} />
 
     <App.PageSection>
       <VStack class="space-y-6">

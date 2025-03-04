@@ -203,22 +203,6 @@ export interface FamilyMember {
   emoji: string;
 }
 
-export interface FamilyContent {
-  pageTitle: string;
-  pageSubtitle: string;
-  sections: {
-    intro: {
-      title: string;
-      description: string;
-    };
-    familMembers: {
-      title: string;
-      description: string;
-      members: FamilyMember[];
-    };
-  };
-}
-
 export const familyMembers: FamilyMember[] = [
   {
     id: FamilyMemberId.Andrew,
@@ -333,24 +317,11 @@ export const familyMembers: FamilyMember[] = [
   },
 ];
 
-export const familyContent: FamilyContent = {
-  pageTitle: 'Meet My Family',
-  pageSubtitle: 'Get to know the wonderful people who shape my world.',
-  sections: {
-    intro: {
-      title: 'Our Family Story',
-      description:
-        "A growing family of six, we believe in creating memories, learning together, and supporting each other's dreams.",
-    },
-    familMembers: {
-      title: 'Family Members',
-      description: 'Each member of our family brings their own unique personality and interests.',
-      members: familyMembers,
-    },
-  },
-};
+export const pageTitle = 'Meet the Fam';
+export const pageSubtitle = 'Get to know the wonderful people who shape my world.';
 
 export default {
-  familyContent,
+  pageTitle,
+  pageSubtitle,
   familyMembers,
 };
