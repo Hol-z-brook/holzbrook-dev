@@ -1,14 +1,14 @@
 ---
 import { hobbies } from './hobby/_hobbies';
 import App from '../../lib/app';
-import { Card } from '../../lib/ui';
+import { Card, PageHero } from '../../lib/ui';
 ---
 
 <App.Page>
   <App.PageHeader />
 
   <App.PageBody backgroundColor="bg-gray-100" class="flex flex-col min-h-screen">
-    <App.PageHero title="My Hobbies" subtitle="Explore the things I enjoy doing in my free time." />
+    <PageHero title="My Hobbies" subtitle="Explore the things I enjoy doing in my free time." />
 
     <App.PageSection>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

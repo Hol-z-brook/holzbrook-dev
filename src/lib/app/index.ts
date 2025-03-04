@@ -7,7 +7,6 @@ import AppPage from './AppPage.astro';
 import AppPageBody from './AppPageBody.astro';
 import AppPageFooter from './AppPageFooter.astro';
 import AppPageHeader from './AppPageHeader.astro';
-import AppPageHero from './AppPageHero.astro';
 import AppPageSection from './AppPageSection.astro';
 
 export default {
@@ -20,6 +19,5 @@ export default {
   PageBody: AppPageBody,
   PageFooter: AppPageFooter,
   PageHeader: AppPageHeader,
-  PageHero: AppPageHero,
   PageSection: AppPageSection,
 };

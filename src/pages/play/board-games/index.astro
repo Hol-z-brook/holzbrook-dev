@@ -1,7 +1,7 @@
 ---
 import App from '../../../lib/app';
 import Sherpa from '../../../lib/sherpa';
-import { BreadcrumbList, BreadcrumbItem } from '../../../lib/ui';
+import { BreadcrumbList, BreadcrumbItem, PageHero } from '../../../lib/ui';
 
 const sherpa = Sherpa.makeSherpa();
 ---
@@ -9,7 +9,7 @@ const sherpa = Sherpa.makeSherpa();
 <App.Page>
   <App.PageHeader />
   <App.PageBody class="flex flex-col min-h-screen bg-gray-100">
-    <App.PageHero title="Board Games" subtitle="Dice, cards, strategic? I love it all." />
+    <PageHero title="Board Games" subtitle="Dice, cards, strategic? I love it all." />
 
     <BreadcrumbList>
       <BreadcrumbItem label="Play" href={sherpa.play.index({})} />

@@ -1,6 +1,7 @@
 export * from './backgrounds';
 export * from './breadcrumbs';
 export * from './buttons';
+export * from './heros';
 export * from './layouts';
 export * from './navigation';
 export * from './pages';

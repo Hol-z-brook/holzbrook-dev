@@ -1,5 +1,6 @@
 ---
 import App from '../../lib/app';
+import { PageHero } from '../../lib/ui';
 import FamilyMemberList from './_familyMember/FamilyMemberList.astro';
 ---
 
@@ -7,7 +8,7 @@ import FamilyMemberList from './_familyMember/FamilyMemberList.astro';
   <App.PageHeader />
 
   <App.PageBody backgroundColor="bg-gray-100" class="flex flex-col min-h-screen">
-    <App.PageHero
+    <PageHero
       title="Meet My Family"
       subtitle="Get to know the wonderful people who shape my world."
     />

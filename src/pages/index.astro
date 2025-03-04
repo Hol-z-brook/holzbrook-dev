@@ -1,6 +1,7 @@
 ---
 import App from '../lib/app';
 import Sherpa from '../lib/sherpa';
+import { PageHero } from '../lib/ui';
 import PageUI from './_ui';
 
 const sherpa = Sherpa.makeSherpa();
@@ -38,7 +39,7 @@ const playSection = {
 
 <App.Page>
   <App.PageBody backgroundColor="bg-gray-100" class="flex flex-col min-h-screen">
-    <App.PageHero
+    <PageHero
       title="Andrew Hol(z)brook"
       subtitle="Building systems that simplify life. Exploring how family, play, and a touch of AI make everything better."
     />

@@ -3,7 +3,7 @@ import WorkPageData from './_data';
 import WorkPageUI from './_ui';
 import App from '../../lib/app';
 import Sherpa from '../../lib/sherpa';
-import { Center, VStack } from '../../lib/ui';
+import { Center, PageHero, VStack } from '../../lib/ui';
 
 const sherpa = Sherpa.makeSherpa();
 const resumeUrl = sherpa.work.resume({});
@@ -20,7 +20,7 @@ const resumeUrl = sherpa.work.resume({});
       min-h-screen
     `}
   >
-    <App.PageHero
+    <PageHero
       title="My Career"
       subtitle="When work is play, you'll never play another day in your life."
       class="w-full"
