@@ -9,5 +9,6 @@ const { class: className } = Astro.props;
 ---
 
 <App.Page class:list={['bg-gray-50', className]}>
+  <App.PageHeader />
   <slot />
 </App.Page>
