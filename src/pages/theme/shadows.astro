@@ -2,7 +2,7 @@
 import * as ThemePage from './_ThemePage/_index.astro';
 import * as ThemeSection from './_ThemeSection/_index.astro';
 import App from '../../lib/app';
-import { Box, H4 } from '../../lib/ui';
+import { H4 } from '../../lib/ui';
 import theme from '../../theme';
 
 const sections = [
@@ -15,7 +15,7 @@ const sections = [
   <App.PageHeader />
   <App.PageBody class="bg-gray-50">
     <App.PageSection>
-      <Box class="max-w-[90rem] mx-auto py-16 px-6">
+      <div class="max-w-[90rem] mx-auto py-16 px-6">
         <ThemePage.Header>
           <ThemePage.BackLink />
           <ThemePage.Title>Shadows</ThemePage.Title>
@@ -30,7 +30,7 @@ const sections = [
           {sections.map(({ id, label }) => <ThemePage.NavItem href={`#${id}`} label={label} />)}
         </ThemePage.Nav>
 
-        <Box class="space-y-24">
+        <div class="space-y-24">
           <!-- Shadow Scale -->
           <ThemeSection.Section id="shadow-scale">
             <ThemeSection.Header>
@@ -42,22 +42,22 @@ const sections = [
             <ThemeSection.Body class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16">
               {
                 Object.entries(theme.shadows).map(([name, shadow]) => (
-                  <Box class="space-y-4 group">
-                    <Box
+                  <div class="space-y-4 group">
+                    <div
                       class="relative aspect-square bg-white rounded-lg transition-all duration-300 hover:-translate-y-2"
-                      style={`box-shadow: ${shadow}`}
+                      style={`div-shadow: ${shadow}`}
                     >
-                      <Box class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center bg-black/20 backdrop-blur-sm text-white font-medium rounded-lg">
-                        <Box class="text-center">
-                          <Box class="text-lg font-semibold">Shadow Value</Box>
-                        </Box>
-                      </Box>
-                    </Box>
-                    <Box class="space-y-2">
-                      <Box class="text-base font-medium capitalize">{name}</Box>
-                      <Box class="text-sm text-gray-500 font-mono break-words">{shadow}</Box>
-                    </Box>
-                  </Box>
+                      <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center bg-black/20 backdrop-blur-sm text-white font-medium rounded-lg">
+                        <div class="text-center">
+                          <div class="text-lg font-semibold">Shadow Value</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="space-y-2">
+                      <div class="text-base font-medium capitalize">{name}</div>
+                      <div class="text-sm text-gray-500 font-mono break-words">{shadow}</div>
+                    </div>
+                  </div>
                 ))
               }
             </ThemeSection.Body>
@@ -72,91 +72,92 @@ const sections = [
               </ThemeSection.HeaderBody>
             </ThemeSection.Header>
             <ThemeSection.Body>
-              <Box class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <!-- Cards & Containers -->
-                <Box class="space-y-8">
+                <div class="space-y-8">
                   <H4 class="text-2xl font-medium">Cards & Containers</H4>
-                  <Box class="space-y-8">
-                    <Box
+                  <div class="space-y-8">
+                    <div
                       class="p-6 bg-white rounded-lg transition-all duration-300 hover:-translate-y-1"
-                      style={`box-shadow: ${theme.shadows.sm}`}
+                      style={`div-shadow: ${theme.shadows.sm}`}
                     >
-                      <Box class="font-medium text-lg mb-2">Low Elevation (sm)</Box>
-                      <Box class="text-gray-600">
+                      <div class="font-medium text-lg mb-2">Low Elevation (sm)</div>
+                      <div class="text-gray-600">
                         Use for subtle depth in card layouts and containers that need minimal
                         elevation. Perfect for list items and secondary content.
-                      </Box>
-                    </Box>
-                    <Box
+                      </div>
+                    </div>
+                    <div
                       class="p-6 bg-white rounded-lg transition-all duration-300 hover:-translate-y-1"
-                      style={`box-shadow: ${theme.shadows.md}`}
+                      style={`div-shadow: ${theme.shadows.md}`}
                     >
-                      <Box class="font-medium text-lg mb-2">Medium Elevation (md)</Box>
-                      <Box class="text-gray-600">
+                      <div class="font-medium text-lg mb-2">Medium Elevation (md)</div>
+                      <div class="text-gray-600">
                         Ideal for floating elements like popovers, dropdowns, and focused content.
                         Creates clear separation from the background.
-                      </Box>
-                    </Box>
-                    <Box
+                      </div>
+                    </div>
+                    <div
                       class="p-6 bg-white rounded-lg transition-all duration-300 hover:-translate-y-1"
-                      style={`box-shadow: ${theme.shadows.xl}`}
+                      style={`div-shadow: ${theme.shadows.xl}`}
                     >
-                      <Box class="font-medium text-lg mb-2">High Elevation (xl)</Box>
-                      <Box class="text-gray-600">
+                      <div class="font-medium text-lg mb-2">High Elevation (xl)</div>
+                      <div class="text-gray-600">
                         Reserved for modals, important overlays, and critical UI elements. Creates
                         maximum contrast and focus.
-                      </Box>
-                    </Box>
-                  </Box>
-                </Box>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
                 <!-- Interactive Elements -->
-                <Box class="space-y-8">
+                <div class="space-y-8">
                   <H4 class="text-2xl font-medium">Interactive Elements</H4>
-                  <Box class="space-y-8">
-                    <Box
+                  <div class="space-y-8">
+                    <div
                       class="w-full p-6 bg-white rounded-lg cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-                      style={`box-shadow: ${theme.shadows.sm}`}
+                      style={`div-shadow: ${theme.shadows.sm}`}
                     >
-                      <Box class="font-medium text-lg mb-2">Hover Interaction</Box>
-                      <Box class="text-gray-600">
+                      <div class="font-medium text-lg mb-2">Hover Interaction</div>
+                      <div class="text-gray-600">
                         Elements can increase their shadow on hover to indicate interactivity.
                         Combined with a subtle lift effect for enhanced feedback.
-                      </Box>
-                    </Box>
-                    <Box
+                      </div>
+                    </div>
+                    <div
                       class="w-full p-6 bg-white rounded-lg cursor-pointer transition-all duration-300 active:shadow-sm active:translate-y-0"
-                      style={`box-shadow: ${theme.shadows.lg}`}
+                      style={`div-shadow: ${theme.shadows.lg}`}
                     >
-                      <Box class="font-medium text-lg mb-2">Active State</Box>
-                      <Box class="text-gray-600">
+                      <div class="font-medium text-lg mb-2">Active State</div>
+                      <div class="text-gray-600">
                         Clicking can temporarily reduce the shadow to create a pressing effect.
                         Returns to original state when released.
-                      </Box>
-                    </Box>
-                    <Box class="relative">
-                      <Box
+                      </div>
+                    </div>
+                    <div class="relative">
+                      <div
                         class="w-full p-6 bg-white rounded-lg"
-                        style={`box-shadow: ${theme.shadows.xl}`}
+                        style={`div-shadow: ${theme.shadows.xl}`}
                       >
-                        <Box class="font-medium text-lg mb-2">Layered Shadows</Box>
-                        <Box class="text-gray-600">
+                        <div class="font-medium text-lg mb-2">Layered Shadows</div>
+                        <div class="text-gray-600">
                           Multiple elements can be layered with different shadow intensities to
                           create complex depth hierarchies.
-                        </Box>
-                      </Box>
-                      <Box
+                        </div>
+                      </div>
+                      <div
                         class="absolute -bottom-4 -right-4 w-24 h-24 bg-primary-100 rounded-lg -z-10"
-                        style={`box-shadow: ${theme.shadows.md}`}
-                      />
-                    </Box>
-                  </Box>
-                </Box>
-              </Box>
+                        style={`div-shadow: ${theme.shadows.md}`}
+                      >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </ThemeSection.Body>
           </ThemeSection.Section>
-        </Box>
-      </Box>
+        </div>
+      </div>
     </App.PageSection>
   </App.PageBody>
 </App.Page>

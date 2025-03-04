@@ -2,7 +2,6 @@
 import App from '../../lib/app';
 import Sherpa from '../../lib/sherpa';
 import {
-  Box,
   GradientBackground,
   H2,
   P,
@@ -79,7 +78,7 @@ const themePages: ThemePage[] = [
   <App.PageHeader />
   <App.PageBody class="bg-gray-50">
     <App.PageSection>
-      <Box class="max-w-5xl mx-auto py-16 px-6">
+      <div class="max-w-5xl mx-auto py-16 px-6">
         <PageHeader>
           <PageHeaderTitle>Pickles UI</PageHeaderTitle>
           <PageHeaderSubtitle>An opinionated design system</PageHeaderSubtitle>
@@ -90,7 +89,7 @@ const themePages: ThemePage[] = [
         </PageHeader>
 
         <!-- Theme Navigation -->
-        <Box class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {
             themePages.map(({ title, description, href, icon, gradient }) => (
               <App.Link
@@ -99,20 +98,20 @@ const themePages: ThemePage[] = [
               >
                 <GradientBackground gradient={gradient} />
 
-                <Box class="relative">
-                  <Box class="text-3xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                <div class="relative">
+                  <div class="text-3xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
                     {icon}
-                  </Box>
+                  </div>
                   <H2 class="text-xl font-semibold mb-2 text-gray-900 group-hover:text-primary-600 transition-colors">
                     {title}
                   </H2>
                   <P>{description}</P>
-                </Box>
+                </div>
               </App.Link>
             ))
           }
-        </Box>
-      </Box>
+        </div>
+      </div>
     </App.PageSection>
   </App.PageBody>
 </App.Page>

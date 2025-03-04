@@ -1,5 +1,5 @@
 ---
-import { Box, H3, P } from '../../../lib/ui';
+import { H3, P } from '../../../lib/ui';
 
 interface Props {
   company: string;
@@ -13,30 +13,30 @@ interface Props {
 const { company, title, period, description, highlights = [], class: className } = Astro.props;
 ---
 
-<Box
+<div
   class:list={[
     'bg-white rounded-lg shadow-md p-6 space-y-4 hover:shadow-lg transition-shadow',
     className,
   ]}
 >
-  <Box class="space-y-2">
+  <div class="space-y-2">
     <H3 class="text-lg font-semibold text-gray-900">{company}</H3>
     <P class="text-gray-600 font-medium">{title}</P>
     <P class="text-sm text-gray-500">{period}</P>
-  </Box>
+  </div>
 
   <P class="text-gray-700">{description}</P>
 
   {
     highlights.length > 0 && (
-      <Box class="space-y-2">
+      <div class="space-y-2">
         <P class="font-medium text-gray-900">Key Achievements:</P>
         <ul class="space-y-1">
           {highlights.map(highlight => (
             <li class="text-gray-700">{highlight}</li>
           ))}
         </ul>
-      </Box>
+      </div>
     )
   }
-</Box>
+</div>

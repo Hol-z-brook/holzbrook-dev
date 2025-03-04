@@ -1,6 +1,4 @@
 ---
-import { Box } from '../../../../lib/ui';
-
 interface Props {
   class?: string;
   id?: string;
@@ -9,6 +7,6 @@ interface Props {
 const { class: className, id } = Astro.props;
 ---
 
-<Box {id} class:list={['space-y-12', className]}>
+<div {id} class:list={['space-y-12', className]}>
   <slot />
-</Box>
+</div>

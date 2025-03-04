@@ -1,5 +1,5 @@
 ---
-import { Box, H3, P } from '../../../lib/ui';
+import { H3, P } from '../../../lib/ui';
 
 interface Props {
   name: string;
@@ -11,7 +11,7 @@ interface Props {
 const { name, description, tech, class: className } = Astro.props;
 ---
 
-<Box
+<div
   class:list={[
     'bg-white rounded-lg shadow-md p-6 space-y-4 hover:shadow-lg transition-shadow',
     className,
@@ -21,11 +21,11 @@ const { name, description, tech, class: className } = Astro.props;
 
   <P class="text-gray-700">{description}</P>
 
-  <Box class="flex flex-wrap gap-2">
+  <div class="flex flex-wrap gap-2">
     {
       tech.map(tech => (
-        <Box class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">{tech}</Box>
+        <div class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">{tech}</div>
       ))
     }
-  </Box>
-</Box>
+  </div>
+</div>

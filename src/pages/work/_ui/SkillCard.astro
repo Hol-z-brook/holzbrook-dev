@@ -1,5 +1,5 @@
 ---
-import { Box, H3, P } from '../../../lib/ui';
+import { H3, P } from '../../../lib/ui';
 
 interface Props {
   name: string;
@@ -11,22 +11,22 @@ interface Props {
 const { name, icon, description, class: className } = Astro.props;
 ---
 
-<Box
+<div
   class:list={[
     'bg-white rounded-lg shadow-md p-6 space-y-4 hover:shadow-lg transition-shadow',
     className,
   ]}
 >
-  <Box class="flex items-center space-x-4">
-    <Box class="text-2xl text-gray-700">
+  <div class="flex items-center space-x-4">
+    <div class="text-2xl text-gray-700">
       {icon}
-    </Box>
+    </div>
     <H3 class="text-lg font-semibold text-gray-900">
       {name}
     </H3>
-  </Box>
+  </div>
 
   <P class="text-gray-700">
     {description}
   </P>
-</Box>
+</div>

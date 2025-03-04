@@ -2,7 +2,7 @@
 import * as ThemePage from './_ThemePage/_index.astro';
 import App from '../../lib/app';
 import theme from '../../theme';
-import { Box, H4, Stack } from '../../lib/ui';
+import { H4, Stack } from '../../lib/ui';
 
 const sections = [
   { id: 'timing-scale', label: 'Timing Scale' },
@@ -21,7 +21,7 @@ const transitions = [
   <App.PageHeader />
   <App.PageBody class="bg-gray-50">
     <App.PageSection>
-      <Box class="max-w-[90rem] mx-auto py-16 px-6">
+      <div class="max-w-[90rem] mx-auto py-16 px-6">
         <ThemePage.Header>
           <ThemePage.BackLink />
           <ThemePage.Title>Transitions</ThemePage.Title>
@@ -39,8 +39,8 @@ const transitions = [
         <Stack class="space-y-24">
           {
             transitions.map(({ name, transition }) => (
-              <Box class="space-y-4 group">
-                <Box class="relative">
+              <div class="space-y-4 group">
+                <div class="relative">
                   <div
                     class="h-16 bg-primary-100 rounded flex items-center justify-center cursor-pointer"
                     style={`transition: background-color ${transition}`}
@@ -53,25 +53,25 @@ const transitions = [
                   >
                     {transition}
                   </div>
-                </Box>
-                <Box class="space-y-2">
-                  <Box class="text-base font-medium capitalize">{name}</Box>
-                  <Box class="text-sm text-gray-500 font-mono break-words group-hover:text-primary-600 transition-colors cursor-pointer">
+                </div>
+                <div class="space-y-2">
+                  <div class="text-base font-medium capitalize">{name}</div>
+                  <div class="text-sm text-gray-500 font-mono break-words group-hover:text-primary-600 transition-colors cursor-pointer">
                     {transition}
-                  </Box>
-                </Box>
-              </Box>
+                  </div>
+                </div>
+              </div>
             ))
           }
         </Stack>
 
-        <Box class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-24">
-          <Box class="space-y-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-24">
+          <div class="space-y-8">
             <H4 class="text-2xl font-medium">Basic Transitions</H4>
-            <Box class="space-y-8">
-              <Box class="p-6 bg-white rounded-lg border border-gray-200">
-                <Box class="font-medium text-lg mb-4">Color Changes</Box>
-                <Box class="space-y-4">
+            <div class="space-y-8">
+              <div class="p-6 bg-white rounded-lg border border-gray-200">
+                <div class="font-medium text-lg mb-4">Color Changes</div>
+                <div class="space-y-4">
                   <div
                     class="h-16 bg-primary-100 hover:bg-primary-200 rounded flex items-center justify-center cursor-pointer"
                     style={`transition: background-color ${theme.transitions.default}`}
@@ -90,12 +90,12 @@ const transitions = [
                   >
                     <p class="text-primary-700">Delayed transition</p>
                   </div>
-                </Box>
-              </Box>
+                </div>
+              </div>
 
-              <Box class="p-6 bg-white rounded-lg border border-gray-200">
-                <Box class="font-medium text-lg mb-4">Opacity & Visibility</Box>
-                <Box class="space-y-4">
+              <div class="p-6 bg-white rounded-lg border border-gray-200">
+                <div class="font-medium text-lg mb-4">Opacity & Visibility</div>
+                <div class="space-y-4">
                   <div class="relative h-16 bg-gray-50 rounded">
                     <div
                       class="absolute inset-0 flex items-center justify-center text-primary-700 font-medium opacity-0 hover:opacity-100"
@@ -110,17 +110,17 @@ const transitions = [
                   >
                     <p class="text-primary-700">Hover me</p>
                   </div>
-                </Box>
-              </Box>
-            </Box>
-          </Box>
+                </div>
+              </div>
+            </div>
+          </div>
 
-          <Box class="space-y-8">
+          <div class="space-y-8">
             <H4 class="text-2xl font-medium">Advanced Transitions</H4>
-            <Box class="space-y-8">
-              <Box class="p-6 bg-white rounded-lg border border-gray-200">
-                <Box class="font-medium text-lg mb-4">Transform Effects</Box>
-                <Box class="space-y-4">
+            <div class="space-y-8">
+              <div class="p-6 bg-white rounded-lg border border-gray-200">
+                <div class="font-medium text-lg mb-4">Transform Effects</div>
+                <div class="space-y-4">
                   <div
                     class="h-16 bg-primary-100 hover:scale-105 rounded flex items-center justify-center cursor-pointer"
                     style={`transition: transform ${theme.transitions.default}`}
@@ -139,12 +139,12 @@ const transitions = [
                   >
                     <p class="text-primary-700">Translate</p>
                   </div>
-                </Box>
-              </Box>
+                </div>
+              </div>
 
-              <Box class="p-6 bg-white rounded-lg border border-gray-200">
-                <Box class="font-medium text-lg mb-4">Combined Effects</Box>
-                <Box class="space-y-4">
+              <div class="p-6 bg-white rounded-lg border border-gray-200">
+                <div class="font-medium text-lg mb-4">Combined Effects</div>
+                <div class="space-y-4">
                   <div
                     class="h-16 bg-primary-100 hover:bg-primary-200 hover:scale-105 rounded flex items-center justify-center cursor-pointer"
                     style={`transition: all ${theme.transitions.default}`}
@@ -171,12 +171,12 @@ const transitions = [
                       Layered transitions
                     </p>
                   </div>
-                </Box>
-              </Box>
-            </Box>
-          </Box>
-        </Box>
-      </Box>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </App.PageSection>
   </App.PageBody>
 </App.Page>

@@ -1,5 +1,5 @@
 ---
-import { Box, H3 } from '../../../lib/ui';
+import { H3 } from '../../../lib/ui';
 
 interface Props {
   category: string;
@@ -11,26 +11,26 @@ interface Props {
 const { category, skills, icon, class: className } = Astro.props;
 ---
 
-<Box
+<div
   class:list={[
     'bg-white rounded-lg shadow-md p-6 space-y-4 hover:shadow-lg transition-shadow',
     className,
   ]}
 >
-  <Box class="flex items-center space-x-4">
-    <Box class="text-2xl text-gray-700">
+  <div class="flex items-center space-x-4">
+    <div class="text-2xl text-gray-700">
       {icon}
-    </Box>
+    </div>
     <H3 class="text-lg font-semibold text-gray-900">
       {category}
     </H3>
-  </Box>
+  </div>
 
-  <Box class="flex flex-wrap gap-2">
+  <div class="flex flex-wrap gap-2">
     {
       skills.map(skill => (
-        <Box class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">{skill}</Box>
+        <div class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">{skill}</div>
       ))
     }
-  </Box>
-</Box>
+  </div>
+</div>

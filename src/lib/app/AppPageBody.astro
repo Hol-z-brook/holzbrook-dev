@@ -1,6 +1,4 @@
 ---
-import { Box } from '../../lib/ui';
-
 interface Props {
   class?: string;
   backgroundColor?: string;
@@ -9,6 +7,6 @@ interface Props {
 const { class: className, backgroundColor = 'bg-white' }: Props = Astro.props;
 ---
 
-<Box class={`${backgroundColor} ${className}`}>
+<div class={`${backgroundColor} ${className}`}>
   <slot />
-</Box>
+</div>

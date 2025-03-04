@@ -1,6 +1,4 @@
 ---
-import Box from '../layouts/Box.astro';
-
 interface Props {
   gradient: string;
   class?: string;
@@ -10,11 +8,11 @@ interface Props {
 const { gradient, animated = false, class: className } = Astro.props;
 ---
 
-<Box
+<div
   class={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-[0.02] group-hover:opacity-10 transition-opacity duration-300 ${animated ? 'animate-gradient' : ''} ${className || ''}`}
 >
   <slot />
-</Box>
+</div>
 
 <style>
   @keyframes gradient {

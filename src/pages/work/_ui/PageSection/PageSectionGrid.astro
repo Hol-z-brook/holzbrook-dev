@@ -1,6 +1,4 @@
 ---
-import { Box } from '../../../../lib/ui';
-
 interface Props {
   class?: string;
 }
@@ -8,6 +6,6 @@ interface Props {
 const { class: className } = Astro.props;
 ---
 
-<Box class:list={['grid grid-cols-1 lg:grid-cols-2 gap-8', className]}>
+<div class:list={['grid grid-cols-1 lg:grid-cols-2 gap-8', className]}>
   <slot />
-</Box>
+</div>

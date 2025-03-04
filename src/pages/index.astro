@@ -1,7 +1,6 @@
 ---
 import App from '../lib/app';
 import Sherpa from '../lib/sherpa';
-import { Box } from '../lib/ui';
 import PageUI from './_ui';
 
 const sherpa = Sherpa.makeSherpa();
@@ -45,7 +44,7 @@ const playSection = {
     />
 
     <!-- Work, Family, Play in a Row on Large Screens -->
-    <Box as="section" class="py-12">
+    <section class="py-12">
       <div class="max-w-6xl mx-auto px-6">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <!-- Work Section -->
@@ -88,7 +87,7 @@ const playSection = {
           </PageUI.ExploreCard.Container>
         </div>
       </div>
-    </Box>
+    </section>
 
     <App.PageFooter />
   </App.PageBody>

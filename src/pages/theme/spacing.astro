@@ -2,7 +2,7 @@
 import * as ThemePage from './_ThemePage/_index.astro';
 import * as ThemeSection from './_ThemeSection/_index.astro';
 import App from '../../lib/app';
-import { Box, H4 } from '../../lib/ui';
+import { H4 } from '../../lib/ui';
 import theme from '../../theme';
 
 const sections = [
@@ -15,7 +15,7 @@ const sections = [
   <App.PageHeader />
   <App.PageBody class="bg-gray-50">
     <App.PageSection>
-      <Box class="max-w-[90rem] mx-auto py-16 px-6">
+      <div class="max-w-[90rem] mx-auto py-16 px-6">
         <ThemePage.Header>
           <ThemePage.BackLink />
           <ThemePage.Title>Spacing</ThemePage.Title>
@@ -30,7 +30,7 @@ const sections = [
           {sections.map(({ id, label }) => <ThemePage.NavItem href={`#${id}`} label={label} />)}
         </ThemePage.Nav>
 
-        <Box class="space-y-24">
+        <div class="space-y-24">
           <!-- Spacing Scale -->
           <ThemeSection.Section id="spacing-scale">
             <ThemeSection.Header>
@@ -43,21 +43,21 @@ const sections = [
             <ThemeSection.Body class="space-y-8">
               {
                 Object.entries(theme.spacing).map(([name, space]) => (
-                  <Box class="group flex items-center gap-12 p-4 rounded-lg hover:bg-white hover:shadow-sm transition-all cursor-pointer">
-                    <Box class="w-32">
-                      <Box class="text-base font-medium text-gray-900">{name}</Box>
-                      <Box class="text-sm text-gray-500 font-mono mt-1">{space}</Box>
-                    </Box>
-                    <Box class="flex-1 flex items-center gap-4">
-                      <Box
+                  <div class="group flex items-center gap-12 p-4 rounded-lg hover:bg-white hover:shadow-sm transition-all cursor-pointer">
+                    <div class="w-32">
+                      <div class="text-base font-medium text-gray-900">{name}</div>
+                      <div class="text-sm text-gray-500 font-mono mt-1">{space}</div>
+                    </div>
+                    <div class="flex-1 flex items-center gap-4">
+                      <div
                         class="bg-gradient-to-r from-primary-100 to-primary-200 rounded h-12 transition-all group-hover:from-primary-200 group-hover:to-primary-300"
                         style={`width: ${space}`}
                       />
-                      <Box class="text-sm text-gray-500 group-hover:text-primary-600 transition-colors">
+                      <div class="text-sm text-gray-500 group-hover:text-primary-600 transition-colors">
                         {space}
-                      </Box>
-                    </Box>
-                  </Box>
+                      </div>
+                    </div>
+                  </div>
                 ))
               }
             </ThemeSection.Body>
@@ -72,15 +72,15 @@ const sections = [
               </ThemeSection.HeaderBody>
             </ThemeSection.Header>
             <ThemeSection.Body>
-              <Box class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <!-- Component Spacing -->
-                <Box class="space-y-8">
+                <div class="space-y-8">
                   <H4 class="text-2xl font-medium">Component Spacing</H4>
-                  <Box class="space-y-8">
+                  <div class="space-y-8">
                     <!-- Button Example -->
-                    <Box class="p-6 bg-white rounded-lg border border-gray-200">
-                      <Box class="font-medium text-lg mb-4">Button Padding</Box>
-                      <Box class="flex gap-4">
+                    <div class="p-6 bg-white rounded-lg border border-gray-200">
+                      <div class="font-medium text-lg mb-4">Button Padding</div>
+                      <div class="flex gap-4">
                         <button class="px-2 py-1 bg-primary-500 text-white rounded text-sm">
                           spacing-2
                         </button>
@@ -90,61 +90,61 @@ const sections = [
                         <button class="px-6 py-3 bg-primary-500 text-white rounded text-lg">
                           spacing-6
                         </button>
-                      </Box>
-                    </Box>
+                      </div>
+                    </div>
 
                     <!-- Stack Example -->
-                    <Box class="p-6 bg-white rounded-lg border border-gray-200">
-                      <Box class="font-medium text-lg mb-4">Vertical Stack</Box>
-                      <Box class="space-y-4 bg-gray-50 p-4 rounded">
-                        <Box class="p-4 bg-primary-100 rounded">Item 1</Box>
-                        <Box class="p-4 bg-primary-100 rounded">Item 2</Box>
-                        <Box class="p-4 bg-primary-100 rounded">Item 3</Box>
-                      </Box>
-                    </Box>
-                  </Box>
-                </Box>
+                    <div class="p-6 bg-white rounded-lg border border-gray-200">
+                      <div class="font-medium text-lg mb-4">Vertical Stack</div>
+                      <div class="space-y-4 bg-gray-50 p-4 rounded">
+                        <div class="p-4 bg-primary-100 rounded">Item 1</div>
+                        <div class="p-4 bg-primary-100 rounded">Item 2</div>
+                        <div class="p-4 bg-primary-100 rounded">Item 3</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
                 <!-- Layout Spacing -->
-                <Box class="space-y-8">
+                <div class="space-y-8">
                   <H4 class="text-2xl font-medium">Layout Spacing</H4>
-                  <Box class="space-y-8">
+                  <div class="space-y-8">
                     <!-- Grid Example -->
-                    <Box class="p-6 bg-white rounded-lg border border-gray-200">
-                      <Box class="font-medium text-lg mb-4">Grid Gap</Box>
-                      <Box class="grid grid-cols-2 gap-4 bg-gray-50 p-4 rounded">
-                        <Box class="p-4 bg-primary-100 rounded text-center">1</Box>
-                        <Box class="p-4 bg-primary-100 rounded text-center">2</Box>
-                        <Box class="p-4 bg-primary-100 rounded text-center">3</Box>
-                        <Box class="p-4 bg-primary-100 rounded text-center">4</Box>
-                      </Box>
-                    </Box>
+                    <div class="p-6 bg-white rounded-lg border border-gray-200">
+                      <div class="font-medium text-lg mb-4">Grid Gap</div>
+                      <div class="grid grid-cols-2 gap-4 bg-gray-50 p-4 rounded">
+                        <div class="p-4 bg-primary-100 rounded text-center">1</div>
+                        <div class="p-4 bg-primary-100 rounded text-center">2</div>
+                        <div class="p-4 bg-primary-100 rounded text-center">3</div>
+                        <div class="p-4 bg-primary-100 rounded text-center">4</div>
+                      </div>
+                    </div>
 
                     <!-- Section Example -->
-                    <Box class="p-6 bg-white rounded-lg border border-gray-200">
-                      <Box class="font-medium text-lg mb-4">Section Spacing</Box>
-                      <Box class="space-y-8 bg-gray-50 p-4 rounded">
-                        <Box class="space-y-2">
-                          <Box class="font-medium">Header</Box>
-                          <Box class="h-8 bg-primary-100 rounded w-3/4" />
-                        </Box>
-                        <Box class="space-y-2">
-                          <Box class="font-medium">Content</Box>
-                          <Box class="h-24 bg-primary-100 rounded" />
-                        </Box>
-                        <Box class="space-y-2">
-                          <Box class="font-medium">Footer</Box>
-                          <Box class="h-12 bg-primary-100 rounded" />
-                        </Box>
-                      </Box>
-                    </Box>
-                  </Box>
-                </Box>
-              </Box>
+                    <div class="p-6 bg-white rounded-lg border border-gray-200">
+                      <div class="font-medium text-lg mb-4">Section Spacing</div>
+                      <div class="space-y-8 bg-gray-50 p-4 rounded">
+                        <div class="space-y-2">
+                          <div class="font-medium">Header</div>
+                          <div class="h-8 bg-primary-100 rounded w-3/4"></div>
+                        </div>
+                        <div class="space-y-2">
+                          <div class="font-medium">Content</div>
+                          <div class="h-24 bg-primary-100 rounded"></div>
+                        </div>
+                        <div class="space-y-2">
+                          <div class="font-medium">Footer</div>
+                          <div class="h-12 bg-primary-100 rounded"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </ThemeSection.Body>
           </ThemeSection.Section>
-        </Box>
-      </Box>
+        </div>
+      </div>
     </App.PageSection>
   </App.PageBody>
 </App.Page>
