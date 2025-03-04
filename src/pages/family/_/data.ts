@@ -190,17 +190,15 @@ export enum FamilyMemberId {
 
 export interface FamilyMember {
   id: FamilyMemberId;
+  order: number;
+  emoji: string;
   firstName: string;
   middleName: string;
   lastName: string;
   nickName?: string;
-  role?: string;
-  bio?: string;
-  interests?: InterestId[];
-  favoriteMemories?: string[];
-  imageUrl?: string;
-  order?: number;
-  emoji: string;
+  role: string;
+  bio: string;
+  interests: InterestId[];
 }
 
 export const familyMembers: FamilyMember[] = [
