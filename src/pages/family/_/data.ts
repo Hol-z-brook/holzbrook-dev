@@ -216,7 +216,7 @@ export const familyMembers: FamilyMember[] = [
     lastName: 'Holbrook',
     nickName: 'Holz',
     role: 'Chaos Wrangler',
-    emoji: '👨‍💻',
+    emoji: '🥏',
     bio: 'Software engineer, hobby enthusiast, and dedicated father who loves building things and spending time with family.',
     interests: [
       InterestId.BoardGames,
@@ -235,7 +235,7 @@ export const familyMembers: FamilyMember[] = [
     middleName: 'Durfee',
     lastName: 'Holbrook',
     role: 'Nurturer',
-    emoji: '👩‍🏫',
+    emoji: '🏃‍♀️',
     bio: "Creative force of the family, bringing beauty and organization to our home while nurturing our children's growth.",
     interests: [
       InterestId.Reading,
@@ -253,7 +253,7 @@ export const familyMembers: FamilyMember[] = [
     middleName: 'Amelia',
     lastName: 'Holbrook',
     role: 'Creative Explorer',
-    emoji: '👧',
+    emoji: '🐨',
     bio: 'The ambition of a Slytherin, the courage of a Gryffindor, the analytical mind of a Ravenclaw, and the determination of a Hufflepuff.',
     interests: [
       InterestId.ContentCreation,
@@ -271,7 +271,7 @@ export const familyMembers: FamilyMember[] = [
     middleName: 'Wolfgang',
     lastName: 'Holbrook',
     role: 'Wise Old Man',
-    emoji: '🧑',
+    emoji: '🐺',
     bio: "His gut was busted as a baby, and now he's busting all our guts with laughter. His kind and creative spirit shines through in everything he does, from his funny observations to his excitable discoveries.",
     interests: [
       InterestId.Minecraft,
@@ -287,7 +287,7 @@ export const familyMembers: FamilyMember[] = [
     middleName: 'Arthur (Turtle)',
     lastName: 'Holbrook',
     role: 'Playful and Focused',
-    emoji: '👦',
+    emoji: '🐢',
     bio: 'This dude is a thinker and a mover. He is always on the go and has a lot of energy. His thoughtful and logical nature is balanced by his playful and sweet personality, though he can get easily distracted by his own curiosity.',
     interests: [
       InterestId.Legos,
@@ -304,7 +304,7 @@ export const familyMembers: FamilyMember[] = [
     lastName: 'Holbrook',
     nickName: 'Wrenny',
     role: 'Energetic and Confident',
-    emoji: '👧',
+    emoji: '🐦',
     bio: 'Just what the family needed. A little spunk, a little daring, and a lot of energy. Her independent and adventurous spirit is matched by her prideful and curious nature, making her a force to be reckoned with.',
     interests: [
       InterestId.PlayingOutside,
