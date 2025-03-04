@@ -1,26 +1,27 @@
 ---
 import { H1, H2, P, Strong } from '../../../lib/ui/typography';
-import { interests, type FamilyMember } from './data';
+import { FamilyMemberId, interests, type FamilyMember } from './data';
 
 interface Props {
-  familyMember: FamilyMember;
+  member: FamilyMember;
   class?: string;
 }
 
-const {
-  class: className,
-  familyMember: { firstName, middleName, role, bio, interests: memberInterests, emoji, order },
-}: Props = Astro.props;
+const { member, class: className } = Astro.props;
 
-// Get specific background color based on family member order
-const emojiBgColor = {
-  1: 'bg-orange-200', // Andrew - burnt orange
-  2: 'bg-purple-300', // Brooke - darker purple
-  3: 'bg-pink-200', // Oakley - pink
-  4: 'bg-blue-200', // Finn - blue
-  5: 'bg-green-200', // Leo - green
-  6: 'bg-purple-200', // Wren - purple
-}[order || 1];
+if (!member) {
+  return null;
+}
+
+// Get specific background color based on family member ID
+const emojiBgColor: Record<FamilyMemberId, string> = {
+  [FamilyMemberId.Andrew]: 'bg-orange-200',
+  [FamilyMemberId.Brooke]: 'bg-purple-300',
+  [FamilyMemberId.Oakley]: 'bg-pink-200',
+  [FamilyMemberId.Finn]: 'bg-blue-200',
+  [FamilyMemberId.Leo]: 'bg-green-200',
+  [FamilyMemberId.Wren]: 'bg-purple-200',
+};
 ---
 
 <section class:list={['bg-white rounded-lg shadow-sm border border-gray-200 p-6', className]}>
@@ -31,29 +32,29 @@ const emojiBgColor = {
         <div
           class:list={[
             'w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center text-3xl flex-shrink-0 shadow-sm',
-            emojiBgColor,
+            emojiBgColor[member.id],
           ]}
         >
-          {emoji}
+          {member.emoji}
         </div>
-        <H1>{firstName}</H1>
+        <H1>{member.firstName}</H1>
       </div>
       <div class="space-y-1 text-sm text-gray-600">
-        <P><Strong>Role:</Strong> {role}</P>
+        <P><Strong>Role:</Strong> {member.role}</P>
         <P>
           <Strong>Middle Name:</Strong>
-          <span>{middleName}</span>
+          <span>{member.middleName}</span>
         </P>
       </div>
     </div>
 
     {/* Bio section */}
     {
-      bio && (
+      member.bio && (
         <div class="space-y-2">
           <H2 class="text-lg font-medium text-gray-600">About</H2>
           <div class="prose prose-gray max-w-none">
-            <P>{bio}</P>
+            <P>{member.bio}</P>
           </div>
         </div>
       )
@@ -61,11 +62,11 @@ const emojiBgColor = {
 
     {/* Interests section */}
     {
-      memberInterests && memberInterests.length > 0 && (
+      member.interests && member.interests.length > 0 && (
         <div class="space-y-2">
           <H2 class="text-lg font-medium text-gray-600">Interests</H2>
           <div class="flex flex-wrap gap-2">
-            {memberInterests.map(interestId => {
+            {member.interests.map(interestId => {
               const interest = interests[interestId];
               return (
                 <Strong

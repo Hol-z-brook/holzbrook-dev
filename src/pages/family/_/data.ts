@@ -179,7 +179,17 @@ export const interests: Record<InterestId, InterestData> = {
   },
 };
 
+export enum FamilyMemberId {
+  Andrew = 'andrew',
+  Brooke = 'brooke',
+  Oakley = 'oakley',
+  Finn = 'finn',
+  Leo = 'leo',
+  Wren = 'wren',
+}
+
 export interface FamilyMember {
+  id: FamilyMemberId;
   firstName: string;
   middleName: string;
   lastName: string;
@@ -211,6 +221,7 @@ export interface FamilyContent {
 
 export const familyMembers: FamilyMember[] = [
   {
+    id: FamilyMemberId.Andrew,
     firstName: 'Andrew',
     middleName: 'Steven',
     lastName: 'Holbrook',
@@ -231,6 +242,7 @@ export const familyMembers: FamilyMember[] = [
     order: 1,
   },
   {
+    id: FamilyMemberId.Brooke,
     firstName: 'Brooke',
     middleName: 'Durfee',
     lastName: 'Holbrook',
@@ -249,6 +261,7 @@ export const familyMembers: FamilyMember[] = [
     order: 2,
   },
   {
+    id: FamilyMemberId.Oakley,
     firstName: 'Oakley',
     middleName: 'Amelia',
     lastName: 'Holbrook',
@@ -267,6 +280,7 @@ export const familyMembers: FamilyMember[] = [
     order: 3,
   },
   {
+    id: FamilyMemberId.Finn,
     firstName: 'Finn',
     middleName: 'Wolfgang',
     lastName: 'Holbrook',
@@ -283,6 +297,7 @@ export const familyMembers: FamilyMember[] = [
     order: 4,
   },
   {
+    id: FamilyMemberId.Leo,
     firstName: 'Leo',
     middleName: 'Arthur (Turtle)',
     lastName: 'Holbrook',
@@ -299,6 +314,7 @@ export const familyMembers: FamilyMember[] = [
     order: 5,
   },
   {
+    id: FamilyMemberId.Wren,
     firstName: 'Wren',
     middleName: 'Aria',
     lastName: 'Holbrook',
