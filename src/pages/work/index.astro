@@ -1,14 +1,20 @@
 ---
-import WorkPageData from './_data';
-import WorkPageUI from './_ui';
 import App from '../../lib/app';
 import Sherpa from '../../lib/sherpa';
 import { Center, PageHero, VStack } from '../../lib/ui';
+import { candidate } from './_/data';
+import ExperienceCard from './_/ExperienceCard.astro';
+import ProjectCard from './_/ProjectCard.astro';
+import ResumeSkeleton from './_/ResumeSkeleton.astro';
+import SkillCard from './_/SkillCard.astro';
+import SkillCategoryCard from './_/SkillCategoryCard.astro';
+import WorkPage from './_/WorkPage.astro';
+import WorkPageSection from './_/WorkPageSection';
 
 const sherpa = Sherpa.makeSherpa();
 ---
 
-<WorkPageUI.Page>
+<WorkPage>
   <App.PageBody
     backgroundColor="bg-gray-100"
     class={`
@@ -37,52 +43,34 @@ const sherpa = Sherpa.makeSherpa();
           gap-8
         `}
       >
-        <WorkPageUI.PageSection.Container>
-          <WorkPageUI.PageSection.Title>Work Experience</WorkPageUI.PageSection.Title>
-          {
-            WorkPageData.andrewHolbrookCandidate.workExperience.map(job => (
-              <WorkPageUI.ExperienceCard {...job} />
-            ))
-          }
-        </WorkPageUI.PageSection.Container>
+        <WorkPageSection.Container>
+          <WorkPageSection.Title>Work Experience</WorkPageSection.Title>
+          {candidate.workExperience.map(job => <ExperienceCard {...job} />)}
+        </WorkPageSection.Container>
 
-        <WorkPageUI.PageSection.Container>
-          <WorkPageUI.PageSection.Title>Projects</WorkPageUI.PageSection.Title>
-          <WorkPageUI.PageSection.Grid>
-            {
-              WorkPageData.andrewHolbrookCandidate.projects.map(project => (
-                <WorkPageUI.ProjectCard {...project} />
-              ))
-            }
-          </WorkPageUI.PageSection.Grid>
-        </WorkPageUI.PageSection.Container>
+        <WorkPageSection.Container>
+          <WorkPageSection.Title>Projects</WorkPageSection.Title>
+          <WorkPageSection.Grid>
+            {candidate.projects.map(project => <ProjectCard {...project} />)}
+          </WorkPageSection.Grid>
+        </WorkPageSection.Container>
 
-        <VStack class="gap-16">
-          <WorkPageUI.PageSection.Container>
-            <WorkPageUI.PageSection.Title>Core Proficiencies</WorkPageUI.PageSection.Title>
-            <WorkPageUI.PageSection.Grid>
-              {
-                WorkPageData.andrewHolbrookCandidate.coreProficiencies.map(skill => (
-                  <WorkPageUI.SkillCard {...skill} />
-                ))
-              }
-            </WorkPageUI.PageSection.Grid>
-          </WorkPageUI.PageSection.Container>
+        <WorkPageSection.Container>
+          <WorkPageSection.Title>Core Proficiencies</WorkPageSection.Title>
+          <WorkPageSection.Grid>
+            {candidate.coreProficiencies.map(skill => <SkillCard {...skill} />)}
+          </WorkPageSection.Grid>
+        </WorkPageSection.Container>
 
-          <WorkPageUI.PageSection.Container>
-            <WorkPageUI.PageSection.Title>Technical Skills</WorkPageUI.PageSection.Title>
-            <WorkPageUI.PageSection.Grid>
-              {
-                WorkPageData.andrewHolbrookCandidate.skillCategories.map(category => (
-                  <WorkPageUI.SkillCategoryCard {...category} />
-                ))
-              }
-            </WorkPageUI.PageSection.Grid>
-          </WorkPageUI.PageSection.Container>
-        </VStack>
+        <WorkPageSection.Container>
+          <WorkPageSection.Title>Technical Skills</WorkPageSection.Title>
+          <WorkPageSection.Grid>
+            {candidate.skillCategories.map(category => <SkillCategoryCard {...category} />)}
+          </WorkPageSection.Grid>
+        </WorkPageSection.Container>
 
-        <WorkPageUI.PageSection.Container>
-          <WorkPageUI.PageSection.Title>Resume</WorkPageUI.PageSection.Title>
+        <WorkPageSection.Container>
+          <WorkPageSection.Title>Resume</WorkPageSection.Title>
           <Center>
             <App.Link
               class={`
@@ -94,12 +82,12 @@ const sherpa = Sherpa.makeSherpa();
               href={sherpa.work.resume({})}
               target="_blank"
             >
-              <WorkPageUI.ResumeSkeleton />
+              <ResumeSkeleton />
             </App.Link>
           </Center>
-        </WorkPageUI.PageSection.Container>
+        </WorkPageSection.Container>
       </VStack>
     </App.PageSection>
     <App.PageFooter />
   </App.PageBody>
-</WorkPageUI.Page>
+</WorkPage>

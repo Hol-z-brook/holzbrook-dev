@@ -1,7 +1,8 @@
 ---
 import App from '../../lib/app';
-import { PageHero } from '../../lib/ui';
-import FamilyMemberList from './_familyMember/FamilyMemberList.astro';
+import { PageHero, VStack } from '../../lib/ui';
+import FamilyMemberCard from './_/FamilyMemberCard.astro';
+import { familyMembers } from './_/data';
 ---
 
 <App.Page>
@@ -14,7 +15,9 @@ import FamilyMemberList from './_familyMember/FamilyMemberList.astro';
     />
 
     <App.PageSection>
-      <FamilyMemberList />
+      <VStack class="space-y-6">
+        {familyMembers.map(familyMember => <FamilyMemberCard familyMember={familyMember} />)}
+      </VStack>
     </App.PageSection>
 
     <App.PageFooter />

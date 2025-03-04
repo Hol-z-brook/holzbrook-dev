@@ -1,0 +1,124 @@
+---
+import App from '../../../lib/app';
+import { H4 } from '../../../lib/ui';
+import theme from '../../../theme';
+import ThemePage from '../_/ThemePage';
+import ThemePageNav from '../_/ThemePageNav';
+import ThemePageSection from '../_/ThemePageSection';
+
+const colorScales = Object.entries(theme.colors).filter(([_, value]) => typeof value === 'object');
+const singleColors = Object.entries(theme.colors).filter(([_, value]) => typeof value === 'string');
+
+const sections = [
+  { id: 'color-scales', label: 'Color Scales' },
+  { id: 'base-colors', label: 'Base Colors' },
+  { id: 'gradients', label: 'Gradients' },
+];
+---
+
+<App.Page>
+  <App.PageHeader />
+  <App.PageBody class="bg-gray-50">
+    <App.PageSection>
+      <div class="max-w-[90rem] mx-auto py-16 px-6">
+        <ThemePage.Header>
+          <ThemePage.BackLink />
+          <ThemePage.Title>Colors</ThemePage.Title>
+          <ThemePage.Description>
+            Our color system is designed to be accessible, consistent, and flexible. It includes a
+            range of scales for primary and neutral colors, along with single-value colors and
+            gradients.
+          </ThemePage.Description>
+        </ThemePage.Header>
+
+        <ThemePageNav.Container>
+          <ThemePageNav.Title slot="title">Colors</ThemePageNav.Title>
+          {sections.map(({ id, label }) => <ThemePageNav.Item href={`#${id}`} label={label} />)}
+        </ThemePageNav.Container>
+
+        <div class="space-y-24">
+          <ThemePageSection.Container id="color-scales">
+            <ThemePageSection.Header>
+              <ThemePageSection.HeaderTitle slot="title">Color Scales</ThemePageSection.HeaderTitle>
+              <ThemePageSection.HeaderBody slot="body">
+                Color scales provide a range of shades for each primary color, allowing for
+                consistent and accessible color usage across the application.
+              </ThemePageSection.HeaderBody>
+            </ThemePageSection.Header>
+            <ThemePageSection.Body class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-16">
+              {
+                colorScales.map(([name, scale]) => (
+                  <div class="space-y-6">
+                    <H4 class="text-2xl font-medium capitalize">{name}</H4>
+                    <div class="grid grid-cols-10 gap-3">
+                      {Object.entries(scale).map(([shade, color]) => (
+                        <div class="space-y-3">
+                          <div
+                            class="h-20 rounded-md shadow-sm"
+                            style={`background-color: ${color}`}
+                          />
+                          <div class="text-sm text-center font-medium">{shade}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))
+              }
+            </ThemePageSection.Body>
+          </ThemePageSection.Container>
+
+          <ThemePageSection.Container id="base-colors">
+            <ThemePageSection.Header>
+              <ThemePageSection.HeaderTitle slot="title">Base Colors</ThemePageSection.HeaderTitle>
+              <ThemePageSection.HeaderBody slot="body">
+                Single-value colors are used for specific purposes where a consistent, non-scaled
+                color is needed.
+              </ThemePageSection.HeaderBody>
+            </ThemePageSection.Header>
+            <ThemePageSection.Body class="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-12">
+              {
+                singleColors.map(([name, color]) => (
+                  <div class="space-y-4">
+                    <div class="h-32 rounded-lg shadow-md" style={`background-color: ${color}`} />
+                    <div class="text-base font-medium capitalize">{name}</div>
+                  </div>
+                ))
+              }
+            </ThemePageSection.Body>
+          </ThemePageSection.Container>
+
+          <ThemePageSection.Container id="gradients">
+            <ThemePageSection.Header>
+              <ThemePageSection.HeaderTitle slot="title">Gradients</ThemePageSection.HeaderTitle>
+              <ThemePageSection.HeaderBody slot="body">
+                Gradients add depth and visual interest to the interface, perfect for backgrounds
+                and decorative elements.
+              </ThemePageSection.HeaderBody>
+            </ThemePageSection.Header>
+            <ThemePageSection.Body class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-16">
+              {
+                Object.entries(theme.gradients).map(([name, gradient]) => (
+                  <div class="space-y-6">
+                    <H4 class="text-2xl font-medium capitalize">{name}</H4>
+                    <div
+                      class="h-40 rounded-lg shadow-md"
+                      style={`background: linear-gradient(to right, ${gradient.start}, ${gradient.end})`}
+                    />
+                    <div class="grid grid-cols-2 gap-6">
+                      {Object.entries(gradient).map(([position, color]) => (
+                        <div class="text-sm">
+                          <div class="font-medium capitalize">{position}</div>
+                          <div class="text-gray-500 mt-1">{color}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))
+              }
+            </ThemePageSection.Body>
+          </ThemePageSection.Container>
+        </div>
+      </div>
+    </App.PageSection>
+  </App.PageBody>
+</App.Page>

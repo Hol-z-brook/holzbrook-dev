@@ -1,0 +1,130 @@
+---
+import App from '../../../lib/app';
+import { H4, OutlinedButton, PrimaryButton } from '../../../lib/ui';
+import theme from '../../../theme';
+import ThemePage from '../_/ThemePage';
+import ThemePageNav from '../_/ThemePageNav';
+import ThemePageSection from '../_/ThemePageSection';
+
+const sections = [
+  { id: 'radius-scale', label: 'Radius Scale' },
+  { id: 'component-examples', label: 'Component Examples' },
+];
+---
+
+<App.Page>
+  <App.PageHeader />
+  <App.PageBody class="bg-gray-50">
+    <App.PageSection>
+      <div class="max-w-[90rem] mx-auto py-16 px-6">
+        <ThemePage.Header>
+          <ThemePage.BackLink />
+          <ThemePage.Title>Border Radius</ThemePage.Title>
+          <ThemePage.Description>
+            Our border radius system provides consistent corner rounding to create a cohesive and
+            modern interface design.
+          </ThemePage.Description>
+        </ThemePage.Header>
+
+        <ThemePageNav.Container>
+          <ThemePageNav.Title slot="title">Border Radius</ThemePageNav.Title>
+          {sections.map(({ id, label }) => <ThemePageNav.Item href={`#${id}`} label={label} />)}
+        </ThemePageNav.Container>
+
+        <div class="space-y-24">
+          <!-- Radius Scale -->
+          <ThemePageSection.Container id="radius-scale">
+            <ThemePageSection.Header>
+              <ThemePageSection.HeaderTitle slot="title">Radius Scale</ThemePageSection.HeaderTitle>
+              <ThemePageSection.HeaderBody slot="body">
+                A comprehensive scale of border radius values to maintain consistent corner rounding
+                across components.
+              </ThemePageSection.HeaderBody>
+            </ThemePageSection.Header>
+            <ThemePageSection.Body class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12">
+              {
+                Object.entries(theme.borderRadius).map(([name, radius]) => (
+                  <div class="space-y-6 group">
+                    <div class="relative aspect-square">
+                      <div
+                        class="h-full bg-gradient-to-br from-primary-100 via-primary-300 to-primary-500 group-hover:scale-[0.97] transition-all duration-300 shadow-lg"
+                        style={`border-radius: ${radius}`}
+                      />
+                      <div
+                        class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center bg-black/30 backdrop-blur-sm text-white font-medium"
+                        style={`border-radius: ${radius}`}
+                      >
+                        <div class="text-center">
+                          <div class="text-lg font-semibold">{radius}</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="space-y-2">
+                      <div class="text-base font-medium capitalize">{name}</div>
+                      <div class="text-sm text-gray-500 font-mono">{radius}</div>
+                    </div>
+                  </div>
+                ))
+              }
+            </ThemePageSection.Body>
+          </ThemePageSection.Container>
+
+          <!-- Component Examples -->
+          <ThemePageSection.Container id="component-examples">
+            <ThemePageSection.Header>
+              <ThemePageSection.HeaderTitle slot="title">
+                Component Examples
+              </ThemePageSection.HeaderTitle>
+              <ThemePageSection.HeaderBody slot="body">
+                Examples of how border radius is applied to different components to create
+                consistent styling.
+              </ThemePageSection.HeaderBody>
+            </ThemePageSection.Header>
+            <ThemePageSection.Body class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+              <!-- Buttons -->
+              <div class="space-y-8">
+                <H4 class="text-2xl font-medium">Buttons</H4>
+                <div class="space-y-8">
+                  {
+                    Object.entries(theme.borderRadius).map(([name, radius]) => (
+                      <div class="space-y-4">
+                        <div class="text-sm font-medium text-gray-600">{name}</div>
+                        <div class="flex gap-4">
+                          <PrimaryButton radius={radius} />
+                          <OutlinedButton radius={radius} />
+                        </div>
+                      </div>
+                    ))
+                  }
+                </div>
+              </div>
+
+              <!-- Cards -->
+              <div class="space-y-8">
+                <H4 class="text-2xl font-medium">Cards</H4>
+                <div class="grid grid-cols-2 gap-6">
+                  {
+                    Object.entries(theme.borderRadius).map(([name, radius]) => (
+                      <div
+                        class="p-6 bg-white border border-gray-200 shadow-sm hover:shadow-lg transition-shadow group"
+                        style={`border-radius: ${radius}`}
+                      >
+                        <div class="flex flex-col h-full">
+                          <div class="text-sm font-medium text-gray-900">{name}</div>
+                          <div class="text-xs text-gray-500 font-mono mt-1">{radius}</div>
+                          <div class="mt-4 text-xs text-gray-600 group-hover:text-primary-600 transition-colors">
+                            Hover to see shadow effect
+                          </div>
+                        </div>
+                      </div>
+                    ))
+                  }
+                </div>
+              </div>
+            </ThemePageSection.Body>
+          </ThemePageSection.Container>
+        </div>
+      </div>
+    </App.PageSection>
+  </App.PageBody>
+</App.Page>
