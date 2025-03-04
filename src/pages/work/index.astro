@@ -6,7 +6,6 @@ import Sherpa from '../../lib/sherpa';
 import { Center, PageHero, VStack } from '../../lib/ui';
 
 const sherpa = Sherpa.makeSherpa();
-const resumeUrl = sherpa.work.resume({});
 ---
 
 <WorkPageUI.Page>
@@ -92,7 +91,7 @@ const resumeUrl = sherpa.work.resume({});
                 sm:w-2/3
                 md:w-1/2
               `}
-              href={resumeUrl}
+              href={sherpa.work.resume({})}
               target="_blank"
             >
               <WorkPageUI.ResumeSkeleton />
