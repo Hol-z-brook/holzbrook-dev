@@ -1,29 +1,29 @@
 ---
-import App, { type AppPageMetaData } from '../../lib/app';
+import App from '../../lib/app';
 import Sherpa from '../../lib/sherpa';
 import { Card, H1, H2, P } from '../../lib/ui';
-
-interface Props extends AppPageMetaData {
-  id: string;
-  title: string;
-  subtitle: string;
-}
+import { pageData } from './_/data';
 
 const sherpa = Sherpa.makeSherpa();
-
-const pageData: Props = {
-  id: 'admin',
-  title: 'Admin Dashboard',
-  subtitle: 'Site administration and configuration',
-};
 ---
 
 <App.Page>
+  <App.PageHeader />
   <App.PageBody>
     <App.PageSection>
       <div class="max-w-4xl mx-auto">
-        <H1 class="text-4xl font-bold mb-4">{pageData.title}</H1>
-        <P class="text-xl text-gray-600 mb-8">{pageData.subtitle}</P>
+        <div class="flex items-center justify-between mb-8">
+          <div>
+            <H1 class="text-4xl font-bold mb-4">{pageData.title}</H1>
+            <P class="text-xl text-gray-600">{pageData.subtitle}</P>
+          </div>
+          <a
+            href={sherpa.home({})}
+            class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          >
+            Back to Home
+          </a>
+        </div>
 
         <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-8">
           <div class="flex">
