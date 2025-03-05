@@ -324,11 +324,11 @@ export const familyMembers: FamilyMember[] = [
   },
 ];
 
-export interface FamilyPageContent extends AppPageData {
+export interface FamilyPageData extends AppPageData {
   familyMembers: FamilyMember[];
 }
 
-export const pageData: FamilyPageContent = {
+export const pageData: FamilyPageData = {
   id: 'family',
   title: 'Meet the Fam',
   subtitle: '2 parents, 4 kids, and only some regrets...',

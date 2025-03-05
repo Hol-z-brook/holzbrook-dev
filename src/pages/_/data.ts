@@ -9,7 +9,7 @@ export interface HomePageExploreSection {
   ctaClass: string;
 }
 
-export interface HomePageContent extends AppPageData {
+export interface HomePageData extends AppPageData {
   sections: {
     work: HomePageExploreSection;
     family: HomePageExploreSection;
@@ -17,7 +17,7 @@ export interface HomePageContent extends AppPageData {
   };
 }
 
-export const pageData: HomePageContent = {
+export const pageData: HomePageData = {
   id: 'home',
   title: 'Andrew Hol(z)brook',
   subtitle:

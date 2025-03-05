@@ -11,7 +11,7 @@ import {
   PageHeaderTitle,
 } from '../../../lib/ui';
 
-interface ThemePage extends AppPageData {
+interface ThemePageData extends AppPageData {
   id: string;
   title: string;
   subtitle: string;
@@ -22,7 +22,7 @@ interface ThemePage extends AppPageData {
 
 const sherpa = Sherpa.makeSherpa();
 
-const themePages: ThemePage[] = [
+const themePages: ThemePageData[] = [
   {
     id: 'colors',
     title: 'Colors',
