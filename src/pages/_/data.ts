@@ -25,8 +25,7 @@ export const pageData: HomePageContent = {
   sections: {
     work: {
       title: 'Work',
-      description:
-        'A journey through my professional experience—projects, skills, and collaborations that shaped my career.',
+      description: 'A journey through my professional experience.',
       link: '/work',
       bgColor: 'bg-orange-100',
       cta: 'Explore Career',
@@ -42,8 +41,7 @@ export const pageData: HomePageContent = {
     },
     play: {
       title: 'Play',
-      description:
-        'Exploring creativity through board games, tech experiments, and hobbies that bring joy and balance to life.',
+      description: 'YOLO, and I do a lot of it.',
       link: '/play',
       bgColor: 'bg-red-100',
       cta: "See What I'm Playing",

@@ -219,7 +219,7 @@ export const familyMembers: FamilyMember[] = [
     nickName: 'Holz',
     role: 'Chaos Wrangler',
     emoji: '🥏',
-    bio: 'Software engineer, hobby enthusiast, and dedicated father who loves building things and spending time with family.',
+    bio: 'Creative thinking, software engineer, hobby enthusiast, and dedicated father who loves building things and spending time with family.',
     interests: [
       InterestId.BoardGames,
       InterestId.DiscGolf,
@@ -239,7 +239,7 @@ export const familyMembers: FamilyMember[] = [
     lastName: 'Holbrook',
     role: 'Nurturer',
     emoji: '🏃‍♀️',
-    bio: "Creative force of the family, bringing beauty and organization to our home while nurturing our children's growth.",
+    bio: 'Selfless, loving, and always there for her family. Either reading a book or doing something for someone else without complaint. She holds the family together with her love and support.',
     interests: [
       InterestId.Reading,
       InterestId.Teaching,
@@ -258,7 +258,7 @@ export const familyMembers: FamilyMember[] = [
     lastName: 'Holbrook',
     role: 'Creative Explorer',
     emoji: '🐨',
-    bio: 'The ambition of a Slytherin, the courage of a Gryffindor, the analytical mind of a Ravenclaw, and the determination of a Hufflepuff.',
+    bio: 'The ambition of a Slytherin, the courage of a Gryffindor, the analytical mind of a Ravenclaw, and the determination of a Hufflepuff. Oakley is a creative and adventurous spirit who is always looking for new things to do.',
     interests: [
       InterestId.ContentCreation,
       InterestId.Music,
@@ -331,7 +331,7 @@ export interface FamilyPageContent extends AppPageMetaData {
 export const pageData: FamilyPageContent = {
   id: 'family',
   title: 'Meet the Fam',
-  subtitle: 'Get to know the wonderful people who shape my world.',
+  subtitle: '2 parents, 4 kids, and only some regrets...',
   familyMembers,
 };
 

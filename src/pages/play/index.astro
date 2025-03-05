@@ -1,6 +1,6 @@
 ---
 import App from '../../lib/app';
-import { Card, PageHero } from '../../lib/ui';
+import { PageHero } from '../../lib/ui';
 import { pageData } from './_/data';
 ---
 
@@ -11,14 +11,29 @@ import { pageData } from './_/data';
     <PageHero title={pageData.title} subtitle={pageData.subtitle} />
 
     <App.PageSection>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="space-y-12">
         {
           pageData.hobbies.map(hobby => (
-            <App.Link href={hobby.href} class="block">
-              <Card class="shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                <h2 class="text-xl font-semibold text-gray-800">{hobby.name}</h2>
-              </Card>
-            </App.Link>
+            <section class="bg-white rounded-2xl shadow-md p-8">
+              <div class="flex items-center gap-4 mb-6">
+                <span class="text-4xl">{hobby.icon}</span>
+                <div>
+                  <h2 class="text-2xl font-bold text-gray-800">{hobby.name}</h2>
+                  <p class="text-lg text-gray-600">{hobby.description}</p>
+                </div>
+              </div>
+
+              {hobby.content.sections.map(section => (
+                <div class="space-y-6">
+                  {section.title && (
+                    <h3 class="text-xl font-semibold text-gray-700">{section.title}</h3>
+                  )}
+                  {section.content.map(paragraph => (
+                    <p class="text-lg text-gray-700">{paragraph}</p>
+                  ))}
+                </div>
+              ))}
+            </section>
           ))
         }
       </div>
