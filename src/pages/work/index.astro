@@ -7,9 +7,10 @@ import ExperienceCard from './_/ExperienceCard.astro';
 import ProjectCard from './_/ProjectCard.astro';
 import ResumeSkeleton from './_/ResumeSkeleton.astro';
 import SkillCard from './_/SkillCard.astro';
-import SkillCategoryCard from './_/SkillCategoryCard.astro';
 import WorkPage from './_/WorkPage.astro';
 import WorkPageSection from './_/WorkPageSection';
+import SkillTagCard from './_/SkillTagCard.astro';
+import type { SkillTag } from './_/data';
 
 const sherpa = Sherpa.makeSherpa();
 ---
@@ -62,8 +63,8 @@ const sherpa = Sherpa.makeSherpa();
           <WorkPageSection.Title>{pageData.sections.technicalSkills.title}</WorkPageSection.Title>
           <WorkPageSection.Grid>
             {
-              pageData.candidate.skillCategories.map(category => (
-                <SkillCategoryCard {...category} skills={pageData.candidate.skills} />
+              pageData.candidate.skillTags.map((category: SkillTag) => (
+                <SkillTagCard {...category} skills={pageData.candidate.skills} />
               ))
             }
           </WorkPageSection.Grid>

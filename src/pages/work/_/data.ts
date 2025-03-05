@@ -1,6 +1,6 @@
 import type { AppPageData } from '../../../lib/app';
 
-export enum SkillCategoryId {
+export enum SkillTagId {
   FrontendDevelopment = 'Frontend Development',
   MobileCrossPlatform = 'Mobile & Cross-Platform',
   StateManagement = 'State Management',
@@ -97,8 +97,8 @@ export interface Skill {
   description?: string;
 }
 
-export interface SkillCategory {
-  category: SkillCategoryId;
+export interface SkillTag {
+  category: SkillTagId;
   icon: string;
   skillIds: SkillId[];
 }
@@ -118,7 +118,7 @@ export interface Candidate {
   summary: string;
   workExperience: WorkExperience[];
   projects: WorkProject[];
-  skillCategories: SkillCategory[];
+  skillTags: SkillTag[];
   coreProficiencies: CoreProficiency[];
   skills: Record<SkillId, Skill>;
 }
@@ -285,9 +285,9 @@ export const pageData: WorkPageContent = {
         tech: ['React', 'Prismic CMS', 'TypeScript'],
       },
     ],
-    skillCategories: [
+    skillTags: [
       {
-        category: SkillCategoryId.FrontendDevelopment,
+        category: SkillTagId.FrontendDevelopment,
         icon: '🎨',
         skillIds: [
           SkillId.React,
@@ -299,17 +299,17 @@ export const pageData: WorkPageContent = {
         ],
       },
       {
-        category: SkillCategoryId.MobileCrossPlatform,
+        category: SkillTagId.MobileCrossPlatform,
         icon: '📱',
         skillIds: [SkillId.Flutter, SkillId.Dart, SkillId.ReactNative, SkillId.ResponsiveDesign],
       },
       {
-        category: SkillCategoryId.StateManagement,
+        category: SkillTagId.StateManagement,
         icon: '🔄',
         skillIds: [SkillId.Redux, SkillId.ReactQuery, SkillId.NgrxStore, SkillId.ContextAPI],
       },
       {
-        category: SkillCategoryId.PerformanceDevOps,
+        category: SkillTagId.PerformanceDevOps,
         icon: '⚡',
         skillIds: [
           SkillId.Webpack,
@@ -320,7 +320,7 @@ export const pageData: WorkPageContent = {
         ],
       },
       {
-        category: SkillCategoryId.ToolsMethods,
+        category: SkillTagId.ToolsMethods,
         icon: '🛠',
         skillIds: [
           SkillId.Git,
@@ -331,7 +331,7 @@ export const pageData: WorkPageContent = {
         ],
       },
       {
-        category: SkillCategoryId.Leadership,
+        category: SkillTagId.Leadership,
         icon: '👥',
         skillIds: [
           SkillId.TeamManagement,
