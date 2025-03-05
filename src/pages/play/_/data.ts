@@ -1,25 +1,25 @@
 import type { AppPageData } from '../../../lib/app';
 
-export enum SkillLevel {
+export enum PlaySkillLevel {
   Beginner = 'Beginner',
   Intermediate = 'Intermediate',
   Advanced = 'Advanced',
   Expert = 'Expert',
 }
 
-export enum HobbyId {
+export enum PlayHobbyId {
   DiscGolf = 'disc-golf',
   BoardGames = 'board-games',
   VideoGames = 'video-games',
   Reading = 'reading',
 }
 
-export enum HobbyProjectId {
+export enum PlayProjectId {
   PersonalBest = 'personal-best',
   PersonalWebsite = 'personal-website',
 }
 
-export interface HobbyProject {
+export interface PlayProject {
   id: string;
   name: string;
   description: string;
@@ -29,14 +29,14 @@ export interface HobbyProject {
   achievements?: string[];
 }
 
-export interface Hobby {
-  id: HobbyId;
+export interface PlayHobby {
+  id: PlayHobbyId;
   name: string;
   description: string;
   icon?: string;
   startedYear?: number;
-  skillLevel?: SkillLevel;
-  projects?: HobbyProject[];
+  skillLevel?: PlaySkillLevel;
+  projects?: PlayProject[];
   relatedSkills?: string[];
   favoriteThings?: string[];
   content: {
@@ -49,19 +49,19 @@ export interface Hobby {
   };
 }
 
-export interface PlayPageContent extends AppPageData {
+export interface PlayPageData extends AppPageData {
   title: string;
   subtitle: string;
-  hobbies: Hobby[];
+  hobbies: PlayHobby[];
 }
 
-export const pageData: PlayPageContent = {
+export const pageData: PlayPageData = {
   id: 'play',
   title: 'My Hobbies',
   subtitle: 'Explore the things I enjoy doing in my free time.',
   hobbies: [
     {
-      id: HobbyId.BoardGames,
+      id: PlayHobbyId.BoardGames,
       name: 'Board Games',
       description: 'Dice, cards, strategic? I love it all.',
       icon: '🎲',
@@ -80,7 +80,7 @@ export const pageData: PlayPageContent = {
       },
     },
     {
-      id: HobbyId.DiscGolf,
+      id: PlayHobbyId.DiscGolf,
       name: 'Disc Golf',
       description: "3 Aces and 1 Faux Ace. Always chasin' the next one!",
       icon: '🥏',
@@ -91,7 +91,7 @@ export const pageData: PlayPageContent = {
           {
             content: [
               'This sport was invisible to me for many years. I knew that disc golf courses existed, but before I was introduced to disc golf when I was working at MasterControl I had no idea the quality and quantity of disc golf courses within driving distance.',
-              'The first course I ever played was Creekside in Holliday. I was immediately hooked.',
+              'The first course I ever played was Creekside in Holliday.',
               'I was immediately hooked.',
               'That day, I looked up local courses and found a lot to pick from, so I chose Art Dye in American Fork to visit first. I drove my long commute from Cottonwood Heights back down to Utah County, stopped by Art Dye Park and went to find the disc golf course. Like magic, there it was. A huge course with 18 holes with chain catchers and everything.',
               'I was so excited about it, I called up my parents and told them I found them a new sport.',
@@ -101,7 +101,7 @@ export const pageData: PlayPageContent = {
       },
     },
     {
-      id: HobbyId.Reading,
+      id: PlayHobbyId.Reading,
       name: 'Reading',
       description: "Wheel of Time, Game of Thrones, Hitchhiker's Guide",
       icon: '📚',
@@ -123,7 +123,7 @@ export const pageData: PlayPageContent = {
       },
     },
     {
-      id: HobbyId.VideoGames,
+      id: PlayHobbyId.VideoGames,
       name: 'Video Games',
       description: 'The Last of Us, Subnautica, God of War, and More!',
       icon: '🎮',

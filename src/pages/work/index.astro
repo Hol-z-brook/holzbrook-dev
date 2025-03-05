@@ -2,15 +2,15 @@
 import App from '../../lib/app';
 import Sherpa from '../../lib/sherpa';
 import { Center, PageHero, VStack } from '../../lib/ui';
-import { pageData } from './_/data';
-import ExperienceCard from './_/ExperienceCard.astro';
-import ProjectCard from './_/ProjectCard.astro';
+
+import WorkJobCard from './_/job/WorkJobCard.astro';
+import WorkProjectCard from './_/project/WorkProjectCard.astro';
 import ResumeSkeleton from './_/ResumeSkeleton.astro';
-import SkillCard from './_/SkillCard.astro';
-import SkillTagCard from './_/SkillTagCard.astro';
+import WorkSkillCard from './_/skill/WorkSkillCard.astro';
+import WorkSkillTagCard from './_/skillTag/WorkSkillTagCard.astro';
 import WorkPage from './_/WorkPage.astro';
+import { pageData } from './_/workPageData.query';
 import WorkPageSection from './_/WorkPageSection';
-import type { SkillTag } from './_/data';
 
 const sherpa = Sherpa.makeSherpa();
 ---
@@ -42,20 +42,20 @@ const sherpa = Sherpa.makeSherpa();
       >
         <WorkPageSection.Container>
           <WorkPageSection.Title>{pageData.sections.workExperience.title}</WorkPageSection.Title>
-          {pageData.candidate.workExperience.map(job => <ExperienceCard {...job} />)}
+          {pageData.candidate.experience.map(job => <WorkJobCard {...job} />)}
         </WorkPageSection.Container>
 
         <WorkPageSection.Container>
           <WorkPageSection.Title>{pageData.sections.projects.title}</WorkPageSection.Title>
           <WorkPageSection.Grid>
-            {pageData.candidate.projects.map(project => <ProjectCard {...project} />)}
+            {pageData.candidate.projects.map(project => <WorkProjectCard {...project} />)}
           </WorkPageSection.Grid>
         </WorkPageSection.Container>
 
         <WorkPageSection.Container>
           <WorkPageSection.Title>{pageData.sections.coreProficiencies.title}</WorkPageSection.Title>
           <WorkPageSection.Grid>
-            {pageData.candidate.coreProficiencies.map(skill => <SkillCard {...skill} />)}
+            {pageData.candidate.coreProficiencies.map(skill => <WorkSkillCard {...skill} />)}
           </WorkPageSection.Grid>
         </WorkPageSection.Container>
 
@@ -63,8 +63,13 @@ const sherpa = Sherpa.makeSherpa();
           <WorkPageSection.Title>{pageData.sections.technicalSkills.title}</WorkPageSection.Title>
           <WorkPageSection.Grid>
             {
-              pageData.candidate.skillTags.map((category: SkillTag) => (
-                <SkillTagCard {...category} skills={pageData.candidate.skills} />
+              pageData.candidate.skillTags.map(category => (
+                <WorkSkillTagCard
+                  category={category.category}
+                  skills={pageData.candidate.skills}
+                  skillIds={category.skillIds}
+                  icon={category.icon}
+                />
               ))
             }
           </WorkPageSection.Grid>

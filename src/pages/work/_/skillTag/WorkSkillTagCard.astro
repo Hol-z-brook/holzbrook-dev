@@ -1,11 +1,13 @@
 ---
-import { H3 } from '../../../lib/ui';
-import type { Skill, SkillId, SkillTagId } from './data';
+import { H3 } from '../../../../lib/ui';
+
+import type { WorkSkill } from '../skill/WorkSkill';
+import { WorkSkillId } from '../skill/WorkSkill';
 
 interface Props {
   category: string;
-  skills: Record<SkillId, Skill>;
-  skillIds: SkillId[];
+  skills: Record<WorkSkillId, WorkSkill>;
+  skillIds: WorkSkillId[];
   icon: string;
   class?: string;
 }

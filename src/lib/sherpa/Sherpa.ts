@@ -2,7 +2,7 @@ import { makeResourcesSherpa, type ResourcesSherpa } from './ResourcesSherpa';
 import { defaultSherpaConfig, type SherpaConfig } from './util/SherpaConfig';
 import type { LinkResolver } from './util/LinkResolver';
 import { makePlaySherpa, type PlaySherpa } from '../../pages/play/_/sherpa';
-import { makeWorkSherpa, type WorkSherpa } from '../../pages/work/_/sherpa';
+import { makeWorkSherpa, type WorkSherpa } from '../../pages/work/_/work.sherpa';
 import { makeFamilySherpa, type FamilySherpa } from '../../pages/family/_/sherpa';
 import { makeAdminSherpa, type AdminSherpa } from '../../pages/admin/_/sherpa';
 
