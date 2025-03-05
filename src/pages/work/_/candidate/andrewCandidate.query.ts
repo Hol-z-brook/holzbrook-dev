@@ -13,9 +13,9 @@ export const andrewCandidate: WorkCandidate = {
   phone: '801.361.0417',
   summary:
     'Senior Software Engineer with 10+ years in front-end development. Specializes in React, Next.js, and Flutter, focusing on scalable, high-performance applications. Experienced in leading teams and driving product innovation.',
-  experience: workJobs,
+  jobs: workJobs,
   projects: workProjects,
   skillTags: workSkillTags,
-  coreProficiencies: workProficiencies,
+  proficiencies: workProficiencies,
   skills: workSkillsById,
 };

@@ -11,10 +11,10 @@ export interface WorkCandidate {
   email: string;
   phone: string;
   summary: string;
-  experience: WorkJob[];
+  jobs: WorkJob[];
   projects: WorkProject[];
   skillTags: WorkSkillTag[];
-  coreProficiencies: WorkProficiency[];
+  proficiencies: WorkProficiency[];
   skills: Record<WorkSkillId, WorkSkill>;
 }
 

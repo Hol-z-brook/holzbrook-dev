@@ -5,13 +5,12 @@ import { Center, PageHero, VStack } from '../../lib/ui';
 
 import WorkJobCard from './_/job/WorkJobCard.astro';
 import WorkProjectCard from './_/project/WorkProjectCard.astro';
-import ResumeSkeleton from './_/ResumeSkeleton.astro';
 import WorkSkillCard from './_/skill/WorkSkillCard.astro';
 import WorkSkillTagCard from './_/skillTag/WorkSkillTagCard.astro';
 import WorkPage from './_/WorkPage.astro';
 import { pageData } from './_/workPageData.query';
 import WorkPageSection from './_/WorkPageSection';
-
+import ResumeSkeleton from './resume/_/ResumeSkeleton.astro';
 const sherpa = Sherpa.makeSherpa();
 ---
 
@@ -42,7 +41,7 @@ const sherpa = Sherpa.makeSherpa();
       >
         <WorkPageSection.Container>
           <WorkPageSection.Title>{pageData.sections.workExperience.title}</WorkPageSection.Title>
-          {pageData.candidate.experience.map(job => <WorkJobCard {...job} />)}
+          {pageData.candidate.jobs.map(job => <WorkJobCard {...job} />)}
         </WorkPageSection.Container>
 
         <WorkPageSection.Container>
@@ -55,7 +54,7 @@ const sherpa = Sherpa.makeSherpa();
         <WorkPageSection.Container>
           <WorkPageSection.Title>{pageData.sections.coreProficiencies.title}</WorkPageSection.Title>
           <WorkPageSection.Grid>
-            {pageData.candidate.coreProficiencies.map(skill => <WorkSkillCard {...skill} />)}
+            {pageData.candidate.proficiencies.map(skill => <WorkSkillCard {...skill} />)}
           </WorkPageSection.Grid>
         </WorkPageSection.Container>
 
