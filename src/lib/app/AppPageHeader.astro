@@ -2,9 +2,9 @@
 import AppLogoLink from './AppLogoLink.astro';
 import AppNavMenu from './AppNavMenu.astro';
 import AppNavMenuItem from './AppNavMenuItem.astro';
-import Sherpa from '../sherpa';
+import { makeSherpa } from '../../pages/_/home.sherpa';
 
-const sherpa = Sherpa.makeSherpa();
+const sherpa = makeSherpa();
 
 interface Props {
   class?: string;
