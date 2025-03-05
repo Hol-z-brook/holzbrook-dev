@@ -1,5 +1,5 @@
 ---
-import { pageData } from '../../_/data';
+import { workPageData } from '../../_/data';
 ---
 
 <header class="mb-6">
@@ -11,10 +11,10 @@ import { pageData } from '../../_/data';
       font-semibold
       mb-1
       text-gray-900">
-      {pageData.candidate.name}
+      {workPageData.candidate.name}
     </h1>
     <h2 class="text-gray-700">
-      {pageData.candidate.title}
+      {workPageData.candidate.title}
     </h2>
   </div>
   <address class="text-xs
@@ -24,21 +24,21 @@ import { pageData } from '../../_/data';
     w-full
     mb-4">
     <a
-      href={`mailto:${pageData.candidate.email}`}
+      href={`mailto:${workPageData.candidate.email}`}
       class="w-3/5
         text-gray-600
         hover:underline"
     >
-      {pageData.candidate.email}
+      {workPageData.candidate.email}
     </a>
     <a
-      href={`tel:+1${pageData.candidate.phone.replace(/-/g, '')}`}
+      href={`tel:+1${workPageData.candidate.phone.replace(/-/g, '')}`}
       class="w-2/5
         text-right
         text-gray-600
         hover:underline"
     >
-      {pageData.candidate.phone}
+      {workPageData.candidate.phone}
     </a>
   </address>
 </header>
@@ -48,7 +48,7 @@ import { pageData } from '../../_/data';
   p-3
   rounded-md">
   <p class="leading-relaxed
-    text-gray-800">{pageData.candidate.summary}</p>
+    text-gray-800">{workPageData.candidate.summary}</p>
 </section>
 
 <!-- Work Experience Section -->
@@ -66,7 +66,7 @@ import { pageData } from '../../_/data';
   </h2>
   <div class="space-y-5">
     {
-      pageData.candidate.workExperience.map(job => (
+      workPageData.candidate.jobs.map(job => (
         <article>
           <header
             class="

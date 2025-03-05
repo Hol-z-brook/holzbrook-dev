@@ -1,5 +1,5 @@
 import type { AppPageData } from '../../../lib/app';
-import { andrewCandidate } from './candidate/andrewCandidate.query';
+import { andrewCandidate } from './candidate/andrewCandidate.data';
 import { type WorkCandidate } from './candidate/WorkCandidate';
 
 export interface WorkPageData extends AppPageData {
@@ -23,7 +23,7 @@ export interface WorkPageData extends AppPageData {
   candidate: WorkCandidate;
 }
 
-export const pageData: WorkPageData = {
+export const workPageData: WorkPageData = {
   id: 'work',
   title: 'My Career',
   subtitle: "When work is play, you'll never play another day in your life.",

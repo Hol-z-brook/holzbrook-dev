@@ -143,7 +143,7 @@ export interface ThemePageData extends AppPageData {
   };
 }
 
-export const pageData: ThemePageData = {
+export const themePageData: ThemePageData = {
   id: 'theme',
   title: 'Design System',
   subtitle: 'Explore the building blocks of our design system',
@@ -299,5 +299,5 @@ export const pageData: ThemePageData = {
 };
 
 export default {
-  pageData,
+  themePageData,
 };

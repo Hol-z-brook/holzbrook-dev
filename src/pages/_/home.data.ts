@@ -17,7 +17,7 @@ export interface HomePageData extends AppPageData {
   };
 }
 
-export const pageData: HomePageData = {
+export const homePageData: HomePageData = {
   id: 'home',
   title: 'Andrew Hol(z)brook',
   subtitle:
@@ -51,5 +51,5 @@ export const pageData: HomePageData = {
 };
 
 export default {
-  pageData,
+  homePageData,
 };

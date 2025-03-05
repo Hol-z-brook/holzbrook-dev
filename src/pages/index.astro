@@ -1,58 +1,58 @@
 ---
 import { ExploreCard, PageHero } from '../lib/ui';
 import App from '../lib/app';
-import { pageData } from './_/data';
+import { homePageData } from './_/home.data';
 ---
 
 <App.Page>
   <App.PageBody backgroundColor="bg-gray-100" class="flex flex-col min-h-screen">
-    <PageHero title={pageData.title} subtitle={pageData.subtitle} />
+    <PageHero title={homePageData.title} subtitle={homePageData.subtitle} />
 
     <section class="py-12">
       <div class="max-w-6xl mx-auto px-6">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <ExploreCard.Container bgColor={pageData.sections.work.bgColor}>
+          <ExploreCard.Container bgColor={homePageData.sections.work.bgColor}>
             <ExploreCard.Title>
-              {pageData.sections.work.title}
+              {homePageData.sections.work.title}
             </ExploreCard.Title>
             <ExploreCard.Blurb>
-              {pageData.sections.work.description}
+              {homePageData.sections.work.description}
             </ExploreCard.Blurb>
             <ExploreCard.Cta
-              href={pageData.sections.work.link}
-              class={pageData.sections.work.ctaClass}
+              href={homePageData.sections.work.link}
+              class={homePageData.sections.work.ctaClass}
             >
-              {pageData.sections.work.cta}
+              {homePageData.sections.work.cta}
             </ExploreCard.Cta>
           </ExploreCard.Container>
 
-          <ExploreCard.Container bgColor={pageData.sections.family.bgColor}>
+          <ExploreCard.Container bgColor={homePageData.sections.family.bgColor}>
             <ExploreCard.Title>
-              {pageData.sections.family.title}
+              {homePageData.sections.family.title}
             </ExploreCard.Title>
             <ExploreCard.Blurb>
-              {pageData.sections.family.description}
+              {homePageData.sections.family.description}
             </ExploreCard.Blurb>
             <ExploreCard.Cta
-              href={pageData.sections.family.link}
-              class={pageData.sections.family.ctaClass}
+              href={homePageData.sections.family.link}
+              class={homePageData.sections.family.ctaClass}
             >
-              {pageData.sections.family.cta}
+              {homePageData.sections.family.cta}
             </ExploreCard.Cta>
           </ExploreCard.Container>
 
-          <ExploreCard.Container bgColor={pageData.sections.play.bgColor}>
+          <ExploreCard.Container bgColor={homePageData.sections.play.bgColor}>
             <ExploreCard.Title>
-              {pageData.sections.play.title}
+              {homePageData.sections.play.title}
             </ExploreCard.Title>
             <ExploreCard.Blurb>
-              {pageData.sections.play.description}
+              {homePageData.sections.play.description}
             </ExploreCard.Blurb>
             <ExploreCard.Cta
-              href={pageData.sections.play.link}
-              class={pageData.sections.play.ctaClass}
+              href={homePageData.sections.play.link}
+              class={homePageData.sections.play.ctaClass}
             >
-              {pageData.sections.play.cta}
+              {homePageData.sections.play.cta}
             </ExploreCard.Cta>
           </ExploreCard.Container>
         </div>

@@ -55,7 +55,7 @@ export interface PlayPageData extends AppPageData {
   hobbies: PlayHobby[];
 }
 
-export const pageData: PlayPageData = {
+export const playPageData: PlayPageData = {
   id: 'play',
   title: 'My Hobbies',
   subtitle: 'Explore the things I enjoy doing in my free time.',
@@ -143,5 +143,5 @@ export const pageData: PlayPageData = {
 };
 
 export default {
-  pageData,
+  playPageData,
 };

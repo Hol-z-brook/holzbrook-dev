@@ -328,7 +328,7 @@ export interface FamilyPageData extends AppPageData {
   familyMembers: FamilyMember[];
 }
 
-export const pageData: FamilyPageData = {
+export const familyPageData: FamilyPageData = {
   id: 'family',
   title: 'Meet the Fam',
   subtitle: '2 parents, 4 kids, and only some regrets...',
@@ -336,5 +336,5 @@ export const pageData: FamilyPageData = {
 };
 
 export default {
-  pageData,
+  familyPageData,
 };

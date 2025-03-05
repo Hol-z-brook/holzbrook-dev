@@ -1,9 +1,9 @@
 import { WorkCandidateId, type WorkCandidate } from './WorkCandidate';
-import { workJobs } from '../job/workJobs.query';
-import { workProficiencies } from '../proficiency/workProficiencies.query';
-import { workProjects } from '../project/workProjects.query';
-import { workSkillsById } from '../skill/workSkillsById';
-import { workSkillTags } from '../skillTag/workSkillTags.query';
+import { workJobs } from '../job/workJobs.data';
+import { workProficiencies } from '../proficiency/workProficiencies.data';
+import { workProjects } from '../project/workProjects.data';
+import { workSkillsById } from '../skill/workSkillsById.data';
+import { workSkillTags } from '../skillTag/workSkillTags.data';
 
 export const andrewCandidate: WorkCandidate = {
   id: WorkCandidateId.AndrewHolbrook,

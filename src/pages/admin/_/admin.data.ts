@@ -6,7 +6,7 @@ export interface AdminPageData extends AppPageData {
   subtitle: string;
 }
 
-export const pageData: AdminPageData = {
+export const adminPageData: AdminPageData = {
   id: 'admin',
   title: 'Admin Dashboard',
   subtitle: 'Site administration and configuration',

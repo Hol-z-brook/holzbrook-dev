@@ -1,10 +1,10 @@
 ---
 import App from '../../lib/app';
-import Sherpa from '../../lib/sherpa';
+import { makeSherpa } from '../_/home.sherpa';
 import { Card, H1, H2, P } from '../../lib/ui';
-import { pageData } from './_/admin.data';
+import { adminPageData } from './_/admin.data';
 
-const sherpa = Sherpa.makeSherpa();
+const sherpa = makeSherpa();
 ---
 
 <App.Page>
@@ -14,8 +14,8 @@ const sherpa = Sherpa.makeSherpa();
       <div class="max-w-4xl mx-auto">
         <div class="flex items-center justify-between mb-8">
           <div>
-            <H1 class="text-4xl font-bold mb-4">{pageData.title}</H1>
-            <P class="text-xl text-gray-600">{pageData.subtitle}</P>
+            <H1 class="text-4xl font-bold mb-4">{adminPageData.title}</H1>
+            <P class="text-xl text-gray-600">{adminPageData.subtitle}</P>
           </div>
           <a
             href={sherpa.home({})}

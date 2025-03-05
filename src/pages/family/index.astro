@@ -2,18 +2,22 @@
 import App from '../../lib/app';
 import { PageHero, VStack } from '../../lib/ui';
 import FamilyMemberCard from './_/FamilyMemberCard.astro';
-import { pageData } from './_/family.data';
+import { familyPageData } from './_/family.data';
 ---
 
 <App.Page>
   <App.PageHeader />
 
   <App.PageBody backgroundColor="bg-gray-100" class="flex flex-col min-h-screen">
-    <PageHero title={pageData.title} subtitle={pageData.subtitle} />
+    <PageHero title={familyPageData.title} subtitle={familyPageData.subtitle} />
 
     <App.PageSection>
       <VStack class="space-y-6">
-        {pageData.familyMembers.map(familyMember => <FamilyMemberCard member={familyMember} />)}
+        {
+          familyPageData.familyMembers.map(familyMember => (
+            <FamilyMemberCard member={familyMember} />
+          ))
+        }
       </VStack>
     </App.PageSection>
 

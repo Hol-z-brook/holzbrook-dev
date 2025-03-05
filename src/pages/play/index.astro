@@ -1,19 +1,19 @@
 ---
 import App from '../../lib/app';
 import { PageHero } from '../../lib/ui';
-import { pageData } from './_/play.data';
+import { playPageData } from './_/play.data';
 ---
 
 <App.Page>
   <App.PageHeader />
 
   <App.PageBody backgroundColor="bg-gray-100" class="flex flex-col min-h-screen">
-    <PageHero title={pageData.title} subtitle={pageData.subtitle} />
+    <PageHero title={playPageData.title} subtitle={playPageData.subtitle} />
 
     <App.PageSection>
       <div class="space-y-12">
         {
-          pageData.hobbies.map(hobby => (
+          playPageData.hobbies.map(hobby => (
             <section class="bg-white rounded-2xl shadow-md p-8">
               <div class="flex items-center gap-4 mb-6">
                 <span class="text-4xl">{hobby.icon}</span>

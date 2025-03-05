@@ -1,3 +1,2 @@
-import { makeSherpa } from './Sherpa';
-
-export default { makeSherpa };
+export type { LinkResolver } from './util/LinkResolver';
+export type { SherpaConfig } from './util/SherpaConfig';
