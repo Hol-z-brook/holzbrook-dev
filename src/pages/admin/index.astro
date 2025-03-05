@@ -1,11 +1,63 @@
 ---
-import App from '../../lib/app';
+import App, { type AppPageMetaData } from '../../lib/app';
+import Sherpa from '../../lib/sherpa';
+import { Card, H1, H2, P } from '../../lib/ui';
+
+interface Props extends AppPageMetaData {
+  id: string;
+  title: string;
+  subtitle: string;
+}
+
+const sherpa = Sherpa.makeSherpa();
+
+const pageData: Props = {
+  id: 'admin',
+  title: 'Admin Dashboard',
+  subtitle: 'Site administration and configuration',
+};
 ---
 
 <App.Page>
   <App.PageBody>
     <App.PageSection>
-      <App.PageSection>Admin</App.PageSection>
+      <div class="max-w-4xl mx-auto">
+        <H1 class="text-4xl font-bold mb-4">{pageData.title}</H1>
+        <P class="text-xl text-gray-600 mb-8">{pageData.subtitle}</P>
+
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-8">
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <svg class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                <path
+                  fill-rule="evenodd"
+                  d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div class="ml-3">
+              <H2 class="text-sm font-medium text-yellow-800">Under Construction</H2>
+              <P class="mt-2 text-sm text-yellow-700">
+                This admin dashboard is currently under development. Some features may be
+                unavailable or incomplete.
+              </P>
+            </div>
+          </div>
+        </div>
+
+        <Card class="mb-6">
+          <H2 class="text-2xl font-semibold mb-4">Theme Configuration</H2>
+          <P class="mb-4">
+            Access the Pickles UI theme configuration and design system documentation.
+          </P>
+          <a
+            href={sherpa.admin.theme.index({})}
+            class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          >
+            View Theme Documentation
+          </a>
+        </Card>
+      </div>
     </App.PageSection>
   </App.PageBody>
 </App.Page>
