@@ -1,4 +1,4 @@
-import type { AppPageMetaData } from '../../lib/app';
+import type { AppPageMetaData } from '../../../lib/app';
 
 export enum SkillCategoryId {
   FrontendDevelopment = 'Frontend Development',
@@ -166,14 +166,47 @@ export const skills: Record<SkillId, Skill> = {
 };
 
 export interface WorkPageContent extends AppPageMetaData {
+  sections: {
+    workExperience: {
+      title: string;
+    };
+    projects: {
+      title: string;
+    };
+    coreProficiencies: {
+      title: string;
+    };
+    technicalSkills: {
+      title: string;
+    };
+    resume: {
+      title: string;
+    };
+  };
   candidate: Candidate;
 }
 
 export const pageData: WorkPageContent = {
   id: 'work',
-  title: 'Work',
-  subtitle:
-    'A journey through my professional experience—projects, skills, and collaborations that shaped my career.',
+  title: 'My Career',
+  subtitle: "When work is play, you'll never play another day in your life.",
+  sections: {
+    workExperience: {
+      title: 'Work Experience',
+    },
+    projects: {
+      title: 'Projects',
+    },
+    coreProficiencies: {
+      title: 'Core Proficiencies',
+    },
+    technicalSkills: {
+      title: 'Technical Skills',
+    },
+    resume: {
+      title: 'Resume',
+    },
+  },
   candidate: {
     id: CandidateId.AndrewHolbrook,
     name: 'Andrew Holbrook',

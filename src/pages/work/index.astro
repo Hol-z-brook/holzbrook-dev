@@ -23,11 +23,7 @@ const sherpa = Sherpa.makeSherpa();
       min-h-screen
     `}
   >
-    <PageHero
-      title="My Career"
-      subtitle="When work is play, you'll never play another day in your life."
-      class="w-full"
-    />
+    <PageHero title={pageData.title} subtitle={pageData.subtitle} class="w-full" />
 
     <App.PageSection
       class={`
@@ -44,26 +40,26 @@ const sherpa = Sherpa.makeSherpa();
         `}
       >
         <WorkPageSection.Container>
-          <WorkPageSection.Title>Work Experience</WorkPageSection.Title>
+          <WorkPageSection.Title>{pageData.sections.workExperience.title}</WorkPageSection.Title>
           {pageData.candidate.workExperience.map(job => <ExperienceCard {...job} />)}
         </WorkPageSection.Container>
 
         <WorkPageSection.Container>
-          <WorkPageSection.Title>Projects</WorkPageSection.Title>
+          <WorkPageSection.Title>{pageData.sections.projects.title}</WorkPageSection.Title>
           <WorkPageSection.Grid>
             {pageData.candidate.projects.map(project => <ProjectCard {...project} />)}
           </WorkPageSection.Grid>
         </WorkPageSection.Container>
 
         <WorkPageSection.Container>
-          <WorkPageSection.Title>Core Proficiencies</WorkPageSection.Title>
+          <WorkPageSection.Title>{pageData.sections.coreProficiencies.title}</WorkPageSection.Title>
           <WorkPageSection.Grid>
             {pageData.candidate.coreProficiencies.map(skill => <SkillCard {...skill} />)}
           </WorkPageSection.Grid>
         </WorkPageSection.Container>
 
         <WorkPageSection.Container>
-          <WorkPageSection.Title>Technical Skills</WorkPageSection.Title>
+          <WorkPageSection.Title>{pageData.sections.technicalSkills.title}</WorkPageSection.Title>
           <WorkPageSection.Grid>
             {
               pageData.candidate.skillCategories.map(category => (
@@ -74,7 +70,7 @@ const sherpa = Sherpa.makeSherpa();
         </WorkPageSection.Container>
 
         <WorkPageSection.Container>
-          <WorkPageSection.Title>Resume</WorkPageSection.Title>
+          <WorkPageSection.Title>{pageData.sections.resume.title}</WorkPageSection.Title>
           <Center>
             <App.Link
               class={`
