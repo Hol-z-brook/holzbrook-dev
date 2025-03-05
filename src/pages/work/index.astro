@@ -72,17 +72,27 @@ const sherpa = Sherpa.makeSherpa();
 
         <WorkPageSection.Container>
           <WorkPageSection.Title>{pageData.sections.resume.title}</WorkPageSection.Title>
-          <Center>
+          <Center class="mt-12">
             <App.Link
               class={`
+                relative
                 w-3/4
                 xs:w-3/4
                 sm:w-2/3
                 md:w-1/2
+                group
+                transition-all
+                duration-300
+                hover:scale-105
+                hover:shadow-2xl
               `}
               href={sherpa.work.resume({})}
               target="_blank"
             >
+              <div
+                class="absolute -inset-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+              </div>
               <ResumeSkeleton />
             </App.Link>
           </Center>
