@@ -1,5 +1,5 @@
 ---
-import App, { type AppPageMetaData } from '../../../lib/app';
+import App, { type AppPageData } from '../../../lib/app';
 import Sherpa from '../../../lib/sherpa';
 import {
   GradientBackground,
@@ -11,7 +11,7 @@ import {
   PageHeaderTitle,
 } from '../../../lib/ui';
 
-interface ThemePage extends AppPageMetaData {
+interface ThemePage extends AppPageData {
   id: string;
   title: string;
   subtitle: string;

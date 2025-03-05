@@ -9,7 +9,7 @@ import AppPageFooter from './AppPageFooter.astro';
 import AppPageHeader from './AppPageHeader.astro';
 import AppPageSection from './AppPageSection.astro';
 
-export type { AppPageMetaData } from './AppPageMetaData';
+export type { AppPageData } from './AppPageData';
 
 export default {
   Link: AppLink,

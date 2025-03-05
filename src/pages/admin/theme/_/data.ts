@@ -1,4 +1,4 @@
-import type { AppPageMetaData } from '../../../lib/app/AppPageMetaData';
+import type { AppPageData } from '../../../../lib/app';
 
 export enum TransitionId {
   Default = 'default',
@@ -132,7 +132,7 @@ export interface TypographyPageSection extends PageSection {
   }>;
 }
 
-export interface ThemePageData extends AppPageMetaData {
+export interface ThemePageData extends AppPageData {
   sections: {
     transitions: TransitionsPageSection;
     colors: ColorsPageSection;

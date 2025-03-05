@@ -1,4 +1,4 @@
-import type { AppPageMetaData } from '../../../lib/app';
+import type { AppPageData } from '../../../lib/app';
 
 export enum SkillLevel {
   Beginner = 'Beginner',
@@ -49,7 +49,7 @@ export interface Hobby {
   };
 }
 
-export interface PlayPageContent extends AppPageMetaData {
+export interface PlayPageContent extends AppPageData {
   title: string;
   subtitle: string;
   hobbies: Hobby[];

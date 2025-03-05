@@ -1,4 +1,4 @@
-import type { AppPageMetaData } from '../../lib/app';
+import type { AppPageData } from '../../lib/app';
 
 export interface HomePageExploreSection {
   title: string;
@@ -9,7 +9,7 @@ export interface HomePageExploreSection {
   ctaClass: string;
 }
 
-export interface HomePageContent extends AppPageMetaData {
+export interface HomePageContent extends AppPageData {
   sections: {
     work: HomePageExploreSection;
     family: HomePageExploreSection;

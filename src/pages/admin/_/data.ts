@@ -1,6 +1,6 @@
-import { type AppPageMetaData } from '../../../lib/app';
+import { type AppPageData } from '../../../lib/app';
 
-export interface AdminPageData extends AppPageMetaData {
+export interface AdminPageData extends AppPageData {
   id: string;
   title: string;
   subtitle: string;

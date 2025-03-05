@@ -1,4 +1,4 @@
-import type { AppPageMetaData } from '../../../lib/app';
+import type { AppPageData } from '../../../lib/app';
 
 export enum InterestId {
   Baking = 'baking',
@@ -324,7 +324,7 @@ export const familyMembers: FamilyMember[] = [
   },
 ];
 
-export interface FamilyPageContent extends AppPageMetaData {
+export interface FamilyPageContent extends AppPageData {
   familyMembers: FamilyMember[];
 }
 

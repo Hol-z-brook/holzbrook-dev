@@ -1,4 +1,4 @@
-import type { AppPageMetaData } from '../../../lib/app';
+import type { AppPageData } from '../../../lib/app';
 
 export enum SkillCategoryId {
   FrontendDevelopment = 'Frontend Development',
@@ -165,7 +165,7 @@ export const skills: Record<SkillId, Skill> = {
   [SkillId.TechnicalLeadership]: { id: SkillId.TechnicalLeadership, name: 'Technical Leadership' },
 };
 
-export interface WorkPageContent extends AppPageMetaData {
+export interface WorkPageContent extends AppPageData {
   sections: {
     workExperience: {
       title: string;
