@@ -15,7 +15,10 @@ const { category, skills, skillIds, icon, class: className } = Astro.props;
 
 <div
   class:list={[
-    'bg-white rounded-lg shadow-md p-6 space-y-4 hover:shadow-lg transition-shadow',
+    'bg-white rounded-lg shadow-md p-6 space-y-4',
+    'transition-all duration-300 ease-in-out',
+    'hover:shadow-lg hover:-translate-y-1',
+    'transform',
     className,
   ]}
 >
