@@ -1,4 +1,4 @@
-import type { AppPageMetaData } from '../../../_/app/AppPageMetaData';
+import type { AppPageMetaData } from '../../../lib/app/AppPageMetaData';
 
 export enum TransitionId {
   Default = 'default',

@@ -1,4 +1,4 @@
-import type { AppPageMetaData } from '../../_/app';
+import type { AppPageMetaData } from '../../lib/app';
 
 export enum SkillCategoryId {
   FrontendDevelopment = 'Frontend Development',

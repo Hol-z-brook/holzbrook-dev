@@ -1,6 +1,6 @@
 import { makeThemeSherpa, type ThemeSherpa } from '../theme/_/sherpa';
-import { makeLinkResolver, type LinkResolver } from '../../_/sherpa/util/LinkResolver';
-import { type SherpaConfig } from '../../_/sherpa/util/SherpaConfig';
+import { makeLinkResolver, type LinkResolver } from '../../../lib/sherpa/util/LinkResolver';
+import { type SherpaConfig } from '../../../lib/sherpa/util/SherpaConfig';
 
 export interface AdminSherpa {
   index: LinkResolver;

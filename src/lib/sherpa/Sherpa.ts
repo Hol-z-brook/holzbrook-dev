@@ -1,10 +1,10 @@
 import { defaultSherpaConfig, type SherpaConfig } from './util/SherpaConfig';
 import type { LinkResolver } from './util/LinkResolver';
-import { makePlaySherpa, type PlaySherpa } from '../../play/_/sherpa';
-import { makeWorkSherpa, type WorkSherpa } from '../../work/_/sherpa';
-import { makeFamilySherpa, type FamilySherpa } from '../../family/_/sherpa';
+import { makePlaySherpa, type PlaySherpa } from '../../pages/play/_/sherpa';
+import { makeWorkSherpa, type WorkSherpa } from '../../pages/work/_/sherpa';
+import { makeFamilySherpa, type FamilySherpa } from '../../pages/family/_/sherpa';
 import { makeResourcesSherpa, type ResourcesSherpa } from './ResourcesSherpa';
-import { makeAdminSherpa, type AdminSherpa } from '../../admin/_/AdminSherpa';
+import { makeAdminSherpa, type AdminSherpa } from '../../pages/admin/_/AdminSherpa';
 
 export interface Sherpa {
   home: LinkResolver;
@@ -26,4 +26,4 @@ export function makeSherpa(config: SherpaConfig = defaultSherpaConfig): Sherpa {
   };
 }
 
-export type { ThemeSherpa } from '../../admin/theme/_/sherpa';
+export type { ThemeSherpa } from '../../pages/admin/theme/_/sherpa';

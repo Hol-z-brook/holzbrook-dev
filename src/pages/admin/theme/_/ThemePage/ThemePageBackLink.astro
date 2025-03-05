@@ -1,8 +1,8 @@
 ---
-import Sherpa from '../../../../../_/sherpa';
+import Sherpa from '../../../../../lib/sherpa';
 import { BackLink } from '../../../../../lib/ui';
 
 const sherpa = Sherpa.makeSherpa();
 ---
 
-<BackLink href={sherpa.admin.theme.index()} class="mb-4">Back to Pickles UI</BackLink>
+<BackLink href={sherpa.admin.theme.index({})} class="mb-4">Back to Pickles UI</BackLink>

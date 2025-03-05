@@ -1,5 +1,5 @@
-import { makeLinkResolver, type LinkResolver } from '../../_/sherpa/util/LinkResolver';
-import { defaultSherpaConfig, type SherpaConfig } from '../../_/sherpa/util/SherpaConfig';
+import { makeLinkResolver, type LinkResolver } from '../../../lib/sherpa/util/LinkResolver';
+import { defaultSherpaConfig, type SherpaConfig } from '../../../lib/sherpa/util/SherpaConfig';
 
 export interface PlaySherpa {
   boardGames: LinkResolver;

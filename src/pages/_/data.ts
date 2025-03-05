@@ -1,4 +1,4 @@
-import type { AppPageMetaData } from '../_/app/AppPageMetaData';
+import type { AppPageMetaData } from '../../lib/app';
 
 export interface HomePageExploreSection {
   title: string;
@@ -34,8 +34,7 @@ export const pageData: HomePageContent = {
     },
     family: {
       title: 'Family',
-      description:
-        'Family is at the heart of everything I do. Discover the routines, habits, and moments that keep us growing together.',
+      description: 'Family is at the heart of everything I do.',
       link: '/family',
       bgColor: 'bg-amber-100',
       cta: 'Meet the Family',
