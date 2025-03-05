@@ -1,4 +1,4 @@
-import { makeThemeSherpa, type ThemeSherpa } from '../theme/_/sherpa';
+import { makeThemeSherpa, type ThemeSherpa } from '../theme/_/theme.sherpa';
 import { makeLinkResolver, type LinkResolver } from '../../../lib/sherpa/util/LinkResolver';
 import { type SherpaConfig } from '../../../lib/sherpa/util/SherpaConfig';
 
