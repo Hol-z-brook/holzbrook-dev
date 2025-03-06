@@ -24,8 +24,8 @@ export interface WorkPageData extends AppPageData {
 
 export const workPageData: WorkPageData = {
   id: 'work',
-  title: 'My Career',
-  subtitle: "When work is play, you'll never play another day in your life.",
+  title: 'Portfolio & Expertise',
+  subtitle: 'Senior Frontend Developer | Digital solutions across web and mobile.',
   sections: {
     workExperience: {
       title: 'Work Experience',
