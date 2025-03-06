@@ -9,12 +9,7 @@ const { class: className } = Astro.props;
 ---
 
 <Card
-  class:list={[
-    'aspect-[8.5/11] bg-white shadow-lg hover:shadow-2xl rounded-lg border border-gray-200',
-    'overflow-hidden transition-all duration-500',
-    'transform rotate-[-3deg] hover:rotate-0 hover:scale-105',
-    className,
-  ]}
+  class:list={['aspect-[8.5/11] bg-white shadow-lg rounded-lg border border-gray-200', className]}
 >
   <div class="absolute right-2 top-2 text-blue-500 z-10">
     <svg

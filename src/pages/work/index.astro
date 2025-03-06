@@ -14,6 +14,7 @@ import { workPageData } from './_/work.data';
 import WorkPageSection from './_/WorkPageSection';
 import ResumeSkeleton from './resume/_/ResumeSkeleton.astro';
 import { workSkillsById } from './_/skill';
+import { PrimaryButton } from '../../lib/ui';
 
 const sherpa = makeHomeSherpa();
 ---
@@ -103,30 +104,14 @@ const sherpa = makeHomeSherpa();
 
         <WorkPageSection.Container>
           <WorkPageSection.Title>{workPageData.sections.resume.title}</WorkPageSection.Title>
-          <Center class="mt-12">
-            <App.Link
-              class={`
-                relative
-                w-3/4
-                xs:w-3/4
-                sm:w-2/3
-                md:w-1/2
-                group
-                transition-all
-                duration-300
-                hover:scale-105
-                hover:shadow-2xl
-              `}
-              href={sherpa.work.resume({})}
-              target="_blank"
-            >
-              <div
-                class="absolute -inset-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              >
-              </div>
+          <VStack class="mt-12 items-center gap-4">
+            <div class="w-3/4 xs:w-3/4 sm:w-2/3 md:w-1/2">
               <ResumeSkeleton />
-            </App.Link>
-          </Center>
+            </div>
+            <PrimaryButton class="mt-4">
+              <a href={sherpa.work.resume({})} target="_blank">View Resume</a>
+            </PrimaryButton>
+          </VStack>
         </WorkPageSection.Container>
       </VStack>
     </App.PageSection>
