@@ -1,6 +1,7 @@
 ---
-import { H1, H2, P, Strong } from '../../../lib/ui';
-import { FamilyMemberId, interests, type FamilyMember } from './family.data';
+import { H1, H2, P, Strong } from '../../../../lib/ui';
+import { FamilyMemberId, type FamilyMember } from './FamilyMember';
+import { familyInterestsById } from '../interest';
 
 interface Props {
   member: FamilyMember;
@@ -75,7 +76,7 @@ const emojiBgColor: Record<FamilyMemberId, string> = {
           <H2 class="text-lg font-medium text-gray-600">Interests</H2>
           <div class="flex flex-wrap gap-2">
             {member.interests.map(interestId => {
-              const interest = interests[interestId];
+              const interest = familyInterestsById[interestId];
               return (
                 <Strong
                   class:list={[

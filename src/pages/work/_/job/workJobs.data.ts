@@ -1,4 +1,4 @@
-import { WorkCompanyId } from '../company/WorkCompany';
+import { WorkCompanyId } from '../company';
 
 export const workJobs = [
   {

@@ -1,8 +1,8 @@
-import type { WorkJob } from '../job/WorkJob';
-import type { WorkProficiency } from '../proficiency/WorkProficiency';
-import type { WorkProject } from '../project/WorkProject';
-import type { WorkSkillId, WorkSkill } from '../skill/WorkSkill';
-import type { WorkSkillTag } from '../skillTag/WorkSkillTag';
+import type { WorkJob } from '../job';
+import type { WorkProficiency } from '../proficiency';
+import type { WorkProject } from '../project';
+import type { WorkSkillId, WorkSkill } from '../skill';
+import type { WorkSkillTag } from '../skillTag';
 
 export interface WorkCandidate {
   id: WorkCandidateId;

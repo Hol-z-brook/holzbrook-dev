@@ -1,6 +1,5 @@
 import type { AppPageData } from '../../../lib/app';
-import { andrewCandidate } from './candidate/andrewCandidate.data';
-import { type WorkCandidate } from './candidate/WorkCandidate';
+import { andrewCandidate, type WorkCandidate } from './candidate';
 
 export interface WorkPageData extends AppPageData {
   sections: {

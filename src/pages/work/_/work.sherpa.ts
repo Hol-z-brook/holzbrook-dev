@@ -1,5 +1,9 @@
-import { makeLinkResolver, type LinkResolver } from '../../../lib/sherpa/util/LinkResolver';
-import { defaultSherpaConfig, type SherpaConfig } from '../../../lib/sherpa/util/SherpaConfig';
+import {
+  defaultSherpaConfig,
+  type SherpaConfig,
+  makeLinkResolver,
+  type LinkResolver,
+} from '../../../lib/sherpa';
 
 export interface WorkSherpa {
   index: LinkResolver;

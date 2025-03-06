@@ -1,6 +1,10 @@
-import { makeResourcesSherpa, type ResourcesSherpa } from '../../lib/sherpa/resources.sherpa';
-import { defaultSherpaConfig, type SherpaConfig } from '../../lib/sherpa/util/SherpaConfig';
-import type { LinkResolver } from '../../lib/sherpa/util/LinkResolver';
+import {
+  defaultSherpaConfig,
+  type SherpaConfig,
+  makeResourcesSherpa,
+  type ResourcesSherpa,
+  type LinkResolver,
+} from '../../lib/sherpa';
 import { makePlaySherpa, type PlaySherpa } from '../play/_/play.sherpa';
 import { makeWorkSherpa, type WorkSherpa } from '../work/_/work.sherpa';
 import { makeFamilySherpa, type FamilySherpa } from '../family/_/family.sherpa';

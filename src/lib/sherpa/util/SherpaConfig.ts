@@ -4,7 +4,7 @@ export interface SherpaConfig {
   featureFlags?: AppFeatureFlags;
 }
 
-export const defaultSherpaConfig = {
+export const defaultSherpaConfig: SherpaConfig = {
   featureFlags: {
     testPageEnabled: true,
   },

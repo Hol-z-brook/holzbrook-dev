@@ -1,4 +1,4 @@
-import type { WorkCompanyId } from '../company/WorkCompany';
+import type { WorkCompanyId } from '../company';
 
 export interface WorkJob {
   id: WorkCompanyId;
