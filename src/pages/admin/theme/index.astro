@@ -18,11 +18,10 @@ import { themePageData } from './_/theme.data';
     <App.PageSection>
       <div class="max-w-5xl mx-auto py-16 px-6">
         <PageHeader>
-          <PageHeaderTitle>Pickles UI</PageHeaderTitle>
-          <PageHeaderSubtitle>An opinionated design system</PageHeaderSubtitle>
+          <PageHeaderTitle>{themePageData.title}</PageHeaderTitle>
+          <PageHeaderSubtitle>{themePageData.subtitle}</PageHeaderSubtitle>
           <PageHeaderBody>
-            Because great design isn't made by committee. These are the strong opinions and careful
-            decisions that shape holzbrook.dev into what it is — with a dash of whimsy.
+            {themePageData.intro}
           </PageHeaderBody>
         </PageHeader>
 

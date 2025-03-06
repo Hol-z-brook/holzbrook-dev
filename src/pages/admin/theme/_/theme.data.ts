@@ -18,8 +18,10 @@ const sherpa = makeHomeSherpa();
 
 export const themePageData: ThemePageData = {
   id: 'theme',
-  title: 'Design System',
-  subtitle: 'Explore the building blocks of our design system',
+  title: 'Pickles UI',
+  subtitle: 'An opinionated design system',
+  intro:
+    "Because great design isn't made by committee. These are the strong opinions and careful decisions that shape holzbrook.dev into what it is — with a dash of whimsy.",
   sections: [
     {
       id: 'colors',
