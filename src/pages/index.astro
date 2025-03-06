@@ -2,11 +2,69 @@
 import { ExploreCard, PageHero } from '../lib/ui';
 import App from '../lib/app';
 import { homePageData } from './_/home.data';
+import { workPageData } from './work/_/work.data';
+import { makeHomeSherpa } from './_/home.sherpa';
+
+const sherpa = makeHomeSherpa();
 ---
 
 <App.Page>
   <App.PageBody backgroundColor="bg-gray-100" class="flex flex-col min-h-screen">
     <PageHero title={homePageData.title} subtitle={homePageData.subtitle} />
+
+    <div class="flex justify-center -mt-8">
+      <div
+        class="bg-white rounded-xl shadow-lg p-6 max-w-md w-full mx-6 transform hover:scale-105 transition-all duration-300 hover:shadow-xl border border-gray-100"
+      >
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-xl font-semibold text-gray-800">{workPageData.candidate.name}</h2>
+          <div
+            class="w-10 h-10 bg-gradient-to-br from-orange-100 to-orange-200 rounded-full flex items-center justify-center"
+          >
+            <span class="text-lg">🧑‍💻</span>
+          </div>
+        </div>
+
+        <p class="text-gray-600 font-medium mb-4">{workPageData.candidate.title}</p>
+
+        <div class="space-y-3">
+          <a
+            href={`mailto:${workPageData.candidate.email}`}
+            class="flex items-center text-gray-600 hover:text-primary-600 transition-colors group"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-gray-400 group-hover:text-primary-500"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
+              ></path>
+              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+            </svg>
+            {workPageData.candidate.email}
+          </a>
+
+          <a
+            href={sherpa.work.resume({})}
+            class="flex items-center text-gray-600 hover:text-primary-600 transition-colors group"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-gray-400 group-hover:text-primary-500"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z"
+                clip-rule="evenodd"></path>
+            </svg>
+            View Resume
+          </a>
+        </div>
+      </div>
+    </div>
 
     <section class="py-12">
       <div class="max-w-6xl mx-auto px-6">
