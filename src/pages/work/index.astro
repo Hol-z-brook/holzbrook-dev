@@ -3,7 +3,7 @@ import App from '../../lib/app';
 
 import { Center, PageHero, VStack } from '../../lib/ui';
 
-import { makeSherpa } from '../_/home.sherpa';
+import { makeHomeSherpa } from '../_/home.sherpa';
 
 import { WorkJobCard } from './_/job';
 import { WorkProjectCard } from './_/project';
@@ -14,7 +14,7 @@ import { workPageData } from './_/work.data';
 import WorkPageSection from './_/WorkPageSection';
 import ResumeSkeleton from './resume/_/ResumeSkeleton.astro';
 
-const sherpa = makeSherpa();
+const sherpa = makeHomeSherpa();
 ---
 
 <WorkPage>

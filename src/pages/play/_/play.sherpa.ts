@@ -1,25 +1,12 @@
-import {
-  defaultSherpaConfig,
-  type SherpaConfig,
-  makeLinkResolver,
-  type LinkResolver,
-} from '../../../lib/sherpa';
+import * as Sherpa from '../../../lib/sherpa';
 
 export interface PlaySherpa {
-  boardGames: LinkResolver;
-  discGolf: LinkResolver;
-  index: LinkResolver;
-  reading: LinkResolver;
-  videoGames: LinkResolver;
+  index: Sherpa.LinkResolver;
 }
 
 export const makePlaySherpa = (
   path: string,
-  config: SherpaConfig = defaultSherpaConfig
+  config: Sherpa.SherpaConfig = Sherpa.defaultSherpaConfig
 ): PlaySherpa => ({
-  boardGames: props => makeLinkResolver(`${path}/board-games`, props, config),
-  discGolf: props => makeLinkResolver(`${path}/disc-golf`, props, config),
-  index: props => makeLinkResolver(`${path}`, props, config),
-  reading: props => makeLinkResolver(`${path}/reading`, props, config),
-  videoGames: props => makeLinkResolver(`${path}/video-games`, props, config),
+  index: props => Sherpa.makeLinkResolver(`${path}`, props, config),
 });

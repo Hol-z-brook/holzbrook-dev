@@ -1,16 +1,16 @@
 import {
   defaultSherpaConfig,
-  type SherpaConfig,
   makeResourcesSherpa,
-  type ResourcesSherpa,
   type LinkResolver,
+  type ResourcesSherpa,
+  type SherpaConfig,
 } from '../../lib/sherpa';
 import { makePlaySherpa, type PlaySherpa } from '../play/_/play.sherpa';
 import { makeWorkSherpa, type WorkSherpa } from '../work/_/work.sherpa';
 import { makeFamilySherpa, type FamilySherpa } from '../family/_/family.sherpa';
 import { makeAdminSherpa, type AdminSherpa } from '../admin/_/admin.sherpa';
 
-export interface Sherpa {
+export interface HomeSherpa {
   admin: AdminSherpa;
   family: FamilySherpa;
   home: LinkResolver;
@@ -19,11 +19,11 @@ export interface Sherpa {
   work: WorkSherpa;
 }
 
-export function makeSherpa(config: SherpaConfig = defaultSherpaConfig): Sherpa {
+export function makeHomeSherpa(config: SherpaConfig = defaultSherpaConfig): HomeSherpa {
   return {
+    home: () => '/',
     admin: makeAdminSherpa('/admin', config),
     family: makeFamilySherpa('/family', config),
-    home: () => '/',
     play: makePlaySherpa('/play', config),
     resources: makeResourcesSherpa('/', config),
     work: makeWorkSherpa('/work', config),

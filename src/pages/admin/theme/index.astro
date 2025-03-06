@@ -1,6 +1,6 @@
 ---
 import App, { type AppPageData } from '../../../lib/app';
-import { makeSherpa } from '../../../pages/_/home.sherpa';
+import { makeHomeSherpa } from '../../../pages/_/home.sherpa';
 import {
   GradientBackground,
   H2,
@@ -20,7 +20,7 @@ interface ThemePageData extends AppPageData {
   gradient: string;
 }
 
-const sherpa = makeSherpa();
+const sherpa = makeHomeSherpa();
 
 const themePages: ThemePageData[] = [
   {
