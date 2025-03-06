@@ -9,10 +9,10 @@ export interface WorkPageData extends AppPageData {
     projects: {
       title: string;
     };
-    coreProficiencies: {
+    proficiencies: {
       title: string;
     };
-    technicalSkills: {
+    skills: {
       title: string;
     };
     resume: {
@@ -33,10 +33,10 @@ export const workPageData: WorkPageData = {
     projects: {
       title: 'Projects',
     },
-    coreProficiencies: {
+    proficiencies: {
       title: 'Core Proficiencies',
     },
-    technicalSkills: {
+    skills: {
       title: 'Technical Skills',
     },
     resume: {
