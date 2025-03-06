@@ -25,7 +25,7 @@ export const homePageData: HomePageData = {
   sections: {
     work: {
       title: 'Work',
-      description: 'A journey through my professional experience.',
+      description: 'My work experience, projects, skills, and resume.',
       link: '/work',
       bgColor: 'bg-orange-100',
       cta: 'Explore Career',
@@ -41,7 +41,7 @@ export const homePageData: HomePageData = {
     },
     play: {
       title: 'Play',
-      description: 'YOLO, and I do a lot of it.',
+      description: 'Board games, reading, video games, and more.',
       link: '/play',
       bgColor: 'bg-red-100',
       cta: "See What I'm Playing",
