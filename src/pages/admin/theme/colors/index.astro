@@ -6,8 +6,6 @@ import ThemePage from '../_/ThemePage';
 import ThemePageNav from '../_/ThemePageNav';
 import ThemePageSection from '../_/ThemePageSection';
 
-export const path = 'colors';
-
 const colorScales = Object.entries(theme.colors).filter(([_, value]) => typeof value === 'object');
 const singleColors = Object.entries(theme.colors).filter(([_, value]) => typeof value === 'string');
 
