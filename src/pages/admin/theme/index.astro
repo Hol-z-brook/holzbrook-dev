@@ -1,6 +1,5 @@
 ---
-import App, { type AppPageData } from '../../../lib/app';
-import { makeHomeSherpa } from '../../../pages/_/home.sherpa';
+import App from '../../../lib/app';
 import {
   GradientBackground,
   H2,
@@ -10,68 +9,7 @@ import {
   PageHeaderSubtitle,
   PageHeaderTitle,
 } from '../../../lib/ui';
-
-interface ThemePageData extends AppPageData {
-  id: string;
-  title: string;
-  subtitle: string;
-  href: string;
-  icon: string;
-  gradient: string;
-}
-
-const sherpa = makeHomeSherpa();
-
-const themePages: ThemePageData[] = [
-  {
-    id: 'colors',
-    title: 'Colors',
-    subtitle: 'Color scales, base colors, and gradients.',
-    href: sherpa.admin.theme.colors({}),
-    icon: '🎨',
-    gradient: 'from-rose-500 to-orange-500',
-  },
-  {
-    id: 'typography',
-    title: 'Typography',
-    subtitle: 'Font sizes, weights, and text styles.',
-    href: sherpa.admin.theme.typography({}),
-    icon: '✍️',
-    gradient: 'from-blue-500 to-purple-500',
-  },
-  {
-    id: 'spacing',
-    title: 'Spacing',
-    subtitle: 'Margins, padding, and layout spacing.',
-    href: sherpa.admin.theme.spacing({}),
-    icon: '📏',
-    gradient: 'from-green-500 to-teal-500',
-  },
-  {
-    id: 'border-radius',
-    title: 'Border Radius',
-    subtitle: 'Corner radius values for components.',
-    href: sherpa.admin.theme.borderRadius({}),
-    icon: '⚪',
-    gradient: 'from-amber-500 to-yellow-500',
-  },
-  {
-    id: 'shadows',
-    title: 'Shadows',
-    subtitle: 'Elevation and depth effects.',
-    href: sherpa.admin.theme.shadows({}),
-    icon: '🌗',
-    gradient: 'from-indigo-500 to-blue-500',
-  },
-  {
-    id: 'transitions',
-    title: 'Transitions',
-    subtitle: 'Motion and animation timings.',
-    href: sherpa.admin.theme.transitions({}),
-    icon: '✨',
-    gradient: 'from-purple-500 to-pink-500',
-  },
-];
+import { themePageData } from './_/theme.data';
 ---
 
 <App.Page>
@@ -91,7 +29,7 @@ const themePages: ThemePageData[] = [
         <!-- Theme Navigation -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {
-            themePages.map(({ title, subtitle: description, href, icon, gradient }) => (
+            themePageData.sections.map(({ title, subtitle: description, href, icon, gradient }) => (
               <App.Link
                 href={href}
                 class="group relative overflow-hidden p-6 bg-white rounded-xl border border-gray-200 hover:border-transparent hover:shadow-lg transition-all duration-300"
