@@ -30,14 +30,11 @@ import { playPageData } from './_/play.data';
                 <div>
                   <h2 class="text-3xl font-bold text-gray-800 mb-2">{hobby.name}</h2>
                   <p class="text-xl text-gray-600">{hobby.description}</p>
-                  {hobby.startedYear && (
-                    <p class="text-sm text-gray-500 mt-1">Since {hobby.startedYear}</p>
-                  )}
                 </div>
               </div>
 
               <div class="space-y-10">
-                {hobby.content.sections.map(section => (
+                {hobby.sections.map(section => (
                   <div class="space-y-4">
                     {section.title && (
                       <h3 class="text-2xl font-semibold text-gray-800">{section.title}</h3>

@@ -1,8 +1,13 @@
 import type { AppPageData } from '../../../lib/app';
 import { andrewCandidate, type WorkCandidate } from './candidate';
+import { WorkSkillId } from './skill/WorkSkill';
 
 export interface WorkPageData extends AppPageData {
   sections: {
+    technologies: {
+      title: string;
+      highlights: WorkSkillId[];
+    };
     workExperience: {
       title: string;
     };
@@ -27,6 +32,17 @@ export const workPageData: WorkPageData = {
   title: 'Portfolio & Expertise',
   subtitle: 'Senior Frontend Developer | Digital solutions across web and mobile.',
   sections: {
+    technologies: {
+      title: 'Key Technical Skills',
+      highlights: [
+        WorkSkillId.React,
+        WorkSkillId.Flutter,
+        WorkSkillId.NextJs,
+        WorkSkillId.ResponsiveDesign,
+        WorkSkillId.TypeScript,
+        WorkSkillId.TailwindCSS,
+      ],
+    },
     workExperience: {
       title: 'Work Experience',
     },

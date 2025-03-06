@@ -1,0 +1,81 @@
+---
+import DraggableMenu from './DraggableMenu.astro';
+---
+
+<DraggableMenu id="dev-menu" title="Dev Menu">
+  <div class="space-y-2">
+    <div class="flex items-center justify-between mb-4">
+      <span>Counter:</span>
+      <span id="counter">0</span>
+    </div>
+    <button
+      id="increment"
+      class="w-full py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+    >
+      Increment
+    </button>
+    <a
+      href="/work"
+      class="block text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+      >Work</a
+    >
+    <a
+      href="/work/skills"
+      class="block text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+      >Skills</a
+    >
+    <a
+      href="/work/projects"
+      class="block text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+      >Projects</a
+    >
+  </div>
+</DraggableMenu>
+
+<script>
+  import { devMenuStore } from './DevMenuStore';
+
+  console.log('DevMenu script loaded');
+
+  const counter = document.getElementById('counter');
+  const incrementButton = document.getElementById('increment');
+  let count = 0;
+
+  // Initialize count from store if available
+  const state = devMenuStore.state;
+  if (state?.position?.count !== undefined) {
+    count = state.position.count;
+    if (counter) {
+      counter.textContent = count.toString();
+    }
+  }
+
+  incrementButton?.addEventListener('click', () => {
+    count++;
+    if (counter) {
+      counter.textContent = count.toString();
+    }
+    // Update store with new count
+    const currentState = devMenuStore.state;
+    devMenuStore.setState({
+      position: {
+        ...currentState.position,
+        count,
+      },
+    });
+  });
+
+  // Subscribe to store changes
+  const unsubscribe = devMenuStore.subscribe(state => {
+    console.log('DevMenu received store update:', state);
+    if (counter && state?.position?.count !== undefined) {
+      count = state.position.count;
+      counter.textContent = count.toString();
+    }
+  });
+
+  // Cleanup
+  document.addEventListener('astro:before-swap', () => {
+    unsubscribe();
+  });
+</script>

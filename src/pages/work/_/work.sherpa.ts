@@ -1,9 +1,11 @@
 import {
   defaultSherpaConfig,
-  type SherpaConfig,
   makeLinkResolver,
   type LinkResolver,
+  type SherpaConfig,
 } from '../../../lib/sherpa';
+
+export const path = 'work';
 
 export interface WorkSherpa {
   index: LinkResolver;

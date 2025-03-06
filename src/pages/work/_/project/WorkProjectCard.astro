@@ -1,40 +1,16 @@
 ---
 import { H3, P } from '../../../../lib/ui';
+import { WorkCompanyId } from '../company';
 
 interface Props {
   name: string;
   description: string;
   tech: string[];
+  companyId: WorkCompanyId;
   class?: string;
 }
 
-const { name, description, tech, class: className } = Astro.props;
-
-// Emojis based on project type
-const getProjectEmoji = (name: string) => {
-  const emojis = {
-    'Flutter Desktop': '💻', // Desktop/Cross-platform
-    'Next.js Platform': '🌐', // Web Platform
-    'Web Cart': '🛒', // E-commerce
-    'Marketing Site': '🎯', // Marketing
-  };
-  return emojis[name as keyof typeof emojis] || '📦';
-};
-
-// Tech stack icons mapping
-const getTechIcon = (tech: string) => {
-  const icons: Record<string, string> = {
-    Flutter: '⚡',
-    Dart: '🎯',
-    React: '⚛️',
-    TypeScript: '📘',
-    'Next.js': '▲',
-    'State Management': '🔄',
-    'Prismic CMS': '📝',
-    'Responsive Design': '📱',
-  };
-  return icons[tech] || '💻';
-};
+const { name, description, tech, companyId, class: className } = Astro.props;
 ---
 
 <div
@@ -45,27 +21,21 @@ const getTechIcon = (tech: string) => {
     className,
   ]}
 >
-  <div class="flex items-center space-x-2">
-    <span class="text-2xl">{getProjectEmoji(name)}</span>
-    <H3 class="text-lg sm:text-xl font-semibold text-gray-900">{name}</H3>
+  <div class="flex items-center justify-between">
+    <H3 class="text-xl font-semibold text-gray-900">{name}</H3>
+    <div class="text-sm text-gray-500 font-medium">
+      {companyId}
+    </div>
   </div>
 
-  <P class="text-gray-700">{description}</P>
+  <P class="text-gray-600">{description}</P>
 
-  <div class="flex flex-wrap gap-2">
+  <div class="flex flex-wrap gap-2 pt-2">
     {
-      tech.map(tech => (
-        <div
-          class:list={[
-            'bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full',
-            'flex items-center gap-1',
-            'transition-colors duration-200',
-            'hover:opacity-80',
-          ]}
-        >
-          <span>{getTechIcon(tech)}</span>
-          <span>{tech}</span>
-        </div>
+      tech.map(t => (
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+          {t}
+        </span>
       ))
     }
   </div>

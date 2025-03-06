@@ -14,7 +14,7 @@ const { href, class: className, target }: Props = Astro.props;
       <slot />
     </span>
   ) : (
-    <a href={href} class={className} target={target}>
+    <a href={href} class={className} target={target} data-astro-prefetch>
       <slot />
     </a>
   )

@@ -5,18 +5,20 @@ import {
   type ResourcesSherpa,
   type SherpaConfig,
 } from '../../lib/sherpa';
-import { makePlaySherpa, type PlaySherpa } from '../play/_/play.sherpa';
-import { makeWorkSherpa, type WorkSherpa } from '../work/_/work.sherpa';
-import { makeFamilySherpa, type FamilySherpa } from '../family/_/family.sherpa';
-import { makeAdminSherpa, type AdminSherpa } from '../admin/_/admin.sherpa';
+import { path as playPath, makePlaySherpa, type PlaySherpa } from '../play/_/play.sherpa';
+import { path as workPath, makeWorkSherpa, type WorkSherpa } from '../work/_/work.sherpa';
+import { path as familyPath, makeFamilySherpa, type FamilySherpa } from '../family/_/family.sherpa';
+import { path as adminPath, makeAdminSherpa, type AdminSherpa } from '../admin/_/admin.sherpa';
+
+export const path = '';
 
 export interface HomeSherpa {
-  admin: AdminSherpa;
-  family: FamilySherpa;
   home: LinkResolver;
-  play: PlaySherpa;
+  [adminPath]: AdminSherpa;
+  [familyPath]: FamilySherpa;
+  [playPath]: PlaySherpa;
+  [workPath]: WorkSherpa;
   resources: ResourcesSherpa;
-  work: WorkSherpa;
 }
 
 export function makeHomeSherpa(config: SherpaConfig = defaultSherpaConfig): HomeSherpa {

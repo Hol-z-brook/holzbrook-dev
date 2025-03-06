@@ -7,6 +7,10 @@ interface Props {
 const { href, class: className } = Astro.props;
 ---
 
-<a {href} class={`text-primary-600 hover:text-primary-700 inline-block ${className || ''}`}>
+<a
+  {href}
+  class={`text-primary-600 hover:text-primary-700 inline-block ${className || ''}`}
+  data-astro-prefetch
+>
   &larr; <slot />
 </a>

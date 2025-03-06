@@ -1,18 +1,20 @@
 ---
 interface Props {
-  class?: string;
   href: string;
+  class?: string;
   target?: string;
+  rel?: string;
 }
 
-const { class: className = '', href, target } = Astro.props;
+const { href, class: className = '', target, rel } = Astro.props;
 ---
 
 <a
   href={href}
-  target={target}
   class={`text-primary-600 hover:text-primary-700 transition-colors ${className}`}
-  data-astro-prefetch
+  target={target}
+  rel={rel}
 >
   <slot />
 </a>
+

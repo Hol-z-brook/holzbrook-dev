@@ -1,0 +1,54 @@
+---
+import type { WorkSkill } from './WorkSkill';
+import { workSkillsById } from './workSkillsById.data';
+
+// Get top skills (recruiterValue >= 9)
+const topSkills: WorkSkill[] = Object.values(workSkillsById)
+  .filter(skill => skill.recruiterValue >= 9)
+  .sort((a, b) => b.recruiterValue - a.recruiterValue);
+
+// Get high-value skills (recruiterValue >= 8)
+const highValueSkills: WorkSkill[] = Object.values(workSkillsById)
+  .filter(skill => skill.recruiterValue === 8)
+  .sort((a, b) => b.recruiterValue - a.recruiterValue);
+---
+
+<div class="bg-gradient-to-br from-indigo-50 via-blue-50 to-sky-50 py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl mb-4">Core Technical Expertise</h2>
+      <p class="text-lg text-gray-600">Highly sought-after skills in today's market</p>
+    </div>
+
+    <div class="mb-12">
+      <h3 class="text-xl font-semibold text-gray-900 mb-6 text-center">Most In-Demand Skills</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          topSkills.map((skill: WorkSkill) => (
+            <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-200 p-6 border border-indigo-100">
+              <div class="flex items-center mb-4">
+                <h4 class="text-xl font-bold text-indigo-600">{skill.name}</h4>
+              </div>
+              <p class="text-gray-600 text-sm">{skill.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div>
+      <h3 class="text-xl font-semibold text-gray-900 mb-6 text-center">High-Value Skills</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        {
+          highValueSkills.map((skill: WorkSkill) => (
+            <div class="bg-white bg-opacity-60 rounded-lg p-4 border border-gray-200">
+              <div class="flex items-center">
+                <span class="font-medium text-gray-900">{skill.name}</span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>

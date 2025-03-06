@@ -1,12 +1,14 @@
 ---
 import '/src/styles/global.css';
+import { ClientRouter } from 'astro:transitions';
+import DevMenuClient from '../dev/DevMenuClient.astro';
 
 interface Props {
   class?: string;
   backgroundColor?: string;
 }
 
-const { class: className, backgroundColor }: Props = Astro.props;
+const { class: className, backgroundColor } = Astro.props;
 ---
 
 <!doctype html>
@@ -17,10 +19,47 @@ const { class: className, backgroundColor }: Props = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="google-site-verification" content="UZmaO1uZlFChlPQgquFUNjAd12qbfp60fJL9QW_oxIY" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="view-transition" content="same-origin" />
     <title>Andrew Hol(z)brook</title>
+    <ClientRouter />
   </head>
 
-  <body class=`${backgroundColor ?? 'bg-white'} w-1/1 h-1/1 m-0 ${className}`>
+  <body
+    class={className}
+    style={backgroundColor ? `background-color: ${backgroundColor};` : undefined}
+  >
     <slot />
+    <DevMenuClient />
+    <script>
+      // This script will run on every page
+      console.log('AppPage script loaded');
+
+      // Initialize any global stores here
+      import { devMenuStore } from '../dev/DevMenuStore';
+
+      // You can also create new stores here
+      import { createPersistentStore } from '../store/cookieStorage';
+
+      // Example of creating a new global store
+      interface GlobalState {
+        theme: 'light' | 'dark';
+        lastVisited: string;
+      }
+
+      const globalStore = createPersistentStore<GlobalState>('global_state', {
+        theme: 'light',
+        lastVisited: new Date().toISOString(),
+      });
+
+      // Update last visited on each page load
+      globalStore.setState({
+        lastVisited: new Date().toISOString(),
+      });
+
+      // Subscribe to store changes
+      globalStore.subscribe(state => {
+        console.log('Global state changed:', state);
+      });
+    </script>
   </body>
 </html>

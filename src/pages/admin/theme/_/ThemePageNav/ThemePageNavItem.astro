@@ -7,6 +7,10 @@ interface Props {
 const { href, label } = Astro.props;
 ---
 
-<a href={href} class="block text-sm text-gray-600 hover:text-gray-900 hover:underline">
+<a
+  href={href}
+  class="block text-sm text-gray-600 hover:text-gray-900 hover:underline"
+  data-astro-prefetch
+>
   {label}
 </a>

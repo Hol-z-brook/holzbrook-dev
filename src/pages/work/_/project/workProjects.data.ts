@@ -3,7 +3,8 @@ import { workProjectsById } from './workProjectsById.data';
 
 export const workProjects = [
   workProjectsById[WorkProjectId.FlutterDesktop],
-  workProjectsById[WorkProjectId.NextJsPlatform],
-  workProjectsById[WorkProjectId.WebCart],
-  workProjectsById[WorkProjectId.MarketingSite],
+  workProjectsById[WorkProjectId.NextJsMarketingSite],
+  workProjectsById[WorkProjectId.ReactReduxWebCart],
+  workProjectsById[WorkProjectId.WordPressToReactMigration],
+  workProjectsById[WorkProjectId.QuickNav],
 ];

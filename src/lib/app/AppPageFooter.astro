@@ -8,8 +8,44 @@ const { class: className }: Props = Astro.props;
 
 <footer class={`bg-gray-800 text-white py-6 mt-auto ${className}`}>
   <div class="max-w-6xl mx-auto text-center">
-    <p class="text-sm">
+    <p id="copyright" class="text-sm copyright cursor-pointer select-none">
       &copy; {new Date().getFullYear()} Andrew Hol(z)brook. All rights reserved.
     </p>
   </div>
 </footer>
+
+<script>
+  import { devMenuStore } from '../dev/DevMenuStore';
+
+  console.log('AppPageFooter script loaded');
+
+  // Wait for DOM to be ready
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM Content Loaded');
+    const copyright = document.querySelector('.copyright');
+    console.log('Copyright element found:', copyright);
+
+    let pressTimer: number;
+
+    copyright?.addEventListener('mousedown', e => {
+      console.log('Mouse down event triggered');
+      e.preventDefault();
+      pressTimer = window.setTimeout(() => {
+        console.log('Timer completed, setting isOpen to true');
+        devMenuStore.setState({ isOpen: true });
+      }, 1000);
+    });
+
+    copyright?.addEventListener('mouseup', e => {
+      console.log('Mouse up event triggered');
+      e.preventDefault();
+      clearTimeout(pressTimer);
+    });
+
+    copyright?.addEventListener('mouseleave', e => {
+      console.log('Mouse leave event triggered');
+      e.preventDefault();
+      clearTimeout(pressTimer);
+    });
+  });
+</script>

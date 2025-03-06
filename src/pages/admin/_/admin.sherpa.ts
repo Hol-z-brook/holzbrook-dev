@@ -1,5 +1,7 @@
 import { type SherpaConfig, type LinkResolver, makeLinkResolver } from '../../../lib/sherpa';
-import { makeThemeSherpa, type ThemeSherpa } from '../theme/_/theme.sherpa';
+import { path as themePath, makeThemeSherpa, type ThemeSherpa } from '../theme/_/theme.sherpa';
+
+export const path = 'admin';
 
 export interface AdminSherpa {
   index: LinkResolver;
@@ -9,6 +11,6 @@ export interface AdminSherpa {
 export function makeAdminSherpa(basePath: string, config: SherpaConfig): AdminSherpa {
   return {
     index: props => makeLinkResolver(`${basePath}`, props, config),
-    theme: makeThemeSherpa(`${basePath}/theme`, config),
+    theme: makeThemeSherpa(`${basePath}/${themePath}`, config),
   };
 }

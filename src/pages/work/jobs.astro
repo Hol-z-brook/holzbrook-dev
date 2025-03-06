@@ -1,0 +1,34 @@
+---
+import App from '../../lib/app';
+import { PageHero } from '../../lib/ui';
+import { workJobs } from './_/job';
+import type { WorkJob } from './_/job';
+import WorkJobCard from './_/job/WorkJobCard.astro';
+
+// Sort jobs by most recent first (they're already sorted in the data, but being explicit)
+const sortedJobs: WorkJob[] = [...workJobs].sort((a, b) => {
+  const aYear = parseInt(a.period.split(' - ')[1] || a.period.split(' - ')[0]);
+  const bYear = parseInt(b.period.split(' - ')[1] || b.period.split(' - ')[0]);
+  return bYear - aYear;
+});
+---
+
+<App.Page>
+  <App.PageHeader />
+  <App.PageBody backgroundColor="bg-gray-100" class="flex flex-col min-h-screen">
+    <PageHero
+      title="Work Experience"
+      subtitle="A chronological history of my professional experience"
+    />
+
+    <App.PageSection>
+      <div class="max-w-4xl mx-auto w-full">
+        <div class="mt-12 space-y-8">
+          {sortedJobs.map((job: WorkJob) => <WorkJobCard {...job} />)}
+        </div>
+      </div>
+    </App.PageSection>
+
+    <App.PageFooter />
+  </App.PageBody>
+</App.Page>

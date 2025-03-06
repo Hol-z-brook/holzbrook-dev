@@ -17,12 +17,7 @@ export const workSkillTags = [
   {
     category: WorkSkillTagId.MobileCrossPlatform,
     icon: '📱',
-    skillIds: [
-      WorkSkillId.Flutter,
-      WorkSkillId.Dart,
-      WorkSkillId.ReactNative,
-      WorkSkillId.ResponsiveDesign,
-    ],
+    skillIds: [WorkSkillId.Flutter, WorkSkillId.Dart, WorkSkillId.ResponsiveDesign],
   },
   {
     category: WorkSkillTagId.StateManagement,
@@ -59,11 +54,6 @@ export const workSkillTags = [
   {
     category: WorkSkillTagId.Leadership,
     icon: '👥',
-    skillIds: [
-      WorkSkillId.TeamManagement,
-      WorkSkillId.Mentoring,
-      WorkSkillId.ProjectPlanning,
-      WorkSkillId.TechnicalLeadership,
-    ],
+    skillIds: [WorkSkillId.Mentoring, WorkSkillId.ProjectPlanning, WorkSkillId.TechnicalLeadership],
   },
 ];

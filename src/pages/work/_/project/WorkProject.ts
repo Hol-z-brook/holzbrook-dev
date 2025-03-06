@@ -1,8 +1,12 @@
+import type { WorkCompanyId } from '../company';
+
 export enum WorkProjectId {
   FlutterDesktop = 'Flutter Desktop',
-  NextJsPlatform = 'Next.js Platform',
-  WebCart = 'Web Cart',
-  MarketingSite = 'Marketing Site',
+  DesignerCoversMigration = 'Revamped Designer Covers',
+  NextJsMarketingSite = 'Greenfield Next.js Marketing Site',
+  ReactReduxWebCart = 'Web Cart',
+  WordPressToReactMigration = 'WordPress to React with Prismic Migration',
+  QuickNav = 'QuickNav',
 }
 
 export interface WorkProject {
@@ -10,4 +14,5 @@ export interface WorkProject {
   name: string;
   description: string;
   tech: string[];
+  companyId: WorkCompanyId;
 }

@@ -11,7 +11,7 @@ const { class: className, href, label } = Astro.props;
 <li>
   {
     href ? (
-      <a href={href} class={`text-blue-600 hover:underline ${className}`}>
+      <a href={href} class={`text-blue-600 hover:underline ${className}`} data-astro-prefetch>
         {label}
       </a>
     ) : (

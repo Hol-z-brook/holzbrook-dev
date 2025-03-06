@@ -10,14 +10,9 @@ export interface PlayHobby {
   name: string;
   description: string;
   icon?: string;
-  startedYear?: number;
   favoriteThings?: string[];
-  content: {
-    title: string;
-    subtitle: string;
-    sections: Array<{
-      title?: string;
-      content: string[];
-    }>;
-  };
+  sections: Array<{
+    title?: string;
+    content: string[];
+  }>;
 }

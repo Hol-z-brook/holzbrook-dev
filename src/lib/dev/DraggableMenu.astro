@@ -1,0 +1,129 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  class?: string;
+}
+
+const { id, title, class: className } = Astro.props;
+---
+
+<div
+  class:list={[
+    'fixed z-50 bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 min-w-[300px] cursor-move border border-gray-200 dark:border-gray-700',
+    'hidden',
+    className,
+  ]}
+  id={id}
+  style="left: 20px; top: 20px;"
+>
+  <div class="flex justify-between items-center mb-4">
+    <h3 class="text-lg font-semibold">{title}</h3>
+    <button
+      class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+      id={`close-${id}`}
+    >
+      ×
+    </button>
+  </div>
+  <slot />
+</div>
+
+<script>
+  import { devMenuStore } from './DevMenuStore';
+
+  console.log(`DraggableMenu ${Astro.props.id} script loaded`);
+
+  const menu = document.getElementById(Astro.props.id);
+  const closeButton = document.getElementById(`close-${Astro.props.id}`);
+  let isDragging = false;
+  let startX: number;
+  let startY: number;
+  let initialX: number;
+  let initialY: number;
+
+  // Keep menu within window bounds
+  const constrainToWindow = (x: number, y: number) => {
+    if (!menu) return { x, y };
+
+    const rect = menu.getBoundingClientRect();
+    const maxX = window.innerWidth - rect.width;
+    const maxY = window.innerHeight - rect.height;
+
+    return {
+      x: Math.max(0, Math.min(x, maxX)),
+      y: Math.max(0, Math.min(y, maxY)),
+    };
+  };
+
+  // Update position in store
+  const updatePosition = (x: number, y: number, updateStore = true) => {
+    const constrained = constrainToWindow(x, y);
+    menu!.style.left = `${constrained.x}px`;
+    menu!.style.top = `${constrained.y}px`;
+    if (updateStore) {
+      devMenuStore.setState({
+        position: constrained,
+      });
+    }
+  };
+
+  // Handle window resize
+  window.addEventListener('resize', () => {
+    if (!menu) return;
+    const rect = menu.getBoundingClientRect();
+    const constrained = constrainToWindow(rect.left, rect.top);
+    updatePosition(constrained.x, constrained.y, true);
+  });
+
+  // Mouse event handlers
+  menu?.addEventListener('mousedown', e => {
+    if (e.target === closeButton) return;
+
+    isDragging = true;
+    startX = e.clientX;
+    startY = e.clientY;
+    initialX = menu.offsetLeft;
+    initialY = menu.offsetTop;
+  });
+
+  document.addEventListener('mousemove', e => {
+    if (!isDragging || !menu) return;
+
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+    updatePosition(initialX + dx, initialY + dy, true);
+  });
+
+  document.addEventListener('mouseup', () => {
+    isDragging = false;
+  });
+
+  // Close button handler
+  closeButton?.addEventListener('click', () => {
+    console.log(`Close button clicked for ${Astro.props.id}`);
+    devMenuStore.setState({ isOpen: false });
+  });
+
+  // Subscribe to store changes
+  const unsubscribe = devMenuStore.subscribe(state => {
+    if (!menu) return;
+
+    console.log(`Store state changed for ${Astro.props.id}:`, state);
+    if (state.isOpen) {
+      console.log(`Showing menu ${Astro.props.id}`);
+      menu.classList.remove('hidden');
+      if (state.position) {
+        updatePosition(state.position.x, state.position.y, false);
+      }
+    } else {
+      console.log(`Hiding menu ${Astro.props.id}`);
+      menu.classList.add('hidden');
+    }
+  });
+
+  // Cleanup
+  document.addEventListener('astro:before-swap', () => {
+    unsubscribe();
+  });
+</script>

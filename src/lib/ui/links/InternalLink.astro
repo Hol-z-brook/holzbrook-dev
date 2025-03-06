@@ -1,0 +1,22 @@
+---
+import type { LinkResolver } from '../../sherpa';
+
+interface Props {
+  href: string | LinkResolver;
+  class?: string;
+}
+
+const { href, class: className = '' } = Astro.props;
+
+// If href is a function, call it with empty params
+const resolvedHref = typeof href === 'function' ? href({}) : href;
+---
+
+<a
+  href={resolvedHref}
+  class={`text-primary-600 hover:text-primary-700 transition-colors ${className}`}
+  data-astro-prefetch
+>
+  <slot />
+</a>
+

@@ -1,5 +1,7 @@
 import * as Sherpa from '../../../lib/sherpa';
 
+export const path = 'play';
+
 export interface PlaySherpa {
   index: Sherpa.LinkResolver;
 }

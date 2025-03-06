@@ -5,6 +5,8 @@ import {
   defaultSherpaConfig,
 } from '../../../lib/sherpa';
 
+export const path = 'family';
+
 export interface FamilySherpa {
   index: LinkResolver;
 }
