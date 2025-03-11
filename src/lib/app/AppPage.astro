@@ -6,9 +6,10 @@ import DevMenuClient from '../dev/DevMenuClient.astro';
 interface Props {
   class?: string;
   backgroundColor?: string;
+  noIndex?: boolean;
 }
 
-const { class: className, backgroundColor } = Astro.props;
+const { class: className, backgroundColor, noIndex } = Astro.props;
 ---
 
 <!doctype html>
@@ -20,6 +21,7 @@ const { class: className, backgroundColor } = Astro.props;
     <meta name="google-site-verification" content="UZmaO1uZlFChlPQgquFUNjAd12qbfp60fJL9QW_oxIY" />
     <meta name="generator" content={Astro.generator} />
     <meta name="view-transition" content="same-origin" />
+    {noIndex && <meta name="robots" content="noindex" />}
     <title>Andrew Hol(z)brook</title>
     <ClientRouter />
   </head>
