@@ -4,7 +4,7 @@ export const workJobs = [
   {
     id: WorkCompanyId.Chatbooks,
     company: 'Chatbooks',
-    title: 'Senior Frontend Developer',
+    title: 'Senior Frontend Engineer',
     period: 'March 2019 - December 2024',
     description: 'Supported web and cross-platform initiatives.',
     highlights: [

@@ -5,7 +5,6 @@ import { workJobs } from './_/job';
 import type { WorkJob } from './_/job';
 import WorkJobCard from './_/job/WorkJobCard.astro';
 
-// Sort jobs by most recent first (they're already sorted in the data, but being explicit)
 const sortedJobs: WorkJob[] = [...workJobs].sort((a, b) => {
   const aYear = parseInt(a.period.split(' - ')[1] || a.period.split(' - ')[0]);
   const bYear = parseInt(b.period.split(' - ')[1] || b.period.split(' - ')[0]);
