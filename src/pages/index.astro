@@ -1,6 +1,7 @@
 ---
 import { ExploreCard, PageHero } from '../lib/ui';
 import App from '../lib/app';
+import BusinessCardLink from './_/BusinessCardLink.astro';
 import EmailIcon from './_/EmailIcon.astro';
 import GitHubIcon from './_/GitHubIcon.astro';
 import LinkedInIcon from './_/LinkedInIcon.astro';
@@ -32,45 +33,31 @@ const sherpa = makeHomeSherpa();
         <p class="text-gray-600 font-medium mb-4">{workPageData.candidate.title}</p>
 
         <div class="space-y-3">
-          <a
-            href={`mailto:${workPageData.candidate.email}`}
-            class="flex items-center text-gray-600 hover:text-primary-600 transition-colors group"
-          >
+          <BusinessCardLink href={`mailto:${workPageData.candidate.email}`}>
             <EmailIcon />
             {workPageData.candidate.email}
-          </a>
+          </BusinessCardLink>
 
-          <a
-            href={sherpa.work.resume({})}
-            class="flex items-center text-gray-600 hover:text-primary-600 transition-colors group"
-          >
+          <BusinessCardLink href={sherpa.work.resume({})}>
             <ResumeIcon />
             View Resume
-          </a>
+          </BusinessCardLink>
+
           {
             workPageData.candidate.linkedIn && (
-              <a
-                href={workPageData.candidate.linkedIn}
-                class="flex items-center text-gray-600 hover:text-primary-600 transition-colors group"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <BusinessCardLink href={workPageData.candidate.linkedIn}>
                 <LinkedInIcon />
                 LinkedIn
-              </a>
+              </BusinessCardLink>
             )
           }
+
           {
             workPageData.candidate.github && (
-              <a
-                href={workPageData.candidate.github}
-                class="flex items-center text-gray-600 hover:text-primary-600 transition-colors group"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <BusinessCardLink href={workPageData.candidate.github}>
                 <GitHubIcon />
                 GitHub
-              </a>
+              </BusinessCardLink>
             )
           }
         </div>
