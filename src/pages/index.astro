@@ -1,9 +1,10 @@
 ---
 import { ExploreCard, PageHero } from '../lib/ui';
 import App from '../lib/app';
-import BusinessCardLink from './_/BusinessCardLink.astro';
 import BusinessCardAvatar from './_/BusinessCardAvatar.astro';
+import BusinessCardFullName from './_/BusinessCardFullName.astro';
 import BusinessCardJobTitle from './_/BusinessCardJobTitle.astro';
+import BusinessCardLink from './_/BusinessCardLink.astro';
 import EmailIcon from './_/EmailIcon.astro';
 import GitHubIcon from './_/GitHubIcon.astro';
 import LinkedInIcon from './_/LinkedInIcon.astro';
@@ -11,7 +12,6 @@ import ResumeIcon from './_/ResumeIcon.astro';
 import { makeHomeSherpa } from './_/home.sherpa';
 import { homePageData } from './_/home.data';
 import { workPageData } from './work/_/work.data';
-
 const sherpa = makeHomeSherpa();
 ---
 
@@ -24,7 +24,7 @@ const sherpa = makeHomeSherpa();
         class="bg-white rounded-xl shadow-lg p-6 max-w-md w-full mx-6 transform transition-all duration-300 border border-gray-100"
       >
         <div class="flex items-center justify-between mb-4">
-          <h2 class="text-xl font-semibold text-gray-800">{workPageData.candidate.name}</h2>
+          <BusinessCardFullName>{workPageData.candidate.name}</BusinessCardFullName>
           <BusinessCardAvatar />
         </div>
 
