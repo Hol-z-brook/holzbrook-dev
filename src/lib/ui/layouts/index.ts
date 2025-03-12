@@ -1,4 +1,4 @@
-import * as ExploreCard from './ExploreCard';
+import ExploreCard from './ExploreCard';
 
 export { default as Stack } from './Stack.astro';
 export { default as HStack } from './HStack.astro';
