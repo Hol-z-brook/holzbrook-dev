@@ -1,10 +1,11 @@
 ---
 import { ExploreCard, PageHero } from '../lib/ui';
 import App from '../lib/app';
-import { homePageData } from './_/home.data';
 import EmailIcon from './_/EmailIcon.astro';
-import { workPageData } from './work/_/work.data';
+import ResumeIcon from './_/ResumeIcon.astro';
 import { makeHomeSherpa } from './_/home.sherpa';
+import { homePageData } from './_/home.data';
+import { workPageData } from './work/_/work.data';
 
 const sherpa = makeHomeSherpa();
 ---
@@ -41,17 +42,7 @@ const sherpa = makeHomeSherpa();
             href={sherpa.work.resume({})}
             class="flex items-center text-gray-600 hover:text-primary-600 transition-colors group"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 mr-2 text-gray-400 group-hover:text-primary-500"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z"
-                clip-rule="evenodd"></path>
-            </svg>
+            <ResumeIcon />
             View Resume
           </a>
           {
