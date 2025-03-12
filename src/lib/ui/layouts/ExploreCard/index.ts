@@ -1,4 +1,11 @@
-export { default as Blurb } from './ExploreCardBlurb.astro';
-export { default as Container } from './ExploreCardContainer.astro';
-export { default as Cta } from './ExploreCardCta.astro';
-export { default as Title } from './ExploreCardTitle.astro';
+import Blurb from './ExploreCardBlurb.astro';
+import Container from './ExploreCardContainer.astro';
+import Cta from './ExploreCardCta.astro';
+import Title from './ExploreCardTitle.astro';
+
+export default {
+  Blurb,
+  Container,
+  Cta,
+  Title,
+};
