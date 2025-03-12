@@ -2,6 +2,7 @@
 import { ExploreCard, PageHero } from '../lib/ui';
 import App from '../lib/app';
 import BusinessCardAvatar from './_/BusinessCardAvatar.astro';
+import BusinessCardContainer from './_/BusinessCardContainer.astro';
 import BusinessCardFullName from './_/BusinessCardFullName.astro';
 import BusinessCardJobTitle from './_/BusinessCardJobTitle.astro';
 import BusinessCardLink from './_/BusinessCardLink.astro';
@@ -12,6 +13,7 @@ import ResumeIcon from './_/ResumeIcon.astro';
 import { makeHomeSherpa } from './_/home.sherpa';
 import { homePageData } from './_/home.data';
 import { workPageData } from './work/_/work.data';
+
 const sherpa = makeHomeSherpa();
 ---
 
@@ -20,9 +22,7 @@ const sherpa = makeHomeSherpa();
     <PageHero title={homePageData.title} subtitle={homePageData.subtitle} />
 
     <div class="flex justify-center -mt-8">
-      <div
-        class="bg-white rounded-xl shadow-lg p-6 max-w-md w-full mx-6 transform transition-all duration-300 border border-gray-100"
-      >
+      <BusinessCardContainer>
         <div class="flex items-center justify-between mb-4">
           <BusinessCardFullName>{workPageData.candidate.name}</BusinessCardFullName>
           <BusinessCardAvatar />
@@ -59,7 +59,7 @@ const sherpa = makeHomeSherpa();
             )
           }
         </div>
-      </div>
+      </BusinessCardContainer>
     </div>
 
     <section class="py-12">
