@@ -11,6 +11,9 @@ export interface WorkCandidate {
   email: string;
   phone: string;
   summary: string;
+  website?: string;
+  linkedIn?: string;
+  github?: string;
   jobs: WorkJob[];
   projects: WorkProject[];
   skillTags: WorkSkillTag[];
