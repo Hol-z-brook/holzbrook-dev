@@ -1,11 +1,7 @@
 ---
 import { ExploreCard, PageHero } from '../lib/ui';
 import App from '../lib/app';
-import BusinessCardAvatar from './_/BusinessCardAvatar.astro';
-import BusinessCardContainer from './_/BusinessCardContainer.astro';
-import BusinessCardFullName from './_/BusinessCardFullName.astro';
-import BusinessCardJobTitle from './_/BusinessCardJobTitle.astro';
-import BusinessCardLink from './_/BusinessCardLink.astro';
+import BusinessCard from './_/BusinessCard';
 import EmailIcon from './_/EmailIcon.astro';
 import GitHubIcon from './_/GitHubIcon.astro';
 import LinkedInIcon from './_/LinkedInIcon.astro';
@@ -22,44 +18,44 @@ const sherpa = makeHomeSherpa();
     <PageHero title={homePageData.title} subtitle={homePageData.subtitle} />
 
     <div class="flex justify-center -mt-8">
-      <BusinessCardContainer>
+      <BusinessCard.Container>
         <div class="flex items-center justify-between mb-4">
-          <BusinessCardFullName>{workPageData.candidate.name}</BusinessCardFullName>
-          <BusinessCardAvatar />
+          <BusinessCard.FullName>{workPageData.candidate.name}</BusinessCard.FullName>
+          <BusinessCard.Avatar />
         </div>
 
-        <BusinessCardJobTitle>{workPageData.candidate.title}</BusinessCardJobTitle>
+        <BusinessCard.JobTitle>{workPageData.candidate.title}</BusinessCard.JobTitle>
 
         <div class="space-y-3">
-          <BusinessCardLink href={`mailto:${workPageData.candidate.email}`}>
+          <BusinessCard.Link href={`mailto:${workPageData.candidate.email}`}>
             <EmailIcon />
             {workPageData.candidate.email}
-          </BusinessCardLink>
+          </BusinessCard.Link>
 
-          <BusinessCardLink href={sherpa.work.resume({})}>
+          <BusinessCard.Link href={sherpa.work.resume({})}>
             <ResumeIcon />
             View Resume
-          </BusinessCardLink>
+          </BusinessCard.Link>
 
           {
             workPageData.candidate.linkedIn && (
-              <BusinessCardLink href={workPageData.candidate.linkedIn}>
+              <BusinessCard.Link href={workPageData.candidate.linkedIn}>
                 <LinkedInIcon />
                 LinkedIn
-              </BusinessCardLink>
+              </BusinessCard.Link>
             )
           }
 
           {
             workPageData.candidate.github && (
-              <BusinessCardLink href={workPageData.candidate.github}>
+              <BusinessCard.Link href={workPageData.candidate.github}>
                 <GitHubIcon />
                 GitHub
-              </BusinessCardLink>
+              </BusinessCard.Link>
             )
           }
         </div>
-      </BusinessCardContainer>
+      </BusinessCard.Container>
     </div>
 
     <section class="py-12">
