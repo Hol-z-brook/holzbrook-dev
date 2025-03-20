@@ -13,14 +13,7 @@ interface Props {
 const { name, description, tech, companyId, class: className } = Astro.props;
 ---
 
-<div
-  class:list={[
-    'bg-white rounded-lg shadow-md p-6 space-y-4',
-    'transition-all duration-300 ease-in-out',
-    'hover:shadow-lg hover:-translate-y-1',
-    className,
-  ]}
->
+<div class:list={['bg-white rounded-lg shadow-md p-6 space-y-4', className]}>
   <div class="flex items-center justify-between">
     <H3 class="text-xl font-semibold text-gray-900">{name}</H3>
     <div class="text-sm text-gray-500 font-medium">{companyId}</div>
