@@ -4,7 +4,7 @@ export const hobbiesById: Record<PlayHobbyId, PlayHobby> = {
   [PlayHobbyId.DiscGolf]: {
     id: PlayHobbyId.DiscGolf,
     name: 'Disc Golf',
-    description: "3 Aces and 1 Faux Ace. Always chasin' the next one!",
+    description: "3 Aces (one with an asterisk). Always chasin' the next one!",
     icon: '🥏',
     sections: [
       {
@@ -14,6 +14,7 @@ export const hobbiesById: Record<PlayHobbyId, PlayHobby> = {
           'I was immediately hooked.',
           'That day, I looked up local courses and found a lot to pick from, so I chose Art Dye in American Fork to visit first. I drove my long commute from Cottonwood Heights back down to Utah County, stopped by Art Dye Park and went to find the disc golf course. Like magic, there it was. A huge course with 18 holes with chain catchers and everything.',
           'I was so excited about it, I called up my parents and told them I found them a new sport.',
+          'The asterisk ace is because it was at hole 12 in Scera Park in Orem, and there was a truck in the fairway, so we chose a different, but equidistant, spot to throw from.',
         ],
       },
     ],
