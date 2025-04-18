@@ -19,7 +19,7 @@ export const workJobs = [
     id: WorkCompanyId.SlingTV,
     company: 'Sling TV',
     title: 'Senior Software Engineer',
-    period: 'Feb 2018 - March 2019',
+    period: 'February 2018 - March 2019',
     description: 'Developed core features using AngularJS, SASS, and Redux',
     highlights: [
       'Developed core features using AngularJS, SASS, and Redux, driving increased user engagement.',
@@ -31,7 +31,7 @@ export const workJobs = [
     id: WorkCompanyId.MasterControl,
     company: 'MasterControl',
     title: 'Software Engineer II',
-    period: '2014 - Feb 2018',
+    period: 'January 2014 - February 2018',
     description: 'Individual contributor taking on a variety of software development tasks.',
     highlights: [
       'Received Innovation Award for the QuickNav feature, significantly reducing task completion time.',
