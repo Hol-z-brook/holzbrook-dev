@@ -2,6 +2,7 @@ export * from './backgrounds';
 export * from './breadcrumbs';
 export * from './buttons';
 export * from './heroes';
+export * from './icons';
 export * from './layouts';
 export * from './lists';
 export * from './navigation';
