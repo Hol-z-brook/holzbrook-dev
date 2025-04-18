@@ -32,9 +32,9 @@ const sherpa = makeHomeSherpa();
             {workPageData.candidate.email}
           </BusinessCard.Link>
 
-          <BusinessCard.Link href={sherpa.work.resume({})}>
+          <BusinessCard.Link href={sherpa.work.resumePdf()} download="Andrew Holbrook Resume.pdf">
             <ResumeIcon />
-            View Resume
+            Download Resume (PDF)
           </BusinessCard.Link>
 
           {

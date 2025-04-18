@@ -2,9 +2,10 @@
 interface Props {
   href: string;
   target?: string;
+  download?: string;
 }
 
-const { href, target = '_blank' }: Props = Astro.props;
+const { href, target = '_blank', download }: Props = Astro.props;
 ---
 
 <a
@@ -12,6 +13,7 @@ const { href, target = '_blank' }: Props = Astro.props;
   class="flex items-center text-gray-600 hover:text-primary-600 transition-colors group"
   target={target}
   rel="noopener noreferrer"
+  download={download}
 >
   <slot />
 </a>

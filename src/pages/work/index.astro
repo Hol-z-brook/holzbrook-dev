@@ -2,9 +2,7 @@
 import App from '../../lib/app';
 
 import { PageHero, VStack } from '../../lib/ui';
-
 import { makeHomeSherpa } from '../_/home.sherpa';
-
 import { WorkJobCard } from './_/job';
 import { WorkProjectCard } from './_/project';
 import { WorkSkillCard } from './_/skill';
@@ -12,9 +10,10 @@ import { WorkSkillTagCard } from './_/skillTag';
 import { WorkPage } from './_/WorkPage';
 import { workPageData } from './_/work.data';
 import WorkPageSection from './_/WorkPageSection';
-import ResumeSkeleton from './resume/_/ResumeSkeleton.astro';
 import { workSkillsById } from './_/skill';
 import { PrimaryButton } from '../../lib/ui';
+import ResumeSkeleton from './_internal/resume/_/ResumeSkeleton.astro';
+import DownloadIcon from '../../components/DownloadIcon.astro';
 
 const sherpa = makeHomeSherpa();
 ---
@@ -109,7 +108,10 @@ const sherpa = makeHomeSherpa();
               <ResumeSkeleton />
             </div>
             <PrimaryButton class="mt-4">
-              <a href={sherpa.work.resume({})} target="_blank">View Resume</a>
+              <a href={sherpa.work.resumePdf()} download class="flex items-center gap-2">
+                <DownloadIcon />
+                Download Resume
+              </a>
             </PrimaryButton>
           </VStack>
         </WorkPageSection.Container>

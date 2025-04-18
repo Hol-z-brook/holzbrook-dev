@@ -9,7 +9,8 @@ export const path = 'work';
 
 export interface WorkSherpa {
   index: LinkResolver;
-  resume: LinkResolver;
+  internalResumePage: LinkResolver;
+  resumePdf: () => string;
 }
 
 export const makeWorkSherpa = (
@@ -17,5 +18,6 @@ export const makeWorkSherpa = (
   config: SherpaConfig = defaultSherpaConfig
 ): WorkSherpa => ({
   index: props => makeLinkResolver(`${path}`, props, config),
-  resume: props => makeLinkResolver(`${path}/resume`, props, config),
+  internalResumePage: props => makeLinkResolver(`${path}/_internal/resume`, props, config),
+  resumePdf: () => '/files/andrew-holbrook-resume.pdf',
 });

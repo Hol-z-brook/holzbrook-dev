@@ -21,7 +21,7 @@ export const sherpaSections: SherpaSection[] = [
     label: 'Work',
     items: [
       { key: 'work.index', href: sherpa.work.index({}), label: 'Work' },
-      { key: 'work.resume', href: sherpa.work.resume({}), label: 'Resume' },
+      { key: 'work.resume', href: sherpa.work.internalResumePage({}), label: 'Resume' },
     ],
   },
   {
