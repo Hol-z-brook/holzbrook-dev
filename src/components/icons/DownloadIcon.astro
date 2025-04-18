@@ -1,0 +1,30 @@
+---
+import type { IconProps } from './IconProps';
+
+/**
+ * Download icon component that can be used to indicate file downloads.
+ * Supports both filled and outlined styles, custom sizing, and colors.
+ */
+interface Props extends IconProps {}
+
+const {
+  class: className = '',
+  size = 5,
+  color = 'currentColor',
+  filled = false,
+}: Props = Astro.props;
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  class={`h-${size} w-${size} ${className}`}
+  fill={filled ? color : 'none'}
+  viewBox="0 0 24 24"
+  stroke={color}
+>
+  <path
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="2"
+    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+</svg>
