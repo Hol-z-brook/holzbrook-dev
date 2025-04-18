@@ -90,25 +90,12 @@ import { workPageData } from '../../_/work.data';
     {
       workPageData.candidate.jobs.map(job => (
         <article>
-          <header
-            class="
-            font-semibold
-            text-base
-            text-gray-900
-          "
-          >
-            {job.company} - {job.title} <span class="text-gray-600">({job.period})</span>
+          <header class="font-semibold text-base text-gray-900 flex items-baseline">
+            <span class="mr-2">{job.company}</span>
+            <span class="font-normal italic text-gray-800 mr-auto">- {job.title}</span>
+            <span class="text-gray-700 text-sm">{job.period}</span>
           </header>
-          <ul
-            class="
-            list-disc
-            ml-6
-            mt-1.5
-            space-y-0.5
-            text-sm
-            text-gray-700
-          "
-          >
+          <ul class="list-disc ml-6 mt-1.5 space-y-0.5 text-sm text-gray-700">
             {job.highlights.map(highlight => (
               <li>
                 <span class={highlight.includes(':') ? 'text-gray-900' : 'text-gray-600'}>
