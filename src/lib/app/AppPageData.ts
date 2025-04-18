@@ -1,5 +1,7 @@
+import type { PageId } from './PageId';
+
 export interface AppPageData {
-  id: string;
+  id: PageId;
   title: string;
   subtitle?: string;
   intro?: string;
