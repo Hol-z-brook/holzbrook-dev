@@ -1,1 +1,1 @@
-export * as BusinessCard from './BusinessCard';
+export * as HomePageBusinessCard from './HomePageBusinessCard';
