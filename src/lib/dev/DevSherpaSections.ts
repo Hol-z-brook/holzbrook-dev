@@ -1,4 +1,4 @@
-import { makeHomeSherpa } from '../../pages/_/home.sherpa';
+import { makeHomeSherpa } from '../../pages/_/homePage.sherpa';
 
 const sherpa = makeHomeSherpa();
 

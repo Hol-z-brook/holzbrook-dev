@@ -2,26 +2,46 @@
 import AppLogoLink from './AppLogoLink.astro';
 import AppNavMenu from './AppNavMenu.astro';
 import AppNavMenuItem from './AppNavMenuItem.astro';
-import { makeHomeSherpa } from '../../pages/_/home.sherpa';
+import { makeHomeSherpa } from '../../pages/_/homePage.sherpa';
 
 const sherpa = makeHomeSherpa();
 
 interface Props {
   class?: string;
+  logoLinkHref?: string;
+  navMenuItems?: {
+    href: string;
+    text: string;
+  }[];
 }
 
-const { class: className }: Props = Astro.props;
+const {
+  class: className,
+  logoLinkHref = sherpa.home({}),
+  navMenuItems = [
+    {
+      href: sherpa.work.index({}),
+      text: 'Work',
+    },
+    {
+      href: sherpa.family.index({}),
+      text: 'Family',
+    },
+    {
+      href: sherpa.play.index({}),
+      text: 'Play',
+    },
+  ],
+}: Props = Astro.props;
 ---
 
 <header
   class={`fixed top-0 left-0 right-0 z-50 bg-orange-300 shadow-md w-full flex justify-between items-center h-24 ${className}`}
 >
   <div class="my-4 px-4 md:px-0 max-w-screen-md w-full mx-auto flex justify-between items-center">
-    <AppLogoLink class="inline p-0 m-0" />
+    <AppLogoLink class="inline p-0 m-0" href={logoLinkHref} />
     <AppNavMenu>
-      <AppNavMenuItem href={sherpa.work.index({})}>Work</AppNavMenuItem>
-      <AppNavMenuItem href={sherpa.family.index({})}>Family</AppNavMenuItem>
-      <AppNavMenuItem href={sherpa.play.index({})}>Play</AppNavMenuItem>
+      {navMenuItems.map(item => <AppNavMenuItem href={item.href}>{item.text}</AppNavMenuItem>)}
     </AppNavMenu>
   </div>
 </header>
