@@ -5,11 +5,12 @@ interface Props {
   as?: keyof HTMLElementTagNameMap;
   class?: string;
   spacing?: SpacingValue;
+  'data-testid'?: string;
 }
 
-const { as: Tag = 'div', class: className = '', spacing = '2' }: Props = Astro.props;
+const { as: Tag = 'div', class: className = '', 'data-testid': dataTestId }: Props = Astro.props;
 ---
 
-<Tag class={`flex flex-col ${className}`}>
+<Tag class={`flex flex-col ${className}`} data-testid={dataTestId}>
   <slot />
 </Tag>

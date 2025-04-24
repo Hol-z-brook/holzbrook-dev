@@ -4,9 +4,10 @@ import type { LinkResolver } from '../../sherpa';
 interface Props {
   href: string | LinkResolver;
   class?: string;
+  'data-testid'?: string;
 }
 
-const { href, class: className = '' } = Astro.props;
+const { href, class: className = '', 'data-testid': dataTestId } = Astro.props;
 
 // If href is a function, call it with empty params
 const resolvedHref = typeof href === 'function' ? href({}) : href;
@@ -16,6 +17,7 @@ const resolvedHref = typeof href === 'function' ? href({}) : href;
   href={resolvedHref}
   class={`text-primary-600 hover:text-primary-700 transition-colors ${className}`}
   data-astro-prefetch
+  data-testid={dataTestId}
 >
   <slot />
 </a>

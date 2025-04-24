@@ -6,6 +6,7 @@ interface Props {
   class?: string;
   spacing?: SpacingValue;
   direction?: 'column' | 'row' | 'flex-row' | 'flex-col';
+  'data-testid'?: string;
 }
 
 const {
@@ -13,12 +14,13 @@ const {
   direction = 'column',
   spacing = '4',
   class: className = '',
+  'data-testid': dataTestId,
 }: Props = Astro.props;
 
 const directionClass = direction === 'row' ? 'flex-row' : 'flex-col';
 const spacingClass = `gap-${spacing}`;
 ---
 
-<Tag class={`flex ${directionClass} ${spacingClass} ${className}`}>
+<Tag class={`flex ${directionClass} ${spacingClass} ${className}`} data-testid={dataTestId}>
   <slot />
 </Tag>

@@ -1,7 +1,8 @@
-import type { AppPageData } from '../../../lib/app';
+import type { LandingPage } from '@/lib/ui/layouts/LandingPage';
+
 import { familyMembers, type FamilyMember } from './member';
 
-export interface FamilyPageData extends AppPageData {
+export interface FamilyPageData extends LandingPage.Data {
   familyMembers: FamilyMember[];
 }
 

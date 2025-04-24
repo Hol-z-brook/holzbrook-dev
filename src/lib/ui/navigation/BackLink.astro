@@ -1,16 +1,16 @@
 ---
+import Link from './Link.astro';
+
 interface Props {
   href: string;
   class?: string;
+  'data-testid'?: string;
 }
 
-const { href, class: className } = Astro.props;
+const { href, class: className, 'data-testid': dataTestId }: Props = Astro.props;
 ---
 
-<a
-  {href}
-  class={`text-primary-600 hover:text-primary-700 inline-block ${className || ''}`}
-  data-astro-prefetch
->
-  &larr; <slot />
-</a>
+<Link href={href} class={`flex items-center gap-2 ${className}`} data-testid={dataTestId}>
+  <span>←</span>
+  <slot />
+</Link>

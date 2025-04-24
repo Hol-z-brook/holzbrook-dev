@@ -1,26 +1,30 @@
 ---
-import App from '../../lib/app';
-import { PageHero, VStack } from '../../lib/ui';
-import { FamilyMemberCard } from './_/member';
-import { familyPageData } from './_/family.data';
+import { FamilyMemberCard } from '@/pages/family/_/member';
+import { familyPageData } from '@/pages/family/_/family.data';
+import { LandingPage } from '@/lib/ui/layouts/LandingPage';
+import { PageHero, VStack } from '@/lib/ui';
 ---
 
-<App.Page>
-  <App.PageHeader />
+<LandingPage.Container title={familyPageData.title}>
+  <LandingPage.Header />
 
-  <App.PageBody backgroundColor="bg-gray-100" class="flex flex-col min-h-screen">
-    <PageHero title={familyPageData.title} subtitle={familyPageData.subtitle} />
+  <LandingPage.Body backgroundColor="bg-gray-100" class="flex flex-col min-h-screen">
+    <PageHero
+      data-testid="family-hero"
+      title={familyPageData.title}
+      subtitle={familyPageData.subtitle}
+    />
 
-    <App.PageSection>
-      <VStack class="space-y-6">
+    <LandingPage.Section>
+      <VStack data-testid="family-members-list" class="space-y-6">
         {
           familyPageData.familyMembers.map(familyMember => (
             <FamilyMemberCard member={familyMember} />
           ))
         }
       </VStack>
-    </App.PageSection>
+    </LandingPage.Section>
 
-    <App.PageFooter />
-  </App.PageBody>
-</App.Page>
+    <LandingPage.Footer />
+  </LandingPage.Body>
+</LandingPage.Container>

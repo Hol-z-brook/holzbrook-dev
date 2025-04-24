@@ -1,7 +1,7 @@
-import type { AppPageData } from '../../../lib/app';
+import { LandingPage } from '@/lib/ui/layouts';
 import { hobbies, type PlayHobby } from './hobby';
 
-export interface PlayPageData extends AppPageData {
+export interface PlayPageData extends LandingPage.Data {
   title: string;
   subtitle: string;
   introduction?: string[];

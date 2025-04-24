@@ -4,11 +4,12 @@ import Button from './Button.astro';
 interface Props {
   radius?: string;
   class?: string;
+  'data-testid'?: string;
 }
 
-const { radius, class: className } = Astro.props;
+const { radius, class: className, 'data-testid': dataTestId } = Astro.props;
 ---
 
-<Button variant="outlined" radius={radius} class={className}>
+<Button variant="outlined" radius={radius} class={className} data-testid={dataTestId}>
   <slot />
 </Button>

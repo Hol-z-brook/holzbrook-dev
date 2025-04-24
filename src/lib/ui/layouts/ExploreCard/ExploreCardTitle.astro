@@ -3,11 +3,12 @@ import { H2 } from '../../typography';
 
 interface Props {
   class?: string;
+  'data-testid'?: string;
 }
 
-const { class: className, ...rest } = Astro.props;
+const { class: className, 'data-testid': dataTestId }: Props = Astro.props;
 ---
 
-<H2 {...rest} class={`text-3xl mb-4 ${className ?? ''}`}>
+<h3 class={`text-2xl font-bold mb-4 ${className}`} data-testid={dataTestId}>
   <slot />
-</H2>
+</h3>

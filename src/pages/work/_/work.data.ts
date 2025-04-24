@@ -1,27 +1,50 @@
-import type { AppPageData } from '../../../lib/app';
+import { LandingPage } from '@/lib/ui/layouts';
 import { andrewCandidate, type WorkCandidate } from './candidate';
 import { WorkSkillId } from './skill/WorkSkill';
 
-export interface WorkPageData extends AppPageData {
+export interface WorkPageData extends LandingPage.Data {
   sections: {
-    technologies: {
+    professionalProfile: {
       title: string;
-      highlights: WorkSkillId[];
+      description: string;
+      sections: {
+        resume: {
+          title: string;
+          description: string;
+        };
+        coverLetter: {
+          title: string;
+          description: string;
+        };
+        statement: {
+          title: string;
+          description: string;
+        };
+      };
     };
-    workExperience: {
+    companies: {
       title: string;
+      description: string;
     };
     projects: {
       title: string;
+      description: string;
     };
-    proficiencies: {
+    expertise: {
       title: string;
-    };
-    skills: {
-      title: string;
-    };
-    resume: {
-      title: string;
+      description: string;
+      sections: {
+        technologies: {
+          title: string;
+          highlights: WorkSkillId[];
+        };
+        proficiencies: {
+          title: string;
+        };
+        skills: {
+          title: string;
+        };
+      };
     };
   };
   candidate: WorkCandidate;
@@ -32,31 +55,54 @@ export const workPageData: WorkPageData = {
   title: 'Portfolio & Expertise',
   subtitle: 'Senior Frontend Engineer | Digital solutions across web and mobile.',
   sections: {
-    technologies: {
-      title: 'Key Technical Skills',
-      highlights: [
-        WorkSkillId.React,
-        WorkSkillId.Flutter,
-        WorkSkillId.NextJs,
-        WorkSkillId.ResponsiveDesign,
-        WorkSkillId.TypeScript,
-        WorkSkillId.TailwindCSS,
-      ],
+    professionalProfile: {
+      title: 'Professional Profile',
+      description: 'A comprehensive overview of my professional journey and approach',
+      sections: {
+        resume: {
+          title: 'Resume',
+          description: 'Download my detailed professional history',
+        },
+        coverLetter: {
+          title: 'Cover Letter',
+          description: 'My approach to collaboration and problem-solving',
+        },
+        statement: {
+          title: 'Professional Statement',
+          description: 'My career philosophy and values',
+        },
+      },
     },
-    workExperience: {
+    companies: {
       title: 'Work Experience',
+      description: 'A chronological history of my professional journey',
     },
     projects: {
       title: 'Projects',
+      description: 'Detailed showcase of my work and contributions',
     },
-    proficiencies: {
-      title: 'Core Proficiencies',
-    },
-    skills: {
-      title: 'Technical Skills',
-    },
-    resume: {
-      title: 'Resume',
+    expertise: {
+      title: 'Technical Expertise',
+      description: 'My skills and technical capabilities',
+      sections: {
+        technologies: {
+          title: 'Key Technical Skills',
+          highlights: [
+            WorkSkillId.React,
+            WorkSkillId.Flutter,
+            WorkSkillId.NextJs,
+            WorkSkillId.ResponsiveDesign,
+            WorkSkillId.TypeScript,
+            WorkSkillId.TailwindCSS,
+          ],
+        },
+        proficiencies: {
+          title: 'Core Proficiencies',
+        },
+        skills: {
+          title: 'Technical Skills',
+        },
+      },
     },
   },
   candidate: andrewCandidate,

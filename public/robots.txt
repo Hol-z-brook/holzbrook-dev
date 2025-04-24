@@ -2,8 +2,10 @@
 # Full syntax: https://developers.google.com/search/docs/advanced/robots/create-robots-txt
 
 User-agent: *
-# Disallow admin and configuration pages
-Disallow: /admin/
-Disallow: /admin/theme/
+# Disallow internal pages
+Disallow: /work/_/
+Disallow: /family/_/
+Disallow: /play/_/
+Disallow: /_/
 # Allow all other pages
 Allow: /

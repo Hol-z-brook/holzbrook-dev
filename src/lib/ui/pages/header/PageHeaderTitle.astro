@@ -3,11 +3,12 @@ import H1 from '../../typography/H1.astro';
 
 interface Props {
   class?: string;
+  'data-testid'?: string;
 }
 
-const { class: className } = Astro.props;
+const { class: className, 'data-testid': dataTestId } = Astro.props;
 ---
 
-<H1 class={className}>
+<H1 class={className} data-testid={dataTestId}>
   <slot />
 </H1>

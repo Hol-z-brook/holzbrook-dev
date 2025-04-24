@@ -1,0 +1,58 @@
+---
+import { PageHero, VStack, PrimaryButton, LandingPage } from '../../../lib/ui';
+import { projectData, type MenuItem } from './_/data/projects';
+
+interface Props {
+  project: MenuItem;
+}
+
+const title = 'Projects';
+const description = 'A showcase of my work and contributions';
+---
+
+<LandingPage.Container
+  backgroundColor="bg-gray-100"
+  class={`
+    flex
+    flex-col
+    min-h-screen
+  `}
+>
+  <PageHero data-testid="work-projects-hero" title={title} subtitle={description} class="w-full" />
+
+  <LandingPage.Body
+    class={`
+      w-full
+      py-12
+      sm:py-16
+      md:py-20
+      space-y-32
+    `}
+  >
+    <VStack class="gap-12">
+      <div class="w-full max-w-4xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {
+            projectData.menu.map((project: MenuItem) => (
+              <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-200">
+                <div class="flex flex-col h-full">
+                  <div class="flex items-center justify-between mb-4">
+                    <span class="text-sm font-medium text-indigo-600">{project.company}</span>
+                    <span class="text-sm text-gray-500">{project.timeToCover} min read</span>
+                  </div>
+                  <h3 class="text-xl font-semibold text-gray-900 mb-2">{project.headline}</h3>
+                  <p class="text-gray-600 mb-4 flex-grow">{project.subheadline}</p>
+                  <PrimaryButton>
+                    <a href={`/projects/${project.id}`} class="block w-full text-center">
+                      View Project
+                    </a>
+                  </PrimaryButton>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </VStack>
+  </LandingPage.Body>
+</LandingPage.Container>

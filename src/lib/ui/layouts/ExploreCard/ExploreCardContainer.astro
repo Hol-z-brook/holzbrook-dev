@@ -1,15 +1,13 @@
 ---
 interface Props {
-  bgColor: string;
   class?: string;
+  bgColor?: string;
+  'data-testid'?: string;
 }
 
-const { bgColor, class: className, ...rest } = Astro.props;
+const { class: className, bgColor = 'bg-white', 'data-testid': dataTestId }: Props = Astro.props;
 ---
 
-<div
-  class={`flex-1 flex flex-col justify-between p-8 rounded-2xl shadow-lg ${bgColor} text-center ${className ?? ''}`}
-  {...rest}
->
+<div class={`p-6 rounded-lg shadow-sm ${bgColor} ${className}`} data-testid={dataTestId}>
   <slot />
 </div>

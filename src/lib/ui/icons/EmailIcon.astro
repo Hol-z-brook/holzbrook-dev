@@ -1,27 +1,17 @@
 ---
-import type { IconProps } from './IconProps';
+import { Icon } from 'astro-icon/components';
 
 /**
  * Email icon component that can be used to indicate email addresses or email-related actions.
  * Supports both filled and outlined styles, custom sizing, and colors.
  */
-interface Props extends IconProps {}
+interface Props {
+  class?: string;
+  size?: number;
+  color?: string;
+}
 
-const {
-  class: className = '',
-  size = 5,
-  color = 'currentColor',
-  filled = true,
-}: Props = Astro.props;
+const { class: className, size, color } = Astro.props;
 ---
 
-<svg
-  xmlns="http://www.w3.org/2000/svg"
-  class={`h-${size} w-${size} ${className}`}
-  viewBox="0 0 20 20"
-  fill={filled ? color : 'none'}
-  stroke={!filled ? color : undefined}
->
-  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-</svg>
+<Icon name="local:email" class={className} size={size} color={color} />

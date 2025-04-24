@@ -3,9 +3,15 @@ interface Props {
   variant?: 'primary' | 'outlined';
   radius?: string;
   class?: string;
+  'data-testid'?: string;
 }
 
-const { variant = 'primary', radius = '4px', class: className = '' } = Astro.props;
+const {
+  variant = 'primary',
+  radius = '4px',
+  class: className = '',
+  'data-testid': dataTestId,
+} = Astro.props;
 
 const baseStyles =
   'h-8 flex items-center justify-center px-4 text-sm font-medium shadow-sm transition-all duration-200';
@@ -20,6 +26,7 @@ const variantStyles = {
 <button
   class={`${baseStyles} ${variantStyles[variant]} ${className}`}
   style={`border-radius: ${radius}`}
+  data-testid={dataTestId}
 >
   <slot />
 </button>

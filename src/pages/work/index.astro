@@ -1,24 +1,21 @@
 ---
-import App from '../../lib/app';
+import { LandingPage } from '@/lib/ui/layouts';
+import { PageHero, VStack, PrimaryButton } from '@/lib/ui';
+import { WorkJobCard } from '@/pages/work/_/job';
+import { WorkProjectCard } from '@/pages/work/_/project';
+import { WorkSkillCard } from '@/pages/work/_/skill';
+import { WorkSkillTagCard } from '@/pages/work/_/skillTag';
+import { WorkPageSection } from '@/pages/work/_/WorkPageSection';
+import { workSkillsById } from '@/pages/work/_/skill';
 
-import { DownloadIcon, PageHero, VStack } from '../../lib/ui';
-import { makeHomeSherpa } from '../_/homePage.sherpa';
-import { WorkJobCard } from './_/job';
-import { WorkProjectCard } from './_/project';
-import { WorkSkillCard } from './_/skill';
-import { WorkSkillTagCard } from './_/skillTag';
-import { WorkPage } from './_/WorkPage';
 import { workPageData } from './_/work.data';
-import WorkPageSection from './_/WorkPageSection';
-import { workSkillsById } from './_/skill';
-import { PrimaryButton } from '../../lib/ui';
-import ResumeSkeleton from './_internal/resume/_/ResumeSkeleton.astro';
+import { WorkPage } from './_/WorkPage';
 
-const sherpa = makeHomeSherpa();
+const { companies, projects, expertise, professionalProfile } = workPageData.sections;
 ---
 
-<WorkPage>
-  <App.PageBody
+<WorkPage title={workPageData.title}>
+  <LandingPage.Body
     backgroundColor="bg-gray-100"
     class={`
       flex
@@ -26,9 +23,14 @@ const sherpa = makeHomeSherpa();
       min-h-screen
     `}
   >
-    <PageHero title={workPageData.title} subtitle={workPageData.subtitle} class="w-full" />
+    <PageHero
+      data-testid="work-hero"
+      title={workPageData.title}
+      subtitle={workPageData.subtitle}
+      class="w-full"
+    />
 
-    <App.PageSection
+    <LandingPage.Section
       class={`
         w-full
         py-12
@@ -37,85 +39,87 @@ const sherpa = makeHomeSherpa();
         space-y-32
       `}
     >
-      <VStack
-        class={`
-          gap-12
-        `}
-      >
-        <WorkPageSection.Container>
-          <WorkPageSection.Title>
-            {workPageData.sections.technologies.title}
-          </WorkPageSection.Title>
-          <div class="w-full flex flex-col items-center">
-            <div class="flex flex-wrap gap-3 justify-center">
-              {
-                workPageData.sections.technologies.highlights.map(skillId => (
-                  <div class="px-4 py-2 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-full shadow-sm border border-indigo-100 text-indigo-700 font-medium hover:shadow-md hover:from-blue-100 hover:to-indigo-100 transition-all duration-200 text-sm">
-                    {workSkillsById[skillId].name}
-                  </div>
-                ))
-              }
+      <VStack class="gap-12">
+        <WorkPageSection.Container data-testid="profile-section">
+          <WorkPageSection.Title>{professionalProfile.title}</WorkPageSection.Title>
+          <p class="text-gray-600 mb-6">{professionalProfile.description}</p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div
+              class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+              data-testid="resume-card"
+            >
+              <h3 class="text-lg font-semibold mb-2">
+                {professionalProfile.sections.resume.title}
+              </h3>
+              <p class="text-gray-600 mb-4">{professionalProfile.sections.resume.description}</p>
+              <PrimaryButton>
+                <a href="/work/profile" class="block w-full text-center"> View Profile</a>
+              </PrimaryButton>
             </div>
           </div>
         </WorkPageSection.Container>
 
-        <WorkPageSection.Container>
-          <WorkPageSection.Title>
-            {workPageData.sections.proficiencies.title}
-          </WorkPageSection.Title>
-          <WorkPageSection.Grid>
-            {workPageData.candidate.proficiencies.map(skill => <WorkSkillCard {...skill} />)}
-          </WorkPageSection.Grid>
-        </WorkPageSection.Container>
-
-        <WorkPageSection.Container>
-          <WorkPageSection.Title>
-            {workPageData.sections.workExperience.title}
-          </WorkPageSection.Title>
+        <WorkPageSection.Container data-testid="companies-section">
+          <WorkPageSection.Title>{companies.title}</WorkPageSection.Title>
+          <p class="text-gray-600 mb-6">{companies.description}</p>
           {workPageData.candidate.jobs.map(job => <WorkJobCard {...job} />)}
         </WorkPageSection.Container>
 
-        <WorkPageSection.Container>
-          <WorkPageSection.Title>{workPageData.sections.projects.title}</WorkPageSection.Title>
+        <WorkPageSection.Container data-testid="projects-section">
+          <WorkPageSection.Title>{projects.title}</WorkPageSection.Title>
+          <p class="text-gray-600 mb-6">{projects.description}</p>
           <WorkPageSection.Grid>
             {workPageData.candidate.projects.map(project => <WorkProjectCard {...project} />)}
           </WorkPageSection.Grid>
         </WorkPageSection.Container>
 
-        <WorkPageSection.Container>
-          <WorkPageSection.Title>
-            {workPageData.sections.skills.title}
-          </WorkPageSection.Title>
-          <WorkPageSection.Grid>
-            {
-              workPageData.candidate.skillTags.map(category => (
-                <WorkSkillTagCard
-                  category={category.category}
-                  skills={workPageData.candidate.skills}
-                  skillIds={category.skillIds}
-                  icon={category.icon}
-                />
-              ))
-            }
-          </WorkPageSection.Grid>
-        </WorkPageSection.Container>
+        <WorkPageSection.Container data-testid="expertise-section">
+          <WorkPageSection.Title>{expertise.title}</WorkPageSection.Title>
+          <p class="text-gray-600 mb-6">{expertise.description}</p>
 
-        <WorkPageSection.Container>
-          <WorkPageSection.Title>{workPageData.sections.resume.title}</WorkPageSection.Title>
-          <VStack class="mt-12 items-center gap-4">
-            <div class="w-3/4 xs:w-3/4 sm:w-2/3 md:w-1/2">
-              <ResumeSkeleton />
+          <div class="space-y-12">
+            <div data-testid="tech-highlights">
+              <h3 class="text-xl font-medium mb-4">{expertise.sections.technologies.title}</h3>
+              <div class="flex flex-wrap gap-3 justify-center">
+                {
+                  expertise.sections.technologies.highlights.map(skillId => (
+                    <div
+                      data-testid="tech-highlight"
+                      class="px-4 py-2 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-full shadow-sm border border-indigo-100 text-indigo-700 font-medium hover:shadow-md hover:from-blue-100 hover:to-indigo-100 transition-all duration-200 text-sm"
+                    >
+                      {workSkillsById[skillId].name}
+                    </div>
+                  ))
+                }
+              </div>
             </div>
-            <PrimaryButton class="mt-4">
-              <a href={sherpa.work.resumePdf()} download class="flex items-center gap-2">
-                <DownloadIcon />
-                Download Resume
-              </a>
-            </PrimaryButton>
-          </VStack>
+
+            <div data-testid="proficiencies-section">
+              <h3 class="text-xl font-medium mb-4">{expertise.sections.proficiencies.title}</h3>
+              <WorkPageSection.Grid>
+                {workPageData.candidate.proficiencies.map(skill => <WorkSkillCard {...skill} />)}
+              </WorkPageSection.Grid>
+            </div>
+
+            <div data-testid="skills-section">
+              <h3 class="text-xl font-medium mb-4">{expertise.sections.skills.title}</h3>
+              <WorkPageSection.Grid>
+                {
+                  workPageData.candidate.skillTags.map(category => (
+                    <WorkSkillTagCard
+                      category={category.category}
+                      skills={workPageData.candidate.skills}
+                      skillIds={category.skillIds}
+                      icon={category.icon}
+                    />
+                  ))
+                }
+              </WorkPageSection.Grid>
+            </div>
+          </div>
         </WorkPageSection.Container>
       </VStack>
-    </App.PageSection>
-    <App.PageFooter />
-  </App.PageBody>
+    </LandingPage.Section>
+    <LandingPage.Footer />
+  </LandingPage.Body>
 </WorkPage>

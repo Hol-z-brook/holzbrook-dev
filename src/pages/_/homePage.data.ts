@@ -1,4 +1,4 @@
-import type { AppPageData } from '../../lib/app';
+import type { LandingPage } from '@/lib/ui/layouts/LandingPage';
 
 export interface HomePageExploreSection {
   title: string;
@@ -9,7 +9,7 @@ export interface HomePageExploreSection {
   ctaClass: string;
 }
 
-export interface HomePageData extends AppPageData {
+export interface HomePageData extends LandingPage.Data {
   sections: {
     work: HomePageExploreSection;
     family: HomePageExploreSection;

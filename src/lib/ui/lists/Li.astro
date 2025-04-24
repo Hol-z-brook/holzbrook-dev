@@ -1,11 +1,12 @@
 ---
 interface Props {
   class?: string;
+  'data-testid'?: string;
 }
 
-const { class: className = '' } = Astro.props;
+const { class: className = '', 'data-testid': dataTestId } = Astro.props;
 ---
 
-<li class={`text-gray-600 ${className}`}>
+<li class={`text-gray-600 ${className}`} data-testid={dataTestId}>
   <slot />
 </li>

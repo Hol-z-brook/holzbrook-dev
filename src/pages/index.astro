@@ -1,17 +1,18 @@
 ---
-import { EmailIcon, GitHubIcon, LinkedInIcon, ResumeIcon, ExploreCard, PageHero } from '../lib/ui';
-import App from '../lib/app';
-import { HomePageBusinessCard } from './_/ui';
-import { makeHomeSherpa } from './_/homePage.sherpa';
-import { homePageData } from './_/homePage.data';
-import { workPageData } from './work/_/work.data';
+import { Icon } from 'astro-icon/components';
+import { ExploreCard, PageHero } from '@/lib/ui';
+import { HomePageBusinessCard } from '@/pages/_/ui';
+import { makeHomeSherpa } from '@/pages/_/homePage.sherpa';
+import { homePageData } from '@/pages/_/homePage.data';
+import { workPageData } from '@/pages/work/_/work.data';
+import { LandingPage } from '@/lib/ui/layouts/LandingPage';
 
 const sherpa = makeHomeSherpa();
 ---
 
-<App.Page>
-  <App.PageBody backgroundColor="bg-gray-100" class="flex flex-col min-h-screen">
-    <PageHero title={homePageData.title} subtitle={homePageData.subtitle} />
+<LandingPage.Container>
+  <LandingPage.Body backgroundColor="bg-gray-100" class="flex flex-col min-h-screen">
+    <PageHero data-testid="home-hero" title={homePageData.title} subtitle={homePageData.subtitle} />
 
     <div class="flex justify-center -mt-8">
       <HomePageBusinessCard.Container>
@@ -28,7 +29,7 @@ const sherpa = makeHomeSherpa();
 
         <div class="space-y-3">
           <HomePageBusinessCard.Link href={`mailto:${workPageData.candidate.email}`}>
-            <EmailIcon />
+            <Icon name="email" class="w-6 h-6" />
             {workPageData.candidate.email}
           </HomePageBusinessCard.Link>
 
@@ -36,14 +37,14 @@ const sherpa = makeHomeSherpa();
             href={sherpa.work.resumePdf()}
             download="Andrew Holbrook Resume.pdf"
           >
-            <ResumeIcon />
+            <Icon name="file-document" class="w-6 h-6" />
             Download Resume (PDF)
           </HomePageBusinessCard.Link>
 
           {
             workPageData.candidate.linkedIn && (
               <HomePageBusinessCard.Link href={workPageData.candidate.linkedIn}>
-                <LinkedInIcon />
+                <Icon name="linkedin" class="w-6 h-6" />
                 LinkedIn
               </HomePageBusinessCard.Link>
             )
@@ -52,7 +53,7 @@ const sherpa = makeHomeSherpa();
           {
             workPageData.candidate.github && (
               <HomePageBusinessCard.Link href={workPageData.candidate.github}>
-                <GitHubIcon />
+                <Icon name="github" class="w-6 h-6" />
                 GitHub
               </HomePageBusinessCard.Link>
             )
@@ -64,7 +65,10 @@ const sherpa = makeHomeSherpa();
     <section class="py-12">
       <div class="max-w-6xl mx-auto px-6">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <ExploreCard.Container bgColor={homePageData.sections.work.bgColor}>
+          <ExploreCard.Container
+            bgColor={homePageData.sections.work.bgColor}
+            class="flex flex-col items-center text-center"
+          >
             <ExploreCard.Title>
               {homePageData.sections.work.title}
             </ExploreCard.Title>
@@ -79,7 +83,10 @@ const sherpa = makeHomeSherpa();
             </ExploreCard.Cta>
           </ExploreCard.Container>
 
-          <ExploreCard.Container bgColor={homePageData.sections.family.bgColor}>
+          <ExploreCard.Container
+            bgColor={homePageData.sections.family.bgColor}
+            class="flex flex-col items-center text-center"
+          >
             <ExploreCard.Title>
               {homePageData.sections.family.title}
             </ExploreCard.Title>
@@ -94,7 +101,10 @@ const sherpa = makeHomeSherpa();
             </ExploreCard.Cta>
           </ExploreCard.Container>
 
-          <ExploreCard.Container bgColor={homePageData.sections.play.bgColor}>
+          <ExploreCard.Container
+            bgColor={homePageData.sections.play.bgColor}
+            class="flex flex-col items-center text-center"
+          >
             <ExploreCard.Title>
               {homePageData.sections.play.title}
             </ExploreCard.Title>
@@ -112,6 +122,6 @@ const sherpa = makeHomeSherpa();
       </div>
     </section>
 
-    <App.PageFooter />
-  </App.PageBody>
-</App.Page>
+    <LandingPage.Footer />
+  </LandingPage.Body>
+</LandingPage.Container>

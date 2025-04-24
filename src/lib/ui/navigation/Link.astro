@@ -1,24 +1,17 @@
 ---
 interface Props {
+  href: string;
   class?: string;
-  href?: string;
-  target?: string;
+  'data-testid'?: string;
 }
 
-const { class: className = '', href, target } = Astro.props;
+const { href, class: className, 'data-testid': dataTestId }: Props = Astro.props;
 ---
 
-{
-  !href ? (
-    <slot />
-  ) : (
-    <a
-      href={href}
-      target={target}
-      class={`text-primary-600 hover:text-primary-700 transition-colors ${className}`}
-      data-astro-prefetch
-    >
-      <slot />
-    </a>
-  )
-}
+<a
+  href={href}
+  class={`text-gray-700 hover:text-gray-900 transition-colors duration-200 ${className}`}
+  data-testid={dataTestId}
+>
+  <slot />
+</a>

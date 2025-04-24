@@ -1,0 +1,70 @@
+---
+import { PageHero, VStack, PrimaryButton, LandingPage } from '../../../lib/ui';
+import { workPageData } from '../_/work.data';
+import { WorkPage } from '../_/WorkPage';
+import { WorkPageSection } from '../_/WorkPageSection';
+import { DownloadIcon } from '../../../lib/ui';
+
+const { professionalProfile } = workPageData.sections;
+---
+
+<WorkPage>
+  <LandingPage.Container
+    backgroundColor="bg-gray-100"
+    class={`
+      flex
+      flex-col
+      min-h-screen
+    `}
+  >
+    <PageHero
+      data-testid="work-profile-hero"
+      title={professionalProfile.title}
+      subtitle={professionalProfile.description}
+      class="w-full"
+    />
+
+    <LandingPage.Body
+      class={`
+        w-full
+        py-12
+        sm:py-16
+        md:py-20
+        space-y-32
+      `}
+    >
+      <VStack class="gap-12">
+        <WorkPageSection.Container>
+          <WorkPageSection.Title>{professionalProfile.sections.resume.title}</WorkPageSection.Title>
+          <p class="text-gray-600 mb-6">{professionalProfile.sections.resume.description}</p>
+          <PrimaryButton>
+            <a href="/resume.pdf" download class="flex items-center gap-2">
+              <DownloadIcon class="w-6 h-6" />
+              Download Resume
+            </a>
+          </PrimaryButton>
+        </WorkPageSection.Container>
+
+        <WorkPageSection.Container>
+          <WorkPageSection.Title>
+            {professionalProfile.sections.coverLetter.title}
+          </WorkPageSection.Title>
+          <p class="text-gray-600 mb-6">{professionalProfile.sections.coverLetter.description}</p>
+          <div class="prose max-w-none">
+            <p>Coming soon...</p>
+          </div>
+        </WorkPageSection.Container>
+
+        <WorkPageSection.Container>
+          <WorkPageSection.Title>
+            {professionalProfile.sections.statement.title}
+          </WorkPageSection.Title>
+          <p class="text-gray-600 mb-6">{professionalProfile.sections.statement.description}</p>
+          <div class="prose max-w-none">
+            <p>Coming soon...</p>
+          </div>
+        </WorkPageSection.Container>
+      </VStack>
+    </LandingPage.Body>
+  </LandingPage.Container>
+</WorkPage>

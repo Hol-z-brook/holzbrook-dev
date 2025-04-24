@@ -2,9 +2,10 @@
 interface Props {
   href: string;
   class?: string;
+  'data-testid'?: string;
 }
 
-const { href, class: className = '' } = Astro.props;
+const { href, class: className = '', 'data-testid': dataTestId } = Astro.props;
 
 // Ensure the URL is external
 if (!href.startsWith('http://') && !href.startsWith('https://')) {
@@ -17,6 +18,7 @@ if (!href.startsWith('http://') && !href.startsWith('https://')) {
   class={`text-primary-600 hover:text-primary-700 transition-colors ${className}`}
   target="_blank"
   rel="noopener noreferrer"
+  data-testid={dataTestId}
 >
   <slot />
 </a>

@@ -4,9 +4,10 @@ interface Props {
   class?: string;
   target?: string;
   rel?: string;
+  'data-testid'?: string;
 }
 
-const { href, class: className = '', target, rel } = Astro.props;
+const { href, class: className = '', target, rel, 'data-testid': dataTestId } = Astro.props;
 ---
 
 <a
@@ -14,6 +15,7 @@ const { href, class: className = '', target, rel } = Astro.props;
   class={`text-primary-600 hover:text-primary-700 transition-colors ${className}`}
   target={target}
   rel={rel}
+  data-testid={dataTestId}
 >
   <slot />
 </a>

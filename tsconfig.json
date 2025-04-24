@@ -4,6 +4,14 @@
   "exclude": ["dist"],
   "compilerOptions": {
     "jsx": "preserve",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "bundler",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@e2e/*": ["e2e/*"]
+    },
+    "strict": true,
+    "noImplicitAny": true
   }
 }

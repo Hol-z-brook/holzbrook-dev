@@ -1,0 +1,15 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className }: Props = Astro.props;
+---
+
+<footer class={`bg-gray-800 text-white py-6 mt-auto ${className}`}>
+  <div class="max-w-6xl mx-auto text-center">
+    <p id="copyright" class="text-sm copyright cursor-pointer select-none">
+      &copy; {new Date().getFullYear()} Andrew Hol(z)brook. All rights reserved.
+    </p>
+  </div>
+</footer>
