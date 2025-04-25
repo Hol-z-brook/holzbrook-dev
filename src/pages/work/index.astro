@@ -1,6 +1,5 @@
 ---
-import { LandingPage } from '@/lib/ui/layouts';
-import { PageHero, VStack, PrimaryButton } from '@/lib/ui';
+import { LandingPage, PageHero, VStack, PrimaryButton } from '@/lib/ui';
 import { WorkJobCard } from '@/pages/work/_/job';
 import { WorkProjectCard } from '@/pages/work/_/project';
 import { WorkSkillCard } from '@/pages/work/_/skill';
@@ -43,18 +42,111 @@ const { companies, projects, expertise, professionalProfile } = workPageData.sec
         <WorkPageSection.Container data-testid="profile-section">
           <WorkPageSection.Title>{professionalProfile.title}</WorkPageSection.Title>
           <p class="text-gray-600 mb-6">{professionalProfile.description}</p>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div
-              class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+              class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-100"
               data-testid="resume-card"
             >
-              <h3 class="text-lg font-semibold mb-2">
-                {professionalProfile.sections.resume.title}
-              </h3>
-              <p class="text-gray-600 mb-4">{professionalProfile.sections.resume.description}</p>
-              <PrimaryButton>
-                <a href="/work/profile" class="block w-full text-center"> View Profile</a>
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 bg-indigo-50 rounded-full flex items-center justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 text-indigo-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    ></path>
+                  </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800">
+                  {professionalProfile.sections.resume.title}
+                </h3>
+              </div>
+              <p class="text-gray-600 mb-6">{professionalProfile.sections.resume.description}</p>
+              <PrimaryButton class="w-full">
+                <a href="/work/profile" class="block w-full text-center">View Full Profile</a>
               </PrimaryButton>
+            </div>
+
+            <div
+              class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-100"
+            >
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 text-blue-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    ></path>
+                  </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800">Professional Highlights</h3>
+              </div>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <svg
+                    class="h-5 w-5 text-green-500 mt-0.5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-600">10+ years of software development experience</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg
+                    class="h-5 w-5 text-green-500 mt-0.5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-600"
+                    >Expert in full-stack development and system architecture</span
+                  >
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg
+                    class="h-5 w-5 text-green-500 mt-0.5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-600"
+                    >Proven track record of leading successful projects</span
+                  >
+                </li>
+              </ul>
             </div>
           </div>
         </WorkPageSection.Container>

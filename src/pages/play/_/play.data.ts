@@ -1,4 +1,4 @@
-import { LandingPage } from '@/lib/ui/layouts';
+import { LandingPage } from '@/lib/ui';
 import { hobbies, type PlayHobby } from './hobby';
 
 export interface PlayPageData extends LandingPage.Data {

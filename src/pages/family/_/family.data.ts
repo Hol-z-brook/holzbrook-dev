@@ -1,4 +1,4 @@
-import type { LandingPage } from '@/lib/ui/layouts/LandingPage';
+import type { LandingPage } from '@/lib/ui';
 
 import { familyMembers, type FamilyMember } from './member';
 

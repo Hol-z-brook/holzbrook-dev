@@ -1,8 +1,7 @@
 ---
-import AppLogoLink from '@/lib/app/AppLogoLink.astro';
+import { App } from '@/lib/app';
 import { makeHomeSherpa } from '@/pages/_/homePage.sherpa';
-import LandingPageNavMenu from '@/lib/ui/layouts/LandingPage/LandingPageNavMenu.astro';
-import LandingPageNavMenuItem from '@/lib/ui/layouts/LandingPage/LandingPageNavMenuItem.astro';
+import { LandingPage } from '@/lib/ui';
 
 const sherpa = makeHomeSherpa();
 
@@ -39,14 +38,14 @@ const {
   class={`fixed top-0 left-0 right-0 z-50 bg-orange-300 shadow-md w-full flex justify-between items-center h-24 ${className}`}
 >
   <div class="my-4 px-4 md:px-0 max-w-screen-md w-full mx-auto flex justify-between items-center">
-    <AppLogoLink class="inline p-0 m-0" href={logoLinkHref} />
-    <LandingPageNavMenu>
+    <App.LogoLink class="inline p-0 m-0" href={logoLinkHref} />
+    <LandingPage.NavMenu>
       {
         navMenuItems.map(item => (
-          <LandingPageNavMenuItem href={item.href}>{item.text}</LandingPageNavMenuItem>
+          <LandingPage.NavMenuItem href={item.href}>{item.text}</LandingPage.NavMenuItem>
         ))
       }
-    </LandingPageNavMenu>
+    </LandingPage.NavMenu>
   </div>
 </header>
 <div class="h-24">{' '}</div>

@@ -4,4 +4,4 @@ export { default as HStack } from './HStack.astro';
 export { default as VStack } from './VStack.astro';
 export { default as Center } from './Center.astro';
 export { default as Card } from './Card.astro';
-export * from './LandingPage';
+export { LandingPage } from './LandingPage';

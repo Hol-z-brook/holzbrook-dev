@@ -1,4 +1,4 @@
-import { LandingPage } from '@/lib/ui/layouts';
+import { LandingPage } from '@/lib/ui';
 import { andrewCandidate, type WorkCandidate } from './candidate';
 import { WorkSkillId } from './skill/WorkSkill';
 
