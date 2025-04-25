@@ -1,8 +1,9 @@
 ---
+import TechSkillsHero from '@/lib/domain/work/skill/TechSkillsHero.astro';
+import { WorkSkillId } from '@/lib/domain/work/skill/WorkSkill';
+import { workSkillsById } from '@/lib/domain/work/skill/workSkillsById.data';
+import { workSkillTags } from '@/lib/domain/work/skillTag/workSkillTags.data';
 import { LandingPage, PageHero } from '@/lib/ui';
-import { workSkillsById, WorkSkillId } from './_/skill';
-import { workSkillTags } from './_/skillTag';
-import TechSkillsHero from './_/skill/TechSkillsHero.astro';
 
 // Sort all skills by recruiter value
 const sortedSkills = Object.values(workSkillsById).sort(

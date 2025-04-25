@@ -1,0 +1,33 @@
+---
+import { H3, P } from '@/lib/ui';
+import type { WorkCompanyId } from '../company/WorkCompany';
+
+interface Props {
+  name: string;
+  description: string;
+  tech: string[];
+  companyId: WorkCompanyId;
+  class?: string;
+}
+
+const { name, description, tech, companyId, class: className } = Astro.props;
+---
+
+<div class:list={['bg-white rounded-lg shadow-md p-6 space-y-4', className]}>
+  <div class="flex items-center justify-between">
+    <H3 class="text-xl font-semibold text-gray-900">{name}</H3>
+    <div class="text-sm text-gray-500 font-medium">{companyId}</div>
+  </div>
+
+  <P class="text-gray-600">{description}</P>
+
+  <div class="flex flex-wrap gap-2 pt-2">
+    {
+      tech.map(t => (
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+          {t}
+        </span>
+      ))
+    }
+  </div>
+</div>

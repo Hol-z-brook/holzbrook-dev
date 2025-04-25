@@ -1,14 +1,14 @@
 ---
 import { LandingPage, PageHero, VStack, PrimaryButton, DownloadIcon } from '@/lib/ui';
-import { WorkJobCard } from '@/pages/work/_/job';
-import { WorkProjectCard } from '@/pages/work/_/project';
-import { WorkSkillCard } from '@/pages/work/_/skill';
-import { WorkSkillTagCard } from '@/pages/work/_/skillTag';
-import { WorkPageSection } from '@/pages/work/_/WorkPageSection';
-import { workSkillsById } from '@/pages/work/_/skill';
 
-import { workPageData } from './_/work.data';
+import { workPageData } from './_/workPage.data';
 import { WorkPage } from './_/WorkPage';
+import { WorkPageSection } from './_/WorkPageSection';
+import WorkJobCard from '@/lib/domain/work/job/WorkJobCard.astro';
+import WorkProjectCard from '@/lib/domain/work/project/WorkProjectCard.astro';
+import { workSkillsById } from '@/lib/domain/work/skill/workSkillsById.data';
+import WorkSkillCard from '@/lib/domain/work/skill/WorkSkillCard.astro';
+import WorkSkillTagCard from '@/lib/domain/work/skillTag/WorkSkillTagCard.astro';
 
 const { companies, projects, expertise, professionalProfile } = workPageData.sections;
 ---

@@ -1,8 +1,8 @@
 ---
+import type { WorkJob } from '@/lib/domain/work/job/WorkJob';
+import WorkJobCard from '@/lib/domain/work/job/WorkJobCard.astro';
+import { workJobs } from '@/lib/domain/work/job/workJobs.data';
 import { LandingPage, PageHero } from '@/lib/ui';
-import { workJobs } from './_/job';
-import type { WorkJob } from './_/job';
-import WorkJobCard from './_/job/WorkJobCard.astro';
 
 const sortedJobs: WorkJob[] = [...workJobs].sort((a, b) => {
   const aYear = parseInt(a.period.split(' - ')[1] || a.period.split(' - ')[0]);

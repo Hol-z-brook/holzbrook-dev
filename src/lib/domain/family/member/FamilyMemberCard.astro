@@ -1,0 +1,102 @@
+---
+import { H1, H2, P, Strong } from '../../../../lib/ui';
+import { familyInterestsById } from '../familyInterestsById.data';
+import { FamilyMemberId, type FamilyMember } from './FamilyMember';
+
+interface Props {
+  member: FamilyMember;
+  class?: string;
+}
+
+const { member, class: className } = Astro.props;
+
+if (!member) {
+  return null;
+}
+
+// Get specific background color based on family member ID
+const emojiBgColor: Record<FamilyMemberId, string> = {
+  [FamilyMemberId.Andrew]: 'bg-orange-200',
+  [FamilyMemberId.Brooke]: 'bg-purple-300',
+  [FamilyMemberId.Oakley]: 'bg-pink-200',
+  [FamilyMemberId.Finn]: 'bg-blue-200',
+  [FamilyMemberId.Leo]: 'bg-green-200',
+  [FamilyMemberId.Wren]: 'bg-purple-200',
+};
+---
+
+<section
+  data-testid="family-member-card"
+  class:list={['bg-white rounded-lg shadow-sm border border-gray-200 p-6', className]}
+>
+  <div class="flex flex-col gap-6">
+    {/* Header section */}
+    <div class="space-y-2">
+      <div class="flex items-center gap-4">
+        <div
+          data-testid="member-emoji"
+          class:list={[
+            'w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center text-3xl flex-shrink-0 shadow-sm',
+            emojiBgColor[member.id],
+          ]}
+        >
+          {member.emoji}
+        </div>
+        <H1 data-testid="member-name">{member.firstName}</H1>
+      </div>
+      <div class="space-y-1 text-sm text-gray-600">
+        <P data-testid="member-role"><Strong>Role:</Strong> {member.role}</P>
+        <P data-testid="member-middle-name">
+          <Strong>Middle Name:</Strong>
+          <span>{member.middleName}</span>
+        </P>
+        {
+          member.nickName && (
+            <P data-testid="member-nickname">
+              <Strong>Nickname:</Strong>
+              <span>{member.nickName}</span>
+            </P>
+          )
+        }
+      </div>
+    </div>
+
+    {/* Bio section */}
+    {
+      member.bio && (
+        <div class="space-y-2" data-testid="member-bio-section">
+          <H2 class="text-lg font-medium text-gray-600">About</H2>
+          <div class="prose prose-gray max-w-none">
+            <P data-testid="member-bio">{member.bio}</P>
+          </div>
+        </div>
+      )
+    }
+
+    {/* Interests section */}
+    {
+      member.interests && member.interests.length > 0 && (
+        <div class="space-y-2" data-testid="member-interests-section">
+          <H2 class="text-lg font-medium text-gray-600">Interests</H2>
+          <div class="flex flex-wrap gap-2">
+            {member.interests.map(interestId => {
+              const interest = familyInterestsById[interestId];
+              return (
+                <Strong
+                  data-testid="member-interest"
+                  class:list={[
+                    'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium transition-colors duration-200 hover:opacity-80',
+                    interest.color,
+                  ]}
+                >
+                  <span>{interest.emoji}</span>
+                  {interest.name}
+                </Strong>
+              );
+            })}
+          </div>
+        </div>
+      )
+    }
+  </div>
+</section>
