@@ -4,10 +4,10 @@ import {
   type LinkResolver,
   type ResourcesSherpa,
   type SherpaConfig,
-} from '../../lib/sherpa';
-import { path as playPath, makePlaySherpa, type PlaySherpa } from '../play/_/play.sherpa';
+} from '../../sherpa';
+import { path as playPath, makePlaySherpa, type PlaySherpa } from '../play/play.sherpa';
 import { path as workPath, makeWorkSherpa, type WorkSherpa } from '../work/_/work.sherpa';
-import { path as familyPath, makeFamilySherpa, type FamilySherpa } from '../family/_/family.sherpa';
+import { path as familyPath, makeFamilySherpa, type FamilySherpa } from '../family/family.sherpa';
 
 export const path = '';
 

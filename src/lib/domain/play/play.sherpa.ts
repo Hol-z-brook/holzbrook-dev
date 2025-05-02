@@ -1,4 +1,4 @@
-import * as Sherpa from '../../../lib/sherpa';
+import * as Sherpa from '../../sherpa';
 
 export const path = 'play';
 

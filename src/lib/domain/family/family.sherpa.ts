@@ -3,7 +3,7 @@ import {
   type LinkResolver,
   makeLinkResolver,
   defaultSherpaConfig,
-} from '../../../lib/sherpa';
+} from '../../sherpa';
 
 export const path = 'family';
 

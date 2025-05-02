@@ -3,7 +3,7 @@ import {
   makeLinkResolver,
   type LinkResolver,
   type SherpaConfig,
-} from '../../../lib/sherpa';
+} from '../../../sherpa';
 
 export const path = 'work';
 
